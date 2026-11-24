@@ -1,7 +1,8 @@
 # Quake Explorer: development plan
 
-*Draft, 2026-11-24. Status: plan only, nothing built. The open decisions in section 8 need
-Gus's answers before work starts; then update `roadmap.md` (Stage 3) and `decisions.md`.*
+*2026-11-24. Status: approved for building with the working answers in section 8; Phase 0
+and the logic modules are under way on the `quake-explorer` branch. Update `roadmap.md`
+(Stage 3) and `decisions.md` when the branch merges.*
 
 Quake Explorer is Stage 3 in [roadmap.md](roadmap.md): the multi-view app the name is
 reserved for (D18). It combines a spectrogram, a record section, particle motion and sound.
@@ -268,19 +269,28 @@ headless Chrome at 1366×768 and phone width; `mkdocs build --strict`; a teacher
 - **License and privacy unchanged.** UU/EarthScope and USGS data only, no Raspberry Shake
   servers; predictions and picks stay in the browser.
 
-## 8. Open decisions (for Gus)
+## 8. Decisions (working answers, 2026-11-24)
 
-1. **Stage order:** D2 puts School Pulse (Stage 2) before Quake Explorer. Keep that, or bring
-   Quake Explorer forward? (`spectral.js` would serve both.)
-2. **Investigation order:** record section first (recommended), or spectrogram first as the
-   roadmap lists?
-3. **Distant quakes:** in Stage 3, or later?
-4. **Repo size:** about 4 to 5 MB of offline samples in git acceptable?
-5. **Magnitude:** keep it in "How Big Was It?" rather than here?
+Gus agreed to the suggested options for now. These answers are provisional: they go into
+`decisions.md` as D20 onward only when the `quake-explorer` branch is merged (D19 is reserved
+for navigation Phase 2).
 
-**Prerequisite:** commit the in-progress navigation changes (D17/D18) and finish the rest of
-the navigation work (standard top bar, animation folder rename) before Quake Explorer code
-starts.
+1. **Stage order:** Quake Explorer is built now; School Pulse (Stage 2) comes after.
+2. **Investigation order:** A (record section) → B → C → D.
+3. **Distant quakes:** D stays in Stage 3 as the last phase; it can be deferred if time runs
+   short.
+4. **Repo size:** about 4 to 5 MB of offline samples in git is acceptable. Keep them as small
+   as practical and report the final size.
+5. **Magnitude:** stays in the separate "How Big Was It?" app. Quake Explorer builds only the
+   counts → m/s conversion.
+
+**How it is being built.** Work happens on the `quake-explorer` branch in its own git
+worktree, while navigation Phase 2 and a figures session work on `main`. Phase 0, the logic
+modules and the drawing views come first. The app page and all docs wait until navigation
+Phase 2 has landed on `main` (shared top bar and credits module in `docs/app/js/ui/`,
+`docs/app/index.html` redirecting to `../apps/`, D19 in `decisions.md`, top bar described in
+`adding-an-app.md`). Teaching material that depends on Phase 0 results (the Moho/Pn idea,
+particle-motion accuracy) waits for Gus's OK on those results.
 
 ## Appendix: candidate presets (checked 2026-11-24)
 
