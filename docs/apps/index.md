@@ -12,6 +12,7 @@ Every app runs in any browser, including Chromebooks. No install, no accounts.
     first.
 
     [Open Wave Race](../app/wave-race/index.html){ .md-button .md-button--primary }
+
     [Wave Race guide](wave-race.md)
 
 - **Quake Explorer**
@@ -21,6 +22,7 @@ Every app runs in any browser, including Chromebooks. No install, no accounts.
     a big quake on the far side of the world.
 
     [Open Quake Explorer](../app/quake-explorer/index.html){ .md-button .md-button--primary }
+
     [Quake Explorer guide](quake-explorer.md)
 
 - **School Pulse** (coming soon)
@@ -41,6 +43,7 @@ Short cartoons of the ideas behind the apps. They use no real data.
     watch the S − P distances cross at the quake. A good warm-up for Wave Race.
 
     [Open Quake Waves](../app/quake-waves/index.html){ .md-button .md-button--primary }
+
     [Quake Waves guide](quake-waves.md) ·
     [Watch it on Locating a quake](../theory/locating.md#watch-it-happen)
 
@@ -51,6 +54,7 @@ Short cartoons of the ideas behind the apps. They use no real data.
     where it started.
 
     [Open the animation](../app/wave-motion/index.html){ .md-button .md-button--primary }
+
     [Watch it on Seismic waves](../theory/waves.md#two-body-waves)
 
 - **Build a Wiggle**
@@ -60,6 +64,7 @@ Short cartoons of the ideas behind the apps. They use no real data.
     and see why a far quake sounds lower than a near one.
 
     [Open the animation](../app/build-a-wiggle/index.html){ .md-button .md-button--primary }
+
     [Use it on Frequencies, fading and sound](../theory/frequencies.md#any-wiggle-is-a-sum-of-sine-waves)
 
 </div>
