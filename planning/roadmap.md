@@ -123,7 +123,8 @@ apps are many-to-many: a card may use several apps or none, and an app may appea
 cards. Every app gets at least one card.
 
 - [x] Wave Race activity card (uses Quake Waves as the warm-up).
-- [ ] Card format and site structure (with or after navigation Phase 2):
+- [x] Card format and site structure (done 2026-11-24, D29; template in
+      `docs/developers/adding-a-card.md`):
   - One file per activity in `docs/teachers/`, named after the activity
     (`wave-race-card.md` keeps its URL).
   - An "At a glance" box on every card: Time · Setup (the tier from `planning/activities.md`:
@@ -136,8 +137,7 @@ cards. Every app gets at least one card.
   - Each app hub's "For teachers" line lists every card that uses the app.
   - [x] Past about five cards, group them in the sidebar under Teachers › Activity cards (done
     with Quake Explorer, D25; D17: revisit the layout if the sidebar passes about 35 entries).
-  - Still to do (teacher-cards session): the "At a glance" boxes, the catalog, the hub lines.
-- [ ] Quake Waves: a short card of its own (proposed: a 10-minute predict-and-watch demo for a
+- [x] Quake Waves: a short card of its own, "One quake, two waves" (proposed: a 10-minute predict-and-watch demo for a
       physics waves unit), besides its role as the Wave Race warm-up.
 - [x] Quake Explorer: one card per investigation (A–D) and a full-period lesson chaining A and
       C (`planning/quake-explorer.md` §5).

@@ -2,7 +2,22 @@
 
 Newest first. Each entry: date, decision, why, consequences.
 
-## 2026-11-24 (Quake Explorer; planning documents)
+## 2026-11-24 (Quake Explorer; planning documents; teacher cards)
+
+**D29. Every activity card opens with the same "At a glance" box, and a test keeps cards and
+apps linked.** Gus, 2026-11-24 (session D1-cards). The box has seven lines: driving question,
+time, setup, apps and tools, before this, materials, Utah standards (linked to the
+crosswalk). The Teachers page lists the cards in a catalog (Activity · Apps and tools · Setup
+· Time · Standards), grouped by setup; the site names only the setups that have cards
+("Browser only" so far; "School Shake" when one exists), since plans stay off the site (D13).
+Standards claims carry no "assessed / contributes / extension" labels: the site is a
+prototype, not yet shown to teachers (Gus). `tests/teacher-cards.test.js` checks D19 both
+ways, that every hub and every All apps entry is used by a card, the box layout, and that the
+catalog and "Utah standards at a glance" match each card. Template and checklist:
+`docs/developers/adding-a-card.md`. New card "One quake, two waves" (Quake Waves and the P/S
+motion animation, 10 minutes). The Wave Race card gained a group competition (lowest miss,
+then closest to the official epicenter; the teacher names the stations). Closes D25's "boxes
+still to come".
 
 **D28. The two documents for Dale and Cleat: activities by setup, one set of status words, a
 small pilot, no prices.** Gus, 2026-11-24. The questions document ("UHSN classroom activities

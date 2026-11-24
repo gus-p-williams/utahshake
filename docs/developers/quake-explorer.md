@@ -71,6 +71,8 @@ quake and investigation.
 - **"True ground speed" is offered only when the records are clean**: no clipped station and
   m/s known for at least 80% of them. Many of the 2020 short-period stations were 16-bit and
   clipped in the Magna quake (`lib/signal.js` `flatTopInfo` finds them).
+- **Per-quake station notes** (`stationNotes` on a preset in `quake-explorer/config.js`) are
+  listed in A beside the clipped stations, for example SGU in the 2020 Magna quake.
 - **Particle motion** uses 1–5 Hz and a window from 0.05 s before to 0.5 s after the P pick;
   stations beyond 100 km get a "far" warning.
 - **Distant quakes** are recorded at stations near the schools, shown downsampled to 20

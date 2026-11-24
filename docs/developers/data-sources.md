@@ -27,7 +27,7 @@ skipped because they are too noisy for small quakes.
 
 Every page that shows data cites its source in a credits footer. The texts are `ATTRIBUTION`
 in `js/config.js`; `showCredits(el, keys)` in `js/ui/page.js` writes the entries a page names
-(Wave Race: all three) and adds an "About the data ↗" link to
+(Wave Race: waveforms, events and map; Quake Explorer adds travel times) and adds an "About the data ↗" link to
 [Our stations and data](../theory/stations.md). The map also shows the OpenStreetMap credit
 in its corner (`ui/map-view.js`).
 
@@ -36,6 +36,8 @@ in its corner (`ui/map-view.js`).
 - Earthquake locations and analyst picks: U.S. Geological Survey ComCat / University of Utah
   Seismograph Stations.
 - Map data © OpenStreetMap contributors.
+- Travel times for distant quakes: the iasp91 Earth model (Kennett and Engdahl, 1991), via
+  ObsPy TauP (Quake Explorer).
 
 ## Licenses and rules
 

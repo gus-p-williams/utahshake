@@ -60,6 +60,9 @@ docs/app/
 tests/                     node --test, including real-data checks on the sample
   doc-links.test.js        links in the app pages and raw HTML reach real pages of the site
   app-list.test.js         every app folder is listed on the All apps page (docs/apps/index.md)
+  teacher-cards.test.js    activity cards and app hubs link both ways (D19); the Teachers catalog
+                           and standards tables match each card's "At a glance" box
+  qe-notes-credits.test.js Quake Explorer's per-quake station notes and the iasp91 credit
 tools/
   vendor/                  esbuild script that regenerates docs/app/vendor/
   samples/fetch-sample.mjs bundles a quake for offline use

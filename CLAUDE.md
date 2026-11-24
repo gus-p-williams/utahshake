@@ -84,7 +84,8 @@ docs/
   theory/               "The Science": index.md, primer pages, stations.md (data/credits)
   teachers/             index.md (#before-class, Utah standards at a glance), activity cards
                         (one per activity; many-to-many with apps, D19), standards crosswalk
-  developers/           index.md, architecture, data sources, adding-an-app, per-app notes
+  developers/           index.md, architecture, data sources, adding-an-app, adding-a-card,
+                        per-app notes
 planning/               overview (evaluation.md), activities (questions doc), Word copies,
                         roadmap, decisions, quake-explorer plan, reviews (not on site)
 package.json            npm test (node --test), npm run serve
@@ -150,7 +151,7 @@ sequences the work and integrates it.
   | M1-master | Plans, writes prompts, reviews, integrates, commits | main | active |
   | P1-activities | Questions document for Dale and Cleat (`planning/activities.md` + Word) | main folder, `planning/` | done, committed (D28) |
   | P2-overview | Project overview (`planning/evaluation.md` + Word) | main folder, `planning/` | done, committed (D28) |
-  | D1-cards | "At a glance" boxes, Teachers catalog, Quake Waves card, QE follow-ups | `-cards`, branch `teacher-cards` | done (fad0919), in review |
+  | D1-cards | "At a glance" boxes, Teachers catalog, Quake Waves card, QE follow-ups | `-cards`, branch `teacher-cards` | merged 2026-11-24 (D29) |
   | D2-plots | Six missing plots, three figure fixes | `-plots`, branch `plots` | active |
   | D3-rename | Wave Race → Quake Locator (names only; addresses unchanged), incl. both documents | `-rename`, branch `rename` | after D1 merges |
   | D4-spelling | US spelling across the site | `-spelling`, branch `us-spelling` | after D2 and D3 merge |
@@ -285,6 +286,15 @@ out of the menus:
   standards row is now PHYS.4.1 · ESS.2.2 · CS 9/10.DA.3 (Gus). The activities plan had two
   fact-check reviews (SB 69 and R277-495 wording, phone timing ±11 ms, Shake power and
   specs); its session applies them with Gus's notes.
+- 2026-11-24 (night): **Teacher cards merged** (D29, session D1-cards). Every card opens with
+  the seven-line "At a glance" box; the Teachers page lists cards in a catalog by setup (only
+  "Browser only" so far); new card "One quake, two waves" (Quake Waves demo); the Wave Race
+  card's picks match the offline key, TMU's error is explained by faster deep rock, and a
+  group competition was added (Gus). `tests/teacher-cards.test.js` enforces D19 and the box;
+  `tests/qe-notes-credits.test.js` covers Quake Explorer's SGU note and the iasp91 credit.
+  New developer page `adding-a-card.md`. `npm test` = 166; site check 34 pages at 3 widths.
+  The two documents for Dale and Cleat are committed (D28), with a cover note; they go out
+  after the Wave Race → Quake Locator rename (D3-rename).
 
 ## Next steps
 
@@ -292,16 +302,14 @@ out of the menus:
    master reviews each, commits by path or merges, and runs the integration checklist.
    a–b. *P1-activities and P2-overview*: **done and committed** (D28). The two documents for
       Dale and Cleat passed a side-by-side review; the old living doc is deleted. Before Gus
-      sends them (with the cover note M1 drafted): merge D1-cards (the questions document
-      links its new card, "One quake, two waves", which is 404 until then), then D3-rename
-      (Wave Race → Quake Locator in the site and both documents). Their answers then drive
-      the roadmap's "Proposed, pending Dale and Cleat" list and the next activity cards.
-   c. *Teacher-cards session* (branch `teacher-cards`, worktree `G:\GIT_Repo\2026_11_Shake-cards`):
-      "At a glance" boxes on all five cards, the Teachers catalog, a Quake Waves card, the
-      Wave Race card (S picked at only 3 offline stations; 6 of 9 P picks in its key;
-      standards line), a hub/card link test, the card template for developers. Quake
-      Explorer follow-ups for it: SGU's 2020 record labelled inside the app (`inv-a.js`),
-      the iasp91 credit in `config.js` ATTRIBUTION.
+      sends them (with the cover note M1 drafted): D3-rename (Wave Race → Quake Locator in the
+      site and both documents). Their answers then drive the roadmap's "Proposed, pending
+      Dale and Cleat" list and the next activity cards.
+   c. *D1-cards*: merged (D29). Remove its worktree `G:\GIT_Repo\2026_11_Shake-cards` when
+      nothing more is needed from it.
+   c2. *D3-rename* (branch `rename`, worktree `G:\GIT_Repo\2026_11_Shake-rename`): Wave Race →
+      Quake Locator, names only; web addresses and internal names unchanged; a test keeps
+      the old name out of the site. Then the documents go to Dale and Cleat.
    d. *Plots session* (branch `plots`, worktree `G:\GIT_Repo\2026_11_Shake-plots`): helicorder,
       PPSD, seismic carpet, event stack, H/V, cross-correlation on a new science page; the
       three figure fixes in `planning/science-figures.md`. Merge cards before plots.
@@ -326,8 +334,10 @@ out of the menus:
 6. Stage 2: School Pulse / seismic carpet (scheduled job + heatmap; see roadmap).
 7. Bump GitHub Actions to Node 24 majors (runs warn that checkout@v4, setup-python@v5,
    upload/deploy-pages target deprecated Node 20).
-8. Optional: move the repo to a DRI GitHub org if one exists; confirm SEEd wording against
-   the current USBE PDF; ask UUSS about the S − P page's "beyond about 120 km" (the sample's
+8. Move to DRI at some point (Gus raised it with Dale and Cleat in the cover note): the repo
+   to a DRI GitHub organization (GitHub redirects old links) and the site to a DRI web server
+   (update site_url/repo_url; the site is static, so any web server works). Optional: confirm
+   SEEd wording against the current USBE PDF; ask UUSS about the S − P page's "beyond about 120 km" (the sample's
    far P picks suggest a crossover near 140–160 km; blocks plan figure S5).
 9. Clean up the old Quake Explorer worktree (`G:\GIT_Repo\2026_11_Shake-qexp`) once nothing
    more is needed from it (`git worktree remove`).
