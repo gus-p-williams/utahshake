@@ -4,6 +4,24 @@ Newest first. Each entry: date, decision, why, consequences.
 
 ## 2026-11-24 (Stage 1 additions)
 
+**D18. The animation is renamed Quake Waves (was Watch the Waves).**
+Gus's choice. "Quake Explorer" stays reserved for the Stage 3 multi-view app. The docs use the
+new name now; the app folder (`app/wave-animation/`) and the page title are renamed with the
+app-side navigation work (Phase 2 of the navigation plan).
+
+**D17. Site navigation: one hub page per app, shared sections, no top tabs.**
+The first layout split pages by type (Apps / Theory / Teachers / Developers tabs), so each
+app's material was scattered, the Apps tab dropped students onto the unthemed launcher, the
+tabs vanished below 1220 px (many Chromebooks), and switching tabs hid the pages seen before.
+Now: each app has one hub page (`apps/<app>.md`: Open button, a standard "At a glance" box,
+then the guide); The Science, Teachers and Developers are shared sections the hubs link
+into, each opening on its own `index.md`; Developers is a separate section with per-app notes
+only when needed. No `navigation.tabs`, so the whole map shows in one sidebar (revisit if it
+grows past about 35 entries); breadcrumbs, prev/next footer and section index pages are on.
+No page URLs moved, so no redirect plugin (MkDocs 2.0 drops plugins). A `node --test` checks
+links from the apps (and raw HTML in pages) into the docs, which `mkdocs build --strict`
+does not. Checklist for new apps: `docs/developers/adding-an-app.md`.
+
 **D16. Guide figures are generated, not hand-drawn.**
 The seismogram figures are SVGs made from the offline sample with the app's own parser and
 filter (`tools/figures/trace-figures.mjs`), with the UUSS analysts' picks; screenshots come

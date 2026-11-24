@@ -6,11 +6,17 @@ repo_name: gus-p-williams/utahshake
 edit_uri: edit/main/docs/
 theme:
   name: material
+  # No navigation.tabs: the whole site map stays visible in one sidebar (decision D17).
   features:
-    - navigation.tabs
+    - navigation.indexes
     - navigation.sections
+    - navigation.path
+    - navigation.footer
+    - navigation.tracking
     - navigation.top
+    - toc.follow
     - search.suggest
+    - search.highlight
     - content.code.copy
   palette:
     - scheme: default
@@ -33,18 +39,30 @@ markdown_extensions:
 extra_javascript:
   - javascripts/mathjax.js
   - https://unpkg.com/mathjax@3.2.2/es5/tex-mml-chtml.js
+validation:
+  links:
+    anchors: warn        # with --strict in CI, a broken #anchor link fails the build
+# One hub page per app (apps/<app>.md); The Science, Teachers and Developers are shared
+# sections that the hubs link into. Each section opens on its own index.md.
 nav:
   - Home: index.md
   - Apps:
-      - Open the apps: app/index.html
-      - Wave Race guide: apps/wave-race.md
-  - Theory:
+      - apps/index.md
+      - Wave Race: apps/wave-race.md
+  - The Science:
+      - theory/index.md
       - Seismic waves: theory/waves.md
       - Distance from S minus P: theory/s-minus-p.md
       - Locating a quake: theory/locating.md
+      - Our stations and data: theory/stations.md
   - Teachers:
-      - "Activity card: Wave Race": teachers/wave-race-card.md
+      - teachers/index.md
+      - Wave Race activity card: teachers/wave-race-card.md
       - Standards crosswalk: teachers/standards.md
   - Developers:
+      - developers/index.md
       - Architecture: developers/architecture.md
       - Data sources and licensing: developers/data-sources.md
+      - Adding an app: developers/adding-an-app.md
+      - App notes:
+          - Wave Race: developers/wave-race.md

@@ -1,8 +1,10 @@
 # Distance from S minus P
 
-P and S waves leave the quake at the same moment. P is faster, so it wins the race; the
-farther the station, the bigger P's lead. Measuring that lead gives the distance.
-The [animation on Locating a quake](locating.md#watch-it-happen) shows the race.
+**Used in:** [Wave Race](../apps/wave-race.md) · [Quake Waves](locating.md#watch-it-happen)
+
+[P and S waves](waves.md) leave the quake at the same moment. P is faster, so it wins the
+race; the farther the station, the bigger P's lead. Measuring that lead gives the distance.
+The [Quake Waves](locating.md#watch-it-happen) animation shows the race.
 
 ## The formula
 
@@ -37,7 +39,8 @@ $$
 k = \frac{6.0 \times 3.5}{6.0 - 3.5} = 8.4 \text{ km/s}
 $$
 
-Wave Race uses \(V_P = 5.8\) km/s and \(V_S = 3.3\) km/s instead, which gives
+[Wave Race](../apps/wave-race.md#changing-the-speeds-and-depth) uses \(V_P = 5.8\) km/s and
+\(V_S = 3.3\) km/s instead, which gives
 \(k \approx 7.66\) km/s. We chose these by checking real Utah quakes. For three quakes in
 2026, we took the University of Utah analysts' P and S picks and the official locations.
 Stations 20–80 km away mostly needed between 7.3 and 8.2 km per second of S − P (typically
@@ -55,7 +58,7 @@ the rock deeper down, and short paths spend much of their time in that slow rock
 ## Depth: the hidden triangle
 
 The quake starts at some depth below the surface, at the **hypocenter**. The point on the
-surface right above it is the **epicenter**. S − P gives the distance from the hypocenter to
+surface right above it is the **epicenter**, which is what you [locate](locating.md) on the map. S − P gives the distance from the hypocenter to
 the station: the slanted side of a right triangle. The map needs the distance along the
 surface. With depth \(z\), Pythagoras gives
 
@@ -69,13 +72,14 @@ shrinks the circle to 6 km; for one 80 km away, to 79.6 km.
 
 ## Limits
 
-- **Timing.** A pick that is off by 0.1 s moves the distance by about 0.8 km. Zoom in!
+- **Timing.** A pick that is off by 0.1 s moves the distance by about 0.8 km.
+  [Zoom in!](../apps/wave-race.md#how-to-find-p-and-s-look-wide-then-zoom-in)
 - **Far stations.** Beyond about 120 km, the first P wave often travels part of the way along
   the fast top of Earth's mantle (8 km/s), so one constant \(k\) no longer fits. Distances from
   far stations are less reliable; nearby stations are better for locating.
 - **Speeds vary.** Rock under the Wasatch Front, the Colorado Plateau and the Basin and Range
-  is not the same. Professional locations use a layered velocity model instead of one pair of
-  speeds.
+  is not the same. [Professional locations](locating.md#how-professionals-do-it) use a layered
+  velocity model instead of one pair of speeds.
 
 ## Try it
 

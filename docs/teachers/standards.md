@@ -6,7 +6,9 @@ current [Utah SEEd standards](https://www.schools.utah.gov/curr/science/_science
 and [Utah 6–12 Computer Science standards](https://Schools.Utah.gov/cte/_cte/computer/612ComputerScienceStandards.pdf)
 before using them in official materials.
 
-## Wave Race (Stage 1)
+## Wave Race { #wave-race }
+
+App: [Wave Race guide](../apps/wave-race.md) · Lesson: [Wave Race activity card](wave-race-card.md).
 
 | Standard | Course | What it asks (paraphrased) | Where it shows up in Wave Race |
 | --- | --- | --- | --- |
@@ -18,7 +20,7 @@ before using them in official materials.
 | [CS 9/10.DA.3](https://Schools.Utah.gov/cte/_cte/computer/612ComputerScienceStandards.pdf) | Computer Science | Create data visualizations that help others understand real phenomena | Reading seismograms and the map; the CSV export for students' own plots |
 | [CS 11/12.DA.1](https://Schools.Utah.gov/cte/_cte/computer/612ComputerScienceStandards.pdf) | Computer Science | Refine or create computational models from data | The grid search is a computational model; students test how its settings change the answer |
 
-## Watch the Waves (animation)
+## Quake Waves (animation) { #quake-waves }
 
 A cartoon used as a warm-up for Wave Race, on the [Locating a quake](../theory/locating.md#watch-it-happen) page.
 

@@ -1,5 +1,7 @@
 # Seismic waves
 
+**Used in:** [Wave Race](../apps/wave-race.md) · [Quake Waves](locating.md#watch-it-happen)
+
 An earthquake is a sudden slip on a fault. The slip shakes the rock around it, and that
 shaking travels outward as **seismic waves**, the same way a pebble's splash spreads across
 a pond. A seismometer records the ground's motion as those waves pass.
@@ -51,7 +53,7 @@ Different sources shake the ground at different frequencies. Nearby small quakes
 1–20 Hz. Footsteps and machines are mostly above 5 Hz. Ocean waves hitting coastlines make a
 constant hum near 0.2 Hz, even in Utah. A **band-pass filter** keeps only a chosen range,
 for example 1–10 Hz, so a quake stands out from the noise. That is what the Filter menu in
-Wave Race does.
+[Wave Race](../apps/wave-race.md#2-pick-the-p-and-s-waves) does.
 
 The instruments sample the ground 100 times per second, so nothing faster than 50 Hz (half
 the sampling rate, the **Nyquist frequency**) can be recorded.

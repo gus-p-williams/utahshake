@@ -1,6 +1,9 @@
 # Locating a quake
 
-One station tells you **how far** away a quake was, but not **in which direction**. The quake
+**Used in:** [Wave Race](../apps/wave-race.md) · [Quake Waves](#watch-it-happen)
+
+One station tells you **how far** away a quake was (from its
+[S-minus-P time](s-minus-p.md)), but not **in which direction**. The quake
 could be anywhere on a circle around the station. More stations narrow it down:
 
 - **One station:** a circle.
@@ -13,15 +16,15 @@ same way, using distances to satellites.
 
 ## Watch it happen
 
-<iframe src="../../app/wave-animation/?embed=1" title="Animation: P and S waves spread out from a quake and reach four stations; their S minus P times become distance circles that cross at the quake" loading="lazy" style="width:100%;height:700px;border:1px solid var(--md-default-fg-color--lightest);border-radius:8px"></iframe>
+<iframe src="../../app/wave-animation/?embed=1" title="Quake Waves animation: P and S waves spread out from a quake and reach four stations; their S minus P times become distance circles that cross at the quake" loading="lazy" style="width:100%;height:700px;border:1px solid var(--md-default-fg-color--lightest);border-radius:8px"></iframe>
 
-*A cartoon, not real data: the quake is at the surface and all the rock is the same.*
-Press **Play**. The P wave (blue) and the S wave (red) leave the quake (star) at the same
+**Quake Waves** is a cartoon, not real data: the quake is at the surface and all the rock is
+the same. Press **Play**. The P wave (blue) and the S wave (red) leave the quake (star) at the same
 moment. P pulls ahead, so the farther a station is, the longer it waits between P and S. Each
 station's seismogram is drawn as the waves pass. When S arrives, the S − P time becomes a
 distance, drawn as a dashed circle around the station, and the four circles cross at the quake.
 Click the map to move the quake, or drag the slider to step through time.
-[Open the animation full screen](../app/wave-animation/index.html).
+[Open Quake Waves full screen](../app/wave-animation/index.html).
 
 Notice the **order** in which P reaches the stations: nearest first. That order alone already
 hints where the quake is. Professionals use it, as described below.
@@ -42,7 +45,7 @@ $$
 
 The best epicenter is the point with the smallest RMS.
 
-In Wave Race you can search for it yourself: **Place my own epicenter** puts a pin on the map,
+In [Wave Race](../apps/wave-race.md#3-locate-the-quake) you can search for it yourself: **Place my own epicenter** puts a pin on the map,
 and the app shows the RMS for that point as you drag it. Then **Find the best epicenter** lets
 the computer search.
 
@@ -64,8 +67,8 @@ If all the stations are on one side of the quake, the circles cross at a shallow
 many points fit almost equally well. The location then smears out along a line. Stations
 **all around** the quake make the circles cross at steep angles and pin the point down.
 
-That is why Wave Race adds **helper** stations around each quake. The five UHSN schools sit
-in a north–south line in central Utah. For a quake far to the south or north, the schools
+That is why Wave Race adds **helper** stations around each quake. The
+[five UHSN schools](stations.md) sit in a north–south line in central Utah. For a quake far to the south or north, the schools
 alone cannot surround it.
 
 !!! example "The offline sample quake"
@@ -82,7 +85,8 @@ of stations across the state. Their method goes beyond S − P:
   In the animation above, that means using *when* P and S reach each station, not only the gap
   between them. Even a station where S is unclear still helps.
 - They solve for **depth** instead of assuming it.
-- They use a **layered velocity model** of Utah's crust instead of one pair of speeds.
+- They use a **layered velocity model** of Utah's crust instead of
+  [one pair of speeds](s-minus-p.md#which-speeds).
 - They estimate an **error ellipse**, which is longer in the direction the stations can't
   constrain well.
 
@@ -96,6 +100,7 @@ which valley, mine or fault zone the quake came from.
 1. Locate a quake with all stations, then again with only three on one side. What happens to
    the uncertainty?
 2. Change the depth from 8 km to 2 km and to 15 km. Which circles change most, and why?
+   (Hint: [the hidden triangle](s-minus-p.md#depth-the-hidden-triangle).)
 3. In the Utah region, quakes cluster along the **Intermountain Seismic Belt**, which runs
    north–south through the middle of the state. Locate several quakes and mark them on a map.
    Where are they?

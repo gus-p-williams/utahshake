@@ -1,29 +1,32 @@
 # Activity card: Wave Race
 
+Students follow the [Wave Race guide](../apps/wave-race.md) (what they see, step by step) and
+use the [Wave Race app](../app/wave-race/index.html).
+
 **Driving question:** How far away was that earthquake, and where did it happen?
 
 **Students will:** read real seismograms; identify P and S arrivals; calculate distance from the
 S-minus-P time; locate an epicenter from several stations; judge how good their answer is.
 
 **Standards:** PHYS.4.1, ESS.2.2, ESS.2.3, ESS.4.1, CS 9/10.DA.3 (see the
-[standards crosswalk](standards.md)).
+[standards crosswalk](standards.md#wave-race)).
 
 **You need:** student devices with a browser (Chromebooks are fine), a projector, and the
 [Wave Race app](../app/wave-race/index.html). No accounts or logins. Student names are never
 entered or stored.
 
 !!! tip "Before class"
-    Open the app on the school network. If the quake list doesn't load, the network is
-    blocking EarthScope or the USGS: use **Use the offline sample** (top right), or ask IT to
-    allow `service.earthscope.org` and `earthquake.usgs.gov`. To send everyone to the same
-    quake, load it and share the page address: it includes the quake's ID, for example
-    `…/app/wave-race/?event=uu80162166`. For the offline sample, add `&source=sample`.
+    Open the app on the school network and choose the quake you will use. If the quake list
+    doesn't load, use **Use the offline sample** (top right): the
+    [answer key](#answer-key-offline-sample-quake) below is for that quake. What to ask IT to
+    allow, and how to send the whole class to the same quake, are under
+    [Before class](index.md#before-class).
 
 ## 15-minute version (whole class, on the projector)
 
 1. **Hook (2 min).** Show the seismogram of one station. "Something happened. When did the
    shaking start? Why are there two bursts?"
-2. **Model (5 min).** Play the [Watch the Waves animation](../theory/locating.md#watch-it-happen)
+2. **Model (5 min).** Play the [Quake Waves animation](../theory/locating.md#watch-it-happen)
    once (about a minute at 4× speed). Then pick P and S together on one station (zoom in first).
    Read off S − P and the distance. Explain the race: P is fast, S is slow, the gap grows with
    distance.
@@ -37,7 +40,7 @@ entered or stored.
 
 | Phase | Time | What happens |
 | --- | --- | --- |
-| Engage | 5 min | Hook as above, then the [Watch the Waves animation](../theory/locating.md#watch-it-happen). Pairs predict: how could you find the quake from these wiggles? |
+| Engage | 5 min | Hook as above, then the [Quake Waves animation](../theory/locating.md#watch-it-happen). Pairs predict: how could you find the quake from these wiggles? |
 | Explore | 15 min | Pairs load the assigned quake, pick P and S on at least 4 stations, and record S − P and distance in a table. |
 | Explain | 10 min | Class discussion with the [S-minus-P page](../theory/s-minus-p.md): derive \(d = \Delta t \cdot V_P V_S/(V_P - V_S)\) from \(t = d/v\). |
 | Elaborate | 10 min | Pairs first place their own epicenter by eye (**Place my own epicenter**; the app shows how well it fits as they drag the pin), then press **Find the best epicenter** and compare. Then experiment: textbook speeds (6.0 and 3.5), depth 2 km versus 15 km, and dropping stations so all are on one side. Record what changes. |
@@ -88,7 +91,8 @@ as dashed lines.
 
 - Repeat for a quake near the schools (★ in the list) and compare how well the school
   stand-ins alone do.
-- Plot S − P against true distance for many stations (from the CSVs). The slope is the km per
-  second of S − P. Is it constant? (It bends upward for far stations: see the theory page.)
-- Connect to [ESS.2.2](standards.md): the same S-wave behaviour revealed that Earth's outer
-  core is liquid.
+- Plot true distance against S − P for many stations (from the CSVs). The slope is the km per
+  second of S − P. Is it constant? (It bends upward for far stations: see
+  [Limits](../theory/s-minus-p.md#limits) on the Distance from S minus P page.)
+- Connect to [ESS.2.2](standards.md#wave-race): the same S-wave behaviour revealed that Earth's
+  outer core is liquid.

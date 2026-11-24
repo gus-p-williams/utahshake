@@ -64,12 +64,12 @@ mkdocs.yml
 requirements-docs.txt
 .github/workflows/      pages.yml (build docs + app, deploy)
 docs/
-  index.md              landing page
+  index.md              landing page = site map (cards per section)
   app/                  the static apps (index.html, js/, css/, vendor/, data/samples/)
-  apps/                 user guides per app (students)
-  theory/               theory primer pages
-  teachers/             activity cards, standards crosswalk
-  developers/           architecture, data sources, adding a source, licensing
+  apps/                 index.md (the one app list) + one hub page per app (D17)
+  theory/               "The Science": index.md, primer pages, stations.md (data/credits)
+  teachers/             index.md (incl. #before-class setup), activity cards, standards
+  developers/           index.md, architecture, data sources, adding-an-app, per-app notes
 planning/               evaluation snapshot (+ .docx), roadmap, decisions (not on site)
 package.json            npm test (node --test), npm run serve
 tests/                  node --test for js logic + real-data sample checks
@@ -150,14 +150,36 @@ If `tools/figures/node_modules/` is missing and screenshots need regenerating, r
     the Locating a quake page; listed on the apps page; teacher card and standards updated.
   - `npm test` = 36 tests. mkdocs is in the base Anaconda env
     (`C:\Users\williagp\anaconda3\Scripts\mkdocs.exe`).
+- 2026-11-24 (later): **Site navigation restructured, Phase 1 (docs side)** (D17, D18).
+  No top tabs; one sidebar with Home / Apps / The Science / Teachers / Developers, each
+  opening on its own `index.md`; breadcrumbs, prev/next footer. `apps/wave-race.md` is the
+  Wave Race hub (Open button + "At a glance" box + guide). New: `apps/index.md`,
+  `theory/index.md`, `theory/stations.md` (student data/credits page), `teachers/index.md`
+  (`#before-class`: network allowlist, offline sample, `?event=` links, privacy),
+  `developers/index.md`, `developers/wave-race.md` (moved out of architecture.md),
+  `developers/adding-an-app.md` (checklist + hub template). The animation is now called
+  **Quake Waves** in the docs. No page URLs moved. `tests/doc-links.test.js` checks links
+  from the apps' HTML/JS and raw HTML in pages into the docs; `npm test` = 41 tests.
+  Checked at 1366 / 1093 / 390 px in headless Chrome. Below 1220 px Material hides the
+  sidebar (drawer); breadcrumbs, prev/next and the home site map cover that.
 
 ## Next steps
 
-1. Gus: try Wave Race with a teacher or student (15-minute target in the roadmap).
-2. DRI: choose a license (MIT or BSD) and add LICENSE; the public repo has none yet.
-3. Stage 2: School Pulse / seismic carpet (scheduled job + heatmap; see roadmap).
-4. Bump GitHub Actions to Node 24 majors (runs warn that checkout@v4,
+1. Navigation Phase 2 (app side; not started, plan agreed with Gus):
+   a. Rename `app/wave-animation/` → `app/quake-waves/` (+ `js/wave-animation/`), title
+      "Quake Waves"; leave a redirect stub at the old path; update the iframe in
+      `theory/locating.md`, README, CLAUDE.md, architecture/roadmap text.
+   b. Add the hub `apps/quake-waves.md` (+ nav entry); point "Used in" and card links at it.
+   c. Replace `docs/app/index.html` with a redirect to `../apps/` (visible fallback link).
+   d. Same top bar in both apps: "All apps" → `../../apps/`, "Guide" (new tab, labelled),
+      "About the data" → `../../theory/stations/` (wave-race `app.js` "About the data").
+   e. Regenerate guide screenshots (`tools/figures/screenshots.mjs`) if the top bar shows.
+   f. `npm test`, `mkdocs build --strict`, check at 3 widths; log in decisions.
+2. Gus: try Wave Race with a teacher or student (15-minute target in the roadmap).
+3. DRI: choose a license (MIT or BSD) and add LICENSE; the public repo has none yet.
+4. Stage 2: School Pulse / seismic carpet (scheduled job + heatmap; see roadmap).
+5. Bump GitHub Actions to Node 24 majors (runs warn that checkout@v4,
    setup-python@v5, upload/deploy-pages target deprecated Node 20).
-5. Optional: move the repo to a DRI GitHub org if one exists (GitHub redirects old
+6. Optional: move the repo to a DRI GitHub org if one exists (GitHub redirects old
    links; update site_url/repo_url).
-6. Optional: confirm SEEd standard wording against the current USBE PDF.
+7. Optional: confirm SEEd standard wording against the current USBE PDF.

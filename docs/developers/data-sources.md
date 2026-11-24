@@ -1,5 +1,9 @@
 # Data sources and licensing
 
+The technical details of where the apps get their data and the rules that come with it.
+Students and teachers: [Our stations and data](../theory/stations.md) explains the same in
+plain language.
+
 ## What the apps use today
 
 | Data | Service | Used for |
@@ -38,8 +42,10 @@ Every page that shows data cites its source (from `ATTRIBUTION` in `js/config.js
   back-end or app integration of its network data, or a "network"-style page of other Shakes.
   UHSN's own school Shakes, read directly from the devices by DRI, are UHSN's data. For the
   wider Raspberry Shake network, link out to StationView and DataView.
-- **Student data:** none is collected. See R277-487 in the planning documents before adding
-  anything that stores student work on a server.
+- **Student data:** none is collected. Before adding anything that stores student work on a
+  server, read the R277-487 notes under "Fit with Utah state requirements" in the
+  [planning evaluation](https://github.com/gus-p-williams/utahshake/blob/main/planning/evaluation.md#fit-with-utah-state-requirements)
+  (on GitHub; the planning files are not part of this site).
 
 ## Offline samples
 

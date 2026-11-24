@@ -1,7 +1,18 @@
-# Wave Race: locate a Utah quake
+# Wave Race
 
-**[Open Wave Race](../app/wave-race/index.html)** · works in any browser, including Chromebooks.
-No install, no account.
+Find where a real Utah earthquake happened from the waves it sent to stations around it.
+
+[Open Wave Race](../app/wave-race/index.html){ .md-button .md-button--primary }
+
+!!! abstract "At a glance"
+    - **You will:** pick the P and S waves on real seismograms, turn the time between them into
+      distances, find where the quake was, and see how close you got to the official answer.
+    - **Time:** about 15 minutes as a class demo, or a full class period (45–55 minutes) in pairs.
+    - **Works on:** any browser, including Chromebooks. No install, no accounts.
+    - **The science:** [Seismic waves](../theory/waves.md) · [Distance from S minus P](../theory/s-minus-p.md) · [Locating a quake](../theory/locating.md)
+    - **For teachers:** [Activity card](../teachers/wave-race-card.md) · [Standards](../teachers/standards.md#wave-race)
+    - **Data:** [Our stations and data](../theory/stations.md)
+    - **For developers:** [Wave Race notes](../developers/wave-race.md)
 
 When an earthquake happens, two kinds of waves race outward: the fast **P wave** and the
 slower **S wave**. The farther a station is from the quake, the bigger the gap between them.
@@ -13,12 +24,12 @@ compare your answer with the official one.
     Until the Raspberry Shakes at the UHSN schools stream their data, a University of Utah
     station near each school **stands in** for it. The app marks these as "stands in for …".
     Other "helper" stations are added around the quake so you can surround it.
+    [Our stations and data](../theory/stations.md) lists the stand-in for each school.
 
-!!! tip "New to P and S waves? Watch them first"
-    The [animation on the Locating a quake page](../theory/locating.md#watch-it-happen) shows
-    P and S waves racing out from a quake, the seismograms they make at four stations, and
-    how the gap between them turns into circles that cross at the quake. It takes about a
-    minute.
+!!! tip "New to P and S waves? Watch Quake Waves first"
+    The [Quake Waves animation](../theory/locating.md#watch-it-happen) shows P and S waves
+    racing out from a quake, the seismograms they make at four stations, and how the gap
+    between them turns into circles that cross at the quake. It takes about a minute.
 
 ## The steps
 
@@ -159,9 +170,11 @@ file on your device. Nothing is sent anywhere.
 
 ## If the school network blocks the data
 
-The app downloads data from EarthScope and the USGS. If your network blocks them, use
-**Use the offline sample** (top right). It loads a magnitude 3.3 quake from October 2026 that
-is stored with the site.
+If the quake list doesn't load, press **Use the offline sample** (top right). It loads a
+magnitude 3.3 quake from October 2026 that is stored with the site, so you can still do every
+step. Tell your teacher, too.
+
+Teachers: see [Before class](../teachers/index.md#before-class).
 
 ## Going further
 
@@ -175,4 +188,4 @@ is stored with the site.
 
 *Data: waveforms from University of Utah Seismograph Stations (network UU,
 [doi:10.7914/SN/UU](https://doi.org/10.7914/SN/UU)) via EarthScope; quake locations and
-analyst picks from USGS ComCat / UUSS. See [Data sources](../developers/data-sources.md).*
+analyst picks from USGS ComCat / UUSS. See [Our stations and data](../theory/stations.md).*
