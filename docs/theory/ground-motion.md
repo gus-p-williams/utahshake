@@ -287,10 +287,10 @@ How does the ground roll? Figure 8 adds up the speeds in the record to get how f
 moved, then shows about two Rayleigh waves seen from the side.
 
 <figure markdown="span">
-  ![Left: 90 seconds of how far the ground moved at SGU, filtered 0.03 to 0.1 Hz, along the path (R, plus is away from the quake) and up (Z). Smooth waves about 20 seconds long. A green dot marks a peak of R labeled farthest away; an orange dot a quarter of a wave later marks a peak of Z labeled highest. Right: the same motion seen from the side, with up at the top, away to the left and toward the quake to the right: the path goes round in two clockwise loops, with arrowheads showing the direction; at the top of each loop it moves to the right, toward the quake. Below: the wave travels to the left.](img/gm-rayleigh-roll.svg){ loading=lazy }
+  ![Left: 90 seconds of how far the ground moved at SGU, filtered 0.03 to 0.1 Hz, along the path (R, plus is away from the quake) and up (Z). Smooth waves about 20 seconds long. A green dot marks a peak of R labeled farthest away; an orange dot a quarter of a wave later marks a peak of Z labeled highest. Right: the same motion seen from the side, with up at the top, away to the left and toward the quake to the right: the path goes around in two clockwise loops, with arrowheads showing the direction; at the top of each loop it moves to the right, toward the quake. Below: the wave travels to the left.](img/gm-rayleigh-roll.svg){ loading=lazy }
   <figcaption>Figure 8. Rayleigh waves at SGU from the Sand Point quake. The ground is farthest
   from the quake, then a quarter of a wave later (4.8 s of a 20 s wave) at its highest. Seen
-  from the side it goes round in loops, moving toward the quake at the top of each loop.
+  from the side it goes around in loops, moving toward the quake at the top of each loop.
   Filtered 0.03–0.1 Hz. Data: University of Utah Seismograph Stations (network UU,
   doi:10.7914/SN/UU) via EarthScope; quake from USGS ComCat.</figcaption>
 </figure>
@@ -315,7 +315,7 @@ on the water moves forward, with the wave, at each crest.
 6. In Figure 7, Love waves are biggest 18 min 12 s after the quake and Rayleigh waves
    19 min 39 s after it, 3,985 km away. Estimate how fast each traveled.
 7. Sketch the seen-from-the-side path of a cork on an ocean wave and of the ground in a Rayleigh
-   wave, both traveling to the left. Mark which way each goes round.
+   wave, both traveling to the left. Mark which way each goes around.
 
 In [Quake Explorer](../apps/quake-explorer.md), investigation C, try different stations for the
 same quake. Which stations point best? Does a longer window help or hurt?

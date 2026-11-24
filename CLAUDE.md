@@ -159,9 +159,10 @@ sequences the work and integrates it.
   | D1-cards | "At a glance" boxes, Teachers catalog, Quake Waves card, QE follow-ups | `-cards`, branch `teacher-cards` | merged 2026-11-24 (D29) |
   | D2-plots | Six missing plots, three figure fixes | `-plots`, branch `plots` | merged 2026-11-24 (D31) |
   | D3-rename | Wave Race → Quake Locator (names only; addresses unchanged), incl. both documents | `-rename`, branch `rename` | merged 2026-11-24 (D30) |
-  | D4-spelling | US spelling across the site | `-spelling`, branch `us-spelling` | ready to start |
+  | D4-spelling | US spelling across the site | `-spelling`, branch `us-spelling` | merged 2026-11-24 (D32) |
   | D5-band-hint | Quake Explorer B: show on the spectrogram that dragging chooses a band | `-band`, branch `band-hint` | merged 2026-11-24 |
-  | D6-clear-s | Point students to quakes with a clear S − P (Quake Explorer and Quake Locator) | `-band`, branch `clear-s` | Phase 0 reported; waiting for Gus |
+  | D6-clear-s | Point students to quakes with a clear S − P (Quake Explorer and Quake Locator) | `-band`, branch `clear-s` | merged 2026-11-24 (D33) |
+  | D7-wiggle-app | Build a Wiggle becomes a full app (guide, Apps menu); All apps lists every app with a guide | `-wiggle`, branch `wiggle-app` | active |
 
   Retired before IDs: the figures sessions, the Quake Explorer session (merged, D22–D25).
 
@@ -325,29 +326,34 @@ out of the menus:
   `planning/plots-sources.md`. Also the three figure fixes on Reading a seismogram. Standards
   row PHYS.4.1 · ESS.2.2 · ESS.4.1 · CS 9/10.DA.3 · CS 11/12.DA.1 (Gus). `npm test` = 218;
   site check 35 pages. The plots worktree's figure cache is 3.4 GB (git-ignored).
+- 2026-11-24 (night): **US spelling across the site** (D32, session D4-spelling): pages, alt
+  text, captions, app text and seven redrawn figures; four Quake Explorer screenshots;
+  "goes around" (M1). Code names and comments may stay British.
+- 2026-11-24 (night): **Clear-S hints in both apps** (D33, session D6-clear-s): notes on
+  every ready-made quake, Kanosh M3.3 added to Quake Locator (live only), "For a clear S…,
+  try Junction" with Load it in Quake Explorer A and C; `lib/clear-s.js`,
+  `tools/quake-explorer/clear-s*.mjs`, `tests/clear-s.test.js`. Merged with the spelling pass
+  (M1 retook the A and C screenshots from the merged code). `npm test` = 230.
+- 2026-11-24: **The two documents went to Dale and Cleat** (Gus), with the cover note: the
+  overview and the questions document (D28), after the rename; every site link checked live.
 
 ## Next steps
 
 1. **Sessions at work** (started by Gus from the master session's prompts, 2026-11-24). The
    master reviews each, commits by path or merges, and runs the integration checklist.
-   a–b. *P1-activities and P2-overview*: **done and committed** (D28). The two documents for
-      Dale and Cleat passed a side-by-side review; the old living doc is deleted; the rename
-      is in. **Ready for Gus to send** with the cover note M1 drafted. Their answers then
-      drive the roadmap's "Proposed, pending Dale and Cleat" list and the next activity cards.
-   c. *D1-cards* (D29), *D3-rename* (D30), *D5-band-hint* and *D2-plots* (D31): merged.
-      Remove their worktrees (`-cards`, `-rename`, `-plots`, and the old `-qexp`) when nothing
-      more is needed from them; `-band` is still in use by D6.
-   d. *D6-clear-s*: Phase 0 reported (which ready-made quakes have a clear S; a Kanosh M3.3
-      quake with clear S at 10 of 10 stations; advice not to build a live "S picks" count).
-      Waiting for Gus's answers, then it builds on branch `clear-s`.
-   e. *D4-spelling*: can start now (prompt 5 of the earlier set, first line "You are session
-      D4-spelling."). D6 merges main into its branch before its report.
+   a–b. *P1-activities and P2-overview* (D28): **sent to Dale and Cleat on 2026-11-24.**
+      Their answers drive the roadmap's "Proposed, pending Dale and Cleat" list and the next
+      activity cards; fixes to either document go back to `planning/` and its Word copy.
+   c. Merged: D1-cards (D29), D3-rename (D30), D5-band-hint, D2-plots (D31), D4-spelling
+      (D32), D6-clear-s (D33). Remove their worktrees (`-cards`, `-rename`, `-plots`,
+      `-spelling`, `-band`, and the old `-qexp`) when nothing more is needed from them; the
+      `-plots` and `-spelling` ones hold large figure caches (3.4 GB, 0.7 GB).
+   d. *D7-wiggle-app* (branch `wiggle-app`): Build a Wiggle as a full app; All apps lists
+      every app with a guide. M1 reviews and merges when it reports.
 2. **Open questions for Gus / DRI:**
    a. Which Raspberry Shake model is at each school (they may differ)? The seismometer figure
       on Reading a seismogram is a generic geophone.
-   b. Spelling: **US spelling everywhere** (Gus, 2026-11-24). All new writing uses it now
-      (kilometer, color, gray, labeled, center, meter). Existing pages are converted in one
-      cleanup pass (D4-spelling, now unblocked); log the decision when that pass lands.
+   b. Spelling: done (D32). US spelling in everything readers see; new writing follows it.
    c. DRI: choose a license (MIT or BSD) and add LICENSE; the public repo has none yet.
    d. `tools/figures/.cache/` holds about 715 MB (git-ignored). Gus keeps it for now.
 3. **Trials:** Quake Locator, Quake Waves and each Quake Explorer investigation's 15-minute

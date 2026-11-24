@@ -4,6 +4,22 @@ Newest first. Each entry: date, decision, why, consequences.
 
 ## 2026-11-24 (Quake Explorer; planning documents; teacher cards)
 
+**D33. Point students to quakes with a clear S.** Gus, 2026-11-24 (session D6-clear-s). Each
+ready-made quake carries a note on how clear its S wave is, counted the way each app shows
+the quake ("clear" = S at least 3 times the P coda just before it, 1–10 Hz, best component):
+Junction is the S − P quake (Quake Locator 7 of 10 stations; Quake Explorer A 16 of 23, C 5 of
+6); Magna is "famous, but S is hard to see" (most records clipped); Kenilworth's S is faint.
+Quake Locator adds a live-only Kanosh M3.3 (April 19, 2026; clear S at 10 of 10 stations, 29 km
+from Millard High School). Quake Explorer A and C show "For a clear S…, try the 2026 Junction
+quake" with a Load it link. The measure is `lib/clear-s.js` with tests that fail if a note's
+count stops matching the offline samples. No live "S picks" count (too many USGS requests, and
+picks don't track clarity); a nightly job may publish clear-S counts later (roadmap Stage 2).
+
+**D32. US spelling everywhere readers look.** Gus, 2026-11-24 (session D4-spelling). Pages,
+alt text, captions, app text and figure text use US spelling (kilometer, meter, color, gray,
+labeled, center, -ize; "goes around"). Code names and code comments may stay as they are.
+Titles and quotations keep their published spelling. All new writing follows this.
+
 **D31. "Beyond one seismogram": the six missing plots on one science page, from real data.**
 Gus, 2026-11-24 (session D2-plots). The evaluation's plots not yet shown (helicorder, PPSD,
 seismic carpet, event stack, H/V, cross-correlation) are static real-data figures on a new

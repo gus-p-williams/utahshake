@@ -72,6 +72,10 @@ teacher trial for the 15-minute target.
 - [ ] Heatmap: hour of day × date; toggles for frequency band; overlays for weekends,
       holidays, school calendar, daylight-saving dates.
 - [ ] "Seismic week" average view; download CSV.
+- [ ] With the same scheduled job: measure how clear S is on each new Utah quake's records
+      (`lib/clear-s.js`, about 0.3 MB of waveforms per quake) and publish one small file the
+      live quake lists show as a "clear S" column (D33). Not an "S picks" count: that costs
+      two USGS requests per listed quake and doesn't track how clear S is.
 - [ ] Docs: theory (noise, RMS, logs), activity card(s) (see "Teacher activity cards" below),
       standards.
 
