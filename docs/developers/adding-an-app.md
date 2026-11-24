@@ -48,7 +48,10 @@ page goes under **The Science** in `nav:`.
   **Teachers**. Use the [Wave Race activity card](../teachers/wave-race-card.md) as the model.
 - Add a `## <App> { #<slug> }` heading to [standards.md](../teachers/standards.md), with one
   line linking the hub and a table of the standards the app covers.
-- Add a row to the activities table on the [Teachers](../teachers/index.md) page.
+- Add a row to the activities table on the [Teachers](../teachers/index.md) page, and rows for
+  the app and its new science pages to
+  [Utah standards at a glance](../teachers/index.md#utah-standards) (plus a line in its code
+  list for any standard not listed yet).
 
 ## 6. Developer notes (only if needed)
 

@@ -6,6 +6,9 @@ current [Utah SEEd standards](https://www.schools.utah.gov/curr/science/_science
 and [Utah 6–12 Computer Science standards](https://Schools.Utah.gov/cte/_cte/computer/612ComputerScienceStandards.pdf)
 before using them in official materials.
 
+For a one-table summary of every activity and science page, see
+[Utah standards at a glance](index.md#utah-standards).
+
 ## Wave Race { #wave-race }
 
 App: [Wave Race guide](../apps/wave-race.md) · Lesson: [Wave Race activity card](wave-race-card.md).

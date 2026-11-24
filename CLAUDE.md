@@ -173,8 +173,15 @@ If `tools/figures/node_modules/` is missing and screenshots need regenerating, r
    c. Replace `docs/app/index.html` with a redirect to `../apps/` (visible fallback link).
    d. Same top bar in both apps: "All apps" → `../../apps/`, "Guide" (new tab, labelled),
       "About the data" → `../../theory/stations/` (wave-race `app.js` "About the data").
+      Build it as a shared module in `docs/app/js/ui/` (top bar, credits, source badge,
+      `esc`, CSV helper), so Quake Explorer reuses it (planning/quake-explorer.md §4);
+      document it in `developers/adding-an-app.md`.
    e. Regenerate guide screenshots (`tools/figures/screenshots.mjs`) if the top bar shows.
-   f. `npm test`, `mkdocs build --strict`, check at 3 widths; log in decisions.
+   f. `npm test`, `mkdocs build --strict`, check at 3 widths; log as decision D19
+      (D19 reserved for this; Quake Explorer decisions start at D20).
+   Order: after the figures session places its figures; Quake Explorer's app page,
+   docs pages and nav wait for Phase 2 (its pure-logic modules can start now on the
+   `quake-explorer` branch in its own worktree).
 2. Gus: try Wave Race with a teacher or student (15-minute target in the roadmap).
 3. DRI: choose a license (MIT or BSD) and add LICENSE; the public repo has none yet.
 4. Stage 2: School Pulse / seismic carpet (scheduled job + heatmap; see roadmap).

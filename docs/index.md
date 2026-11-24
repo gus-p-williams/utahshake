@@ -28,6 +28,7 @@ New here? Watch [Quake Waves](theory/locating.md#watch-it-happen) first, then tr
 - **[Teachers](teachers/index.md)**
 
     [Wave Race activity card](teachers/wave-race-card.md) (15-minute and full-period) ·
+    [Utah standards at a glance](teachers/index.md#utah-standards) ·
     [Standards crosswalk](teachers/standards.md)
 
 </div>
