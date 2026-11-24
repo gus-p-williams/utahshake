@@ -137,6 +137,22 @@ sequences the work and integrates it.
   `teacher-cards`, `-plots` on `plots`). A session told not to commit hands its files to the master
   session.
 - Decision numbers: the next free number when the entry lands on `main`; none are reserved.
+- **Session IDs** (Gus, 2026-11-24): every session has an ID `<letter><number>-<name>`, and its
+  prompt's first line is "You are session <ID>." Sessions start their reports with their ID.
+  Letters: **M** master (plans, reviews, integrates), **P** planning documents (`planning/`
+  only), **D** development on its own branch and worktree (site, apps, figures), **R** a
+  read-only review. Numbers are never reused. Register (master keeps it current):
+
+  | ID | Job | Where | Status |
+  | --- | --- | --- | --- |
+  | M1-master | Plans, writes prompts, reviews, integrates, commits | main | active |
+  | P1-activities | Questions document for Dale and Cleat (`planning/activities.md` + Word) | main folder, `planning/` | active, uncommitted |
+  | P2-overview | Project overview (`planning/evaluation.md` + Word) | main folder, `planning/` | active, uncommitted |
+  | D1-cards | "At a glance" boxes, Teachers catalog, Quake Waves card, QE follow-ups | `-cards`, branch `teacher-cards` | active |
+  | D2-plots | Six missing plots, three figure fixes | `-plots`, branch `plots` | active |
+  | D3-spelling | US spelling across the site | `-spelling`, branch `us-spelling` | after D1 and D2 merge |
+
+  Retired before IDs: the figures sessions, the Quake Explorer session (merged, D22–D25).
 
 **Whenever the master session takes in another session's work** (a commit, a merge or a
 finished task), it also updates everything that points at that work, so nothing live is left
