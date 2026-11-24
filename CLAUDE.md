@@ -162,6 +162,21 @@ If `tools/figures/node_modules/` is missing and screenshots need regenerating, r
   from the apps' HTML/JS and raw HTML in pages into the docs; `npm test` = 41 tests.
   Checked at 1366 / 1093 / 390 px in headless Chrome. Below 1220 px Material hides the
   sidebar (drawer); breadcrumbs, prev/next and the home site map cover that.
+- 2026-11-24 (later): **Science figures placed** (plan + status:
+  https://claude.ai/artifact/Q314GDdZvGNXHTznCLaWKQ; how-to in `planning/science-figures.md`;
+  D16 extended). 10 figures and one animation on the pages:
+  - Seismic waves: P/S rock-motion animation (`app/wave-motion/`, `lib/wave-motion.js`,
+    iframe) and the anatomy of a seismogram (MTPU).
+  - S − P: record section of all 10 sample stations, the TCRU worked example, the hidden
+    triangle.
+  - Locating: 1-2-3 circles, residuals, misfit map, station geometry (simulated).
+  - Our stations: schools and stand-in stations map. Wave Race guide: step 1 screenshot
+    (figures renumbered 1–6). Students are told picking S is hard (analysts: P at 9, S at 3).
+  - Scripts in `tools/figures/` (list in developers/architecture.md#figures-in-the-docs).
+    `npm test` = 44. The figures work is done, so Navigation Phase 2 can start; its top-bar
+    work should include `app/wave-motion/`.
+  - A separate session is building the "Reading a seismogram" page (signals and noise; plan
+    doc section); it owns W3, W4, W6 and moves sections out of `theory/waves.md`.
 
 ## Next steps
 
@@ -190,3 +205,8 @@ If `tools/figures/node_modules/` is missing and screenshots need regenerating, r
 6. Optional: move the repo to a DRI GitHub org if one exists (GitHub redirects old
    links; update site_url/repo_url).
 7. Optional: confirm SEEd standard wording against the current USBE PDF.
+8. Phone width: on `theory/s-minus-p.md` the wide display equation (MathJax) makes the page
+   scroll sideways by about 17 px at 390 px. Needs a small CSS rule for display math.
+9. Ask UUSS about the S − P page's "beyond about 120 km" (first P through the mantle): the
+   sample's far P picks (114–177 km) are only 0.4–1.2 s early on 5.8 km/s, and a simple
+   estimate puts the crossover near 140–160 km. Blocks plan figure S5.

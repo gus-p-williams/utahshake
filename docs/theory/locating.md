@@ -11,6 +11,14 @@ could be anywhere on a circle around the station. More stations narrow it down:
 - **Three stations:** three circles meet near one point: the **epicenter**.
 - **More stations:** an even better answer, and a check on bad picks.
 
+<figure markdown="span">
+  ![Three map panels with stations TCRU, MTPU and WCU. First: one circle around TCRU; the quake is somewhere on it. Second: the TCRU and MTPU circles cross at two points marked with question marks; either could be the quake. Third: the WCU circle is added and all three circles meet at one point, marked with a star labelled quake.](img/circles-1-2-3.svg){ loading=lazy }
+  <figcaption>Figure 1. Real distance circles for the offline sample quake (magnitude 3.3 near
+  Junction, Utah), from the University of Utah analysts' P and S picks. One station gives a
+  circle, two give two possible points, three meet at one point. Data: University of Utah
+  Seismograph Stations (network UU, doi:10.7914/SN/UU); picks via USGS ComCat.</figcaption>
+</figure>
+
 This is called **trilateration** (locating by distances). GPS receivers find themselves the
 same way, using distances to satellites.
 
@@ -43,6 +51,14 @@ $$
 \text{RMS} = \sqrt{\frac{r_1^2 + r_2^2 + \dots + r_n^2}{n}}
 $$
 
+<figure markdown="span">
+  ![A green pin, your guess, 8 km from where three coloured distance circles meet near a purple best-fit star. A thick line from the pin to each circle is labelled r1 = minus 7.2 km for MTPU, r2 = plus 6.8 km for TCRU and r3 = plus 3.3 km for WCU. A table lists each station's distance from S minus P and from the pin, and the RMS is worked out below as the square root of 109.0 divided by 3, which is 6.0 km.](img/residuals.svg){ loading=lazy }
+  <figcaption>Figure 2. Residuals for a trial epicenter (the green pin). Their RMS, 6.0 km, is
+  the number Wave Race shows as "your circles miss it by 6.0 km on average"; at the best fit
+  it is 0.3 km. Data: University of Utah Seismograph Stations (network UU,
+  doi:10.7914/SN/UU); picks via USGS ComCat.</figcaption>
+</figure>
+
 The best epicenter is the point with the smallest RMS.
 
 In [Wave Race](../apps/wave-race.md#3-locate-the-quake) you can search for it yourself: **Place my own epicenter** puts a pin on the map,
@@ -61,11 +77,27 @@ Its **rough uncertainty** is the size of the region where the misfit is no more 
 1.5 km worse than the best point. That is how much the distances can move if each pick is
 off by 0.2 s.
 
+<figure markdown="span">
+  ![A blue map, light where the circles fit and dark where they miss badly, around stations WCU, TCRU and MTPU. A light oval valley holds the purple best-fit star and the orange official epicenter, inside a black outline labelled rough uncertainty. An inset zooms in on the valley: open circles mark the 2 km grid, a fine mesh marks the 0.25 km grid around the best coarse point, and a small square marks the 0.05 km grid around the best fit.](img/misfit-map.svg){ loading=lazy }
+  <figcaption>Figure 3. The misfit map for the offline sample quake: the average miss (RMS) at
+  every point. Wave Race keeps the lowest point; the black outline is its rough uncertainty,
+  and the official epicenter falls inside it. Data: University of Utah Seismograph Stations
+  (network UU, doi:10.7914/SN/UU); picks via USGS ComCat.</figcaption>
+</figure>
+
 ## Why the stations' positions matter
 
 If all the stations are on one side of the quake, the circles cross at a shallow angle and
 many points fit almost equally well. The location then smears out along a line. Stations
 **all around** the quake make the circles cross at steep angles and pin the point down.
+
+<figure markdown="span">
+  ![Two misfit maps of the same quake made from simulated picks. In panel a, the five school stand-in stations are all off the map to the north; the light valley is long and diagonal and the rough-uncertainty outline is about 24 km by 5 km. In panel b, five stations sit on several sides of the quake; the valley is a round bowl and the outline is about 7 km by 6 km. In both, the best fit lands within 1 km of the true epicenter.](img/station-geometry.svg){ loading=lazy }
+  <figcaption>Figure 4. The same quake located twice from simulated picks (about 0.1 s of pick
+  error), each time with five stations. With the five school stand-ins, all to the north, the
+  location smears out into a long oval; with stations on several sides, it is pinned down.
+  Station positions: University of Utah Seismograph Stations (network UU).</figcaption>
+</figure>
 
 That is why Wave Race adds **helper** stations around each quake. The
 [five UHSN schools](stations.md) sit in a north–south line in central Utah. For a quake far to the south or north, the schools

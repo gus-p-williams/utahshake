@@ -27,6 +27,13 @@ The seismogram figures are SVGs made from the offline sample with the app's own 
 filter (`tools/figures/trace-figures.mjs`), with the UUSS analysts' picks; screenshots come
 from the app in headless Chrome (`tools/figures/screenshots.mjs`, puppeteer-core with the
 installed Chrome). Rerun them when the app's look changes.
+*Extended later on 2026-11-24:* the Science pages get the same treatment: real-data SVGs from
+the offline sample, and diagrams and maps drawn with the apps' own `lib/` code (one script per
+group in `tools/figures/`, shared style in `svg-traces.mjs`), so a figure matches what the
+apps compute. Every script is deterministic (same bytes each run). Animations are small
+embedded pages under `docs/app/` (Quake Waves, and the P/S rock-motion cartoon), not apps
+with hubs. The figure plan and status are tracked in a shared doc (link in
+`planning/science-figures.md`).
 
 **D15. Watch the Waves is a labelled cartoon, embedded where locating is explained.**
 Quake at the surface, uniform rock, made-up seismograms, but exact arrival times (Vp 5.8,

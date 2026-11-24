@@ -22,6 +22,13 @@ they are often clearest on the **horizontal (N and E)** sensors. S waves cannot 
 liquid, because a liquid does not spring back when sheared. That fact is how seismologists
 discovered that Earth's outer core is liquid.
 
+<iframe src="../../app/wave-motion/?embed=1" title="Animation: how P and S waves move rock. A P wave squeezes and stretches a grid of rock particles back and forth along its path; a slower S wave shakes them up and down into a bump that falls behind." loading="lazy" style="width:100%;height:400px;border:1px solid var(--md-default-fg-color--lightest);border-radius:8px"></iframe>
+
+*A cartoon; the rock's motion is exaggerated.* Press **Play** and watch the coloured dots: the
+wave travels on, but each bit of rock only moves and comes back to where it started. In the P
+wave it moves back and forth along the wave's path; in the slower S wave, up and down across it.
+[Open the animation full screen](../app/wave-motion/index.html).
+
 After the body waves come **surface waves**, which travel along the surface and are the
 largest waves far from a big quake.
 
@@ -35,8 +42,20 @@ A quake shows up as:
 2. **the S arrival**: a second, usually larger change a few seconds later;
 3. **the coda**: shaking that slowly dies away as scattered waves keep arriving.
 
+<figure markdown="span">
+  ![Three-component seismogram from station MTPU (traces HHZ, HHN, HHE). The traces are flat until a blue line at 5 seconds marked 1 P arrival, where small sharp waves begin. Much bigger waves start at a red line at 9 seconds marked 2 S arrival; an arrow between the lines reads S minus P = 4.14 s. After about 20 seconds the shaking slowly dies away, marked 3 coda.](img/seismogram-anatomy.svg){ loading=lazy }
+  <figcaption>Figure 1. A real seismogram from station MTPU, 29 km from the magnitude 3.3
+  quake near Junction, Utah, with the three parts listed above. Filtered 1–10 Hz; picks by
+  University of Utah analysts. Data: University of Utah Seismograph Stations (network UU,
+  doi:10.7914/SN/UU) via EarthScope; picks via USGS ComCat.</figcaption>
+</figure>
+
 The time between P and S is the **S-minus-P time**. It is the key to distance:
 see [Distance from S minus P](s-minus-p.md).
+
+Picking S is hard, even for professionals: S arrives while the ground is still shaking from P.
+For the offline sample quake, University of Utah analysts picked P at 9 stations but S at
+only 3.
 
 ## Waves, frequency and filters
 

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 447.64102564102564" width="760" height="447.64102564102564" role="img" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<title>Distance circles: one, two, three stations</title>
+<desc>Distance circles from S minus P times at stations TCRU, MTPU and WCU: one circle, then two crossing points, then one meeting point.</desc>
+<defs><clipPath id="map-0"><rect x="12" y="56" width="238.7" height="339.6" rx="4"/></clipPath><clipPath id="map-1"><rect x="260.7" y="56" width="238.7" height="339.6" rx="4"/></clipPath><clipPath id="map-2"><rect x="509.3" y="56" width="238.7" height="339.6" rx="4"/></clipPath></defs>
+<rect x="0.5" y="0.5" width="759" height="446.64102564102564" rx="8" fill="#ffffff" stroke="#d9dde3"/>
+<text x="12" y="22" font-size="15" font-weight="600" fill="#111827">Distance circles: one, two, three stations</text>
+<text x="14" y="46" font-size="14" font-weight="600" fill="#111827">One station</text>
+<g clip-path="url(#map-0)">
+<rect x="12" y="56" width="238.7" height="339.6" fill="#f3efe4"/>
+<circle cx="109.9" cy="171.7" r="87.2" fill="none" stroke="#6b7a00" stroke-width="2.2"/>
+<text x="109.9" y="205.7" font-size="12" font-weight="600" text-anchor="middle" fill="#111827" stroke="#f3efe4" stroke-width="4" stroke-linejoin="round" paint-order="stroke">the quake is</text>
+<text x="109.9" y="220.7" font-size="12" font-weight="600" text-anchor="middle" fill="#111827" stroke="#f3efe4" stroke-width="4" stroke-linejoin="round" paint-order="stroke">somewhere on</text>
+<text x="109.9" y="235.7" font-size="12" font-weight="600" text-anchor="middle" fill="#111827" stroke="#f3efe4" stroke-width="4" stroke-linejoin="round" paint-order="stroke">this circle</text>
+<polygon points="109.9,164.7 102.9,175.9 116.9,175.9" fill="#6b7a00" stroke="#ffffff" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="119.9" y="176.2" font-size="12" font-weight="700" fill="#6b7a00" stroke="#f3efe4" stroke-width="4" stroke-linejoin="round" paint-order="stroke">TCRU</text>
+<polygon points="162.6,309.7 155.6,320.9 169.6,320.9" fill="#9aa1ac" stroke="#ffffff" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="172.6" y="321.1" font-size="12" font-weight="700" fill="#9aa1ac" stroke="#f3efe4" stroke-width="4" stroke-linejoin="round" paint-order="stroke">MTPU</text>
+<polygon points="181.3,74.1 174.3,85.3 188.3,85.3" fill="#9aa1ac" stroke="#ffffff" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="191.3" y="85.6" font-size="12" font-weight="700" fill="#9aa1ac" stroke="#f3efe4" stroke-width="4" stroke-linejoin="round" paint-order="stroke">WCU</text>
+<path d="M28 82L33.5 96L28 92.5L22.5 96Z" fill="#111827"/>
+<text x="28" y="78" font-size="12" font-weight="700" text-anchor="middle" fill="#111827">N</text>
+<path d="M22 378.6V383.6H67.9V378.6" fill="none" stroke="#111827" stroke-width="1.5"/>
+<text x="73.9" y="384.6" font-size="12" fill="#111827">20 km</text>
+</g>
+<rect x="12" y="56" width="238.7" height="339.6" rx="4" fill="none" stroke="#d9dde3"/>
+<text x="262.7" y="46" font-size="14" font-weight="600" fill="#111827">Two stations</text>
+<g clip-path="url(#map-1)">
+<rect x="260.7" y="56" width="238.7" height="339.6" fill="#f3efe4"/>
+<circle cx="358.6" cy="171.7" r="87.2" fill="none" stroke="#6b7a00" stroke-width="2.2"/>
+<circle cx="411.2" cy="316.6" r="70.4" fill="none" stroke="#0d9488" stroke-width="2.2"/>
+<text x="358.6" y="205.7" font-size="12" font-weight="600" text-anchor="middle" fill="#111827" stroke="#f3efe4" stroke-width="4" stroke-linejoin="round" paint-order="stroke">either ? could</text>
+<text x="358.6" y="220.7" font-size="12" font-weight="600" text-anchor="middle" fill="#111827" stroke="#f3efe4" stroke-width="4" stroke-linejoin="round" paint-order="stroke">be the quake</text>
+<circle cx="372.8" cy="257.7" r="4.5" fill="#ffffff" stroke="#111827" stroke-width="1.8"/>
+<text x="358.7" y="268.8" font-size="17" font-weight="700" text-anchor="middle" fill="#111827" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">?</text>
+<circle cx="402.9" cy="246.7" r="4.5" fill="#ffffff" stroke="#111827" stroke-width="1.8"/>
+<text x="417" y="247.6" font-size="17" font-weight="700" text-anchor="middle" fill="#111827" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">?</text>
+<polygon points="358.6,164.7 351.6,175.9 365.6,175.9" fill="#6b7a00" stroke="#ffffff" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="368.6" y="176.2" font-size="12" font-weight="700" fill="#6b7a00" stroke="#f3efe4" stroke-width="4" stroke-linejoin="round" paint-order="stroke">TCRU</text>
+<polygon points="411.2,309.7 404.2,320.9 418.2,320.9" fill="#0d9488" stroke="#ffffff" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="421.2" y="321.1" font-size="12" font-weight="700" fill="#0d9488" stroke="#f3efe4" stroke-width="4" stroke-linejoin="round" paint-order="stroke">MTPU</text>
+<polygon points="430,74.1 423,85.3 437,85.3" fill="#9aa1ac" stroke="#ffffff" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="440" y="85.6" font-size="12" font-weight="700" fill="#9aa1ac" stroke="#f3efe4" stroke-width="4" stroke-linejoin="round" paint-order="stroke">WCU</text>
+<path d="M276.66666666666663 82L282.16666666666663 96L276.66666666666663 92.5L271.16666666666663 96Z" fill="#111827"/>
+<text x="276.7" y="78" font-size="12" font-weight="700" text-anchor="middle" fill="#111827">N</text>
+<path d="M270.7 378.6V383.6H316.6V378.6" fill="none" stroke="#111827" stroke-width="1.5"/>
+<text x="322.6" y="384.6" font-size="12" fill="#111827">20 km</text>
+</g>
+<rect x="260.7" y="56" width="238.7" height="339.6" rx="4" fill="none" stroke="#d9dde3"/>
+<text x="511.3" y="46" font-size="14" font-weight="600" fill="#111827">Three stations</text>
+<g clip-path="url(#map-2)">
+<rect x="509.3" y="56" width="238.7" height="339.6" fill="#f3efe4"/>
+<circle cx="607.2" cy="171.7" r="87.2" fill="none" stroke="#6b7a00" stroke-width="2.2"/>
+<circle cx="659.9" cy="316.6" r="70.4" fill="none" stroke="#0d9488" stroke-width="2.2"/>
+<circle cx="678.7" cy="81.1" r="181.8" fill="none" stroke="#7c3aed" stroke-width="2.2"/>
+<polygon points="626.4,244.7 629.1,251.9 636.8,252.3 630.7,257.1 632.8,264.6 626.4,260.3 619.9,264.6 622,257.1 615.9,252.3 623.7,251.9" fill="#f59e0b" stroke="#b45309" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="634.4" y="277.7" font-size="13" font-weight="700" fill="#111827" stroke="#f3efe4" stroke-width="4" stroke-linejoin="round" paint-order="stroke">quake</text>
+<polygon points="607.2,164.7 600.2,175.9 614.2,175.9" fill="#6b7a00" stroke="#ffffff" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="617.2" y="176.2" font-size="12" font-weight="700" fill="#6b7a00" stroke="#f3efe4" stroke-width="4" stroke-linejoin="round" paint-order="stroke">TCRU</text>
+<polygon points="659.9,309.7 652.9,320.9 666.9,320.9" fill="#0d9488" stroke="#ffffff" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="669.9" y="321.1" font-size="12" font-weight="700" fill="#0d9488" stroke="#f3efe4" stroke-width="4" stroke-linejoin="round" paint-order="stroke">MTPU</text>
+<polygon points="678.7,74.1 671.7,85.3 685.7,85.3" fill="#7c3aed" stroke="#ffffff" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="688.7" y="85.6" font-size="12" font-weight="700" fill="#7c3aed" stroke="#f3efe4" stroke-width="4" stroke-linejoin="round" paint-order="stroke">WCU</text>
+<path d="M525.3333333333333 82L530.8333333333333 96L525.3333333333333 92.5L519.8333333333333 96Z" fill="#111827"/>
+<text x="525.3" y="78" font-size="12" font-weight="700" text-anchor="middle" fill="#111827">N</text>
+<path d="M519.3 378.6V383.6H565.2V378.6" fill="none" stroke="#111827" stroke-width="1.5"/>
+<text x="571.2" y="384.6" font-size="12" fill="#111827">20 km</text>
+</g>
+<rect x="509.3" y="56" width="238.7" height="339.6" rx="4" fill="none" stroke="#d9dde3"/>
+<text x="14" y="417.6" font-size="12" fill="#5b6472">Real data: M3.3 quake near Junction, Utah, uu80162166; University of Utah analyst picks (network UU).</text>
+<text x="14" y="434.6" font-size="12" fill="#5b6472">Circle radius: map distance from S − P, with P 5.8 km/s, S 3.3 km/s, depth 8 km (Wave Race defaults). Star: best fit.</text>
+</svg>

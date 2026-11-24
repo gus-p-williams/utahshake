@@ -73,4 +73,8 @@ node tools/figures/trace-figures.mjs      # picking-*.svg (no install needed)
 cd tools/figures && npm install           # once: puppeteer-core, uses your installed Chrome
 node ../serve.mjs                         # in another terminal
 node screenshots.mjs                      # wave-race-*.png; set CHROME=... if Chrome is elsewhere
+node screenshots.mjs choose               # just one shot: choose (step 1, live list), picker or locate
 ```
+
+The step 1 screenshot shows the live quake list, so it changes each time it is retaken. The
+science figures are listed in [Architecture](architecture.md#figures-in-the-docs).

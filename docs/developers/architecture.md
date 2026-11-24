@@ -13,6 +13,7 @@ docs/app/
   index.html               app list
   wave-race/index.html     Wave Race page
   wave-animation/index.html  Quake Waves (cartoon; ?embed=1 inside a docs page; folder rename pending)
+  wave-motion/index.html   How P and S move rock (cartoon embedded in Seismic waves)
   css/app.css              shared styles (light and dark)
   js/
     config.js              schools, stand-in stations, defaults, presets, credits
@@ -22,7 +23,8 @@ docs/app/
       fdsn.js              parsers for USGS GeoJSON, FDSN station text, QuakeML picks
       stations.js          which stations to show for a quake
       signal.js            gaps, tapers, min/max per pixel, dead-channel check
-      wave-sim.js          cartoon arrivals and seismograms for the animation
+      wave-sim.js          cartoon arrivals and seismograms for Quake Waves
+      wave-motion.js       pulse shape and rock displacement for the P/S motion cartoon
     data/
       datasource.js        the DataSource interface; picks a source from the URL
       earthscope-usgs.js   live source: USGS events + EarthScope stations/waveforms
@@ -34,13 +36,14 @@ docs/app/
       map-view.js          Leaflet map: stations, circles, epicenters, the student's pin
     wave-race/app.js       the Wave Race page controller
     wave-animation/app.js  the Quake Waves animation (canvas)
+    wave-motion/app.js     the P/S rock-motion animation (canvas)
   vendor/                  seisplotjs + Leaflet bundles (generated; see below)
   data/samples/<event>/    offline sample: event, stations, picks, waveforms.mseed
 tests/                     node --test, including real-data checks on the sample
 tools/
   vendor/                  esbuild script that regenerates docs/app/vendor/
   samples/fetch-sample.mjs bundles a quake for offline use
-  figures/                 figures for the Wave Race guide (docs/apps/img/)
+  figures/                 figures for the guides and The Science (see below)
   serve.mjs                tiny local server for docs/
 ```
 
@@ -87,7 +90,31 @@ Node must first define `globalThis.HTMLElement` and `globalThis.customElements` 
 pending) in an `<iframe>`. In embed mode the page hides its header and fills the frame.
 Because the docs and the app are on the same site, the animation reads the docs' light/dark
 switch (`data-md-color-scheme`) and sets `data-theme` on its own `<html>`; `app.css` honours
-`data-theme` before the device setting. Follow the same pattern to embed other animations.
+`data-theme` before the device setting. Follow the same pattern to embed other animations;
+`docs/theory/waves.md` embeds the P/S rock-motion cartoon (`app/wave-motion/?embed=1`) the
+same way. `tests/doc-links.test.js` checks the iframe addresses.
+
+## Figures in the docs
+
+The figures in `docs/apps/img/` and `docs/theory/img/` are made by scripts in
+`tools/figures/`, so they can be rebuilt when the apps or the data change. Seismogram figures
+use the offline sample and the app's own parser and filter; diagrams and maps use the app's
+`lib/` code (for example `locate.js`), so they match what the apps compute. Each script writes
+the same bytes every time it runs.
+
+| Script | Makes | Needs |
+| --- | --- | --- |
+| `trace-figures.mjs` | `apps/img/picking-*.svg` (Wave Race guide) | Node only |
+| `science-traces.mjs` | `theory/img/seismogram-anatomy.svg`, `s-minus-p-worked-example.svg` | Node only |
+| `science-record-section.mjs` | `theory/img/record-section.svg` | Node only |
+| `science-diagrams.mjs` | `theory/img/depth-triangle.svg`, `circles-1-2-3.svg` | Node only |
+| `science-locating.mjs` | `theory/img/residuals.svg`, `misfit-map.svg`, `station-geometry.svg` | Node only |
+| `science-maps.mjs` | `theory/img/schools-map.svg` | Node only |
+| `screenshots.mjs` | `apps/img/wave-race-*.png` | `npm install` in `tools/figures`, Chrome, `node tools/serve.mjs` running |
+
+`svg-traces.mjs` holds the shared house style and seismogram drawing. Run a script from the
+repository root, for example `node tools/figures/science-traces.mjs`; screenshots run from
+`tools/figures` (`node screenshots.mjs`, or name shots: `node screenshots.mjs choose`).
 
 ## Design choices worth knowing
 

@@ -81,7 +81,11 @@ as dashed lines.
 ## Common difficulties
 
 - **Picking S too early.** The P coda (shaking after P) can look busy. S is usually a clear
-  *increase* in size, best seen on N or E. Try the 2–8 Hz filter.
+  *increase* in size, best seen on N or E. Try the 2–8 Hz filter. Reassure students that
+  skipping is fine: for the offline sample, University of Utah analysts picked P at 9 stations
+  but S at only 3. Four of the sample's ten stations send the app only a vertical (Z) channel,
+  where S is weakest, and the analysts picked WCU's S on a strong-motion channel the app does
+  not download.
 - **Not zooming in.** On the whole 90 s record, one pixel can be 0.1 s or more.
 - **Far stations.** School stand-ins more than ~120 km away give weaker, less reliable picks.
   It is fine to skip them.
