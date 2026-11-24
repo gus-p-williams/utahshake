@@ -15,8 +15,8 @@ see, analyze and do research with seismic data from their own school and the reg
 - Owner/lead: Gus Williams (DRI UHSN team).
 - Project overview (canonical since D27): `planning/evaluation.md`, "Utah High School Seismic
   Network: Student Apps and Activities"; Word copy "planning/UHSN overview - student apps and
-  activities.docx". The old living claude.ai doc (138FYiSq…) is retired: delete it (Gus
-  confirms).
+  activities.docx". The old living claude.ai doc was deleted on 2026-11-24 (Gus); its
+  23 November text is in git history.
 - Questions document for Dale and Cleat: `planning/activities.md`, "UHSN classroom activities
   by setup" (46 activities by setup, IDs E1–E14, S1–S18, R1–R8, P1–P6) + Word copy
   "planning/UHSN questions - classroom activities by setup.docx". Both Word copies are built
@@ -152,7 +152,8 @@ sequences the work and integrates it.
   | P2-overview | Project overview (`planning/evaluation.md` + Word) | main folder, `planning/` | done, committed (D28) |
   | D1-cards | "At a glance" boxes, Teachers catalog, Quake Waves card, QE follow-ups | `-cards`, branch `teacher-cards` | done (fad0919), in review |
   | D2-plots | Six missing plots, three figure fixes | `-plots`, branch `plots` | active |
-  | D3-spelling | US spelling across the site | `-spelling`, branch `us-spelling` | after D1 and D2 merge |
+  | D3-rename | Wave Race → Quake Locator (names only; addresses unchanged), incl. both documents | `-rename`, branch `rename` | after D1 merges |
+  | D4-spelling | US spelling across the site | `-spelling`, branch `us-spelling` | after D2 and D3 merge |
 
   Retired before IDs: the figures sessions, the Quake Explorer session (merged, D22–D25).
 
@@ -290,10 +291,11 @@ out of the menus:
 1. **Sessions at work** (started by Gus from the master session's prompts, 2026-11-24). The
    master reviews each, commits by path or merges, and runs the integration checklist.
    a–b. *P1-activities and P2-overview*: **done and committed** (D28). The two documents for
-      Dale and Cleat passed a side-by-side review. Before Gus sends them: merge D1-cards (the
-      questions document links its new card, "One quake, two waves", which is 404 until
-      then) and delete the old living doc (Gus confirms). Their answers then drive the
-      roadmap's "Proposed, pending Dale and Cleat" list and the next activity cards.
+      Dale and Cleat passed a side-by-side review; the old living doc is deleted. Before Gus
+      sends them (with the cover note M1 drafted): merge D1-cards (the questions document
+      links its new card, "One quake, two waves", which is 404 until then), then D3-rename
+      (Wave Race → Quake Locator in the site and both documents). Their answers then drive
+      the roadmap's "Proposed, pending Dale and Cleat" list and the next activity cards.
    c. *Teacher-cards session* (branch `teacher-cards`, worktree `G:\GIT_Repo\2026_11_Shake-cards`):
       "At a glance" boxes on all five cards, the Teachers catalog, a Quake Waves card, the
       Wave Race card (S picked at only 3 offline stations; 6 of 9 P picks in its key;
