@@ -13,3 +13,18 @@ python -I fix_equations.py export.docx eqs.docx fixed.docx
 
 If the planning doc gains or loses equations, update `equations.md` (same order
 as in the document) and the expected count in the script.
+
+## Markdown → Word (current way)
+
+The planning docs sent to colleagues are written in Markdown in `planning/` (the repo copy is
+canonical). `md_to_docx.py` builds the Word copy with pandoc: the first `#` heading becomes the
+document title, equations become native Word equations, and every table gets borders and a
+repeating header row (so reply columns can be filled in). It replaces the export-and-fix route
+above for these files.
+
+```bash
+python -I tools/planning-docx/md_to_docx.py planning/activities.md "planning/UHSN activities by setup.docx" <path to pandoc>
+```
+
+Pandoc sizes table columns by the length of the `---` runs in each column's separator line, so
+widen a run to widen its column. Images must be PNG (or JPEG) to show in Word.
