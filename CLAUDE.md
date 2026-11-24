@@ -96,12 +96,16 @@ tools/                  vendoring and data-sample scripts
 - 2026-11-23: Planning complete (evaluation doc). Repo context files created.
   Stage 0 skeleton (mkdocs.yml, Pages workflow, placeholder app) committed and
   pushed to gus-p-williams/utahshake; Pages enabled (Actions). site_url/repo_url set.
+  Checked from Gus's machine (Claude Code): USGS event, EarthScope station and
+  dataselect (UU) all return 200 with `Access-Control-Allow-Origin: *`, so browser
+  fetches work and Claude Code here can test with real data (no allowlist needed).
 - MkDocs Material reaches end of life 2027-05-05; plan a Zensical migration test
   before then (see decisions D4).
 
 ## Next steps
 
-1. Check from Gus's machine that EarthScope + USGS FDSN are reachable (and CORS OK).
-2. Stage 1 build (Wave Race + Locator; see roadmap).
+1. Stage 1 build (Wave Race + Locator; see roadmap).
+2. Bump GitHub Actions to Node 24 majors (runs warn that checkout@v4,
+   setup-python@v5, upload/deploy-pages target deprecated Node 20).
 3. Optional: move the repo to a DRI GitHub org if one exists (GitHub redirects old
    links; update site_url/repo_url).
