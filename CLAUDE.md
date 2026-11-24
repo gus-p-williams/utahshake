@@ -293,9 +293,10 @@ out of the menus:
 2. **Open questions for Gus / DRI:**
    a. Which Raspberry Shake model is at each school (they may differ)? The seismometer figure
       on Reading a seismogram is a generic geophone.
-   b. Spelling: the site's prose is British (kilometre, colour, grey, labelled), its
-      seismology terms US (epicenter, hypocenter, toward). The audience is Utah schools, so
-      US spelling throughout is the natural rule; Gus to decide, then one cleanup pass.
+   b. Spelling: **US spelling everywhere** (Gus, 2026-11-24). All new writing uses it now
+      (kilometer, color, gray, labeled, center, meter). Existing pages are converted in one
+      cleanup pass after the teacher-cards and plots branches merge (to avoid conflicts);
+      log the decision when that pass lands.
    c. DRI: choose a license (MIT or BSD) and add LICENSE; the public repo has none yet.
    d. `tools/figures/.cache/` holds about 715 MB (git-ignored). Gus keeps it for now.
 3. **Trials:** Wave Race, Quake Waves and each Quake Explorer investigation's 15-minute

@@ -42,14 +42,18 @@ def main():
         sys.exit(__doc__)
     src, out = sys.argv[1], sys.argv[2]
     pandoc = sys.argv[3] if len(sys.argv) > 3 else "pandoc"
+    # Images are referenced relative to the Markdown file, so let pandoc look there.
+    src_dir = os.path.dirname(os.path.abspath(src))
     subprocess.run([pandoc, src, "-f", "markdown", "-t", "docx",
-                    "--shift-heading-level-by=-1", "-o", out], check=True)
+                    "--shift-heading-level-by=-1", f"--resource-path={src_dir}{os.pathsep}.",
+                    "-o", out], check=True)
     doc = Document(out)
     for t in doc.tables:
         add_borders(t)
     doc.save(out)
-    print(f"{out}: {len(doc.tables)} tables bordered, title {doc.core_properties.title!r}, "
-          f"{os.path.getsize(out):,} bytes")
+    images = len(doc.inline_shapes)
+    print(f"{out}: {len(doc.tables)} tables bordered, {images} images, "
+          f"title {doc.core_properties.title!r}, {os.path.getsize(out):,} bytes")
 
 
 if __name__ == "__main__":
