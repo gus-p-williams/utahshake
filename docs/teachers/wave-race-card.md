@@ -22,7 +22,10 @@ S-minus-P time; locate an epicenter from several stations; judge how good their 
 No accounts or logins. Student names are never entered or stored.
 
 !!! tip "Before class"
-    Open the app on the school network and choose the quake you will use. If the quake list
+    Open the app on the school network and choose the quake you will use. With live data, the
+    **2026 Kanosh quake** under Classic quakes shows a clear S at all 10 of its stations and
+    happened 29 km from Millard High School; the 2020 Magna earthquake is famous but poor for
+    S − P, because most of its records are clipped. If the quake list
     doesn't load, use **Use the offline sample** (top right): the
     [answer key](#answer-key-offline-sample-quake) below is for that quake. What to ask IT to
     allow, and how to send the whole class to the same quake, are under

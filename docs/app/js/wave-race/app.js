@@ -1,7 +1,7 @@
 // Quake Locator: pick P and S on real seismograms, turn S-minus-P times into
 // distances, and locate a Utah quake. See docs/apps/wave-race.md. Its folder, pages,
 // storage keys and WAVE_RACE config keep the old name (docs/developers/wave-race.md).
-import { REGION, SCHOOLS, WAVE_RACE as W, FILTERS, PRESET_EVENTS, ATTRIBUTION } from '../config.js';
+import { REGION, SCHOOLS, WAVE_RACE as W, FILTERS, PRESET_EVENTS, CLEAR_S_HINT, ATTRIBUTION } from '../config.js';
 import { sourceFromUrl } from '../data/datasource.js';
 import { filteredData } from '../data/filters.js';
 import { isFlat } from '../lib/signal.js';
@@ -126,10 +126,13 @@ function renderPresets(available) {
     if (available && !available.has(p.id)) continue;
     const b = document.createElement('button');
     b.type = 'button';
-    b.textContent = p.label;
+    b.innerHTML = `${esc(p.label)}${p.note ? ` <span class="note">· ${esc(p.note)}</span>` : ''}`;
     b.addEventListener('click', () => loadEvent(p.id));
     box.append(b);
   }
+  const hint = $('clear-s-hint');
+  hint.textContent = CLEAR_S_HINT.text;
+  hint.hidden = !!available && !available.has(CLEAR_S_HINT.id);
 }
 
 async function loadEventList() {

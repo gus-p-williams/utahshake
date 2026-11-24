@@ -40,13 +40,23 @@ near the UHSN schools. **The location is hidden**: finding it is your job. Magni
 is easiest; small quakes are harder to see above the background noise.
 
 <figure markdown="span">
-  ![The Quake Locator quake chooser: buttons for two classic quakes, then a table of recent Utah quakes with date, time and magnitude, a star on quakes near the UHSN schools and a Load button on each row. The first star and the Use the offline sample link at the top right are outlined in orange.](img/wave-race-choose.png){ loading=lazy }
+  ![The Quake Locator quake chooser: buttons for three classic quakes, each with a note: the 2020 Magna earthquake, famous but S is hard to see because most records are clipped; the 2026 Junction quake, clear S at 7 of 10 stations, best for S minus P; the 2026 Kanosh quake, clear S at all 10 stations, 29 km from Millard High School. Under them a line says: for a clear S minus P, try the 2026 Junction quake. Then a table of recent Utah quakes with date, time and magnitude, a star on quakes near the UHSN schools and a Load button on each row. The first star and the Use the offline sample link at the top right are outlined in orange.](img/wave-race-choose.png){ loading=lazy }
   <figcaption>Figure 1. Choosing a quake. A ★ marks quakes near the UHSN schools; where each
   quake happened is hidden. <b>Use the offline sample</b> (top right) loads a quake stored
   with the site.</figcaption>
 </figure>
 
-You can also pick a **classic quake**, such as the 2020 Magna earthquake (M5.7).
+You can also pick one of three **classic quakes**. Each one's note says what it is good for.
+"Clear S" means the S wave is at least 3 times bigger than the shaking just before it, so
+you can see where it starts.
+
+- **2026 Junction quake (M3.3):** clear S at 7 of its 10 stations, so it is the best place to
+  start. It is also the offline sample.
+- **2026 Kanosh quake (M3.3):** clear S at all 10 stations. It happened 29 km from Millard
+  High School, one of a swarm of small quakes there that day. It needs live data.
+- **2020 Magna earthquake (M5.7):** the famous one, but S is hard to see. The shaking was so
+  strong that most sensors maxed out: their records are *clipped* (flat tops), and S is lost
+  in them.
 
 ### 2. Pick the P and S waves
 

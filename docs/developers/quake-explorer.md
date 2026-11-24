@@ -24,7 +24,7 @@ data services and their licenses are in [Data sources and licensing](data-source
 | `docs/app/js/lib/` | Pure, tested logic: `spectral.js` (FFT, spectrogram), `traveltime.js` (Pg, Pn, crossover, crust from the intercept), `linefit.js` (speeds, two-line fit), `motion.js` (rotations, direction from P), `units.js` (counts to m/s), `picker.js` (AIC computer picks), `teleseism.js` (Earth-model travel times), `audify.js`, `record-section.js`, `hodogram.js`, and additions to `signal.js` (decimate, clipping) |
 | `docs/app/data/samples/qe-*/` | Six offline samples (the `explorer` list in `samples/index.json`) |
 | `docs/app/data/traveltimes-iasp91.json` | First P and S times through the iasp91 Earth model, by depth and distance |
-| `tools/quake-explorer/` | Science checks (`pn-check.mjs`, `motion-check.mjs`, `blast-check.mjs`), the answer key (`answer-key.mjs`), the sample builder (`make-sample.mjs`) and the travel-time table (`traveltime_table.py`, needs ObsPy) |
+| `tools/quake-explorer/` | Science checks (`pn-check.mjs`, `motion-check.mjs`, `blast-check.mjs`, `clear-s-check.mjs`), the answer key (`answer-key.mjs`), the sample builder (`make-sample.mjs`) and the travel-time table (`traveltime_table.py`, needs ObsPy) |
 
 ## Data flow
 
@@ -73,6 +73,15 @@ quake and investigation.
   clipped in the Magna quake (`lib/signal.js` `flatTopInfo` finds them).
 - **Per-quake station notes** (`stationNotes` on a preset in `quake-explorer/config.js`) are
   listed in A beside the clipped stations, for example SGU in the 2020 Magna quake.
+- **How clear S is.** The presets' notes ("clear S at 16 of 23 stations: best for S − P",
+  "S is hard to see", "S is faint") and the tip under Explore in A and C (`CLEAR_S_QUAKE`:
+  "For a clear S, try the 2026 Junction quake", with a **Load it** button; `renderSteps`'s
+  `tip`, shown with `showTip`) come from `node tools/quake-explorer/clear-s-check.mjs`. S is
+  clear when the 2 s after it are at least 3 times bigger (rms) than the P coda just before
+  it (`lib/clear-s.js`), counted on what each view shows: A's vertical traces at 1–10 Hz,
+  C's three-component stations within 200 km at 1–5 Hz. Where the analysts picked no S, the
+  S time is the saved computer pick or a fresh AIC pick, kept only if its S − P fits the crust
+  model. `tests/clear-s.test.js` fails if a note's count no longer matches the samples.
 - **Particle motion** uses 1–5 Hz and a window from 0.05 s before to 0.5 s after the P pick;
   stations beyond 100 km get a "far" warning.
 - **Distant quakes** are recorded at stations near the schools, shown downsampled to 20
@@ -101,6 +110,8 @@ The figures on the science pages it uses come from `tools/figures/science-travel
 
 ```bash
 node tools/quake-explorer/answer-key.mjs  # the numbers in the activity cards (offline)
+node tools/quake-explorer/clear-s-check.mjs         # "clear S" counts in the presets' notes (offline)
+node tools/quake-explorer/clear-s-check.mjs --live  # the same for Quake Locator's classic quakes (live)
 node tools/quake-explorer/make-sample.mjs uu80162166 --dir qe-junction --section 300 \
   --threeC MTPU,TCRU,FOR1,TMU,SGU,SUU,PSUT,LIUT --pre 10 --post 110
 ```

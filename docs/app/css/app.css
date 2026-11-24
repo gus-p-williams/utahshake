@@ -139,6 +139,7 @@ label.inline { display: inline-flex; align-items: center; gap: .4rem; font-size:
 
 .presets { display: flex; flex-wrap: wrap; gap: .4rem; }
 .presets button { font-size: .88rem; }
+.presets .note { color: var(--muted); font-size: .82rem; }
 .table-wrap { max-height: 320px; overflow: auto; border: 1px solid var(--border); border-radius: 8px; }
 table.events { width: 100%; border-collapse: collapse; font-size: .92rem; }
 table.events th, table.events td { padding: .35rem .6rem; text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap; }

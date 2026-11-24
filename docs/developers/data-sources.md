@@ -70,7 +70,9 @@ ABOUT.txt       provenance and credits
 
 Make a new one with `node tools/samples/fetch-sample.mjs <ComCat id>`. The script also checks
 that the analysts' S − P times locate the quake within a few km. Add the ID to `PRESET_EVENTS`
-in `config.js` if it should appear as a classic quake. `npm test` runs real-data checks on
+in `config.js` if it should appear as a classic quake, with a `note` on what it is good for;
+`node tools/quake-explorer/clear-s-check.mjs --live <id>` counts how many of its stations show
+a clear S (for the "clear S at N of M stations" notes). `npm test` runs real-data checks on
 every sample.
 
 **Quake Explorer's samples** live beside them in `docs/app/data/samples/qe-*/` and are listed

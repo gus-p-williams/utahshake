@@ -10,7 +10,7 @@ import * as L from '../../vendor/leaflet.js';
 import { loadStation, trimToData } from './data.js';
 import { fillStationSelect } from './station-select.js';
 import { renderSteps } from './steps.js';
-import { QUAKE_EXPLORER as Q, SCHOOLS } from './config.js';
+import { QUAKE_EXPLORER as Q, CLEAR_S_QUAKE, SCHOOLS } from './config.js';
 import { WAVE_RACE } from '../config.js';
 import { filteredData } from '../data/filters.js';
 import { destination, distanceKm } from '../lib/geo.js';
@@ -58,6 +58,7 @@ export function createC(ctx) {
       <a href="../../theory/waves/" target="_blank" rel="noopener">Seismic waves ↗</a></p>`,
     checkLabel: "Lock my guess and show the computer's direction",
     onCheck: showComputer,
+    tip: { text: CLEAR_S_QUAKE.C, onLoad: () => ctx.openEvent(CLEAR_S_QUAKE.id, 'C') },
   });
 
   $('c-station').addEventListener('change', () => select($('c-station').value));
@@ -247,6 +248,8 @@ export function createC(ctx) {
     reset() {
       st = null; loadedFor = null; stage = 0; mode = 'NE';
       steps.setEvent(ctx.event.id);
+      // One-station S − P is for quakes near Utah only (oneStation() skips distant ones).
+      steps.showTip(ctx.event.id !== CLEAR_S_QUAKE.id && !isDistant());
       if (lines) lines.clearLayers();
       if (map) { map.setOfficial(null); map.setCircles([]); }
     },

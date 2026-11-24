@@ -19,7 +19,8 @@ services and their licenses are in [Data sources and licensing](data-sources.md)
 | `docs/app/js/ui/trace-view.js` | Canvas seismogram with zoom, pan, picks |
 | `docs/app/js/ui/map-view.js` | Leaflet map: stations, circles, epicenters, the student's pin |
 | `docs/app/js/ui/page.js` | Shared with the other apps: credits footer (`showCredits`), Live/Offline badge (`showSourceBadge`), CSV download (`csvRow`, `downloadCsv`), HTML escaping (`esc`) |
-| `docs/app/js/config.js` | Schools, stand-in stations, defaults, presets (classic quakes), credit texts (`ATTRIBUTION`) |
+| `docs/app/js/config.js` | Schools, stand-in stations, defaults, presets (classic quakes, each with a `note`) and the "For a clear S − P, try …" line under them (`CLEAR_S_HINT`), credit texts (`ATTRIBUTION`) |
+| `docs/app/js/lib/clear-s.js` | How clearly S stands out over the P coda; behind the "clear S at N of M stations" notes (run offline by `tools/quake-explorer/clear-s-check.mjs`, checked by `tests/clear-s.test.js`; the app doesn't run it) |
 | `docs/app/data/samples/uu80162166/` | The offline sample quake (M3.3 near Junction) |
 
 ## Data flow in Quake Locator { #data-flow-in-wave-race }

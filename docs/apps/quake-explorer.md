@@ -55,10 +55,17 @@ Start with one of the quakes under **Start here**, or choose from the two lists:
 - **Big quakes far away** (magnitude 6.5 and up, last 2 years) work in B, C and D.
 
 <figure markdown="span">
-  ![The Quake Explorer chooser. Under Start here, six buttons: 2026 Junction quake (M3.3), the worked example; 2020 Magna earthquake (M5.7), look for the bend at 150 km; a 2026 quarry blast near Leamington and a 2025 earthquake near Leamington, each to compare with the other; a 2026 quake recorded at Wasatch Academy, which way did it come from; and the 2025 Sand Point, Alaska earthquake (M7.3). Below, two tables: Utah quakes and blasts, with date, time, magnitude and what it was, and Big quakes far away, with date, magnitude, where and distance in degrees.](img/qe-choose.png){ loading=lazy }
+  ![The Quake Explorer chooser. Under Start here, six buttons: 2026 Junction quake (M3.3), the worked example, clear S at 16 of 23 stations, best for S minus P; 2020 Magna earthquake (M5.7), look for the bend at 150 km (S is hard to see); a 2026 quarry blast near Leamington and a 2025 earthquake near Leamington, each to compare with the other; a 2026 quake recorded at Wasatch Academy, which way did it come from (S is faint); and the 2025 Sand Point, Alaska earthquake (M7.3). Below, two tables: Utah quakes and blasts, with date, time, magnitude and what it was, and Big quakes far away, with date, magnitude, where and distance in degrees.](img/qe-choose.png){ loading=lazy }
   <figcaption>Figure 1. Choosing a quake (here with the offline samples). The Start here
   quakes each suit one investigation best; their notes say which.</figcaption>
 </figure>
+
+**For a clear S** (the S ruler in A, and S − P in C), start with the Junction quake: S stands
+out at 16 of the 23 stations in its record section, and at 5 of the 6 stations with three
+sensors that C offers. "Stands out" means the S wave is at least 3 times bigger than the
+shaking just before it. On the Magna quake S is hard to see, because many of its records
+are clipped (the sensor maxed out); on the quake recorded at Wasatch Academy it is faint.
+When another quake is loaded, A and C offer a **Load it** link to the Junction quake.
 
 After you load a quake, the four investigation tabs appear. A tab is greyed out when the
 quake doesn't suit it: a record section (A) needs a quake near Utah, and D needs one far away.
@@ -71,7 +78,7 @@ the quake. Every station is a stopwatch at a known distance, so a wave that trav
 steady speed makes its arrivals line up. The steeper the line, the faster the wave.
 
 <figure markdown="span">
-  ![The record section for the 2020 Magna earthquake after Reveal: about 30 seismograms stacked from 12 km at the top to 397 km at the bottom, time from minus 10 to 90 seconds across. Blue circles (analyst P picks) and blue squares (computer picks) line up along a blue line labelled Pg that slopes down to the right, then, beyond about 150 km, along a steeper green line labelled Pn. Red circles and squares follow a less steep red S line. School stand-in stations are drawn in orange; clipped stations are marked clipped. The panel on the right shows the four steps and the answer: P 6.07 km/s, S 3.64 km/s, and, past 143 km, a faster 7.67 km/s line giving a crust about 36 km thick.](img/qe-a-record-section.png){ loading=lazy }
+  ![The record section for the 2020 Magna earthquake after Reveal: about 30 seismograms stacked from 12 km at the top to 397 km at the bottom, time from minus 10 to 90 seconds across. Blue circles (analyst P picks) and blue squares (computer picks) line up along a blue line labelled Pg that slopes down to the right, then, beyond about 150 km, along a steeper green line labelled Pn. Red circles and squares follow a less steep red S line. School stand-in stations are drawn in orange; clipped stations are marked clipped. The panel on the right shows the four steps (with a line suggesting the Junction quake for a clear S) and the answer: P 6.07 km/s, S 3.64 km/s, and, past 143 km, a faster 7.67 km/s line giving a crust about 36 km thick.](img/qe-a-record-section.png){ loading=lazy }
   <figcaption>Figure 2. The record section for the 2020 Magna earthquake after <b>Reveal the
   professionals' picks</b>. Past about 150 km the first arrivals follow a faster line (Pn):
   waves that raced along the top of the mantle.</figcaption>

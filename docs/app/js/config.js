@@ -64,12 +64,25 @@ export const FILTERS = [
 
 /**
  * "Classic" quakes students can always load. Times and locations verified
- * against USGS ComCat on 2026-11-23.
+ * against USGS ComCat on 2026-11-23 (Kanosh: 2026-11-24).
+ * note: what the quake is good for. The "clear S at N of M stations" counts come from
+ * tools/quake-explorer/clear-s-check.mjs (S at least 3 times the P coda before it);
+ * tests/clear-s.test.js checks Junction's against its offline sample.
  */
 export const PRESET_EVENTS = [
-  { id: 'uu60363602', label: '2020 Magna earthquake (M5.7)' },
-  { id: 'uu80162166', label: '2026 Junction quake (M3.3)' }, // also the offline sample
+  { id: 'uu60363602', label: '2020 Magna earthquake (M5.7)',
+    note: 'famous, but S is hard to see: most records are clipped' },
+  { id: 'uu80162166', label: '2026 Junction quake (M3.3)', // also the offline sample
+    note: 'clear S at 7 of 10 stations: best for S − P' },
+  { id: 'uu80137056', label: '2026 Kanosh quake (M3.3)', // live only
+    note: 'clear S at all 10 stations, 29 km from Millard High School' },
 ];
+
+/** Shown under the classic quakes when the suggested one is offered. */
+export const CLEAR_S_HINT = {
+  id: 'uu80162166',
+  text: 'For a clear S − P, try the 2026 Junction quake: S stands out at 7 of its 10 stations.',
+};
 
 /** Data credits shown on every page that displays data. */
 export const ATTRIBUTION = {

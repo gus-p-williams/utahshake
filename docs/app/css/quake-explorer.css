@@ -8,7 +8,6 @@
 .qe-lists h3 { font-size: 1rem; margin: .2rem 0 0; }
 .qe-lists .table-wrap { max-height: 260px; }
 @media (max-width: 900px) { .qe-lists { grid-template-columns: minmax(0, 1fr); } }
-.presets .note { color: var(--muted); font-size: .82rem; }
 table.events td.blast { color: var(--warn); }
 
 /* Tabs: one per investigation. */

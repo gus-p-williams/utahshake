@@ -36,6 +36,7 @@ docs/app/
       motion.js            sensor rotations, direction to the quake from P motion
       units.js             counts -> m/s from the station's sensitivity
       picker.js            AIC computer picks
+      clear-s.js           how clearly S stands out over the P coda (behind the quakes' "clear S" notes; run offline)
       teleseism.js         Earth-model (iasp91) travel times for distant quakes
       audify.js, record-section.js, hodogram.js   helpers for Quake Explorer's views
       response.js          instrument response from StationXML poles and zeros (counts per m/s at any frequency)
@@ -69,6 +70,7 @@ tests/                     node --test, including real-data checks on the sample
   app-list.test.js         every app folder is listed on the All apps page (docs/apps/index.md)
   teacher-cards.test.js    activity cards and app hubs link both ways (D19); the Teachers catalog
                            and standards tables match each card's "At a glance" box
+  clear-s.test.js          the "clear S at N of M stations" notes match the offline samples
   qe-notes-credits.test.js Quake Explorer's per-quake station notes and the iasp91 credit
 tools/
   vendor/                  esbuild script that regenerates docs/app/vendor/

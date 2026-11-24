@@ -7,7 +7,7 @@
 import { RecordSectionView } from './record-section-view.js';
 import { loadRecordSection, sectionFits } from './data.js';
 import { renderSteps } from './steps.js';
-import { QUAKE_EXPLORER as Q, stationNotes } from './config.js';
+import { QUAKE_EXPLORER as Q, CLEAR_S_QUAKE, stationNotes } from './config.js';
 import { curves } from '../lib/traveltime.js';
 import { esc } from '../ui/page.js';
 
@@ -54,6 +54,7 @@ export function createA(ctx) {
       <p><a href="../../theory/travel-times/" target="_blank" rel="noopener">Travel times and Earth's layers ↗</a></p>`,
     checkLabel: "Reveal the professionals' picks",
     onCheck: reveal,
+    tip: { text: CLEAR_S_QUAKE.A, onLoad: () => ctx.openEvent(CLEAR_S_QUAKE.id, 'A') },
   });
 
   $('a-ruler-p').addEventListener('click', () => { view.placeRuler('P'); rulers.P = view.getRuler('P'); renderReadout(); });
@@ -157,6 +158,7 @@ export function createA(ctx) {
       $('a-reduce').checked = false; view.setReduce(0);
       $('a-amp').value = 'trace'; view.setAmplitude('trace');
       steps.setEvent(ctx.event.id);
+      steps.showTip(ctx.event.id !== CLEAR_S_QUAKE.id);
       renderReadout();
     },
     async show() {

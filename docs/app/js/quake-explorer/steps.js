@@ -31,8 +31,11 @@ function save(key, value) {
  * @param {string} cfg.why          HTML: the science, with links to the science pages
  * @param {string} cfg.checkLabel   e.g. "Reveal the professionals' picks"
  * @param {() => void} cfg.onCheck
+ * @param {{text:string, onLoad:() => void}} [cfg.tip] a line under Explore suggesting a
+ *   better quake for this investigation, with a "Load it" button; hidden until showTip(true)
  * @returns {{readout:HTMLElement, result:HTMLElement, extra:HTMLElement,
- *   setEvent:(id:string)=>void, prediction:()=>string|null, setChecked:(on:boolean)=>void}}
+ *   setEvent:(id:string)=>void, prediction:()=>string|null, setChecked:(on:boolean)=>void,
+ *   showTip:(on:boolean)=>void}}
  */
 export function renderSteps(el, cfg) {
   const name = `qe-predict-${cfg.inv}`;
@@ -47,6 +50,8 @@ export function renderSteps(el, cfg) {
       </li>
       <li data-step="explore"><b>2 · Explore</b>
         <div>${cfg.explore}</div>
+        ${cfg.tip ? `<p class="hint" data-part="tip" hidden>${esc(cfg.tip.text)}
+          <button type="button" class="link" data-part="tip-load">Load it</button></p>` : ''}
         <div class="qe-readout" data-part="readout"></div>
       </li>
       <li data-step="why"><b>3 · Why?</b>
@@ -78,6 +83,7 @@ export function renderSteps(el, cfg) {
     el.querySelector('[data-step="check"]').classList.add('done');
     cfg.onCheck();
   });
+  part('tip-load')?.addEventListener('click', () => cfg.tip.onLoad());
 
   return {
     readout: part('readout'),
@@ -95,5 +101,6 @@ export function renderSteps(el, cfg) {
     prediction: () => radios.find((r) => r.checked)?.value ?? null,
     predictionLabel: () => radios.find((r) => r.checked)?.nextElementSibling?.textContent.trim() ?? '',
     setChecked(on) { el.querySelector('[data-step="check"]').classList.toggle('done', on); },
+    showTip(on) { const t = part('tip'); if (t) t.hidden = !on; },
   };
 }
