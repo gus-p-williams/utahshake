@@ -3,6 +3,7 @@
 import { chooseChannels } from '../lib/fdsn.js';
 import { distanceKm } from '../lib/geo.js';
 import { esc } from '../ui/page.js';
+import { DISTANT } from './config.js';
 
 /**
  * Fill a <select> with stations for this quake.
@@ -21,9 +22,20 @@ export async function fillStationSelect(select, ctx, opt = {}) {
     if (!ch || (opt.threeC && ch.channels.length < 3)) continue;
     const d = distanceKm(e.lat, e.lon, s.lat, s.lon);
     if (opt.maxKm && d > opt.maxKm) continue;
-    list.push({ key: `${s.net}.${s.sta}`, station: s, distKm: d });
+    list.push({ key: `${s.net}.${s.sta}`, station: s, distKm: d, band: ch.band });
   }
-  list.sort((a, b) => a.distKm - b.distKm);
+  if (ctx.kind === 'distant') {
+    // A quake far away: every station near the schools is about as far from it, so list the
+    // schools' broadband stand-ins first, then other broadband (HH) stations, which record
+    // the long, slow waves best.
+    const rank = (x) => {
+      const i = DISTANT.stations.indexOf(x.station.sta);
+      return i >= 0 ? i : DISTANT.stations.length + (x.band === 'HH' ? 0 : 1);
+    };
+    list.sort((a, b) => rank(a) - rank(b) || a.distKm - b.distKm);
+  } else {
+    list.sort((a, b) => a.distKm - b.distKm);
+  }
   const shown = opt.limit ? list.slice(0, opt.limit) : list;
   const far = (d) => (opt.farKm && d > opt.farKm && !opt.hideKm ? ' (far: less reliable)' : '');
   const km = (d) => (opt.hideKm ? '' : d >= 1000 ? `, ${Math.round(d).toLocaleString('en-US')} km` : `, ${Math.round(d)} km`);
