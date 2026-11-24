@@ -63,8 +63,8 @@ see, analyze and do research with seismic data from their own school and the reg
 - Pure logic (distance, location, filters) in small modules with `node --test` tests.
 - Teacher materials: one **activity card per activity**, not per app (D19). Activities and
   apps are many-to-many: a card may use several apps, or none (campus experiments, phones),
-  and **an app can be used by several cards** (e.g. Quake Waves in the Wave Race card and in
-  its own card; Quake Explorer in one card per investigation). Every app has at least one
+  and **an app can be used by several cards** (e.g. Quake Waves in the Quake Locator card and
+  in its own card; Quake Explorer in one card per investigation). Every app has at least one
   card; each app hub lists all cards that use it; each card lists the apps it uses.
 - Later: Python notebooks (ObsPy) for local/research analysis; a scheduled job for
   precomputed products (e.g. hourly noise for the seismic carpet).
@@ -153,8 +153,9 @@ sequences the work and integrates it.
   | P2-overview | Project overview (`planning/evaluation.md` + Word) | main folder, `planning/` | done, committed (D28) |
   | D1-cards | "At a glance" boxes, Teachers catalog, Quake Waves card, QE follow-ups | `-cards`, branch `teacher-cards` | merged 2026-11-24 (D29) |
   | D2-plots | Six missing plots, three figure fixes | `-plots`, branch `plots` | active |
-  | D3-rename | Wave Race → Quake Locator (names only; addresses unchanged), incl. both documents | `-rename`, branch `rename` | after D1 merges |
-  | D4-spelling | US spelling across the site | `-spelling`, branch `us-spelling` | after D2 and D3 merge |
+  | D3-rename | Wave Race → Quake Locator (names only; addresses unchanged), incl. both documents | `-rename`, branch `rename` | merged 2026-11-24 (D30) |
+  | D4-spelling | US spelling across the site | `-spelling`, branch `us-spelling` | after D2, D3 and D5 merge |
+  | D5-band-hint | Quake Explorer B: show on the spectrogram that dragging chooses a band | `-band`, branch `band-hint` | active |
 
   Retired before IDs: the figures sessions, the Quake Explorer session (merged, D22–D25).
 
@@ -295,21 +296,24 @@ out of the menus:
   New developer page `adding-a-card.md`. `npm test` = 166; site check 34 pages at 3 widths.
   The two documents for Dale and Cleat are committed (D28), with a cover note; they go out
   after the Wave Race → Quake Locator rename (D3-rename).
+- 2026-11-24 (night): **Wave Race renamed Quake Locator** (D30, session D3-rename): names
+  only, so every address, folder, code name and storage key still says wave-race; renamed
+  headings keep their old anchors; the CSV download is `quake-locator-<id>.csv`.
+  `tests/old-app-name.test.js` keeps the old name off the site (one developer note allowed).
+  Both documents and their Word copies use the new name; the overview's diagram is now made
+  by `tools/planning-docx/overview-images.mjs`. `npm test` = 168. History (decisions, the
+  Quake Explorer plan, older status entries here) keeps the old name.
 
 ## Next steps
 
 1. **Sessions at work** (started by Gus from the master session's prompts, 2026-11-24). The
    master reviews each, commits by path or merges, and runs the integration checklist.
    a–b. *P1-activities and P2-overview*: **done and committed** (D28). The two documents for
-      Dale and Cleat passed a side-by-side review; the old living doc is deleted. Before Gus
-      sends them (with the cover note M1 drafted): D3-rename (Wave Race → Quake Locator in the
-      site and both documents). Their answers then drive the roadmap's "Proposed, pending
-      Dale and Cleat" list and the next activity cards.
-   c. *D1-cards*: merged (D29). Remove its worktree `G:\GIT_Repo\2026_11_Shake-cards` when
-      nothing more is needed from it.
-   c2. *D3-rename* (branch `rename`, worktree `G:\GIT_Repo\2026_11_Shake-rename`): Wave Race →
-      Quake Locator, names only; web addresses and internal names unchanged; a test keeps
-      the old name out of the site. Then the documents go to Dale and Cleat.
+      Dale and Cleat passed a side-by-side review; the old living doc is deleted; the rename
+      is in. **Ready for Gus to send** with the cover note M1 drafted. Their answers then
+      drive the roadmap's "Proposed, pending Dale and Cleat" list and the next activity cards.
+   c. *D1-cards* (D29) and *D3-rename* (D30): merged. Remove their worktrees
+      (`-cards`, `-rename`) when nothing more is needed from them.
    d. *Plots session* (branch `plots`, worktree `G:\GIT_Repo\2026_11_Shake-plots`): helicorder,
       PPSD, seismic carpet, event stack, H/V, cross-correlation on a new science page; the
       three figure fixes in `planning/science-figures.md`. Merge cards before plots.
@@ -322,7 +326,7 @@ out of the menus:
       log the decision when that pass lands.
    c. DRI: choose a license (MIT or BSD) and add LICENSE; the public repo has none yet.
    d. `tools/figures/.cache/` holds about 715 MB (git-ignored). Gus keeps it for now.
-3. **Trials:** Wave Race, Quake Waves and each Quake Explorer investigation's 15-minute
+3. **Trials:** Quake Locator, Quake Waves and each Quake Explorer investigation's 15-minute
    version with a teacher or students; someone listens to Quake Explorer's sound on a school
    device.
 4. **From the Codex review, not yet assigned:** offline behavior of map tiles and picking by
