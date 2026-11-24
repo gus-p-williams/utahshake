@@ -21,6 +21,9 @@ New here? Watch [Quake Waves](apps/quake-waves.md) first, then try
     [Quake Waves](apps/quake-waves.md): watch P and S waves race out from a
     quake to four stations. A good warm-up for Quake Locator.
 
+    [Build a Wiggle](apps/build-a-wiggle.md): add sine waves with sliders and watch their sum
+    and its spectrum. A good warm-up for the notes in Quake Explorer.
+
     More are coming: see [All apps](apps/index.md).
 
 - **[The Science](theory/index.md)**

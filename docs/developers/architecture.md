@@ -16,7 +16,7 @@ docs/app/
   quake-waves/index.html   Quake Waves (cartoon; ?embed=1 inside Locating a quake)
   wave-animation/index.html  redirect stub: Quake Waves' old address, forwards to ../quake-waves/
   wave-motion/index.html   How P and S waves move rock (cartoon embedded in Seismic waves)
-  build-a-wiggle/index.html  Build a Wiggle (cartoon; ?embed=1 inside Frequencies, fading and sound)
+  build-a-wiggle/index.html  Build a Wiggle (made-up waves; ?embed=1 inside Frequencies, fading and sound)
   css/app.css              shared styles (light and dark, top bar, embed mode)
   css/quake-explorer.css   Quake Explorer's layout, on top of app.css
   js/
@@ -60,7 +60,7 @@ docs/app/
     quake-explorer/        Quake Explorer: controller, one module per investigation, its views
     quake-waves/app.js     the Quake Waves animation (canvas)
     wave-motion/app.js     the P/S rock-motion animation (canvas)
-    build-a-wiggle/app.js  the Build a Wiggle animation (canvas)
+    build-a-wiggle/app.js  the Build a Wiggle page controller (canvas)
   vendor/                  seisplotjs + Leaflet bundles (generated; see below)
   data/samples/<event>/    offline sample: event, stations, picks, waveforms.mseed
   data/samples/qe-*/       Quake Explorer's offline samples (the "explorer" list in index.json)
@@ -130,7 +130,7 @@ Node must first define `globalThis.HTMLElement` and `globalThis.customElements` 
 
 ## Animations in a docs page
 
-Three animations sit inside science pages in an `<iframe>`: `docs/theory/locating.md` embeds
+Three apps sit inside science pages in an `<iframe>`: `docs/theory/locating.md` embeds
 Quake Waves (`app/quake-waves/?embed=1`), `docs/theory/waves.md` embeds the P/S
 rock-motion cartoon (`app/wave-motion/?embed=1`) and `docs/theory/frequencies.md` embeds
 Build a Wiggle (`app/build-a-wiggle/?embed=1`). All three page controllers call `setupEmbed()`
@@ -145,9 +145,10 @@ and `followDocsTheme(draw)` from `ui/page.js`:
   own `<html>` and redraws when the switch changes; `app.css` honors `data-theme` before the
   device setting.
 
-Embedded animations need no hub page of their own, but each must still be listed on the All
-apps page (checked by `tests/app-list.test.js`); the P/S cartoon's guide link points to
-Seismic waves. `tests/doc-links.test.js` checks the iframe addresses. Quake Waves' old
+An embedded app may have a hub of its own (Quake Waves and Build a Wiggle do) or not (the P/S
+cartoon, whose guide link points to Seismic waves). Either way it must be listed on the All
+apps page (checked by `tests/app-list.test.js`): with the apps if it has a hub, under
+Animations if not. `tests/doc-links.test.js` checks the iframe addresses. Quake Waves' old
 address, `app/wave-animation/`, is a redirect stub that passes on `?embed=1`, so iframes that
 still use it keep working.
 
@@ -178,6 +179,7 @@ the same bytes every time it runs.
 | `plots-repeats.mjs` | `theory/img/plots-stack.svg`, `plots-xcorr.svg` | Node only; the event list (with its provenance) is `tools/figures/data/uttr-explosions.json` |
 | `screenshots.mjs` | `apps/img/wave-race-*.png` | `npm install` in `tools/figures`, Chrome, `node tools/serve.mjs` running |
 | `quake-explorer-screens.mjs` | `apps/img/qe-*.png` (Quake Explorer guide) | as `screenshots.mjs` |
+| `build-a-wiggle-screens.mjs` | `apps/img/bw-*.png` (Build a Wiggle guide) | as `screenshots.mjs` |
 
 `svg-traces.mjs` holds the shared house style and seismogram drawing; `svg-charts.mjs` adds
 charts over time, hour-of-day bars and the spectrogram image; `spectra.mjs` is a small FFT

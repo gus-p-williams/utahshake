@@ -7,8 +7,9 @@ rural Utah high schools.
 - **Apps** (no install, any browser): **Quake Locator** (pick P and S on real Utah
   seismograms and locate the quake, by eye or by grid search), **Quake Explorer** (four
   investigations: record section and the crust's thickness, spectrogram and sound, particle
-  motion, distant quakes) and **Quake Waves** (a cartoon of P and S waves reaching four
-  stations) are live; the campus-noise app (School Pulse) follows (see the roadmap). All of
+  motion, distant quakes), **Quake Waves** (a cartoon of P and S waves reaching four
+  stations) and **Build a Wiggle** (add sine waves with sliders and watch their sum and its
+  spectrum) are live; the campus-noise app (School Pulse) follows (see the roadmap). All of
   them are listed on the site's All apps page.
 - **Docs**: student guides, theory written for advanced high-school students, teacher
   activity cards mapped to Utah SEEd standards, and developer notes.

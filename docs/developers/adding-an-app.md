@@ -40,6 +40,12 @@ app has no notes page.
 - Add the hub to `nav:` under **Apps** in `mkdocs.yml`.
 - Add a card for it on [apps/index.md](../apps/index.md), the All apps page and the one list
   of apps, with a link to the app itself (`../app/<slug>/index.html`).
+- One rule sorts that page: **every app with a hub goes in the top grid**, in the same order
+  as the Apps menu, even if it uses no real data. The card opens with a line in italics that
+  says whether it does (*Real data: seismograms from Utah stations.* or *No real data: a
+  cartoon.*), then a short description, the **Open** button, and the guide link on its own
+  line under the button. Only an animation with no hub (the P/S motion cartoon) goes under
+  **Animations**.
 - **Every app folder must be on that page.** Each folder in `docs/app/` that holds an
   `index.html` needs a Markdown link containing `../app/<slug>/` on `apps/index.md`. That
   includes animations embedded in a science page, which have no hub of their own (the P/S

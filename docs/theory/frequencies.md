@@ -1,6 +1,6 @@
 # Frequencies, fading and sound
 
-**Used in:** [Quake Explorer](../apps/quake-explorer.md)
+**Used in:** [Quake Explorer](../apps/quake-explorer.md) · [Build a Wiggle](../apps/build-a-wiggle.md)
 
 A seismogram is a mix of notes, like a chord on a piano. Some notes are low (slow wiggles,
 a few per second), some are high (fast wiggles, tens per second). This page explains how to
@@ -28,12 +28,13 @@ no exception.
 Each sine wave in the mix is one **note**. The list of notes and how big each one is is
 called the **spectrum**. Going from a wiggle to its spectrum is what a computer recipe called
 the **FFT** (fast Fourier transform) does. Quake Explorer uses its own small FFT, the same one
-that runs the animation below.
+that runs Build a Wiggle, below.
 
-<iframe src="../../app/build-a-wiggle/?embed=1" title="Build a Wiggle animation: three sine waves set with sliders for frequency and size are drawn as thin colored lines, their sum as a bold line, and below it the spectrum of the sum shows one bar at each wave's frequency, as tall as its size. Options add noise or keep only 1 to 10 Hz." loading="lazy" style="width:100%;height:660px;border:1px solid var(--md-default-fg-color--lightest);border-radius:8px"></iframe>
+<iframe src="../../app/build-a-wiggle/?embed=1" title="Build a Wiggle app: three sine waves set with sliders for frequency and size are drawn as thin colored lines, their sum as a bold line, and below it the spectrum of the sum shows one bar at each wave's frequency, as tall as its size. Options add noise or keep only 1 to 10 Hz." loading="lazy" style="width:100%;height:660px;border:1px solid var(--md-default-fg-color--lightest);border-radius:8px"></iframe>
 
-*A cartoon; the waves are made up.* Move the sliders and watch the bold line and the bars.
-[Open the animation full screen](../app/build-a-wiggle/index.html).
+*Made-up waves, not real data.* Move the sliders and watch the bold line and the bars.
+[Open Build a Wiggle full screen](../app/build-a-wiggle/index.html) ·
+[Build a Wiggle guide](../apps/build-a-wiggle.md).
 
 !!! question "Predict first"
     1. Press **Two notes**. If you set wave 2's size to 0, what will happen to the bold
