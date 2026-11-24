@@ -56,7 +56,7 @@ export const EXPLORER_PRESETS = [
   { id: 'uu60363602', sample: 'qe-magna', views: ['record-section', 'motion'], sectionKm: 400, station: 'SPU',
     label: '2020 Magna earthquake (M5.7)', note: 'a bigger quake: look for the bend at 150 km',
     stationNotes: {
-      SGU: 'older short-period sensor in 2020; its record is about 100 times too small, no quake visible',
+      SGU: "in 2020 its record is about 100 times weaker than its neighbors'; no clear quake",
     } },
   { id: 'uu80161881', sample: 'qe-leamington-blast', views: ['frequencies'], pair: 'uu80120191', station: 'SUU',
     label: '2026 quarry blast near Leamington (M2.1)', note: 'compare with the quake 13 km away' },

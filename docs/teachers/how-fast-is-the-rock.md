@@ -149,8 +149,8 @@ Ten records are **clipped** (the sensor reached its limit, so the trace has flat
 HRU, GMU, MTUT, ELU, FSU, ARGU, WCU, NMU and ARUT. That is why **Wiggles** offers "true ground
 speed (not for this quake)". P can still be picked on clipped records.
 
-**SGU** (Gunnison Valley's stand-in, 178 km) shows no quake and has no pick. In 2020 it had an
-older short-period sensor, and its record that day is about 100 times too small (Figure 3 on
+**SGU** (Gunnison Valley's stand-in, 178 km) has no pick. In 2020 its record is about 100 times
+weaker than its neighbors'; no clear quake (Figure 3 on
 [Travel times and Earth's layers](../theory/travel-times.md)).
 
 ## Common difficulties

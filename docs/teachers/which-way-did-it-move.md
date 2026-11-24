@@ -27,7 +27,7 @@ the direction to a quake from the first half second of P; locate a quake from on
 direction plus S − P distance, using wave speeds they measured; judge how far to trust the
 answer.
 
-**Quakes to load** in Quake Explorer:
+**Quakes to load.** Each link opens the investigation it names:
 
 | Quake | Use it for | Live data | Offline sample |
 | --- | --- | --- | --- |

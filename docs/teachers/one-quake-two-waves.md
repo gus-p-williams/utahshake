@@ -56,7 +56,7 @@ No accounts or logins, and nothing is entered or stored.
    bigger the gap. Each row turns its S − P into a distance, each distance becomes a circle, and
    the four circles cross at the quake.
 4. **Move the quake (2 min).** "If the quake were right next to station C, what would its
-   S − P be?" Click the map beside C and play again (almost zero: the waves have no distance to
+   S − P be?" Click the map beside C (it plays again by itself; almost zero: the waves have no distance to
    race). Then click a corner of the map, outside the stations: "Will the circles still cross
    at the quake?" (Yes, in a cartoon, but at shallow angles. With real picks, which are always
    a little off, the crossing smears out:

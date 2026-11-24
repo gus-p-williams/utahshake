@@ -22,7 +22,7 @@ quake; pick P and S and turn S − P into a distance with a model of the whole E
 surface waves arrive last but are the biggest; explain why S shows best on the horizontal
 sensors; build a class travel-time chart from several quakes and explain why it curves.
 
-**Quakes to load** in Quake Explorer:
+**Quakes to load.** Each link opens investigation D:
 
 | Quake | Use it for | Live data | Offline sample |
 | --- | --- | --- | --- |

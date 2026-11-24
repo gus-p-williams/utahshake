@@ -10,11 +10,17 @@ materials, Utah standards), then a short whole-class version, a full-period vers
 ticket, an answer key, common difficulties and extension ideas. A card can use several apps,
 and an app can appear on several cards.
 
-Each card names its **setup**, what the lesson needs besides this site: **Browser only**
-(records from University of Utah stations near the schools, or cartoons; no Shake needed),
-**School Shake** (the Raspberry Shake installed at your school), **Roaming Shake** (a second
-Shake brought to the school for a day or two) or **Phones**. All the cards so far are browser
-only.
+Each card names its **setup**, what the lesson needs besides this site. All the cards so far
+are **Browser only** (records from University of Utah stations near the schools, or cartoons;
+no Shake needed). Cards that use your school's Shake will be marked **School Shake**.
+
+Students follow the app guides, which walk them through each app step by step:
+[Wave Race](../apps/wave-race.md), [Quake Explorer](../apps/quake-explorer.md) (each card links
+to its investigation's section) and [Quake Waves](../apps/quake-waves.md). The animations also
+sit on the science pages, next to the ideas they show.
+
+**Coming soon:** School Pulse, which looks at the daily rhythm of campus noise. Its activity
+cards will be added here when it is released.
 
 ### Browser only { #browser-only }
 
@@ -28,14 +34,6 @@ In teaching order. Times are for the whole-class version, then the full period i
 | [What notes is the ground playing?](notes-of-a-quake.md) | [Quake Explorer](../apps/quake-explorer.md) B, with [Build a Wiggle](../app/build-a-wiggle/index.html) as the warm-up | Browser only: live data or the offline samples | 15 or 45–55 min | PHYS.4.1 · PHYS.2.1 · ESS.4.1 · CS&nbsp;9/10.DA.3 |
 | [Which way did the ground move?](which-way-did-it-move.md) | [Quake Explorer](../apps/quake-explorer.md) C (and A in the full period), with [How P and S waves move rock](../app/wave-motion/index.html) as the warm-up | Browser only: live data or the offline samples | 15 min (C) or 45–55 min (A then C) | PHYS.4.1 · ESS.2.2 · CS&nbsp;9/10.DA.3 |
 | [A message from far away](far-side-of-the-world.md) | [Quake Explorer](../apps/quake-explorer.md) D · a spreadsheet | Browser only: live data (one quake offline) | 15 or 45–55 min | PHYS.4.1 · ESS.2.2 · CS&nbsp;9/10.DA.3 |
-
-Students follow the app guides, which walk them through each app step by step:
-[Wave Race](../apps/wave-race.md), [Quake Explorer](../apps/quake-explorer.md) (each card links
-to its investigation's section) and [Quake Waves](../apps/quake-waves.md). The animations also
-sit on the science pages, next to the ideas they show.
-
-**Coming soon:** School Pulse, which looks at the daily rhythm of campus noise. Its activity
-cards will be added here when it is released.
 
 ## Utah standards at a glance { #utah-standards }
 

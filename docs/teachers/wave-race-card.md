@@ -99,15 +99,16 @@ analyst's pick):
 
 | Station | Where S shows | S (s) | S − P (s) | Distance at 7.66 km/s | What it does to the location |
 | --- | --- | --- | --- | --- | --- |
-| DWU | Z, 2–8 Hz filter | about 20.1 | about 8.9 | 68 km (true 65 km) | Added to the three: about 1 km from the official epicenter |
-| SGU | E (N about 0.5 s later) | about 34.0 | about 14.8 | 113 km (true 114 km) | Added to the three: about 1 km |
+| DWU | Z, 2–8 Hz filter | about 20.1 | about 8.9 | 68 km (true 65 km) | Added to the three: about 1 km with this pick; half a second either way gives 2 to 5 km |
+| SGU | E (N about 0.5 s later) | about 34.0 | about 14.8 | 113 km (true 114 km) | Added to the three: about 1 km with this pick; half a second either way gives 2 to 5 km |
 | TMU | N and E | about 41.4 | about 17.4 | 133 km (true 146 km) | Its circle is about 13 km too small. Added with SGU: about 9 km off, worse than without it |
 | FOR6, MSU | no clear S | – | – | – | Skipping them is the right call |
 
-TMU shows why far stations mislead: beyond about 120 km the first P wave travels part of the
-way along the faster top of Earth's mantle, so S − P no longer fits 7.66 km per second
-([Limits](../theory/s-minus-p.md#limits) on the Distance from S minus P page). A pair whose
-circle at TMU misses badly has found a real effect, not made a mistake.
+TMU shows why far stations mislead: waves that reach a far station dive into deeper, faster
+rock, so on average they travel faster than 5.8 and 3.3 km/s (at TMU, P about 6.1 and S about
+3.5 km/s). S gains more time than P, so S − P is shorter than 7.66 km per second predicts and
+the circle comes out too small ([Limits](../theory/s-minus-p.md#limits)). A pair whose circle
+at TMU misses badly has found a real effect, not made a mistake.
 
 ## Common difficulties
 

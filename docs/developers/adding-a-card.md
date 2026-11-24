@@ -79,9 +79,9 @@ Every card has the same seven lines, in this order. `tests/teacher-cards.test.js
 | --- | --- |
 | Driving question | The question the lesson answers, in students' words |
 | Time | The whole-class version, then the full period. A short demo has one time |
-| Setup | One of four, written first: **Browser only** (records from University of Utah stations, or cartoons; no Shake), **School Shake** (the installed Shake, which stays where it is: D26), **Roaming Shake** (a second Shake brought to the school) or **Phones**. Then what that means for this card (live data, offline sample) |
+| Setup | Written first: **Browser only** (records from University of Utah stations, or cartoons; no Shake needed), or **School Shake** for a card that uses the school's own Shake (which stays where it is: [D26](https://github.com/gus-p-williams/utahshake/blob/main/planning/decisions.md)). Then what that means for this card (live data, offline sample) |
 | Apps and tools | The apps the lesson **uses**, each linked to its hub (`../apps/<app>.md`); an animation without a hub, to its page (`../app/<animation>/index.html`); then other tools. A card with no app says "no app" |
-| Before this | An earlier lesson the card builds on, linked to its card, or "Nothing." An app named here is not one the card uses (D25: Wave Race on the Quake Explorer cards) |
+| Before this | An earlier lesson the card builds on, linked to its card, or "Nothing." An app named here is not one the card uses ([D25](https://github.com/gus-p-williams/utahshake/blob/main/planning/decisions.md): Wave Race on the Quake Explorer cards) |
 | Materials | What the room needs: devices, a projector, speakers, paper |
 | Utah standards | The codes, separated by " · ", in the order PHYS, ESS, GEOL, CS (write `CS&nbsp;9/10.DA.3` so the code doesn't break across lines), then a link to the app's section of the crosswalk |
 

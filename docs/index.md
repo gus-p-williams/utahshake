@@ -34,7 +34,8 @@ New here? Watch [Quake Waves](apps/quake-waves.md) first, then try
 
 - **[Teachers](teachers/index.md)**
 
-    Activity cards: [Wave Race](teachers/wave-race-card.md) ·
+    Activity cards: [One quake, two waves](teachers/one-quake-two-waves.md) ·
+    [Wave Race](teachers/wave-race-card.md) ·
     [How fast is the rock?](teachers/how-fast-is-the-rock.md) ·
     [What notes is the ground playing?](teachers/notes-of-a-quake.md) ·
     [Which way did the ground move?](teachers/which-way-did-it-move.md) ·

@@ -154,7 +154,7 @@ test('every app on the All apps page is used by at least one card', () => {
 });
 
 test('the Teachers catalog has one row per card, under its setup, matching the card', () => {
-  const rows = rowsByCard(section(read('teachers/index.md'), /^## Activity cards\b/));
+  const rows = rowsByCard(section(read('teachers/index.md'), /\{ #activities \}/));
   for (const c of cards) {
     const r = rows[c.file];
     assert.equal(r?.length, 1, `teachers/index.md catalog: ${c.file} needs exactly one row`);
@@ -180,6 +180,6 @@ test('"Utah standards at a glance" lists every card with the standards in its bo
 
 test('every card is in the menu under Teachers › Activity cards', () => {
   const yml = lf(fs.readFileSync(new URL('../mkdocs.yml', import.meta.url), 'utf8'));
-  const block = /- Activity cards:\n((?: {10}- .*\n)+)/.exec(yml)?.[1] ?? '';
+  const block = /- Activity cards:\n((?: {6,}- .*\n)+)/.exec(yml)?.[1] ?? '';
   for (const c of cards) assert.match(block, new RegExp(`teachers/${c.file}\\b`), `mkdocs.yml: add teachers/${c.file}`);
 });
