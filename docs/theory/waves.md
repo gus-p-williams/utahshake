@@ -24,7 +24,7 @@ discovered that Earth's outer core is liquid.
 
 <iframe src="../../app/wave-motion/?embed=1" title="Animation: how P and S waves move rock. A P wave squeezes and stretches a grid of rock particles back and forth along its path; a slower S wave shakes them up and down into a bump that falls behind." loading="lazy" style="width:100%;height:400px;border:1px solid var(--md-default-fg-color--lightest);border-radius:8px"></iframe>
 
-*A cartoon; the rock's motion is exaggerated.* Press **Play** and watch the coloured dots: the
+*A cartoon; the rock's motion is exaggerated.* Press **Play** and watch the colored dots: the
 wave travels on, but each bit of rock only moves and comes back to where it started. In the P
 wave it moves back and forth along the wave's path; in the slower S wave, up and down across it.
 [Open the animation full screen](../app/wave-motion/index.html).

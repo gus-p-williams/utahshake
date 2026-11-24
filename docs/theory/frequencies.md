@@ -30,7 +30,7 @@ called the **spectrum**. Going from a wiggle to its spectrum is what a computer 
 the **FFT** (fast Fourier transform) does. Quake Explorer uses its own small FFT, the same one
 that runs the animation below.
 
-<iframe src="../../app/build-a-wiggle/?embed=1" title="Build a Wiggle animation: three sine waves set with sliders for frequency and size are drawn as thin coloured lines, their sum as a bold line, and below it the spectrum of the sum shows one bar at each wave's frequency, as tall as its size. Options add noise or keep only 1 to 10 Hz." loading="lazy" style="width:100%;height:660px;border:1px solid var(--md-default-fg-color--lightest);border-radius:8px"></iframe>
+<iframe src="../../app/build-a-wiggle/?embed=1" title="Build a Wiggle animation: three sine waves set with sliders for frequency and size are drawn as thin colored lines, their sum as a bold line, and below it the spectrum of the sum shows one bar at each wave's frequency, as tall as its size. Options add noise or keep only 1 to 10 Hz." loading="lazy" style="width:100%;height:660px;border:1px solid var(--md-default-fg-color--lightest);border-radius:8px"></iframe>
 
 *A cartoon; the waves are made up.* Move the sliders and watch the bold line and the bars.
 [Open the animation full screen](../app/build-a-wiggle/index.html).
@@ -72,11 +72,11 @@ time by cutting the record into short pieces:
    2.56 s (256 samples), with a new one every 0.64 s.
 2. Find the **spectrum** of each window. Each window's ends are faded to zero first, so the
    sudden cut does not sound like extra notes.
-3. **Colour each spectrum in** and stand them side by side, one column per window. Time runs
+3. **Color each spectrum in** and stand them side by side, one column per window. Time runs
    across and frequency runs up.
 
 <figure markdown="span">
-  ![Three panels about one seismogram. Step 1: the record of station MTPU from 4 seconds before to 30 seconds after the quake, flat until a blue P line at 5 seconds, then bigger waves after a red S line at 9 seconds. Three grey shaded windows, each 2.56 seconds wide, are labelled 1 before P: noise, 2 P, and 3 S. Step 2: each window's spectrum drawn as horizontal bars with frequency going up from 0 to 25 Hz; window 1 has only tiny dark bars near the bottom; window 2 has long bars at all frequencies, longest and yellow near 10 to 13 Hz; window 3 has long bars, longest and yellow near 2 to 5 Hz. Step 3: the spectrogram, time across and frequency up to 25 Hz, dark purple before P, then green and yellow after P; the three windows are outlined as narrow white columns labelled 1, 2 and 3. An arrow notes that the colour starts before the P pick. A colour bar runs from weak (dark purple) to strong (yellow).](img/freq-spectrogram-steps.svg){ loading=lazy }
+  ![Three panels about one seismogram. Step 1: the record of station MTPU from 4 seconds before to 30 seconds after the quake, flat until a blue P line at 5 seconds, then bigger waves after a red S line at 9 seconds. Three gray shaded windows, each 2.56 seconds wide, are labeled 1 before P: noise, 2 P, and 3 S. Step 2: each window's spectrum drawn as horizontal bars with frequency going up from 0 to 25 Hz; window 1 has only tiny dark bars near the bottom; window 2 has long bars at all frequencies, longest and yellow near 10 to 13 Hz; window 3 has long bars, longest and yellow near 2 to 5 Hz. Step 3: the spectrogram, time across and frequency up to 25 Hz, dark purple before P, then green and yellow after P; the three windows are outlined as narrow white columns labeled 1, 2 and 3. An arrow notes that the color starts before the P pick. A color bar runs from weak (dark purple) to strong (yellow).](img/freq-spectrogram-steps.svg){ loading=lazy }
   <figcaption>Figure 1. How a spectrogram is made, with the vertical record of station MTPU,
   29 km from the magnitude 3.3 quake near Junction (2026). The strongest note in the P
   window is about 12 Hz; in the S window, about 2 Hz: here P is higher-pitched than S. P and
@@ -97,9 +97,9 @@ apart. With 2.56 s windows, the frequency steps are 1/2.56 = 0.39 Hz. Longer win
 finer steps but blur the time; shorter windows sharpen the time but blur the pitch. You can't
 have both.
 
-Each column is drawn at the centre of its window, but it contains everything from 1.28 s
-before that moment to 1.28 s after it. So a column centred up to 1.3 s **before** P already
-holds a little of P, and the colour starts a moment before the wave really arrives (Figure 1).
+Each column is drawn at the center of its window, but it contains everything from 1.28 s
+before that moment to 1.28 s after it. So a column centered up to 1.3 s **before** P already
+holds a little of P, and the color starts a moment before the wave really arrives (Figure 1).
 Pick arrival times on the record, not on the spectrogram.
 
 For a distant quake, Quake Explorer uses much longer windows (51.2 s): its surface waves are
@@ -114,7 +114,7 @@ wave's energy turns into heat. Seismologists describe this with a number called 
 "quality factor"): in each cycle a wave loses a fraction \(2\pi / Q\) of its energy. Big \(Q\)
 means little loss.
 
-The key idea: **the loss happens per cycle, not per kilometre.** On the same trip, a 10 Hz
+The key idea: **the loss happens per cycle, not per kilometer.** On the same trip, a 10 Hz
 wave goes through 10 times as many cycles as a 1 Hz wave, so it pays the toll 10 times more
 often. After a travel time \(t\), a wave of frequency \(f\) is left with
 
@@ -170,7 +170,7 @@ to 15 seconds after S.
   (0.22). At 299 km (BGU) they are less than a tenth (0.08).
 - Over all 24 stations the ratio falls by more than half every 100 km: the two stations
   within 50 km have a median of 0.25, the eight beyond 200 km a median of 0.04.
-- Some stations (FOR1, SZCU, SUU) keep far more high notes than their neighbours. The ground
+- Some stations (FOR1, SZCU, SUU) keep far more high notes than their neighbors. The ground
   right under a station changes the notes too: hard rock passes high notes better than soft
   sediment. So compare stations with care, or better, compare the same station for two
   quakes, as in [Quake or blast](#quake-or-blast-a-closer-look) below.
@@ -185,7 +185,7 @@ Two things weaken a wave as it travels.
 **1. Spreading.** The wave's energy is shared over a bigger and bigger front.
 
 - A **body wave** (P or S) spreads over a growing sphere. A sphere's area grows as \(r^2\),
-  so the energy on each square metre falls as \(1/r^2\). A wave's energy goes as its size
+  so the energy on each square meter falls as \(1/r^2\). A wave's energy goes as its size
   squared, so its size falls as \(1/r\).
 - A **surface wave** stays near the surface and spreads over a growing ring. A ring's length
   grows only as \(r\), so the size falls as \(1/\sqrt{r}\). That is why far from a big quake,
@@ -195,14 +195,14 @@ Two things weaken a wave as it travels.
 sideways by cracks and layers (they arrive later, in the coda).
 
 Figure 3 shows how fast the ground moved at each station during the Junction quake. To get
-real speeds, each station's counts are divided by its sensitivity: how many counts one metre
+real speeds, each station's counts are divided by its sensitivity: how many counts one meter
 per second of ground speed makes (see
 [What the instrument records](seismograms.md#what-the-instrument-records)).
 
 <figure markdown="span">
-  ![Log-log graph of peak ground speed, from 0.3 to 300 micrometres per second, against distance from 20 to 400 km, for 24 stations. The dots fall from about 40 to 130 micrometres per second at 29 to 38 km (MTPU, TCRU) to about 0.5 to 2.5 at 250 to 300 km. A red line through them falls as distance to the power minus 1.7. Two grey dashed lines start from the red line at 30 km and fall much more gently: spreading alone for body waves (1 over r) and for surface waves (1 over the square root of r). Open circles mark older sensors whose numbers are given in metres and converted roughly. The school stand-ins are labelled: WCU, SGU, TMU, ELU and SUU.](img/freq-distance.svg){ loading=lazy }
+  ![Log-log graph of peak ground speed, from 0.3 to 300 micrometers per second, against distance from 20 to 400 km, for 24 stations. The dots fall from about 40 to 130 micrometers per second at 29 to 38 km (MTPU, TCRU) to about 0.5 to 2.5 at 250 to 300 km. A red line through them falls as distance to the power minus 1.7. Two gray dashed lines start from the red line at 30 km and fall much more gently: spreading alone for body waves (1 over r) and for surface waves (1 over the square root of r). Open circles mark older sensors whose numbers are given in meters and converted roughly. The school stand-ins are labeled: WCU, SGU, TMU, ELU and SUU.](img/freq-distance.svg){ loading=lazy }
   <figcaption>Figure 3. Peak ground speed at 24 stations for the Junction quake (magnitude
-  3.3, 2026): vertical sensors, filtered 1–10 Hz, converted from counts to metres per second
+  3.3, 2026): vertical sensors, filtered 1–10 Hz, converted from counts to meters per second
   with each station's sensitivity. Data: University of Utah Seismograph Stations (network UU,
   doi:10.7914/SN/UU) via EarthScope, including the station sensitivities; quake from USGS
   ComCat.</figcaption>

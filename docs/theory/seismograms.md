@@ -22,7 +22,7 @@ magnet. A moving magnet makes a voltage in a coil (Faraday's law), and the faste
 the bigger the voltage. So the voltage follows the ground's **speed** (its velocity).
 
 <figure markdown="span">
-  ![Diagram. On the left, a frame bolted to the ground holds a spring with a mass hanging from it; a coil hangs under the mass around a magnet fixed to the bottom of the frame, and an arrow shows the ground shaking up and down. A wire from the coil leads right to three boxes joined by arrows: voltage (the coil moving past the magnet makes a tiny voltage), digitizer (measures the voltage 100 times every second) and counts (a list of whole numbers such as 812, 790, 1,204). Below the boxes, a sketched wiggly line is labelled as a seismogram made by plotting the counts against time.](img/seismometer-inside.svg){ loading=lazy }
+  ![Diagram. On the left, a frame bolted to the ground holds a spring with a mass hanging from it; a coil hangs under the mass around a magnet fixed to the bottom of the frame, and an arrow shows the ground shaking up and down. A wire from the coil leads right to three boxes joined by arrows: voltage (the coil moving past the magnet makes a tiny voltage), digitizer (measures the voltage 100 times every second) and counts (a list of whole numbers such as 812, 790, 1,204). Below the boxes, a sketched wiggly line is labeled as a seismogram made by plotting the counts against time.](img/seismometer-inside.svg){ loading=lazy }
   <figcaption>Figure 1. Inside a seismometer (a geophone; simplified). The digitizer turns the
   voltage into whole numbers called counts. Plotted against time, the counts are the
   seismogram.</figcaption>
@@ -31,9 +31,9 @@ the bigger the voltage. So the voltage follows the ground's **speed** (its veloc
 A **digitizer** measures the voltage **100 times every second** and writes each measurement as
 a whole number, called a **count**. A seismogram is these counts plotted against time.
 
-- **Counts are tiny.** Each station's records say how many counts one metre per second of
+- **Counts are tiny.** Each station's records say how many counts one meter per second of
   ground speed makes. At station TMU, it is 481 million counts, so one count is about
-  2 nanometres per second: two millionths of a millimetre each second.
+  2 nanometers per second: two millionths of a millimeter each second.
 - **Counts have a limit.** A 24-bit digitizer counts from −8,388,608 to +8,388,607; an older
   16-bit one only from −32,768 to +32,767. Shaking that goes past the limit is cut off
   ([clipped](#instrument-problems)).
@@ -87,7 +87,7 @@ apart (0.1–0.3 Hz; Hz, or hertz, means waves per second); a weaker part has wa
   ![Three traces of two minutes each from station TMU, all on the same scale. Top: a winter night, with smooth waves about 5 seconds apart filling most of the track; an arrow over five of them reads 5 waves in 26 seconds. Middle: a summer night, with the same kind of waves but about a third as tall. Bottom: the winter night again, filtered 1 to 10 Hz, which is an almost flat line.](img/ocean-hum.svg){ loading=lazy }
   <figcaption>Figure 3. Ocean hum at station TMU (the stand-in for Wasatch Academy), 2 am on a
   winter night and 3 am on a summer night, all three on the same scale. The biggest winter
-  waves are about 500 counts, about one micrometre per second. Data: University of Utah
+  waves are about 500 counts, about one micrometer per second. Data: University of Utah
   Seismograph Stations (network UU, doi:10.7914/SN/UU) via EarthScope.</figcaption>
 </figure>
 
@@ -108,7 +108,7 @@ Figure 4 comes from the windy desert near Milford, in southwest Utah, because a 
 there measures the wind only 13 km from a seismometer.
 
 <figure markdown="span">
-  ![Top: two line graphs over four days, February 16 to 19, 2026, with nights shaded grey. The upper graph is wind speed at Milford airport, mostly 10 to 38 miles per hour for the first two and a half days, then mostly 5 to 15 for the rest. The lower graph is ground noise at station FOR8; it rises and falls with the wind, reaching 40 to 58 counts on the windy days and staying near 3 to 10 counts on the calm last day. A point marked B sits at about 32 counts on the windy night of February 18 and a point marked A at about 3 counts on the calm night of February 19. Bottom: one minute of each of those nights on the same scale, filtered 1 to 10 Hz: A is a thin, nearly flat line; B is a ragged band of wiggles about ten times taller, with bigger bursts.](img/wind-noise.svg){ loading=lazy }
+  ![Top: two line graphs over four days, February 16 to 19, 2026, with nights shaded gray. The upper graph is wind speed at Milford airport, mostly 10 to 38 miles per hour for the first two and a half days, then mostly 5 to 15 for the rest. The lower graph is ground noise at station FOR8; it rises and falls with the wind, reaching 40 to 58 counts on the windy days and staying near 3 to 10 counts on the calm last day. A point marked B sits at about 32 counts on the windy night of February 18 and a point marked A at about 3 counts on the calm night of February 19. Bottom: one minute of each of those nights on the same scale, filtered 1 to 10 Hz: A is a thin, nearly flat line; B is a ragged band of wiggles about ten times taller, with bigger bursts.](img/wind-noise.svg){ loading=lazy }
   <figcaption>Figure 4. Wind and ground noise near Milford, Utah. Noise at station FOR8 is the
   typical size of the 1–10 Hz shaking in each 15 minutes. Through the windy nights the ground
   was typically about 4 times noisier than on the calm night, and in the strongest gusts about
@@ -129,7 +129,7 @@ around a building: all of them shake the ground a little. Much of this shaking i
 routine.
 
 <figure markdown="span">
-  ![Line graph of ground noise at station HEB over one week, Monday September 28 to Sunday October 4, 2026, with nights shaded grey and the weekend shaded pale orange. Every night the line sits near 1, the night level. On each weekday it climbs in the morning to about 6 to 12 times the night level and falls in the evening; a label reads weekday afternoons: about 8 times. On Saturday it rises to about 4 to 8 times, and on Sunday only to about 2 times.](img/people-week.svg){ loading=lazy }
+  ![Line graph of ground noise at station HEB over one week, Monday September 28 to Sunday October 4, 2026, with nights shaded gray and the weekend shaded pale orange. Every night the line sits near 1, the night level. On each weekday it climbs in the morning to about 6 to 12 times the night level and falls in the evening; a label reads weekday afternoons: about 8 times. On Saturday it rises to about 4 to 8 times, and on Sunday only to about 2 times.](img/people-week.svg){ loading=lazy }
   <figcaption>Figure 5. One week of ground noise at station HEB, about 7 km east of Heber City,
   filtered 1–10 Hz and compared with the quietest night hours. Weekday afternoons are about
   8 times louder than the night; Sunday only about 2 times. Data: University of Utah
@@ -157,7 +157,7 @@ quakes also make more low notes to begin with, and the far quakes below are big 
   ![Three panels, each showing station TMU's vertical sensor raw (upper trace) and filtered 1 to 10 Hz (lower trace). First, a small quake 29 km away, magnitude 2.3, over 50 seconds: both traces show the same burst starting at 5 seconds and fading by 30 seconds. Second, a quake in western Nevada 670 km away, magnitude 5.7, over 6 minutes: a blue line marks P at 93 seconds and a red line S at 194 seconds; the raw trace shows large slow surface waves after 215 seconds, while the filtered trace shows bursts at P and S. Third, a quake off Kamchatka, Russia, 6,600 km away, magnitude 8.8, over one hour: P at 10 minutes, S at 18 minutes, and big slow surface waves from 25 minutes to the end in the raw trace; the filtered trace shows only a short burst after P.](img/three-quakes.svg){ loading=lazy }
   <figcaption>Figure 6. Three quakes at station TMU: near, regional and distant. Each trace is
   stretched to fit. The Nevada P and S lines were picked by eye on this record (the burst
-  between them is later P energy travelling through the crust, not S); the Kamchatka ones are
+  between them is later P energy traveling through the crust, not S); the Kamchatka ones are
   the times predicted by a standard Earth model (iasp91). Data: University of Utah Seismograph
   Stations (network UU, doi:10.7914/SN/UU) via EarthScope; quakes from USGS ComCat.</figcaption>
 </figure>
@@ -208,7 +208,7 @@ So seismologists use more clues than the wiggles:
 
 - **Time:** blasts happen in working hours on weekdays (Figure 7).
 - **Place:** at a known mine or quarry.
-- **Depth:** at the surface. Quakes usually start kilometres down (the quake in Figure 8,
+- **Depth:** at the surface. Quakes usually start kilometers down (the quake in Figure 8,
   2.6 km). Catalog depths are measured from sea level, so a blast on a mountain can even be
   listed a little above it.
 - **Shape:** a blast often makes a weaker S and more slow surface waves than a quake of the
@@ -253,12 +253,12 @@ v = f\lambda
 $$
 
 where \(v\) is speed, \(f\) is frequency (vibrations per second, Hz) and \(\lambda\) is
-wavelength. A 5 Hz P wave travelling 6 km/s has a wavelength of 1.2 km.
+wavelength. A 5 Hz P wave traveling 6 km/s has a wavelength of 1.2 km.
 
 Different sources shake the ground at different frequencies, like low and high notes in music.
 
 <figure markdown="span">
-  ![A frequency ruler from 0.02 to 100 Hz on a log scale, with low notes on the left and high notes on the right. Coloured bars show rough ranges: ocean hum 0.05 to 0.3 Hz; distant big quakes 0.02 to 2 Hz; nearby small quakes 1 to 20 Hz; wind 0.5 to 50 Hz; people and machines 1 to 50 Hz. A dashed blue box from 1 to 10 Hz is labelled kept by a 1 to 10 Hz filter. A thick line at 50 Hz is labelled the limit for 100 samples per second, with the area beyond it hatched. Under the axis, two more rows give the time for one wave (20 s at 0.05 Hz to 0.02 s at 50 Hz) and the length of one P wave at 6 km/s (120 km at 0.05 Hz to 120 m at 50 Hz).](img/frequency-ruler.svg){ loading=lazy }
+  ![A frequency ruler from 0.02 to 100 Hz on a log scale, with low notes on the left and high notes on the right. Colored bars show rough ranges: ocean hum 0.05 to 0.3 Hz; distant big quakes 0.02 to 2 Hz; nearby small quakes 1 to 20 Hz; wind 0.5 to 50 Hz; people and machines 1 to 50 Hz. A dashed blue box from 1 to 10 Hz is labeled kept by a 1 to 10 Hz filter. A thick line at 50 Hz is labeled the limit for 100 samples per second, with the area beyond it hatched. Under the axis, two more rows give the time for one wave (20 s at 0.05 Hz to 0.02 s at 50 Hz) and the length of one P wave at 6 km/s (120 km at 0.05 Hz to 120 m at 50 Hz).](img/frequency-ruler.svg){ loading=lazy }
   <figcaption>Figure 10. What shakes the ground at which frequency. The ranges are rough: each
   source is strongest in part of its range. The ocean hum range was checked on station TMU's
   records (University of Utah Seismograph Stations, network UU, doi:10.7914/SN/UU).</figcaption>
@@ -272,11 +272,11 @@ The instruments sample the ground 100 times per second, so nothing faster than 5
 the sampling rate, the **Nyquist frequency**) can be recorded.
 
 A **spectrogram** shows all the frequencies at once: time goes across, frequency goes up, and
-colour shows how strong the shaking is at each frequency and moment. A filter keeps one
+color shows how strong the shaking is at each frequency and moment. A filter keeps one
 horizontal strip of the spectrogram.
 
 <figure markdown="span">
-  ![Top: three minutes of station TMU's vertical sensor around a magnitude 2.1 quake 36 km away, on February 22, 2026 at 9:41 pm. The raw trace shows smooth ocean-hum waves all the way through, with small fast wiggles riding on them from the P line at 7 seconds to about 40 seconds. The trace filtered 1 to 10 Hz is flat before P, then shows a clear burst that fades by 50 seconds. Bottom: the same three minutes as a spectrogram, with frequency from 0.1 to 50 Hz going up on a log scale and colour from dark purple (weak) to yellow (strong). A bright yellow band near 0.2 Hz, labelled ocean hum: always there, runs the whole way across. A dashed white box marks the band from 1 to 10 Hz that the filter keeps. At the P line, 7 seconds, green colors start suddenly, reaching from about 1 Hz up to 20 Hz, above the box, and fade by about 50 seconds; inside the box, an arrow labeled the quake points to them.](img/hidden-quake.svg){ loading=lazy }
+  ![Top: three minutes of station TMU's vertical sensor around a magnitude 2.1 quake 36 km away, on February 22, 2026 at 9:41 pm. The raw trace shows smooth ocean-hum waves all the way through, with small fast wiggles riding on them from the P line at 7 seconds to about 40 seconds. The trace filtered 1 to 10 Hz is flat before P, then shows a clear burst that fades by 50 seconds. Bottom: the same three minutes as a spectrogram, with frequency from 0.1 to 50 Hz going up on a log scale and color from dark purple (weak) to yellow (strong). A bright yellow band near 0.2 Hz, labeled ocean hum: always there, runs the whole way across. A dashed white box marks the band from 1 to 10 Hz that the filter keeps. At the P line, 7 seconds, green colors start suddenly, reaching from about 1 Hz up to 20 Hz, above the box, and fade by about 50 seconds; inside the box, an arrow labeled the quake points to them.](img/hidden-quake.svg){ loading=lazy }
   <figcaption>Figure 11. A small quake on a winter night at station TMU. In the raw record it
   rides on the ocean hum; the 1–10 Hz filter removes the hum and the quake stands out. The
   spectrogram shows why: the hum and the quake are at different frequencies. P pick by
@@ -291,7 +291,7 @@ record is (look at the time axis), how fast the wiggles are, whether it has a st
 and the time of day.
 
 <figure markdown="span">
-  ![Four unlabelled records. Record A, raw, 40 minutes long: small fast wiggles at first, a slower wave near 8 minutes, then from 14 minutes big slow waves that last to the end. Record B, raw, at 2 am, 90 seconds long: smooth waves about 5 seconds apart, with no start or end. Record C, raw, 45 seconds long: a quiet line, then at 7 seconds the trace suddenly jumps between flat tops and flat bottoms at the same two levels until the end. Record D, filtered 1 to 10 Hz, at 1:20 am, 90 seconds long: a ragged band of wiggles that grows and shrinks, with a few bigger bursts, but no clear start.](img/mystery-records.svg){ loading=lazy }
+  ![Four unlabeled records. Record A, raw, 40 minutes long: small fast wiggles at first, a slower wave near 8 minutes, then from 14 minutes big slow waves that last to the end. Record B, raw, at 2 am, 90 seconds long: smooth waves about 5 seconds apart, with no start or end. Record C, raw, 45 seconds long: a quiet line, then at 7 seconds the trace suddenly jumps between flat tops and flat bottoms at the same two levels until the end. Record D, filtered 1 to 10 Hz, at 1:20 am, 90 seconds long: a ragged band of wiggles that grows and shrinks, with a few bigger bursts, but no clear start.](img/mystery-records.svg){ loading=lazy }
   <figcaption>Figure 12. Four mystery records. Data: University of Utah Seismograph Stations
   (network UU, doi:10.7914/SN/UU) via EarthScope; quakes from USGS ComCat.</figcaption>
 </figure>

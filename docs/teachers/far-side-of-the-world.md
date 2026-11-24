@@ -17,7 +17,7 @@ they see, step by step) and use [Quake Explorer](../app/quake-explorer/index.htm
     - **Utah standards:** PHYS.4.1 · ESS.2.2 · CS&nbsp;9/10.DA.3
       ([crosswalk](standards.md#quake-explorer))
 
-**Students will:** recognise P, S and surface waves on half an hour of record from a distant
+**Students will:** recognize P, S and surface waves on half an hour of record from a distant
 quake; pick P and S and turn S − P into a distance with a model of the whole Earth; explain why
 surface waves arrive last but are the biggest; explain why S shows best on the horizontal
 sensors; build a class travel-time chart from several quakes and explain why it curves.

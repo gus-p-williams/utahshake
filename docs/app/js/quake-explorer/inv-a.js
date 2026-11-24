@@ -45,7 +45,7 @@ export function createA(ctx) {
     explore: `<p>Each wiggly line is one station, placed at its distance from the quake.
       Press <b>P ruler</b> and drag its ends onto the first wiggles (P) at a near and a far
       station. Do the same with the <b>S ruler</b> on the start of the big S waves.</p>
-      <p>The ruler shows its speed: kilometres travelled ÷ seconds taken.</p>`,
+      <p>The ruler shows its speed: kilometers traveled ÷ seconds taken.</p>`,
     why: `<p>Each station is a stopwatch at a known distance. A wave that travels at a steady
       speed reaches farther stations later, so its arrivals line up along a straight line.
       Distance runs down the page and time across, so the slope of the line is the speed:
@@ -147,7 +147,7 @@ export function createA(ctx) {
 
   return {
     available() {
-      return ctx.kind === 'local' ? true : 'A record section needs a quake within a few hundred kilometres of the schools';
+      return ctx.kind === 'local' ? true : 'A record section needs a quake within a few hundred kilometers of the schools';
     },
     reset() {
       data = null; loadedFor = null; revealed = false; fits = null;

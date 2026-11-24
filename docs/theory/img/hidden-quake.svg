@@ -66,7 +66,7 @@
 <text x="585.6" y="280" font-size="12" text-anchor="middle" fill="#5b6472">80</text>
 <text x="667.8" y="280" font-size="12" text-anchor="middle" fill="#5b6472">100</text>
 <text x="748" y="296" font-size="12" text-anchor="end" fill="#5b6472">seconds after the quake</text>
-<text x="12" y="319" font-size="12.5" fill="#111827">Colour: how strong the shaking is at each frequency.</text>
+<text x="12" y="319" font-size="12.5" fill="#111827">Color: how strong the shaking is at each frequency.</text>
 <text x="338" y="319" font-size="12" text-anchor="end" fill="#5b6472">weak</text>
 <rect x="346" y="308" width="3.2" height="12" fill="#440154"/>
 <rect x="349" y="308" width="3.2" height="12" fill="#45075a"/>

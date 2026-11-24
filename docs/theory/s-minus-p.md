@@ -40,7 +40,7 @@ $$
 d = \Delta t \cdot \frac{V_P V_S}{V_P - V_S}
 $$
 
-The fraction \(k = V_P V_S / (V_P - V_S)\) is the number of **kilometres per second of
+The fraction \(k = V_P V_S / (V_P - V_S)\) is the number of **kilometers per second of
 S-minus-P time**. You don't need the time the quake happened: the gap alone gives the
 distance.
 
@@ -57,7 +57,7 @@ $$
 \(k \approx 7.66\) km/s. We chose these by checking real Utah quakes. For three quakes in
 2026, we took the University of Utah analysts' P and S picks and the official locations.
 Stations 20–80 km away mostly needed between 7.3 and 8.2 km per second of S − P (typically
-about 7.7). The textbook value of 8.4 made most distances roughly 10% too long. The top few kilometres of Utah's crust are slower than
+about 7.7). The textbook value of 8.4 made most distances roughly 10% too long. The top few kilometers of Utah's crust are slower than
 the rock deeper down, and short paths spend much of their time in that slow rock.
 
 !!! example "Worked example (the offline sample quake)"

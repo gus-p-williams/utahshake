@@ -794,7 +794,7 @@ if (want('one')) {
   const W = 760;
   const H = 440;
   const out = card(W, H, 'One station, one quake: TMU and the Kenilworth quake',
-    'Map: from station TMU a line points toward the direction found from P-wave motion; a circle at the distance from S minus P crosses it at the estimate, near the true epicentre.');
+    'Map: from station TMU a line points toward the direction found from P-wave motion; a circle at the distance from S minus P crosses it at the estimate, near the true epicenter.');
   const centre = { lat: (m.st.lat + ev.lat) / 2 + 0.02, lon: (m.st.lon + ev.lon) / 2 };
   const proj = localProjection(centre.lat, centre.lon);
   const S = 3.6; // px per km
@@ -828,7 +828,7 @@ if (want('one')) {
   out.push(line(X(guess), Y(guess), X(ev), Y(ev), K.text, 1.4, 'stroke-dasharray="3 3"'));
   out.push(star(X(ev), Y(ev), 12, 5));
   out.push(star(X(guess), Y(guess), 12, 5, K.computer, '#3b0f80'));
-  out.push(text(X(ev) + 14, Y(ev) + 18, 'true epicentre', { size: 12, weight: 700, fill: K.quakeEdge, halo: true }));
+  out.push(text(X(ev) + 14, Y(ev) + 18, 'true epicenter', { size: 12, weight: 700, fill: K.quakeEdge, halo: true }));
   out.push(text(X(guess) - 14, Y(guess) - 8, 'one-station estimate', { size: 12, weight: 700, fill: K.computer, anchor: 'end', halo: true }));
   const mid = { lat: (guess.lat + ev.lat) / 2, lon: (guess.lon + ev.lon) / 2 };
   out.push(text(X(mid) + 10, Y(mid) + 2, esc(`${miss.toFixed(0)} km off`), { size: 12, weight: 700, halo: true }));
@@ -851,7 +851,7 @@ if (want('one')) {
   say(esc(`${sp.toFixed(2)} s × ${kmPerSecond(vp, vs).toFixed(2)} km/s = ${hypo.toFixed(1)} km`));
   say(esc(`(true: ${m.km.toFixed(0)} km)`), { gap: 28 });
   say('3. Go that far that way from TMU', { weight: 700 });
-  say(esc(`Miss: ${miss.toFixed(0)} km from the true epicentre.`), { gap: 28 });
+  say(esc(`Miss: ${miss.toFixed(0)} km from the true epicenter.`), { gap: 28 });
   say('P: analyst pick. S: computer pick', { fill: C.muted, size: 11.5 });
   say('(the analysts did not pick S at TMU).', { fill: C.muted, size: 11.5 });
   save('gm-one-station.svg', out);

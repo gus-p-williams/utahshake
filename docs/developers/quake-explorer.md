@@ -64,7 +64,7 @@ quake and investigation.
   alone would bunch up (around Junction, 15 FORGE stations sit at 49–74 km).
 - **Computer picks fill the gaps.** The analysts pick P only out to about 180 km; the Pg → Pn
   bend shows beyond that. AIC picks (`lib/picker.js`) are saved with the samples, shown as
-  squares, and labelled as computer picks.
+  squares, and labeled as computer picks.
 - **The bend is shown only when it is clear:** a two-line fit with an F ratio above 12, at
   least 8 far stations and a Pn speed of 7.2–8.6 km/s known to within 0.3 km/s. Magna (2020)
   passes; Junction's few noisy far picks don't, so it gets a hint instead.

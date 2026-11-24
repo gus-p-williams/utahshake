@@ -19,7 +19,7 @@ they see, step by step) and use [Quake Explorer](../app/quake-explorer/index.htm
     - **Utah standards:** PHYS.4.1 · PHYS.2.1 · ESS.4.1 · CS&nbsp;9/10.DA.3
       ([crosswalk](standards.md#quake-explorer))
 
-**Students will:** read a spectrogram (time across, frequency up, colour for strength); choose a
+**Students will:** read a spectrogram (time across, frequency up, color for strength); choose a
 band of frequencies as a filter and find where the quake stands out from the noise; turn
 shaking into sound by speeding it up, and explain why that raises every note; compare the high
 notes at a near and a far station and explain why high notes fade first; weigh the evidence in
@@ -50,7 +50,7 @@ No accounts or logins. Student names are never entered or stored.
    **▶ Listen**. "That was a minute of ground shaking, squeezed into less than a second. Why
    can't we hear the ground shake by itself?" (Most of its notes are below 20 Hz, the lowest
    note people can hear.)
-2. **Read the spectrogram (3 min).** Time runs across, frequency (pitch) up, and colour shows how
+2. **Read the spectrogram (3 min).** Time runs across, frequency (pitch) up, and color shows how
    strong each note is. The quake is the bright patch from P (5 s) onward, from about 1 Hz to
    well above 10 Hz. Drag up or down on the spectrogram to choose a band: the record above
    keeps only those notes. Watch **Quake ÷ noise in this band** in the panel.
@@ -79,7 +79,7 @@ No accounts or logins. Student names are never entered or stored.
 1. A seismogram is played 200 times faster than real time. What does a 2 Hz ground wave sound
    like?
 2. The same quake is recorded 30 km and 300 km away. Which record has more high notes, and why?
-3. On a spectrogram, what do the across direction, the up direction and the colour show?
+3. On a spectrogram, what do the across direction, the up direction and the color show?
 4. A small event at a quarry, at 2 pm on a Tuesday, has few high notes and a strong P. Was it a
    blast?
 
@@ -174,7 +174,7 @@ distant quake the **Nearest** and **Farthest** buttons are hidden, and the speed
 
 ## Common difficulties
 
-- **Reading the spectrogram.** Up is pitch, not loudness; colour is strength. The bright patch
+- **Reading the spectrogram.** Up is pitch, not loudness; color is strength. The bright patch
   says *when* (across) and *at which notes* (up) the shaking was strong.
 - **"Same quake, same notes."** A common prediction. The quake sends out the same notes in every
   direction; the rock along the way takes the high ones away. It is like music from a car down

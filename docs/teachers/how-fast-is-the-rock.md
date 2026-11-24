@@ -51,8 +51,8 @@ No accounts or logins. Student names are never entered or stored.
 3. **Measure (6 min).** Press **P ruler** and drag its ends onto the first small wiggles at MTPU
    (the top line) and at a station about 100 km down. Read its speed in the panel. A volunteer
    lays the **S ruler** along the start of the big S waves. Read **P ÷ S**.
-4. **Why (2 min).** Each station is a stopwatch at a known distance. A wave travelling at a
-   steady speed needs the same extra time for every extra kilometre (for P, about 1 s per
+4. **Why (2 min).** Each station is a stopwatch at a known distance. A wave traveling at a
+   steady speed needs the same extra time for every extra kilometer (for P, about 1 s per
    6 km), so its arrivals line up, and the slope of the line is distance ÷ time: the speed.
    The steeper the line, the faster the wave.
 5. **Check (3 min).** Press **Reveal the professionals' picks**. P is about 6.1 km/s and S about
@@ -80,7 +80,7 @@ No accounts or logins. Student names are never entered or stored.
    predicts. How can a wave that travels a longer path arrive first?
 
 **Answers:** (1) (150 − 30) km ÷ (25 − 5) s = 6 km/s: P (S is about 3.5 km/s). (2) Each station
-is at a known distance, and a wave travelling at a steady speed needs time in proportion to the
+is at a known distance, and a wave traveling at a steady speed needs time in proportion to the
 distance, so time against distance is a straight line whose slope is the speed. (3) For example:
 the ruler reaches the farthest stations, where the first wave is the faster one along the top of
 the mantle; an end placed on noise or on the wrong wiggle. (4) It dips down into the mantle,
@@ -159,7 +159,7 @@ weaker than its neighbors'; no clear quake (Figure 3 on
   are stretched to fit, so their noise looks as big as the quake. Zoom in (**＋** or scroll)
   to see where the wiggles change.
 - **"Steeper is faster" feels backwards.** Distance runs down the page and time across. A fast
-  wave covers many kilometres in a few seconds, so its line is steep; a slow wave's line leans
+  wave covers many kilometers in a few seconds, so its line is steep; a slow wave's line leans
   over toward the time axis. It is a distance–time graph turned so that distance grows
   downward.
 - **A ruler across the whole page.** On Junction, a P ruler from the top station to the bottom
@@ -185,7 +185,7 @@ weaker than its neighbors'; no clear quake (Figure 3 on
 
 ## Extension ideas
 
-- **Your speeds in Quake Locator.** Turn the measured speeds into kilometres of distance per second
+- **Your speeds in Quake Locator.** Turn the measured speeds into kilometers of distance per second
   of S − P: \(k = V_P V_S/(V_P - V_S)\). With 6.14 and 3.41 km/s, \(k\) is 7.7 km per second,
   the same as Quake Locator's default 5.8 and 3.3 km/s (7.66). With 3.68 km/s for S it is 9.2.
   Enter both pairs in Quake Locator's speed settings for the Junction quake: which locates it
@@ -194,7 +194,7 @@ weaker than its neighbors'; no clear quake (Figure 3 on
   8 km/s wave now runs straight down the page and slower waves lean to the right. On Magna,
   Pn is almost vertical and Pg leans. Why does taking most of the travel time away make the
   bend easier to see?
-- **Crust thickness by hand** (physics and maths). Extend the Pn line back to distance 0. The
+- **Crust thickness by hand** (physics and math). Extend the Pn line back to distance 0. The
   time it reaches there is the intercept time, \(t_i = t - d/V_2\) for any station on the line
   (for VRUT, 57.0 − 397/7.7 ≈ 5.4 s). For a
   quake at depth \(h\) under a crust of thickness \(H\):

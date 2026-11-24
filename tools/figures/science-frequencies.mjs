@@ -239,7 +239,7 @@ function steps() {
     c2.push(text(axL + 6, y(fMax) + 16, `${e.label}: ${e.what}`, { size: 13, weight: 700, halo: true }));
     c2.push(text((axL + axR) / 2, top + ph + 26, 'weak → strong', { size: 12, fill: C.muted, anchor: 'middle' }));
   });
-  c2.push(text(padL + 2, top + ph + 46, 'Each bar is one frequency: its length and its colour both show how strong that note is in the window.', { size: 12.5 }));
+  c2.push(text(padL + 2, top + ph + 46, 'Each bar is one frequency: its length and its color both show how strong that note is in the window.', { size: 12.5 }));
   c2.push('</svg>');
 
   // Card 3: the spectrogram, with the three columns outlined
@@ -249,7 +249,7 @@ function steps() {
   const sw = W - 2 * padL;
   const xs = (t) => sx0 + ((t - fromSec) / (toSec - fromSec)) * sw;
   const ys = (f) => sTop + (1 - f / fMax) * sh;
-  const c3 = card(W, sTop + sh + 76, 'Step 3: colour each spectrum in and stand them side by side');
+  const c3 = card(W, sTop + sh + 76, 'Step 3: color each spectrum in and stand them side by side');
   c3.push(spectrogramImage(spec, t0, { x0: sx0, y0: sTop, w: sw, h: sh, fromSec, toSec, fMax, lo, hi }));
   c3.push(`<rect x="${sx0}" y="${sTop}" width="${sw}" height="${sh}" fill="none" stroke="${C.border}"/>`);
   for (const f of [5, 10, 15, 20]) {
@@ -271,14 +271,14 @@ function steps() {
   // the colour starts a little before the P pick
   const ny = ys(13);
   c3.push(`<path d="M${r1(xs(firstT) - 40)} ${r1(ny)}L${r1(xs(firstT) - 2)} ${r1(ny)}" stroke="#ffffff" stroke-width="1.6" marker-end="url(#tip)"/>`);
-  c3.push(text(xs(firstT) - 46, ny - 3, 'colour starts', { size: 12.5, weight: 700, fill: '#ffffff', anchor: 'end' }));
+  c3.push(text(xs(firstT) - 46, ny - 3, 'color starts', { size: 12.5, weight: 700, fill: '#ffffff', anchor: 'end' }));
   c3.push(text(xs(firstT) - 46, ny + 13, 'before the P pick', { size: 12.5, weight: 700, fill: '#ffffff', anchor: 'end' }));
   c3.splice(1, 0, `<defs><marker id="tip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ffffff"/></marker></defs>`);
   for (let t = 0; t <= toSec; t += 5) {
     c3.push(text(xs(t), sTop + sh + 16, String(t), { size: 12, fill: C.muted, anchor: 'middle' }));
   }
   c3.push(text(W - padL - 2, sTop + sh + 32, 'seconds after the quake', { size: 12, fill: C.muted, anchor: 'end' }));
-  colourBar(c3, padL + 2, sTop + sh + 46, 'Colour: how strong each note is.');
+  colourBar(c3, padL + 2, sTop + sh + 46, 'Color: how strong each note is.');
   c3.push('</svg>');
   write('freq-spectrogram-steps.svg', stack([traceCard, c2.join('\n'), c3.join('\n')]));
 }
@@ -505,7 +505,7 @@ function distance() {
   out.push(text(padL + 468, ly2, 'spreading alone: 1/√r', { size: 12, fill: C.muted }));
   const stand = rows.filter((r) => r.schools.length).sort((p, q) => p.km - q.km)
     .map((r) => `${r.sta} ${r.schools[0].replace(/ High School$/, '')}`).join(', ');
-  out.push(text(padL, top + h + 56, `Vertical sensors, filtered 1${EN}10 Hz. 1 µm/s is a thousandth of a millimetre per second.`, { size: 12.5 }));
+  out.push(text(padL, top + h + 56, `Vertical sensors, filtered 1${EN}10 Hz. 1 µm/s is a thousandth of a millimeter per second.`, { size: 12.5 }));
   out.push(text(padL, top + h + 76, `School stand-ins: ${stand}.`, { size: 12.5 }));
   out.push('</svg>');
   write('freq-distance.svg', out.join('\n'));

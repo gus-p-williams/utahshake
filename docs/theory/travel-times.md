@@ -27,7 +27,7 @@ t = \frac{d}{v} \qquad \text{or, turned round,} \qquad d = v\,t
 $$
 
 So the arrivals line up on a straight line. Go down the line by some distance, see how far
-across it moves in time, and divide: that is the speed. A **steeper** line (more kilometres for
+across it moves in time, and divide: that is the speed. A **steeper** line (more kilometers for
 each second) is a **faster** wave. A line going straight down would be a wave that reached every
 station at once: infinitely fast.
 
@@ -37,7 +37,7 @@ station at once: infinitely fast.
     the arrivals make a straight line, a curve, or arrive all together? Where will S go?
 
 <figure markdown="span">
-  ![Record section of the magnitude 3.3 Junction quake: vertical seismograms from 24 Utah stations stacked by distance, from MTPU (29 km) at the top to BGU (299 km) at the bottom, against 0 to 70 seconds after the quake. Blue dots (P picks) lie along a straight blue line, solid to 100 km and dashed beyond, labelled P: 6.1 km/s, fitted within 100 km. A slope triangle on it reads 100 km down and 16.3 s across, and a note reads speed = 100 km ÷ 16.3 s = 6.1 km/s. Red dots and circles (S picks) follow a less steep red line labelled S: 3.7 km/s, all S picks to 240 km. A dotted red line through the 3 analyst S picks, labelled 3.4 km/s, falls later and later behind the far S picks. Near the bottom, the P arrivals at HLJ and BSUT (269 and 282 km) come about 3 s before the dashed blue line, with a note: far away, P arrives before the line.](img/tt-junction-speeds.svg){ loading=lazy }
+  ![Record section of the magnitude 3.3 Junction quake: vertical seismograms from 24 Utah stations stacked by distance, from MTPU (29 km) at the top to BGU (299 km) at the bottom, against 0 to 70 seconds after the quake. Blue dots (P picks) lie along a straight blue line, solid to 100 km and dashed beyond, labeled P: 6.1 km/s, fitted within 100 km. A slope triangle on it reads 100 km down and 16.3 s across, and a note reads speed = 100 km ÷ 16.3 s = 6.1 km/s. Red dots and circles (S picks) follow a less steep red line labeled S: 3.7 km/s, all S picks to 240 km. A dotted red line through the 3 analyst S picks, labeled 3.4 km/s, falls later and later behind the far S picks. Near the bottom, the P arrivals at HLJ and BSUT (269 and 282 km) come about 3 s before the dashed blue line, with a note: far away, P arrives before the line.](img/tt-junction-speeds.svg){ loading=lazy }
   <figcaption>Figure 1. The Junction quake (magnitude 3.3, October 2026) out to 300 km,
   filtered 1–10 Hz, each trace stretched to fit. Filled dots are the University of Utah
   analysts' picks; open circles are picks made by Quake Explorer's computer picker where the
@@ -89,7 +89,7 @@ Why are these faster than the 5.8 and 3.3 km/s that
 [Quake Locator uses](s-minus-p.md#which-speeds)? Look where the P line starts: not at 0 s at 0 km,
 but at 0.5 s. Every trip loses about half a second somewhere, for example in the slow rock near
 the surface. A ruler doesn't care: it measures how much later the wave arrives *for each extra
-kilometre*. Quake Locator needs speeds that turn a whole S − P time into a distance, delays
+kilometer*. Quake Locator needs speeds that turn a whole S − P time into a distance, delays
 included, and it uses stations close to the quake.
 
 !!! note "Analysts and computers disagree: good questions to discuss"
@@ -116,7 +116,7 @@ A P wave can reach a far station in two ways (Figure 2):
 - **Pn**, the **head wave**: down to the Moho, along the top of the faster mantle, and back up.
 
 <figure markdown="span">
-  ![Cross-section drawn to scale. A quake 11.9 km deep sits at the left in a 37 km thick crust, where P travels 6.2 km/s, above the mantle, where P travels 7.8 km/s. A station sits at the surface 220 km away. A teal line labelled Pg runs straight from the quake to the station. A purple line labelled Pn goes down to the Moho at 52.5 degrees from the vertical, runs along the top of the mantle and comes back up to the station. Faint dashed purple lines leave the Moho at the same angle along the way; the first reaches the surface 82 km from the quake. Below: Pg (direct), 220.3 km through the crust at 6.2 km/s, 35.7 s. Pn (head wave), 103 km in the crust at 6.2 km/s plus 138 km along the mantle at 7.8 km/s, 34.5 s. A longer path, but it arrives 1.2 s sooner.](img/tt-ray-paths.svg){ loading=lazy }
+  ![Cross-section drawn to scale. A quake 11.9 km deep sits at the left in a 37 km thick crust, where P travels 6.2 km/s, above the mantle, where P travels 7.8 km/s. A station sits at the surface 220 km away. A teal line labeled Pg runs straight from the quake to the station. A purple line labeled Pn goes down to the Moho at 52.5 degrees from the vertical, runs along the top of the mantle and comes back up to the station. Faint dashed purple lines leave the Moho at the same angle along the way; the first reaches the surface 82 km from the quake. Below: Pg (direct), 220.3 km through the crust at 6.2 km/s, 35.7 s. Pn (head wave), 103 km in the crust at 6.2 km/s plus 138 km along the mantle at 7.8 km/s, 34.5 s. A longer path, but it arrives 1.2 s sooner.](img/tt-ray-paths.svg){ loading=lazy }
   <figcaption>Figure 2. Two ways for P to reach a station 220 km away, drawn to scale with the
   numbers measured for the Magna quake (Figure 3 and the worked example below). Times from the
   formulas on this page.</figcaption>
@@ -201,9 +201,9 @@ The Junction quake was small: beyond about 200 km only a few stations recorded i
 magnitude 5.7 Magna quake of March 2020 shook seismometers far beyond 300 km (Figure 3).
 
 <figure markdown="span">
-  ![Two record sections of the magnitude 5.7 Magna quake side by side, 31 stations from 12 to 397 km, distance down. Left, plain time from 0 to 60 seconds: blue dots and circles (first P) follow a teal line labelled Pg: 6.2 km/s down to about 150 km, then a steeper purple line labelled Pn: 7.8 km/s. A dotted line at 149 km is labelled lines cross at 149 km. The purple line, extended back as a dashed line, reaches 0 km at t i = 6.2 s. Right, the same records in reduced time, t minus d/8, from minus 2 to 14 seconds: the teal Pg line leans steeply to the right, labelled Pg leans right, and below 150 km the purple Pn line runs almost straight down, labelled Pn runs almost straight down.](img/tt-magna-bend.svg){ loading=lazy }
+  ![Two record sections of the magnitude 5.7 Magna quake side by side, 31 stations from 12 to 397 km, distance down. Left, plain time from 0 to 60 seconds: blue dots and circles (first P) follow a teal line labeled Pg: 6.2 km/s down to about 150 km, then a steeper purple line labeled Pn: 7.8 km/s. A dotted line at 149 km is labeled lines cross at 149 km. The purple line, extended back as a dashed line, reaches 0 km at t i = 6.2 s. Right, the same records in reduced time, t minus d/8, from minus 2 to 14 seconds: the teal Pg line leans steeply to the right, labeled Pg leans right, and below 150 km the purple Pn line runs almost straight down, labeled Pn runs almost straight down.](img/tt-magna-bend.svg){ loading=lazy }
   <figcaption>Figure 3. The Magna quake (magnitude 5.7, March 18, 2020), filtered 1–10 Hz, each
-  trace stretched to fit. Grey: SGU (178 km), which has no pick; its record from that day is
+  trace stretched to fit. Gray: SGU (178 km), which has no pick; its record from that day is
   about 100 times too small. First P: the analysts' picks (filled), which stop at 182 km, and
   computer picks (open). The two lines are Quake Explorer's two-line fit. Data: University of
   Utah Seismograph Stations (network UU, doi:10.7914/SN/UU) via EarthScope; quake and analyst
@@ -229,7 +229,7 @@ $$
 $$
 
 A wave at exactly 8 km/s then arrives at the same \(\tau\) everywhere: a line straight down.
-Slower waves lean to the right, by \(1/v - 1/8\) seconds for every kilometre. Pg at 6.17 km/s
+Slower waves lean to the right, by \(1/v - 1/8\) seconds for every kilometer. Pg at 6.17 km/s
 leans 3.7 s per 100 km; Pn at 7.78 km/s only 0.36 s per 100 km. In Quake Explorer, tick
 **Reduced time (advanced)**.
 
@@ -277,14 +277,14 @@ a hint, not a measurement.
 
 ## Far away: travel times through the whole Earth
 
-For a quake thousands of kilometres away, Earth's curve matters. Distance is measured as the
-angle between the quake and the station, seen from Earth's centre: 1° is about 111 km along
+For a quake thousands of kilometers away, Earth's curve matters. Distance is measured as the
+angle between the quake and the station, seen from Earth's center: 1° is about 111 km along
 the surface, and 180° is the far side of the world. Figure 4 shows how long P and S take to
 travel any distance in **iasp91**, a standard model of the whole Earth
 ([Kennett and Engdahl, 1991](https://doi.org/10.1111/j.1365-246X.1991.tb06724.x)).
 
 <figure markdown="span">
-  ![Travel-time curves through the whole Earth: distance from 0 to 180 degrees runs down and minutes after the quake, 0 to 30, across. A blue P curve and a red S curve start at the top left and bend, getting steeper with distance. A grey dashed straight line, a steady 8 km/s for comparison, falls behind the P curve. A dotted line at 35.8 degrees marks station SGU, with a blue dot on the P curve near 7 minutes and a red dot on the S curve near 12.5 minutes. A note reads: Sand Point, Alaska M7.3 recorded at SGU (35.8 degrees): P model 6:56, picked 6:59; S model 12:32, picked about 12:45. The P curve stops at 98 degrees and continues only as a faint dashed line labelled Pdiff: weak, bent around the core. A grey band from 103 to 142 degrees is labelled P shadow zone: the core is in the way. Beyond it a blue curve labelled PKP: through the core reaches 180 degrees at about 20 minutes. The S curve stops near 100 degrees, labelled direct S stops near 100 degrees: it can't cross the liquid core. An inset, Inside the Earth, to scale, shows P rays curving down through the mantle and back up to the surface, a thick one to SGU, one grazing the core and a dashed one through the core, with the shadow zone marked on the surface.](img/tt-global.svg){ loading=lazy }
+  ![Travel-time curves through the whole Earth: distance from 0 to 180 degrees runs down and minutes after the quake, 0 to 30, across. A blue P curve and a red S curve start at the top left and bend, getting steeper with distance. A gray dashed straight line, a steady 8 km/s for comparison, falls behind the P curve. A dotted line at 35.8 degrees marks station SGU, with a blue dot on the P curve near 7 minutes and a red dot on the S curve near 12.5 minutes. A note reads: Sand Point, Alaska M7.3 recorded at SGU (35.8 degrees): P model 6:56, picked 6:59; S model 12:32, picked about 12:45. The P curve stops at 98 degrees and continues only as a faint dashed line labeled Pdiff: weak, bent around the core. A gray band from 103 to 142 degrees is labeled P shadow zone: the core is in the way. Beyond it a blue curve labeled PKP: through the core reaches 180 degrees at about 20 minutes. The S curve stops near 100 degrees, labeled direct S stops near 100 degrees: it can't cross the liquid core. An inset, Inside the Earth, to scale, shows P rays curving down through the mantle and back up to the surface, a thick one to SGU, one grazing the core and a dashed one through the core, with the shadow zone marked on the surface.](img/tt-global.svg){ loading=lazy }
   <figcaption>Figure 4. Travel times in the iasp91 Earth model for a quake 38 km deep, computed
   with ObsPy TauP (Quake Explorer reads its times from a table made the same way). The SGU
   picks were made by the same computer picker Quake Explorer uses. Data: University of Utah
@@ -292,7 +292,7 @@ travel any distance in **iasp91**, a standard model of the whole Earth
   ComCat.</figcaption>
 </figure>
 
-**The curves get steeper with distance.** If P kept a steady 8 km/s (the grey line), it would
+**The curves get steeper with distance.** If P kept a steady 8 km/s (the gray line), it would
 need 8 min 18 s to reach SGU, 3,985 km from the Sand Point quake. It takes 6 min 56 s. Near SGU
 the P curve's slope is about 13 km/s, faster than any rock near the surface.
 

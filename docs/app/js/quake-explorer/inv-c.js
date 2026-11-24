@@ -220,7 +220,7 @@ export function createC(ctx) {
     </div>`;
     steps.extra.innerHTML = `<div class="qe-result">
       ${loc ? `<p><b>One station can locate a quake.</b> S − P here is ${loc.sp.toFixed(1)} s, so the quake is about
-        ${Math.round(loc.epiKm)} km away (the grey circle, as in Quake Locator). Going ${Math.round(loc.epiKm)} km along the
+        ${Math.round(loc.epiKm)} km away (the gray circle, as in Quake Locator). Going ${Math.round(loc.epiKm)} km along the
         computer's direction lands <b>${Math.round(loc.missKm)} km</b> from the official epicenter (the purple dot and the star).</p>` : ''}
       <p><b>Now S.</b> Press <b>S window</b> (above the record), then <b>Turn to Z R T</b>
         (R = along the path, T = sideways). Which one carries the S wave?</p>

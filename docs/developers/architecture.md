@@ -140,7 +140,7 @@ and `followDocsTheme(draw)` from `ui/page.js`:
   `body.embed` styles make it fill the frame.
 - **Light and dark.** Because the docs and the app are on the same site, `followDocsTheme()`
   reads the docs' light/dark switch (`data-md-color-scheme`), sets `data-theme` on the app's
-  own `<html>` and redraws when the switch changes; `app.css` honours `data-theme` before the
+  own `<html>` and redraws when the switch changes; `app.css` honors `data-theme` before the
   device setting.
 
 Embedded animations need no hub page of their own, but each must still be listed on the All

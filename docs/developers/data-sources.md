@@ -77,7 +77,7 @@ every sample.
 under `"explorer"` in `samples/index.json` (Quake Locator reads only the `"samples"` list). They
 have more stations and longer windows (a record section out to 300 or 400 km; half an hour for
 a distant quake), full channel metadata (direction, sensitivity, units, clipping), and two
-extra files: `computer-picks.json` (AIC picks, labelled as computer picks, where the analysts
+extra files: `computer-picks.json` (AIC picks, labeled as computer picks, where the analysts
 made none) and `sample.json` (`"kind": "explorer"` and the command that made it). Make one
 with `node tools/quake-explorer/make-sample.mjs`; see
 [Quake Explorer notes](quake-explorer.md#rebuilding-the-samples-and-the-answer-key).

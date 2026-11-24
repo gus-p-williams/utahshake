@@ -78,6 +78,6 @@
 <text x="362" y="66" font-size="12" fill="#5b6472">spreading alone: 1/r</text>
 <line x1="504" y1="62" x2="526" y2="62" stroke="#5b6472" stroke-width="1.6" stroke-dasharray="2 4"/>
 <text x="532" y="66" font-size="12" fill="#5b6472">spreading alone: 1/√r</text>
-<text x="64" y="470" font-size="12.5" fill="#111827">Vertical sensors, filtered 1–10 Hz. 1 µm/s is a thousandth of a millimetre per second.</text>
+<text x="64" y="470" font-size="12.5" fill="#111827">Vertical sensors, filtered 1–10 Hz. 1 µm/s is a thousandth of a millimeter per second.</text>
 <text x="64" y="490" font-size="12.5" fill="#111827">School stand-ins: WCU Millard, SGU Gunnison Valley, TMU Wasatch Academy, ELU North Sanpete, SUU Juab.</text>
 </svg>

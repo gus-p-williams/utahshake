@@ -75,7 +75,7 @@ Quake Locator is built around the practices that SEEd standards share:
 - **Using mathematics and computational thinking:** deriving and using the S-minus-P formula;
   the grid search.
 - **Constructing explanations:** why the location is off, and which station is to blame.
-- **Crosscutting concept, scale and proportion:** seconds become kilometres; 0.1 s of pick
+- **Crosscutting concept, scale and proportion:** seconds become kilometers; 0.1 s of pick
   error moves a circle about 0.8 km.
 
 Quake Explorer adds **predicting before checking** (every investigation asks for a prediction

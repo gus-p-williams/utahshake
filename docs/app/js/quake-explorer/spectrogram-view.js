@@ -627,7 +627,7 @@ export class SpectrogramView {
     let x = 4;
     ctx.fillText('quiet', x, yBar + barH / 2);
     x += ctx.measureText('quiet').width + 6;
-    const unit = `loud  (colour = strength, ${this.dbLabel})`;
+    const unit = `loud  (color = strength, ${this.dbLabel})`;
     const barW = Math.max(60, Math.min(280, w - x - ctx.measureText(unit).width - 14));
     const grad = ctx.createLinearGradient(x, 0, x + barW, 0);
     VIRIDIS.forEach((c, i) => grad.addColorStop(i / (VIRIDIS.length - 1), c));

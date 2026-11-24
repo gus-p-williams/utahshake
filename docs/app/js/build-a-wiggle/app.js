@@ -313,7 +313,7 @@ function drawSpectrum(sp) {
   haloText(ctx, w < 420 ? 'Spectrum of the sum' : 'Spectrum of the sum (the FFT finds the waves)', 8, 5, col.text, col.bg);
   ctx.font = '12px system-ui, sans-serif';
   ctx.textAlign = 'right';
-  const key = [state.filter ? 'shaded: kept by the filter' : '', state.noise ? 'grey: noise' : ''].filter(Boolean).join(' · ');
+  const key = [state.filter ? 'shaded: kept by the filter' : '', state.noise ? 'gray: noise' : ''].filter(Boolean).join(' · ');
   if (key) haloText(ctx, key, x1, 6, col.muted, col.bg);
   ctx.textAlign = 'left';
   haloText(ctx, 'size', 4, 22, col.muted, col.bg);
