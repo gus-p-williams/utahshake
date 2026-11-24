@@ -375,10 +375,10 @@ discussions):**
 - Particle-motion directions are off by 10–15° on average. Rocks are not uniform, and waves
   bend.
 
-**Needs Gus's OK before teaching material is written:**
+**Approved by Gus (2026-11-24), so teaching material can build on them:**
 1. Pn/Moho taught with Magna as the main example and Junction as a hint.
 2. Particle motion framed as "usually within about 15°, for stations within about 100 km".
-   The one-station location challenge would use Kenilworth/TMU and Junction's near stations.
+   The one-station location challenge uses Kenilworth/TMU and Junction's near stations.
 3. Reduced time as an optional advanced toggle.
 4. The true-amplitude toggle only for Junction.
 
