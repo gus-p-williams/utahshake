@@ -9,6 +9,10 @@
 //                app does), vertical channel only unless listed in --threeC
 // --stations     extra stations with all three components (for particle
 //                motion, spectrograms or a blast/quake comparison)
+// --zOnly        extra stations with the vertical channel only
+// --near LAT,LON look for stations around this point instead of the quake
+//                (distant quakes: around the schools), within --radius km
+// --noPicks      skip computer picks (their search windows suit local quakes)
 // Also stores computer first-arrival picks (AIC, labelled as such) for
 // section stations the analysts didn't pick, so the answer key reaches as far
 // as the record section does.
@@ -34,6 +38,8 @@ const list = (v) => (v && v !== true ? String(v).split(',').filter(Boolean) : []
 const sectionKm = args.section ? Number(args.section) : 0;
 const threeC = new Set(list(args.threeC));
 const extra = list(args.stations);
+const zOnly = list(args.zOnly);
+const near = args.near ? String(args.near).split(',').map(Number) : null;
 const pre = Number(args.pre ?? 10);
 const post = Number(args.post ?? 110);
 const views = list(args.views).length ? list(args.views) : ['record-section', 'frequencies', 'motion'];
@@ -46,8 +52,9 @@ const t0 = event.timeMs;
 console.log(`${id} ${event.eventType} M${event.mag} ${new Date(t0).toISOString()} ${event.place}`);
 const picks = await src.getAnalystPicks(id);
 const by = picksByStation(picks);
-const searchKm = Math.max(sectionKm, 200);
-const all = await src.getStations({ lat: event.lat, lon: event.lon, maxKm: searchKm, atMs: t0 });
+const searchKm = near ? Number(args.radius || 150) : Math.max(sectionKm, 200);
+const all = await src.getStations({ lat: near ? near[0] : event.lat, lon: near ? near[1] : event.lon,
+  maxKm: searchKm, atMs: t0 });
 
 // Station list: record section (+ school stand-ins), then extras.
 const chosen = new Map();
@@ -59,11 +66,11 @@ if (sectionKm) {
       comps: threeC.has(s.sta) ? 3 : 1 });
   }
 }
-for (const sta of extra) {
+for (const [sta, comps] of [...extra.map((x) => [x, 3]), ...zOnly.map((x) => [x, 1])]) {
   const s = all.find((x) => x.sta === sta);
   if (!s) { console.warn(`  ${sta}: not found within ${searchKm} km`); continue; }
   const school = SCHOOLS.filter((x) => x.standIn.sta === sta).map((x) => x.name);
-  chosen.set(sta, { s, role: chosen.get(sta)?.role || (school.length ? 'school' : 'extra'), schools: school, comps: 3 });
+  chosen.set(sta, { s, role: chosen.get(sta)?.role || (school.length ? 'school' : 'extra'), schools: school, comps });
 }
 
 const reqs = [];
@@ -99,7 +106,7 @@ console.log(`waveforms: ${(bytes.length / 1024).toFixed(0)} KB, ${traces.length}
 
 // Computer picks where the analysts have none.
 const computer = [];
-for (const m of keep) {
+for (const m of args.noPicks ? [] : keep) {
   const key = `${m.s.net}.${m.s.sta}`;
   const tr = traces.find((t) => t.sta === m.s.sta && t.cha === m.ch.channels[0]);
   if (!tr) continue;

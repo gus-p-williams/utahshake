@@ -130,6 +130,46 @@ for (const [d, stas] of [['qe-kenilworth', ['TMU', 'MPU', 'CVRU', 'BSUT']], ['qe
 }
 console.log(table(rows, ['sample', 'sta', 'km', 'true baz', 'est 0.3s', 'est 0.5s', 'est 1s', 'lin', 'up/away']));
 console.log('  (estimate, with the error in degrees in brackets)');
+console.log('\n== D. A message from the far side of the world (qe-sand-point, SGU vertical)');
+{
+  const { decimate } = await app('lib/signal.js');
+  const { aicPick } = await app('lib/picker.js');
+  const { distanceDeg, bodyWaveTimes, surfaceWaveWindow } = await app('lib/teleseism.js');
+  const table = JSON.parse(fs.readFileSync(path.join(root, 'docs/app/data/traveltimes-iasp91.json'), 'utf8'));
+  const s = load('qe-sand-point');
+  const st = s.stations.find((x) => x.sta === 'SGU');
+  const raw = s.traces.find((t) => t.sta === 'SGU' && t.cha.endsWith('Z'));
+  const dec = decimate(raw.data, raw.sampleRate, 5);
+  const tr = { ...raw, data: dec.data, sampleRate: dec.sampleRate };
+  const startSec = (tr.startMs - s.event.timeMs) / 1000;
+  const deg = distanceDeg(s.event.lat, s.event.lon, st.lat, st.lon);
+  const pred = bodyWaveTimes(table, deg, s.event.depthKm);
+  const pick = (lo, hi, t) => aicPick(filteredData(tr, { lo, hi }), tr.sampleRate, startSec, t - 60, t + 30);
+  const p = pick(0.5, 2, pred.P);
+  const sPick = pick(0.1, 1, pred.S);
+  const long = filteredData(tr, { lo: 0.03, hi: 0.1 });
+  const i0 = Math.round((pred.S + 60 - startSec) * tr.sampleRate);
+  let iMax = i0;
+  for (let i = i0; i < long.length; i++) if (Math.abs(long[i]) > Math.abs(long[iMax])) iMax = i;
+  const mmss = (sec) => `${Math.floor(sec / 60)}:${String(Math.round(sec % 60)).padStart(2, '0')}`;
+  const sw = surfaceWaveWindow(deg);
+  console.log(`  ${s.event.place}, M${s.event.mag}, depth ${s.event.depthKm} km; SGU ${deg.toFixed(1)}° away (${st.distKm.toFixed(0)} km)`);
+  console.log(`  P: iasp91 ${mmss(pred.P)} (${pred.Pphase}), computer pick ${mmss(p.tSec)} (SNR ${p.snr.toFixed(0)})`);
+  console.log(`  S: iasp91 ${mmss(pred.S)} (${pred.Sphase}), computer pick ${mmss(sPick.tSec)} (SNR ${sPick.snr.toFixed(1)})`);
+  console.log(`  surface waves (10–33 s period) peak at ${mmss(startSec + iMax / tr.sampleRate)}; ` +
+    `expected ${mmss(sw.startSec)}–${mmss(sw.endSec)} (3.0–4.2 km/s)`);
+  // S shakes the ground sideways, and far away it arrives from almost straight
+  // below, so it shows on the horizontal channels rather than the vertical one.
+  for (const comp of ['N', 'E']) {
+    const h = s.traces.find((t) => t.sta === 'SGU' && t.cha.endsWith(comp));
+    const hd = decimate(h.data, h.sampleRate, 5);
+    const ht = { ...h, data: hd.data, sampleRate: hd.sampleRate };
+    const hs = aicPick(filteredData(ht, { lo: 0.05, hi: 0.5 }), ht.sampleRate, startSec, pred.S - 60, pred.S + 30);
+    console.log(`  S on ${h.cha}: computer pick ${mmss(hs.tSec)} (SNR ${hs.snr.toFixed(1)}); S − P ${(hs.tSec - p.tSec).toFixed(0)} s`);
+  }
+  console.log(`  S − P: iasp91 ${(pred.S - pred.P).toFixed(0)} s`);
+}
+
 const size = fs.readdirSync(base).filter((d) => d.startsWith('qe-')).reduce((n, d) =>
   n + fs.readdirSync(path.join(base, d)).reduce((m, f) => m + fs.statSync(path.join(base, d, f)).size, 0), 0);
 console.log(`\nexplorer samples: ${(size / 1024).toFixed(0)} KB in total`);

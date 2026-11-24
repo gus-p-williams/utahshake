@@ -1,0 +1,15 @@
+{
+ "kind": "explorer",
+ "event": "us7000qd1y",
+ "eventType": "earthquake",
+ "views": [
+  "distant"
+ ],
+ "window": {
+  "preSec": 60,
+  "postSec": 1800
+ },
+ "sectionKm": null,
+ "made": "2026-11-24",
+ "command": "node tools/quake-explorer/make-sample.mjs us7000qd1y --dir qe-sand-point --near 39.35,-111.65 --radius 120 --stations SGU --zOnly TMU --pre 60 --post 1800 --noPicks --views distant"
+}

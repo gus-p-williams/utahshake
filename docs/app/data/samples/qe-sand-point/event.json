@@ -1,0 +1,13 @@
+{
+ "id": "us7000qd1y",
+ "timeMs": 1752698261667,
+ "lat": 54.5652,
+ "lon": -160.4689,
+ "depthKm": 38,
+ "mag": 7.3,
+ "magType": "mww",
+ "place": "2025 Sand Point, Alaska Earthquake",
+ "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000qd1y",
+ "hasPhaseData": true,
+ "eventType": "earthquake"
+}

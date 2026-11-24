@@ -123,6 +123,31 @@ test('qe-junction: P motion at nearby broadband stations points to the quake', (
   }
 });
 
+test('qe-sand-point: at SGU, P arrives at the iasp91 time and surface waves peak in their window (answer key D)', async () => {
+  const { decimate, peakAbs } = await import('../docs/app/js/lib/signal.js');
+  const { aicPick } = await import('../docs/app/js/lib/picker.js');
+  const { distanceDeg, bodyWaveTimes, surfaceWaveWindow } = await import('../docs/app/js/lib/teleseism.js');
+  const table = JSON.parse(fs.readFileSync(new URL('../docs/app/data/traveltimes-iasp91.json', import.meta.url), 'utf8'));
+  const s = load('qe-sand-point');
+  const st = s.stations.find((x) => x.sta === 'SGU');
+  const raw = s.traces.find((t) => t.sta === 'SGU' && t.cha.endsWith('Z'));
+  const dec = decimate(raw.data, raw.sampleRate, 5); // 100 -> 20 samples/s
+  const tr = { ...raw, data: dec.data, sampleRate: dec.sampleRate };
+  const startSec = (tr.startMs - s.event.timeMs) / 1000;
+  const deg = distanceDeg(s.event.lat, s.event.lon, st.lat, st.lon);
+  const pred = bodyWaveTimes(table, deg, s.event.depthKm);
+  const p = aicPick(filteredData(tr, { lo: 0.5, hi: 2 }), tr.sampleRate, startSec, pred.P - 60, pred.P + 30);
+  assert.ok(Math.abs(p.tSec - pred.P) < 10, `P picked ${p.tSec.toFixed(1)} s, iasp91 ${pred.P.toFixed(1)} s`);
+  const long = filteredData(tr, { lo: 0.03, hi: 0.1 });
+  const i0 = Math.round((pred.S + 60 - startSec) * tr.sampleRate);
+  let iMax = i0;
+  const peak = peakAbs(long, i0);
+  for (let i = i0; i < long.length; i++) if (Math.abs(long[i]) === peak) { iMax = i; break; }
+  const tPeak = startSec + iMax / tr.sampleRate;
+  const sw = surfaceWaveWindow(deg);
+  assert.ok(tPeak > sw.startSec && tPeak < sw.endSec, `surface-wave peak ${tPeak.toFixed(0)} s, window ${sw.startSec.toFixed(0)}–${sw.endSec.toFixed(0)} s`);
+});
+
 test('Leamington blast vs quake of the same size at SUU: the blast has fewer high notes (answer key B)', () => {
   const hf = (d) => {
     const s = load(d);

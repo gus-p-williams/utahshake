@@ -1,0 +1,80 @@
+[
+ {
+  "net": "UU",
+  "sta": "SGU",
+  "lat": 39.18233,
+  "lon": -111.64467,
+  "elevM": 2357,
+  "role": "school",
+  "schools": [
+   "Gunnison Valley High School"
+  ],
+  "distKm": 3985.35,
+  "bazDeg": 311.8,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Trillium Horizon 120, 120 s, 1203 V/m/s-Centaur, 4",
+    "sensitivity": 481000000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   },
+   {
+    "loc": "01",
+    "cha": "HHN",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": 0,
+    "sensor": "Trillium Horizon 120, 120 s, 1203 V/m/s-Centaur, 4",
+    "sensitivity": 481000000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   },
+   {
+    "loc": "01",
+    "cha": "HHE",
+    "sampleRate": 100,
+    "azimuth": 90,
+    "dip": 0,
+    "sensor": "Trillium Horizon 120, 120 s, 1203 V/m/s-Centaur, 4",
+    "sensitivity": 481000000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "TMU",
+  "lat": 39.2965,
+  "lon": -111.20817,
+  "elevM": 2731,
+  "role": "school",
+  "schools": [
+   "Wasatch Academy"
+  ],
+  "distKm": 4004.94,
+  "bazDeg": 311.7,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Trillium Horizon 120, 120 s, 1200 V/m/s-Centaur, 4",
+    "sensitivity": 481000000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ }
+]

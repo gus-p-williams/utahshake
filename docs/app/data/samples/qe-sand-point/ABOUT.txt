@@ -1,0 +1,12 @@
+Quake Explorer offline sample: 2025 Sand Point, Alaska Earthquake, M7.3 (earthquake)
+
+- Event: us7000qd1y, 2025-07-16T20:37:41.667Z (UTC), https://earthquake.usgs.gov/earthquakes/eventpage/us7000qd1y
+- Window: 60 s before to 1800 s after the origin time
+- Stations: SGU (3 comp.), TMU
+- picks.json: UUSS analyst picks. computer-picks.json: AIC picks made by
+  tools/quake-explorer/make-sample.mjs where the analysts made none (P: SNR >= 3,
+  S: SNR >= 2); they can differ from what an analyst would pick.
+- Made with `node tools/quake-explorer/make-sample.mjs us7000qd1y --dir qe-sand-point --near 39.35,-111.65 --radius 120 --stations SGU --zOnly TMU --pre 60 --post 1800 --noPicks --views distant` on 2026-11-24
+
+Waveforms: University of Utah Seismograph Stations, network UU (doi:10.7914/SN/UU), via EarthScope Data Services.
+Earthquake locations and analyst picks: U.S. Geological Survey ComCat / University of Utah Seismograph Stations.

@@ -6,7 +6,8 @@ import { distanceKm } from '../lib/geo.js';
 import { parseMiniseed } from './mseed.js';
 
 const BASE = new URL('../../data/samples/', import.meta.url);
-const NEAR_MS = 600000; // a sample's data cover at most 10 minutes either side of its quake
+const NEAR_MS = 600000;      // samples start at most 10 minutes before their quake...
+const AFTER_MS = 2 * 3600000; // ...and end within 2 hours after it (distant quakes: ~30 min)
 
 export class SampleSource {
   /**
@@ -81,7 +82,7 @@ export class SampleSource {
     const out = [];
     for (const s of await this._all()) {
       const t0 = s.event.timeMs;
-      if (endMs < t0 - NEAR_MS || startMs > t0 + NEAR_MS) continue;
+      if (endMs < t0 - NEAR_MS || startMs > t0 + AFTER_MS) continue;
       const res = await this._fetch(new URL('waveforms.mseed', s.root));
       if (!res.ok) continue;
       for (const tr of parseMiniseed(await res.arrayBuffer(), { fromMs: startMs, toMs: endMs })) {
