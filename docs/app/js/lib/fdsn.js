@@ -13,6 +13,7 @@
  * @property {string} place    e.g. "8 km NW of Junction, Utah"
  * @property {string} url      ComCat event page
  * @property {boolean} hasPhaseData  analyst picks are available
+ * @property {string} eventType  "earthquake", "quarry blast", "mining explosion", ...
  */
 
 /**
@@ -61,6 +62,7 @@ export function parseUsgsGeoJson(json) {
       place: p.place || '',
       url: p.url || `https://earthquake.usgs.gov/earthquakes/eventpage/${f.id}`,
       hasPhaseData: types.includes('phase-data'),
+      eventType: p.type || 'earthquake', // e.g. "quarry blast", "mining explosion"
     };
   });
 }
