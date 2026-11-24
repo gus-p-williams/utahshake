@@ -157,5 +157,5 @@ at TMU misses badly has found a real effect, not made a mistake.
 - Plot true distance against S − P for many stations (from the CSVs). The slope is the km per
   second of S − P. Is it constant? (It bends upward for far stations: see
   [Limits](../theory/s-minus-p.md#limits) on the Distance from S minus P page.)
-- Connect to [ESS.2.2](standards.md#wave-race): the same S-wave behaviour revealed that Earth's
+- Connect to [ESS.2.2](standards.md#wave-race): the same S-wave behavior revealed that Earth's
   outer core is liquid.

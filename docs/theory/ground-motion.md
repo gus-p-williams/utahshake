@@ -26,7 +26,7 @@ points and you get the **path the ground traced**. Seismologists call it the **p
 and a drawing of it a **hodogram**. Seen from above, it is a little map of the ground's motion.
 
 <figure markdown="span">
-  ![Left: a sketch of a small sensor case on the ground with three arrows at right angles, labelled up (Z), north (N) and east (E). Middle: the north and east records of station TMU during the first half second of a P wave, from 11.69 to 12.23 seconds after the quake; both curves are flat at first, rise a little at a moment marked 2, then fall steeply to a moment marked 3. Right: the path seen from above, in a circle with N at the top and E at the right: the points join into a straight line from north-east (moment 2) through the middle (moment 1) to south-west (moment 3).](img/gm-three-sensors.svg){ loading=lazy }
+  ![Left: a sketch of a small sensor case on the ground with three arrows at right angles, labeled up (Z), north (N) and east (E). Middle: the north and east records of station TMU during the first half second of a P wave, from 11.69 to 12.23 seconds after the quake; both curves are flat at first, rise a little at a moment marked 2, then fall steeply to a moment marked 3. Right: the path seen from above, in a circle with N at the top and E at the right: the points join into a straight line from north-east (moment 2) through the middle (moment 1) to south-west (moment 3).](img/gm-three-sensors.svg){ loading=lazy }
   <figcaption>Figure 1. From three sensors to one path. At station TMU, during the first half
   second of the P wave from the Kenilworth quake (below), the north and east readings rise and
   fall together, so the ground moved back and forth along one line, from north-east to
@@ -72,7 +72,7 @@ pulls **along** its path, so it should move Z and R, but hardly T. An S wave sha
 its path, so it can move T.
 
 <figure markdown="span">
-  ![Left: a sketch seen from above of station MTPU, with its north and east sensors as thin grey arrows, a dashed orange line to the quake at 342 degrees, a thick arrow R pointing away from the quake (to the south-south-east) and a thick arrow T pointing sideways (to the west-south-west). Right: two columns of three traces, Z, R and T. During P, from 4.8 to 6.3 seconds: Z and R swing strongly, T only a little; a note reads T is only 29 percent of R, P hardly moves the ground sideways. During S, from 8.9 to 11.4 seconds, drawn 10 times smaller: T has the biggest swings, R and Z smaller ones; a note reads T is 1.3 times R, S shakes the ground across the path.](img/gm-radial-transverse.svg){ loading=lazy }
+  ![Left: a sketch seen from above of station MTPU, with its north and east sensors as thin gray arrows, a dashed orange line to the quake at 342 degrees, a thick arrow R pointing away from the quake (to the south-south-east) and a thick arrow T pointing sideways (to the west-south-west). Right: two columns of three traces, Z, R and T. During P, from 4.8 to 6.3 seconds: Z and R swing strongly, T only a little; a note reads T is only 29 percent of R, P hardly moves the ground sideways. During S, from 8.9 to 11.4 seconds, drawn 10 times smaller: T has the biggest swings, R and Z smaller ones; a note reads T is 1.3 times R, S shakes the ground across the path.](img/gm-radial-transverse.svg){ loading=lazy }
   <figcaption>Figure 2. Station MTPU, 29 km from the magnitude 3.3 quake near Junction,
   Utah, turned to face the quake. Each column has one scale for all three traces. During P the
   sideways (T) motion is small; during S it is the largest. Filtered 1–10 Hz; P and S lines
@@ -114,7 +114,7 @@ Either way, **up goes with away**. So find the line, then see which end the grou
 while it moved up: that end points away from the quake, and the quake is at the other end.
 
 <figure markdown="span">
-  ![Cross-section through the ground. A quake star sits deep on the right; a curved blue path leaves it sideways, bends upward and reaches a station on the surface at the left, arriving steeply from below and slanting away from the quake. Two zoomed-in circles show the ground at the station with a dashed blue line along the wave's direction of travel: in the first, a green arrow points up and to the left, labelled a push (compression): up and away; in the second, a red arrow points down and to the right, labelled a pull (dilatation): down and toward. A line at the bottom reads: either way the ground moves along the wave's path, and up goes with away.](img/gm-up-away.svg){ loading=lazy }
+  ![Cross-section through the ground. A quake star sits deep on the right; a curved blue path leaves it sideways, bends upward and reaches a station on the surface at the left, arriving steeply from below and slanting away from the quake. Two zoomed-in circles show the ground at the station with a dashed blue line along the wave's direction of travel: in the first, a green arrow points up and to the left, labeled a push (compression): up and away; in the second, a red arrow points down and to the right, labeled a pull (dilatation): down and toward. A line at the bottom reads: either way the ground moves along the wave's path, and up goes with away.](img/gm-up-away.svg){ loading=lazy }
   <figcaption>Figure 3. Why "up" goes with "away". The P wave arrives from below, slanting away
   from the quake. A push moves the ground up and away, a pull down and toward. A cartoon: the
   path and the angles are not to scale.</figcaption>
@@ -127,7 +127,7 @@ from station TMU (Wasatch Academy's stand-in). Figure 4 shows the first half sec
 filtered 1–5 Hz.
 
 <figure markdown="span">
-  ![Top: three records from station TMU, Z, N and E, from 10.6 to 14 seconds after the quake, with a blue line at the P arrival (11.74 seconds) and a shaded band from 11.69 to 12.24 seconds labelled first half second of P. Bottom left: the path seen from above, a straight line from the middle to the south-west with a short stub to the north-east; a purple dashed arrow (computer, 44 degrees) and an orange arrow (true, 47 degrees) both point north-east. Bottom middle: the path seen from the side, with up at the top, away to the left and toward the quake (47 degrees) to the right: the path dips a little down and to the right (labelled first: down and toward), then climbs high and to the left (labelled up and away). Right: 1, the ground moves along one line, 44 to 224 degrees (NE to SW); 2, up goes with away: the ground goes up as it moves SW, so the quake is the other way, 44 degrees (NE); 3, true direction 47 degrees, off by minus 3 degrees; linearity 1.00, up/away 0.68.](img/gm-pointing.svg){ loading=lazy }
+  ![Top: three records from station TMU, Z, N and E, from 10.6 to 14 seconds after the quake, with a blue line at the P arrival (11.74 seconds) and a shaded band from 11.69 to 12.24 seconds labeled first half second of P. Bottom left: the path seen from above, a straight line from the middle to the south-west with a short stub to the north-east; a purple dashed arrow (computer, 44 degrees) and an orange arrow (true, 47 degrees) both point north-east. Bottom middle: the path seen from the side, with up at the top, away to the left and toward the quake (47 degrees) to the right: the path dips a little down and to the right (labeled first: down and toward), then climbs high and to the left (labeled up and away). Right: 1, the ground moves along one line, 44 to 224 degrees (NE to SW); 2, up goes with away: the ground goes up as it moves SW, so the quake is the other way, 44 degrees (NE); 3, true direction 47 degrees, off by minus 3 degrees; linearity 1.00, up/away 0.68.](img/gm-pointing.svg){ loading=lazy }
   <figcaption>Figure 4. Pointing to the quake from station TMU. Seen from above, the ground moved
   along one line (north-east to south-west). Seen from the side, it went up while moving
   south-west, so south-west is "away" and the quake is to the north-east: 44°, only 3° from
@@ -173,7 +173,7 @@ station with an analyst's P pick within 200 km of 13 Utah quakes (magnitude 2.5 
 station-quake pairs, filtered 1–5 Hz, using the first half second of P.
 
 <figure markdown="span">
-  ![Left: a histogram of how far off the direction was, in 10-degree bars from 0 to 180 degrees, split into clear motion (blue) and less clear (grey). The 0 to 10 degree bar is tallest, about 100 pairs, then about 67 and 29; from 30 to 150 degrees the bars are short; a pink zone from 150 to 180 degrees is labelled wrong end (7 percent). A dashed line at 30 degrees is labelled within 30 degrees: 72 percent of all pairs, 85 percent of the clear ones. Right: each dot is one station and one quake, error against distance from 0 to 200 km. Most dots lie below 30 degrees; a shaded band from 50 to 100 km reads 44 of 45 within 30 degrees. Dots scattered high up are mostly within 10 km of the quake and between 100 and 150 km.](img/gm-direction-errors.svg){ loading=lazy }
+  ![Left: a histogram of how far off the direction was, in 10-degree bars from 0 to 180 degrees, split into clear motion (blue) and less clear (gray). The 0 to 10 degree bar is tallest, about 100 pairs, then about 67 and 29; from 30 to 150 degrees the bars are short; a pink zone from 150 to 180 degrees is labeled wrong end (7 percent). A dashed line at 30 degrees is labeled within 30 degrees: 72 percent of all pairs, 85 percent of the clear ones. Right: each dot is one station and one quake, error against distance from 0 to 200 km. Most dots lie below 30 degrees; a shaded band from 50 to 100 km reads 44 of 45 within 30 degrees. Dots scattered high up are mostly within 10 km of the quake and between 100 and 150 km.](img/gm-direction-errors.svg){ loading=lazy }
   <figcaption>Figure 5. How close the direction from P-wave motion came to the true direction,
   for 271 station-quake pairs. "Clear motion": linearity above 0.8 and up/away above 0.5. Data:
   University of Utah Seismograph Stations (network UU, doi:10.7914/SN/UU) via EarthScope; quakes
@@ -232,7 +232,7 @@ station is enough: go that far, that way.
     - **Location:** go 77.8 km from TMU toward 44°.
 
     <figure markdown="span">
-      ![Map. Station TMU at the lower left. A purple dashed line runs from TMU toward 44 degrees, inside a pale purple wedge of plus or minus 15 degrees. A grey dashed circle around TMU, labelled 78 km from S minus P, crosses the line at a purple star, the one-station estimate. An orange star, the true epicenter, lies just south-west of it along the line; a label between them reads 10 km off. A scale bar shows 20 km. On the right: 1, direction 44 degrees (true 47); 2, S minus P = 21.95 minus 11.74 = 10.21 s, times 7.66 km/s = 78.2 km (true 68 km); 3, go that far that way from TMU: miss 10 km from the true epicenter.](img/gm-one-station.svg){ loading=lazy }
+      ![Map. Station TMU at the lower left. A purple dashed line runs from TMU toward 44 degrees, inside a pale purple wedge of plus or minus 15 degrees. A gray dashed circle around TMU, labeled 78 km from S minus P, crosses the line at a purple star, the one-station estimate. An orange star, the true epicenter, lies just south-west of it along the line; a label between them reads 10 km off. A scale bar shows 20 km. On the right: 1, direction 44 degrees (true 47); 2, S minus P = 21.95 minus 11.74 = 10.21 s, times 7.66 km/s = 78.2 km (true 68 km); 3, go that far that way from TMU: miss 10 km from the true epicenter.](img/gm-one-station.svg){ loading=lazy }
       <figcaption>Figure 6. Locating the Kenilworth quake from TMU alone. The direction is good
       (3° off, about 4 km sideways at this distance); most of the miss comes from the distance.
       Station and epicenter: University of Utah Seismograph Stations (network UU,
@@ -254,7 +254,7 @@ whenever they can ([How professionals do it](locating.md#how-professionals-do-it
 
 The same physics explains what a big, distant quake does to the ground in Utah.
 
-**P and S arrive from steeply below.** From a quake thousands of kilometres away, the waves dive
+**P and S arrive from steeply below.** From a quake thousands of kilometers away, the waves dive
 deep into Earth's mantle, where the rock is much faster, and their paths curve back up steeply.
 At the 2025 Sand Point, Alaska earthquake's distance from SGU (3,985 km), a standard Earth model
 (iasp91) has P and S arriving about 27° from straight up, and the slow rock near the surface
@@ -265,7 +265,7 @@ bends them steeper still. So:
   why S is often hard to pick on the vertical channel of a distant quake.
 
 <figure markdown="span">
-  ![Three records from station SGU, Z, R and T, from 6 to 25 minutes after the magnitude 7.3 Sand Point, Alaska quake, all on one scale and filtered 0.05 to 0.5 Hz. A blue dashed line at about 7 minutes marks P: small fast wiggles start on Z and R, smaller on T. A red dashed line at about 12.75 minutes marks S: much bigger wiggles start on R and T, smaller on Z. From about 16 minutes the biggest waves arrive: on T they peak near 18 minutes, labelled Love waves; on Z and R they peak near 19.5 minutes, labelled Rayleigh waves.](img/gm-far-quake.svg){ loading=lazy }
+  ![Three records from station SGU, Z, R and T, from 6 to 25 minutes after the magnitude 7.3 Sand Point, Alaska quake, all on one scale and filtered 0.05 to 0.5 Hz. A blue dashed line at about 7 minutes marks P: small fast wiggles start on Z and R, smaller on T. A red dashed line at about 12.75 minutes marks S: much bigger wiggles start on R and T, smaller on Z. From about 16 minutes the biggest waves arrive: on T they peak near 18 minutes, labeled Love waves; on Z and R they peak near 19.5 minutes, labeled Rayleigh waves.](img/gm-far-quake.svg){ loading=lazy }
   <figcaption>Figure 7. The magnitude 7.3 Sand Point, Alaska earthquake of July 16, 2025, recorded
   3,985 km away at station SGU (the stand-in for Gunnison Valley), turned to face the quake. One
   scale for all three. In the first minute after each arrival, P was 1.3 times bigger on Z than
@@ -287,7 +287,7 @@ How does the ground roll? Figure 8 adds up the speeds in the record to get how f
 moved, then shows about two Rayleigh waves seen from the side.
 
 <figure markdown="span">
-  ![Left: 90 seconds of how far the ground moved at SGU, filtered 0.03 to 0.1 Hz, along the path (R, plus is away from the quake) and up (Z). Smooth waves about 20 seconds long. A green dot marks a peak of R labelled farthest away; an orange dot a quarter of a wave later marks a peak of Z labelled highest. Right: the same motion seen from the side, with up at the top, away to the left and toward the quake to the right: the path goes round in two clockwise loops, with arrowheads showing the direction; at the top of each loop it moves to the right, toward the quake. Below: the wave travels to the left.](img/gm-rayleigh-roll.svg){ loading=lazy }
+  ![Left: 90 seconds of how far the ground moved at SGU, filtered 0.03 to 0.1 Hz, along the path (R, plus is away from the quake) and up (Z). Smooth waves about 20 seconds long. A green dot marks a peak of R labeled farthest away; an orange dot a quarter of a wave later marks a peak of Z labeled highest. Right: the same motion seen from the side, with up at the top, away to the left and toward the quake to the right: the path goes round in two clockwise loops, with arrowheads showing the direction; at the top of each loop it moves to the right, toward the quake. Below: the wave travels to the left.](img/gm-rayleigh-roll.svg){ loading=lazy }
   <figcaption>Figure 8. Rayleigh waves at SGU from the Sand Point quake. The ground is farthest
   from the quake, then a quarter of a wave later (4.8 s of a 20 s wave) at its highest. Seen
   from the side it goes round in loops, moving toward the quake at the top of each loop.
@@ -313,9 +313,9 @@ on the water moves forward, with the wave, at each crest.
    MTPU's T still moved a little during P (Figure 2).
 5. Why does the method often fail at a station almost directly above the quake?
 6. In Figure 7, Love waves are biggest 18 min 12 s after the quake and Rayleigh waves
-   19 min 39 s after it, 3,985 km away. Estimate how fast each travelled.
+   19 min 39 s after it, 3,985 km away. Estimate how fast each traveled.
 7. Sketch the seen-from-the-side path of a cork on an ocean wave and of the ground in a Rayleigh
-   wave, both travelling to the left. Mark which way each goes round.
+   wave, both traveling to the left. Mark which way each goes round.
 
 In [Quake Explorer](../apps/quake-explorer.md), investigation C, try different stations for the
 same quake. Which stations point best? Does a longer window help or hurt?

@@ -9,7 +9,7 @@ way it shakes the ground, and what a quake on the far side of the world can tell
     - **You will:** measure the speed of P and S waves from many stations at once, find the
       notes in the shaking and listen to them, work out which way the ground moved and where
       the quake was from a single station, and read the waves of a big quake thousands of
-      kilometres away.
+      kilometers away.
     - **Time:** each of the four investigations takes about 15 minutes as a class demo, or a
       full class period (45–55 minutes) in pairs.
     - **Works on:** any browser, including Chromebooks. No install, no accounts.
@@ -67,7 +67,7 @@ shaking just before it. On the Magna quake S is hard to see, because many of its
 are clipped (the sensor maxed out); on the quake recorded at Wasatch Academy it is faint.
 When another quake is loaded, A and C offer a **Load it** link to the Junction quake.
 
-After you load a quake, the four investigation tabs appear. A tab is greyed out when the
+After you load a quake, the four investigation tabs appear. A tab is grayed out when the
 quake doesn't suit it: a record section (A) needs a quake near Utah, and D needs one far away.
 
 ## A. How fast is the rock? { #a }
@@ -78,7 +78,7 @@ the quake. Every station is a stopwatch at a known distance, so a wave that trav
 steady speed makes its arrivals line up. The steeper the line, the faster the wave.
 
 <figure markdown="span">
-  ![The record section for the 2020 Magna earthquake after Reveal: about 30 seismograms stacked from 12 km at the top to 397 km at the bottom, time from minus 10 to 90 seconds across. Blue circles (analyst P picks) and blue squares (computer picks) line up along a blue line labelled Pg that slopes down to the right, then, beyond about 150 km, along a steeper green line labelled Pn. Red circles and squares follow a less steep red S line. School stand-in stations are drawn in orange; clipped stations are marked clipped. The panel on the right shows the four steps (with a line suggesting the Junction quake for a clear S) and the answer: P 6.07 km/s, S 3.64 km/s, and, past 143 km, a faster 7.67 km/s line giving a crust about 36 km thick.](img/qe-a-record-section.png){ loading=lazy }
+  ![The record section for the 2020 Magna earthquake after Reveal: about 30 seismograms stacked from 12 km at the top to 397 km at the bottom, time from minus 10 to 90 seconds across. Blue circles (analyst P picks) and blue squares (computer picks) line up along a blue line labeled Pg that slopes down to the right, then, beyond about 150 km, along a steeper green line labeled Pn. Red circles and squares follow a less steep red S line. School stand-in stations are drawn in orange; clipped stations are marked clipped. The panel on the right shows the four steps (with a line suggesting the Junction quake for a clear S) and the answer: P 6.07 km/s, S 3.64 km/s, and, past 143 km, a faster 7.67 km/s line giving a crust about 36 km thick.](img/qe-a-record-section.png){ loading=lazy }
   <figcaption>Figure 2. The record section for the 2020 Magna earthquake after <b>Reveal the
   professionals' picks</b>. Past about 150 km the first arrivals follow a faster line (Pn):
   waves that raced along the top of the mantle.</figcaption>
@@ -109,14 +109,14 @@ explains how.
 
 **Each trace stretched to fit, or true ground speed?** Normally every trace is stretched to the
 same height, so far, weak stations are easy to see. With **true ground speed**, every trace is
-drawn on one scale in metres per second, and you see how fast the waves fade with distance.
+drawn on one scale in meters per second, and you see how fast the waves fade with distance.
 Some quakes overloaded a few sensors ("clipped"); their true size is unknown, so the true view
 is turned off for them.
 
 ## B. What notes is the ground playing? { #b }
 
 One station's record (top) sits above its **spectrogram** (bottom): time across, frequency
-(pitch) up, colour for how strong the shaking is. [Reading a seismogram](../theory/seismograms.md#filters-and-spectrograms)
+(pitch) up, color for how strong the shaking is. [Reading a seismogram](../theory/seismograms.md#filters-and-spectrograms)
 introduces spectrograms.
 
 <figure markdown="span">
@@ -151,7 +151,7 @@ Together they record the path the ground traced. Investigation C draws that path
 above** (like a map) and **seen from the side**.
 
 <figure markdown="span">
-  ![Investigation C for the quake recorded at Wasatch Academy's stand-in TMU, 68 km away, after both reveals. Top: three traces, Z, N and E, with a blue band marking the first half second of P. Middle: the path seen from above, a straight line from north-east to south-west, with a purple dashed arrow (computer, 44 degrees) and an orange arrow (true direction, 47 degrees) pointing north-east; the path seen from the side; and a panel giving the directions, the errors and two trust bars, both green. Bottom: a map of central Utah with the station, the direction lines, a grey circle for the S minus P distance and the official epicenter on it.](img/qe-c-motion.png){ loading=lazy }
+  ![Investigation C for the quake recorded at Wasatch Academy's stand-in TMU, 68 km away, after both reveals. Top: three traces, Z, N and E, with a blue band marking the first half second of P. Middle: the path seen from above, a straight line from north-east to south-west, with a purple dashed arrow (computer, 44 degrees) and an orange arrow (true direction, 47 degrees) pointing north-east; the path seen from the side; and a panel giving the directions, the errors and two trust bars, both green. Bottom: a map of central Utah with the station, the direction lines, a gray circle for the S minus P distance and the official epicenter on it.](img/qe-c-motion.png){ loading=lazy }
   <figcaption>Figure 4. The quake recorded at TMU (the stand-in for Wasatch Academy). In the
   first half second of P the ground moved back and forth along one line, pointing at the
   quake: the computer's direction (purple) is 3° from the true one (orange).</figcaption>

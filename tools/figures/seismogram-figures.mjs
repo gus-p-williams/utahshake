@@ -171,7 +171,7 @@ async function wind() {
           { t: windyMs + 1800e3, v: nAt(windyMs + 1800e3), text: 'B', dx: 0, dy: -40, anchor: 'middle' },
         ] },
     ],
-    footer: [{ text: 'Grey: night (8 pm to 6 am). Noise: the typical shaking in each 15 minutes (median of 1-minute RMS).' }],
+    footer: [{ text: 'Gray: night (8 pm to 6 am). Noise: the typical shaking in each 15 minutes (median of 1-minute RMS).' }],
   });
   const [calm] = await waveforms({ sta: 'FOR8', cha: 'HHZ', startMs: calmMs - 60e3, endMs: calmMs + 120e3 });
   const [windy] = await waveforms({ sta: 'FOR8', cha: 'HHZ', startMs: windyMs - 60e3, endMs: windyMs + 120e3 });
@@ -221,7 +221,7 @@ async function people() {
         { ...near(sunNoon), text: `Sunday: about ${Math.round(sun * 2) / 2}×`, dx: -44, dy: -40 },
       ],
     }],
-    footer: [{ text: 'Grey: night (8 pm to 6 am). 1× = the typical level between midnight and 4 am.' }],
+    footer: [{ text: 'Gray: night (8 pm to 6 am). 1× = the typical level between midnight and 4 am.' }],
   });
   write('people-week.svg', svg);
 }
@@ -470,7 +470,7 @@ async function hidden() {
   // colour bar
   const by = top + h + 44;
   const n = 60;
-  out.push(text(padL + 2, by + 11, 'Colour: how strong the shaking is at each frequency.', { size: 12.5, fill: C.note }));
+  out.push(text(padL + 2, by + 11, 'Color: how strong the shaking is at each frequency.', { size: 12.5, fill: C.note }));
   const bx = padL + 336;
   out.push(text(bx - 8, by + 11, 'weak', { size: 12, fill: C.muted, anchor: 'end' }));
   for (let i = 0; i < n; i++) out.push(`<rect x="${r1(bx + i * 3)}" y="${by}" width="3.2" height="12" fill="${viridisHex(i / (n - 1))}"/>`);

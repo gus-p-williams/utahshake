@@ -624,7 +624,7 @@ function figGlobal() {
 
   const desc = `Travel-time curves for P and S waves through the whole Earth (iasp91 model, quake ${tt.depthKm} km deep): distance `
     + `from 0 to 180 degrees runs down the page and minutes after the quake across. Both curves bend: they get steeper with `
-    + `distance, because the waves that reach far stations dive deeper into faster rock. A grey dashed straight line shows a wave `
+    + `distance, because the waves that reach far stations dive deeper into faster rock. A gray dashed straight line shows a wave `
     + `that kept a steady 8 km/s. Direct P stops at about 98 degrees; a weak wave bent around the core (Pdiff) continues, and the `
     + `band from ${sh0} to ${sh1} degrees is the P shadow zone. Waves through the core (PKP) arrive beyond it. Direct S stops near `
     + `100 degrees. A line at ${f1(deg)} degrees marks station SGU for the 2025 Sand Point, Alaska M7.3 quake: P predicted at `
