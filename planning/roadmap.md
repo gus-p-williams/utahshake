@@ -70,7 +70,8 @@ teacher trial for the 15-minute target.
 - [ ] Heatmap: hour of day × date; toggles for frequency band; overlays for weekends,
       holidays, school calendar, daylight-saving dates.
 - [ ] "Seismic week" average view; download CSV.
-- [ ] Docs: theory (noise, RMS, logs), activity card, standards.
+- [ ] Docs: theory (noise, RMS, logs), activity card(s) (see "Teacher activity cards" below),
+      standards.
 
 **Done when:** students can find weekends, holidays and the DST shift in a stand-in
 station's carpet without help.
@@ -89,6 +90,34 @@ station's carpet without help.
 - [ ] Live/real-time views inside schools; delayed/aggregated public views (occupancy privacy).
 - [ ] Campus apps: School Pulse (real campus), Game Night Quake, Bus Detective, Campus
       Wave Speed, Signal Detective labeling.
+
+## Across all stages: teacher activity cards
+
+Teachers work from activities, not apps (D19). An activity card is one lesson. Activities and
+apps are many-to-many: a card may use several apps or none, and an app may appear in several
+cards. Every app gets at least one card.
+
+- [x] Wave Race activity card (uses Quake Waves as the warm-up).
+- [ ] Card format and site structure (with or after navigation Phase 2):
+  - One file per activity in `docs/teachers/`, named after the activity
+    (`wave-race-card.md` keeps its URL).
+  - An "At a glance" box on every card: Time · Setup (the tier from `planning/activities.md`:
+    external data, the school's Shake, a roaming Shake, phones) · Apps and tools used ·
+    Materials · Utah standards.
+  - Then the sections of the Wave Race card: short version, full-period version, exit ticket,
+    answer key, common difficulties, extensions.
+  - The Teachers page's activities table becomes the catalog (Activity · Apps used · Setup ·
+    Time · Standards). Each card gets a row in "Utah standards at a glance".
+  - Each app hub's "For teachers" line lists every card that uses the app.
+  - Past about five cards, group them in the sidebar under Teachers › Activity cards (D17:
+    revisit the layout if the sidebar passes about 35 entries).
+- [ ] Quake Waves: a short card of its own (proposed: a 10-minute predict-and-watch demo for a
+      physics waves unit), besides its role as the Wave Race warm-up.
+- [ ] Quake Explorer: one card per investigation (A–D) and a full-period lesson chaining A and
+      C (`planning/quake-explorer.md` §5).
+- [ ] School Pulse: card(s) with Stage 2.
+- [ ] Activities with no app (campus experiments, phone activities): cards for the starter set
+      that Gus, Dale and Cleat choose from `planning/activities.md` (being written).
 
 ## Later
 

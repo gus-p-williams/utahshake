@@ -8,18 +8,11 @@ Every app runs in any browser, including Chromebooks. No install, no accounts.
 
     Pick the P and S waves of a real Utah earthquake at several stations, turn the time
     between them into distances, and find where the quake happened. Then compare with the
-    University of Utah's answer.
+    University of Utah's answer. New to P and S waves? Watch [Quake Waves](quake-waves.md)
+    first.
 
     [Open Wave Race](../app/wave-race/index.html){ .md-button .md-button--primary }
     [Wave Race guide](wave-race.md)
-
-- **Quake Waves**
-
-    A cartoon of P and S waves racing out from a quake to four stations. See the seismograms
-    appear, and watch the S − P distances cross at the quake. A good warm-up for Wave Race.
-
-    [Watch it on Locating a quake](../theory/locating.md#watch-it-happen) ·
-    [Open it full screen](../app/wave-animation/index.html)
 
 - **School Pulse** (coming soon)
 
@@ -28,6 +21,32 @@ Every app runs in any browser, including Chromebooks. No install, no accounts.
 - **Quake Explorer** (planned)
 
     Spectrograms, record sections, particle motion and sound from the same quakes.
+
+</div>
+
+## Animations
+
+Short cartoons of the ideas behind the apps. They use no real data.
+
+<div class="grid cards" markdown>
+
+- **Quake Waves**
+
+    P and S waves race out from a quake to four stations. See the seismograms appear, and
+    watch the S − P distances cross at the quake. A good warm-up for Wave Race.
+
+    [Open Quake Waves](../app/quake-waves/index.html){ .md-button .md-button--primary }
+    [Quake Waves guide](quake-waves.md) ·
+    [Watch it on Locating a quake](../theory/locating.md#watch-it-happen)
+
+- **How P and S waves move rock**
+
+    A P wave and an S wave cross a block of rock. P squeezes and stretches the rock along its
+    path; the slower S shakes it up and down. The wave travels on, but the rock comes back to
+    where it started.
+
+    [Open the animation](../app/wave-motion/index.html){ .md-button .md-button--primary }
+    [Watch it on Seismic waves](../theory/waves.md#two-body-waves)
 
 </div>
 

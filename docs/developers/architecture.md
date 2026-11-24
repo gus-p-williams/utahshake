@@ -10,10 +10,12 @@ for example [Wave Race notes](wave-race.md).
 
 ```
 docs/app/
-  index.html               app list
+  index.html               redirect stub: the old /app/ launcher, forwards to All apps (../apps/)
   wave-race/index.html     Wave Race page
-  wave-animation/index.html  Quake Waves (cartoon; ?embed=1 inside a docs page; folder rename pending)
-  css/app.css              shared styles (light and dark)
+  quake-waves/index.html   Quake Waves (cartoon; ?embed=1 inside Locating a quake)
+  wave-animation/index.html  redirect stub: Quake Waves' old address, forwards to ../quake-waves/
+  wave-motion/index.html   How P and S waves move rock (cartoon embedded in Seismic waves)
+  css/app.css              shared styles (light and dark, top bar, embed mode)
   js/
     config.js              schools, stand-in stations, defaults, presets, credits
     lib/                   pure logic, no browser APIs; tested with node --test
@@ -22,7 +24,8 @@ docs/app/
       fdsn.js              parsers for USGS GeoJSON, FDSN station text, QuakeML picks
       stations.js          which stations to show for a quake
       signal.js            gaps, tapers, min/max per pixel, dead-channel check
-      wave-sim.js          cartoon arrivals and seismograms for the animation
+      wave-sim.js          cartoon arrivals and seismograms for Quake Waves
+      wave-motion.js       pulse shape and rock displacement for the P/S motion cartoon
     data/
       datasource.js        the DataSource interface; picks a source from the URL
       earthscope-usgs.js   live source: USGS events + EarthScope stations/waveforms
@@ -30,19 +33,28 @@ docs/app/
       mseed.js             miniSEED -> traces (vendored seisplotjs)
       filters.js           Butterworth band-pass (vendored seisplotjs)
     ui/
+      page.js              shared page helpers: credits, source badge, esc, CSV, embed mode, docs theme
       trace-view.js        canvas seismogram with zoom, pan, picks
       map-view.js          Leaflet map: stations, circles, epicenters, the student's pin
     wave-race/app.js       the Wave Race page controller
-    wave-animation/app.js  the Quake Waves animation (canvas)
+    quake-waves/app.js     the Quake Waves animation (canvas)
+    wave-motion/app.js     the P/S rock-motion animation (canvas)
   vendor/                  seisplotjs + Leaflet bundles (generated; see below)
   data/samples/<event>/    offline sample: event, stations, picks, waveforms.mseed
 tests/                     node --test, including real-data checks on the sample
+  doc-links.test.js        links in the app pages and raw HTML reach real pages of the site
+  app-list.test.js         every app folder is listed on the All apps page (docs/apps/index.md)
 tools/
   vendor/                  esbuild script that regenerates docs/app/vendor/
   samples/fetch-sample.mjs bundles a quake for offline use
-  figures/                 figures for the Wave Race guide (docs/apps/img/)
-  serve.mjs                tiny local server for docs/
+  figures/                 figures for the guides and The Science (see below)
+  serve.mjs                tiny local server for docs/ (apps only, no MkDocs build)
 ```
+
+The list of apps students see is the **All apps** page, `docs/apps/index.md`, built by MkDocs
+in the site's theme. Each app page has the same static top bar (back to All apps, its guide,
+About the data) and imports its credits, data-source badge, CSV download and embed mode from
+`ui/page.js`; see [Adding an app](adding-an-app.md#top-bar) for the bar and the helpers.
 
 ## Data access
 
@@ -54,10 +66,16 @@ For one app's calls in order, see [Data flow in Wave Race](wave-race.md#data-flo
 ## Running locally
 
 ```bash
-node tools/serve.mjs          # apps only: http://127.0.0.1:8001/app/
-mkdocs serve                  # full site with guides: http://127.0.0.1:8000/
+node tools/serve.mjs          # apps only: http://127.0.0.1:8001/app/wave-race/
+mkdocs serve                  # full site with guides and All apps: http://127.0.0.1:8000/
 npm test                      # unit + sample tests (Node 22+)
 ```
+
+`tools/serve.mjs` serves the raw `docs/` folder without building the guides, so pages made
+from Markdown do not exist there. Start at an app's own address, such as `/app/wave-race/` or
+`/app/quake-waves/`. `/app/` forwards to the All apps page (`/apps/`), which only
+`mkdocs serve` and the published site have, so it gives "not found" here; so do the top-bar
+links (All apps, Guide, About the data).
 
 Each app may take options in its page address; Wave Race's are in
 [Wave Race notes](wave-race.md#page-address-options).
@@ -81,13 +99,60 @@ The seisplotjs bundle registers a web component when it loads, so code that impo
 Node must first define `globalThis.HTMLElement` and `globalThis.customElements` (see
 `tests/sample.test.js`).
 
-## The animation in a docs page
+## Animations in a docs page
 
-`docs/theory/locating.md` embeds Quake Waves (`app/wave-animation/?embed=1`, folder rename
-pending) in an `<iframe>`. In embed mode the page hides its header and fills the frame.
-Because the docs and the app are on the same site, the animation reads the docs' light/dark
-switch (`data-md-color-scheme`) and sets `data-theme` on its own `<html>`; `app.css` honours
-`data-theme` before the device setting. Follow the same pattern to embed other animations.
+Two animations sit inside science pages in an `<iframe>`: `docs/theory/locating.md` embeds
+Quake Waves (`app/quake-waves/?embed=1`) and `docs/theory/waves.md` embeds the P/S
+rock-motion cartoon (`app/wave-motion/?embed=1`). Both page controllers call `setupEmbed()`
+and `followDocsTheme(draw)` from `ui/page.js`:
+
+- **Embed mode.** `setupEmbed()` adds `body.embed` when the address has `?embed` or the page
+  is inside an iframe. `app.css` then hides the top bar, the credits and `.standalone-only`
+  elements and shows `.embed-only` ones (an "Open full screen ↗" link); each page's own
+  `body.embed` styles make it fill the frame.
+- **Light and dark.** Because the docs and the app are on the same site, `followDocsTheme()`
+  reads the docs' light/dark switch (`data-md-color-scheme`), sets `data-theme` on the app's
+  own `<html>` and redraws when the switch changes; `app.css` honours `data-theme` before the
+  device setting.
+
+Embedded animations need no hub page of their own, but each must still be listed on the All
+apps page (checked by `tests/app-list.test.js`); the P/S cartoon's guide link points to
+Seismic waves. `tests/doc-links.test.js` checks the iframe addresses. Quake Waves' old
+address, `app/wave-animation/`, is a redirect stub that passes on `?embed=1`, so iframes that
+still use it keep working.
+
+## Figures in the docs
+
+The figures in `docs/apps/img/` and `docs/theory/img/` are made by scripts in
+`tools/figures/`, so they can be rebuilt when the apps or the data change. Seismogram figures
+use the offline sample and the app's own parser and filter; diagrams and maps use the app's
+`lib/` code (for example `locate.js`), so they match what the apps compute. Each script writes
+the same bytes every time it runs.
+
+| Script | Makes | Needs |
+| --- | --- | --- |
+| `trace-figures.mjs` | `apps/img/picking-*.svg` (Wave Race guide) | Node only |
+| `science-traces.mjs` | `theory/img/seismogram-anatomy.svg`, `s-minus-p-worked-example.svg` | Node only |
+| `science-record-section.mjs` | `theory/img/record-section.svg` | Node only |
+| `science-diagrams.mjs` | `theory/img/depth-triangle.svg`, `circles-1-2-3.svg` | Node only |
+| `science-locating.mjs` | `theory/img/residuals.svg`, `misfit-map.svg`, `station-geometry.svg` | Node only |
+| `science-maps.mjs` | `theory/img/schools-map.svg` | Node only |
+| `seismogram-figures.mjs` | the real-data figures on Reading a seismogram (`theory/img/ocean-hum.svg`, `wind-noise.svg`, `people-week.svg`, `three-quakes.svg`, `blast-*.svg`, `instrument-problems.svg`, `hidden-quake.svg`, `mystery-records.svg`) | Node only; downloads data the first time (see below) |
+| `seismogram-diagrams.mjs` | `theory/img/frequency-ruler.svg`, `seismometer-inside.svg` | Node only |
+| `screenshots.mjs` | `apps/img/wave-race-*.png` | `npm install` in `tools/figures`, Chrome, `node tools/serve.mjs` running |
+
+`svg-traces.mjs` holds the shared house style and seismogram drawing; `svg-charts.mjs` adds
+charts over time, hour-of-day bars and the spectrogram image; `spectra.mjs` is a small FFT
+(tested in `tests/spectra.test.js`). Run a script from the repository root, for example
+`node tools/figures/science-traces.mjs`; screenshots run from `tools/figures`
+(`node screenshots.mjs`, or name shots: `node screenshots.mjs choose`).
+
+`seismogram-figures.mjs` fetches waveforms from EarthScope, events and picks from USGS ComCat,
+and wind from the Iowa Environmental Mesonet (`fdsn-cache.mjs`), and keeps the downloads in
+`tools/figures/.cache/` (git-ignored, about 0.7 GB; delete it to refetch). The week-long noise
+levels it computes are kept in `tools/figures/data/*.json` (small), so those figures redraw
+without the download; `--refetch` recomputes them. Build one figure by name, for example
+`node tools/figures/seismogram-figures.mjs hum wind`.
 
 ## Design choices worth knowing
 

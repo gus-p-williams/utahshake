@@ -13,6 +13,7 @@ plain language.
 | Station list | EarthScope [FDSN station service](https://service.earthscope.org/fdsnws/station/1/) (text) | Stations near each quake |
 | Waveforms | EarthScope [FDSN dataselect](https://service.earthscope.org/fdsnws/dataselect/1/) (miniSEED, POST) | Seismograms |
 | Map tiles | [OpenStreetMap](https://www.openstreetmap.org/copyright) | Base map |
+| Wind speed (figures only, not the apps) | [Iowa Environmental Mesonet](https://mesonet.agron.iastate.edu/) (ASOS, Milford airport MLF) | The wind figure on Reading a seismogram (`tools/figures/seismogram-figures.mjs`) |
 
 All of these allow requests from any web page (CORS `Access-Control-Allow-Origin: *`,
 checked 2026-11-23), so the apps need no server of our own.
@@ -23,7 +24,11 @@ skipped because they are too noisy for small quakes.
 
 ## Credits shown in the apps
 
-Every page that shows data cites its source (from `ATTRIBUTION` in `js/config.js`):
+Every page that shows data cites its source in a credits footer. The texts are `ATTRIBUTION`
+in `js/config.js`; `showCredits(el, keys)` in `js/ui/page.js` writes the entries a page names
+(Wave Race: all three) and adds an "About the data ↗" link to
+[Our stations and data](../theory/stations.md). The map also shows the OpenStreetMap credit
+in its corner (`ui/map-view.js`).
 
 - Waveforms: University of Utah Seismograph Stations, network UU
   ([doi:10.7914/SN/UU](https://doi.org/10.7914/SN/UU)), via EarthScope Data Services.

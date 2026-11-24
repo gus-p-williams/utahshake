@@ -11,16 +11,18 @@
   <script type="module" src="../js/wave-race/app.js"></script>
 </head>
 <body>
+  <!-- Standard top bar (docs/developers/adding-an-app.md); app-specific controls first. -->
   <header class="topbar">
     <div class="brand">
-      <a href="../" class="home" title="All UHSN apps">UHSN Apps</a>
+      <a href="../../apps/" class="home">UHSN · All apps</a>
       <h1>Wave Race <span class="sub">Locate a Utah quake</span></h1>
     </div>
-    <div class="topbar-right">
+    <nav class="topbar-right" aria-label="Data source, guide and data">
       <span id="source-badge" class="badge"></span>
       <a id="source-switch" href="#"></a>
-      <a href="../../apps/wave-race/" target="_blank" rel="noopener">Student guide</a>
-    </div>
+      <a href="../../apps/wave-race/" target="_blank" rel="noopener">Guide ↗<span class="visually-hidden"> (opens in a new tab)</span></a>
+      <a href="../../theory/stations/" target="_blank" rel="noopener">About the data ↗<span class="visually-hidden"> (opens in a new tab)</span></a>
+    </nav>
   </header>
 
   <main>

@@ -1,10 +1,12 @@
-// Watch the Waves: a cartoon of P and S waves spreading from a quake and
+// Quake Waves: a cartoon of P and S waves spreading from a quake and
 // reaching four stations. Each station's seismogram is drawn as the waves pass;
 // after S arrives, the S - P time becomes a distance circle around the station,
 // and the circles cross at the quake. Everything is a function of the time t,
-// so the slider can step back and forth. See docs/theory/locating.md.
+// so the slider can step back and forth. See docs/apps/quake-waves.md and
+// docs/theory/locating.md (which embeds it with ?embed=1).
 import { arrivals, synthTrace, durationFor } from '../lib/wave-sim.js';
 import { kmPerSecond } from '../lib/locate.js';
+import { setupEmbed, followDocsTheme } from '../ui/page.js';
 
 const $ = (id) => document.getElementById(id);
 const VP = 5.8;
@@ -386,25 +388,8 @@ function setPlaying(on) {
   }
 }
 
-/** In a docs page (same site), follow the docs' light/dark switch instead of the device. */
-function followDocsTheme() {
-  try {
-    if (window.parent === window) return;
-    const body = window.parent.document.body;
-    const apply = () => {
-      const scheme = body.getAttribute('data-md-color-scheme');
-      if (!scheme) return;
-      document.documentElement.dataset.theme = scheme === 'slate' ? 'dark' : 'light';
-      draw();
-    };
-    apply();
-    new MutationObserver(apply).observe(body, { attributes: true, attributeFilter: ['data-md-color-scheme'] });
-  } catch { /* another site: keep following the device */ }
-}
-
 function init() {
-  const params = new URLSearchParams(location.search);
-  if (params.has('embed') || window.parent !== window) document.body.classList.add('embed');
+  setupEmbed();
   setup();
 
   $('play').addEventListener('click', () => setPlaying(!sim.playing));
@@ -431,7 +416,7 @@ function init() {
   new ResizeObserver(() => draw()).observe(mapCanvas);
   new ResizeObserver(() => draw()).observe(traceCanvas);
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => draw());
-  followDocsTheme();
+  followDocsTheme(draw);
   draw();
 }
 

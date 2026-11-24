@@ -1,8 +1,7 @@
 // Map of schools, stations, distance circles and epicenters (Leaflet).
 import * as L from '../../vendor/leaflet.js';
 import { ATTRIBUTION } from '../config.js';
-
-const esc = (s) => String(s).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
+import { esc } from './page.js';
 
 function triangle(color, label) {
   return L.divIcon({

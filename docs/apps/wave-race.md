@@ -9,8 +9,8 @@ Find where a real Utah earthquake happened from the waves it sent to stations ar
       distances, find where the quake was, and see how close you got to the official answer.
     - **Time:** about 15 minutes as a class demo, or a full class period (45–55 minutes) in pairs.
     - **Works on:** any browser, including Chromebooks. No install, no accounts.
-    - **The science:** [Seismic waves](../theory/waves.md) · [Distance from S minus P](../theory/s-minus-p.md) · [Locating a quake](../theory/locating.md)
-    - **For teachers:** [Activity card](../teachers/wave-race-card.md) · [Standards](../teachers/standards.md#wave-race)
+    - **The science:** [Seismic waves](../theory/waves.md) · [Reading a seismogram](../theory/seismograms.md) · [Distance from S minus P](../theory/s-minus-p.md) · [Locating a quake](../theory/locating.md)
+    - **For teachers:** [Wave Race activity card](../teachers/wave-race-card.md) · [Standards](../teachers/standards.md#wave-race)
     - **Data:** [Our stations and data](../theory/stations.md)
     - **For developers:** [Wave Race notes](../developers/wave-race.md)
 
@@ -27,9 +27,9 @@ compare your answer with the official one.
     [Our stations and data](../theory/stations.md) lists the stand-in for each school.
 
 !!! tip "New to P and S waves? Watch Quake Waves first"
-    The [Quake Waves animation](../theory/locating.md#watch-it-happen) shows P and S waves
+    The [Quake Waves](quake-waves.md) animation shows P and S waves
     racing out from a quake, the seismograms they make at four stations, and how the gap
-    between them turns into circles that cross at the quake. It takes about a minute.
+    between them turns into circles that cross at the quake. It takes well under a minute.
 
 ## The steps
 
@@ -38,6 +38,13 @@ compare your answer with the official one.
 The list shows Utah quakes of magnitude 2 and up from the last 90 days. A ★ marks quakes
 near the UHSN schools. **The location is hidden**: finding it is your job. Magnitude 3 and up
 is easiest; small quakes are harder to see above the background noise.
+
+<figure markdown="span">
+  ![The Wave Race quake chooser: buttons for two classic quakes, then a table of recent Utah quakes with date, time and magnitude, a star on quakes near the UHSN schools and a Load button on each row. The first star and the Use the offline sample link at the top right are outlined in orange.](img/wave-race-choose.png){ loading=lazy }
+  <figcaption>Figure 1. Choosing a quake. A ★ marks quakes near the UHSN schools; where each
+  quake happened is hidden. <b>Use the offline sample</b> (top right) loads a quake stored
+  with the site.</figcaption>
+</figure>
 
 You can also pick a **classic quake**, such as the 2020 Magna earthquake (M5.7).
 
@@ -49,7 +56,7 @@ after the quake started.
 
 <figure markdown="span">
   ![The Wave Race picking panel for station TCRU, zoomed in to about 4 to 20 seconds after the quake. A blue line marks the P pick at 6.92 seconds and a red line the S pick at 11.99 seconds. The title line reads S minus P = 5.07 s, distance 38.8 km.](img/wave-race-picker.png){ loading=lazy }
-  <figcaption>Figure 1. The picking panel, zoomed in, with P and S picked at station TCRU.
+  <figcaption>Figure 2. The picking panel, zoomed in, with P and S picked at station TCRU.
   The line above the seismogram turns S − P into a distance.</figcaption>
 </figure>
 
@@ -72,7 +79,7 @@ rough places at this zoom, because one pixel covers about a tenth of a second.
 
 <figure markdown="span">
   ![Three seismogram traces (HHZ, HHN, HHE) from minus 10 to 80 seconds after the quake. The traces are flat until about 7 seconds, when small waves begin (P likely here). At about 12 seconds the waves get much bigger (S likely here). After about 20 seconds the shaking slowly dies away (the coda).](img/picking-1-whole.svg){ loading=lazy }
-  <figcaption>Figure 2. The whole 90-second record. The shaded boxes are where to zoom in
+  <figcaption>Figure 3. The whole 90-second record. The shaded boxes are where to zoom in
   next: blue for P, red for S.</figcaption>
 </figure>
 
@@ -82,7 +89,7 @@ background, not at the first big peak.
 
 <figure markdown="span">
   ![A 4-second close-up around the P arrival. The three traces are flat until 6.92 seconds, where a blue line marks the P pick at the first small wiggle. Bigger waves follow.](img/picking-2-p.svg){ loading=lazy }
-  <figcaption>Figure 3. Zoomed in on P: 4 seconds instead of 90. Pick the first clear
+  <figcaption>Figure 4. Zoomed in on P: 4 seconds instead of 90. Pick the first clear
   change.</figcaption>
 </figure>
 
@@ -92,7 +99,7 @@ the waves suddenly get **bigger and slower** (wider wiggles), usually clearest o
 
 <figure markdown="span">
   ![A 5-second close-up around the S arrival. Before 12 seconds the traces show small, steady P-wave shaking. At 11.99 seconds, marked by a red line, the waves on all three traces, especially HHN and HHE, become much bigger.](img/picking-3-s.svg){ loading=lazy }
-  <figcaption>Figure 4. Zoomed in on S: the shaking from P is still there, then the S waves
+  <figcaption>Figure 5. Zoomed in on S: the shaking from P is still there, then the S waves
   start, bigger and slower.</figcaption>
 </figure>
 
@@ -108,14 +115,18 @@ Here S − P = 11.99 − 6.92 = **5.07 s**, which the app turns into **38.8 km**
 | Move a pick | Press **Pick P** (or **Pick S**) and click again |
 | Turn picking off | Esc |
 
-The **Filter** menu changes which vibrations you see. **1–10 Hz** (the default) hides slow
-drifts and fast hum, so quake waves stand out. **2–8 Hz** is even cleaner for small quakes.
+The **Filter** menu changes which vibrations you see. **1–10 Hz** (the default) hides the slow
+ocean hum and fast machine noise, so quake waves stand out
+([why](../theory/seismograms.md#filters-and-spectrograms)). **2–8 Hz** is even cleaner for small quakes.
 **Raw** shows everything.
 
 !!! tip "You don't have to pick every station"
     Pick the stations where you can see P and S clearly. **Three stations** give a location;
-    **four or more around the quake** give a much better one. A station with no clear S is
-    better skipped than guessed.
+    **four or more around the quake** give a much better one.
+
+    Picking S is hard, even for professionals. For the offline sample quake, University of
+    Utah analysts picked P at 9 stations but S at only 3. If you can't see a clear S, skip
+    that station: a wrong S draws a wrong circle, and a skipped station draws none.
 
 ### 3. Locate the quake
 
@@ -125,7 +136,7 @@ use both.
 
 <figure markdown="span">
   ![The Locate panel: a map of central and southern Utah with three distance circles (purple around WCU, olive around TCRU, teal around MTPU) that cross near a purple star. A green pin, the student's guess, sits a little to the east. Below the map, the P speed, S speed and Depth boxes are outlined in orange. Below them are the buttons Move my epicenter, Find the best epicenter, Reveal the official answer and Download my picks, and the results for the guess and the best fit.](img/wave-race-locate.png){ loading=lazy }
-  <figcaption>Figure 5. Three circles, a guess placed by hand (green pin) and the best fit
+  <figcaption>Figure 6. Three circles, a guess placed by hand (green pin) and the best fit
   from the picks (purple star). The speed and depth settings are in the orange box.</figcaption>
 </figure>
 
@@ -145,7 +156,7 @@ Try your own guess first, then let the computer search. Did it land near your pi
 
 #### Changing the speeds and depth
 
-The **P speed**, **S speed** and **Depth** boxes are under the map (orange box in Figure 5).
+The **P speed**, **S speed** and **Depth** boxes are under the map (orange box in Figure 6).
 Click in a box and type a new number, or use the arrows in the box.
 
 - The line next to them shows how many **km of distance per second of S − P** those speeds

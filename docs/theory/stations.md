@@ -23,6 +23,13 @@ is the nearest active University of Utah station to the school. Wave Race marks 
 | Gunnison Valley High School | Gunnison | SGU |
 | Millard High School | Fillmore | WCU |
 
+<figure markdown="span">
+  ![Map of Utah with eight towns. A box in central Utah holds the five UHSN schools in a rough north–south line. The enlarged box shows each school joined by a line to its stand-in station: Juab High School to SUU, 20 km; North Sanpete High School to ELU, 25 km; Wasatch Academy to TMU, 35 km; Gunnison Valley High School to SGU, 15 km; Millard High School to WCU, 22 km.](img/schools-map.svg){ loading=lazy }
+  <figcaption>Figure 1. The five UHSN schools and the University of Utah station that stands in
+  for each, with the distance between them. Station locations: University of Utah Seismograph
+  Stations (network UU, doi:10.7914/SN/UU) via EarthScope.</figcaption>
+</figure>
+
 The five schools sit in a north–south line in central Utah, so Wave Race also adds **helper**
 stations around each quake. That way you can surround it (see
 [Why the stations' positions matter](locating.md#why-the-stations-positions-matter)).
@@ -57,5 +64,7 @@ apps do:
 - Earthquake locations and analyst picks: U.S. Geological Survey ComCat / University of Utah
   Seismograph Stations.
 - Map data © OpenStreetMap contributors.
+- Wind speeds (the wind figure on [Reading a seismogram](seismograms.md)): Milford Municipal
+  Airport weather station, via the Iowa Environmental Mesonet.
 
 Licensing and technical detail are in [Data sources and licensing](../developers/data-sources.md).

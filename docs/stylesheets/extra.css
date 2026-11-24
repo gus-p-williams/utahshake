@@ -1,0 +1,22 @@
+/* Small additions to the Material theme. */
+
+/* Math must not make a page scroll sideways on a phone (checked by tools/site-check.mjs).
+   A display equation that is too wide scrolls inside its own box. */
+.md-typeset div.arithmatex {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Inline math can't wrap: on phone-sized screens an inline formula that is wider than the
+   line moves to its own line and scrolls inside itself (seen on Distance from S minus P,
+   "k = V_P / (sqrt 3 - 1)", at 390 px). Phones only, because inline-block shifts the
+   formula's baseline slightly. */
+@media screen and (max-width: 44.9375em) {
+  .md-typeset span.arithmatex {
+    display: inline-block;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    vertical-align: middle;
+  }
+}

@@ -3,76 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Redirect stub: this animation moved to ../quake-waves/ (it is now called Quake Waves).
+       Kept so old links and embeds (?embed=1) keep working; the query and #hash are passed on.
+       tests/app-list.test.js skips folders whose page has the uhsn-redirect marker. -->
+  <meta name="uhsn-redirect" content="../quake-waves/">
+  <script>location.replace('../quake-waves/' + location.search + location.hash);</script>
+  <noscript><meta http-equiv="refresh" content="0; url=../quake-waves/"></noscript>
+  <link rel="canonical" href="../quake-waves/">
   <link rel="icon" href="data:,">
-  <title>Watch the Waves</title>
-  <meta name="description" content="Cartoon animation: P and S waves race out from a quake and reach four seismic stations. The gap between them gives each station's distance.">
+  <title>Quake Waves (moved)</title>
   <link rel="stylesheet" href="../css/app.css">
-  <style>
-    .wa { max-width: 980px; }
-    .wa-controls { display: flex; flex-wrap: wrap; gap: .4rem .6rem; align-items: center; }
-    .wa-controls .spacer { flex: 1; }
-    .wa-controls label { display: inline-flex; align-items: center; gap: .35rem; font-size: .9rem; color: var(--muted); }
-    #play { min-width: 6.2rem; }
-    #scrub { width: 100%; margin: .1rem 0; accent-color: var(--accent); }
-    .wa-box { position: relative; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--trace-bg); }
-    .wa-box canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-    #map-box { aspect-ratio: 5 / 3; max-height: 62vh; }
-    #map-box canvas { cursor: crosshair; }
-    #trace-box { height: 250px; }
-    #log { min-height: 1.4em; margin: .1rem 0 0; font-size: .92rem; }
-    .wa .hint { margin: 0; }
-
-    /* Embedded in a docs page: no header, fill the frame. */
-    body.embed { height: 100vh; }
-    body.embed .topbar, body.embed .credits, body.embed .standalone-only { display: none; }
-    body.embed main.wa { height: 100vh; max-width: none; padding: 8px 10px; gap: 6px; }
-    body.embed #map-box { aspect-ratio: auto; max-height: none; flex: 1 1 0; min-height: 150px; }
-    body.embed #trace-box { height: 220px; flex: none; }
-    body:not(.embed) .embed-only { display: none; }
-  </style>
-  <script type="module" src="../js/wave-animation/app.js"></script>
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">
-      <a href="../" class="home" title="All UHSN apps">UHSN Apps</a>
-      <h1>Watch the Waves <span class="sub">P and S race out from a quake</span></h1>
-    </div>
-    <div class="topbar-right">
-      <a href="../../theory/locating/" target="_blank" rel="noopener">Locating a quake</a>
-      <a href="../wave-race/">Wave Race</a>
-    </div>
-  </header>
-
-  <main class="wa">
-    <p class="hint standalone-only">A cartoon, not real data: the quake is at the surface and all
-      the rock is the same. P travels 5.8 km/s, S travels 3.3 km/s (the Wave Race speeds).</p>
-    <div class="wa-controls">
-      <button id="play" type="button" class="primary">▶ Play</button>
-      <button id="restart" type="button">↺ Restart</button>
-      <label>Speed
-        <select id="speed">
-          <option value="1">real time</option>
-          <option value="2">2× faster</option>
-          <option value="4" selected>4× faster</option>
-          <option value="8">8× faster</option>
-        </select>
-      </label>
-      <label><input type="checkbox" id="circles" checked> Distance circles</label>
-      <span class="spacer"></span>
-      <a class="embed-only" href="./" target="_blank" rel="noopener">Open full screen</a>
-    </div>
-    <input id="scrub" type="range" min="0" max="40" step="0.05" value="0" aria-label="Time after the quake (seconds)">
-    <div id="map-box" class="wa-box">
-      <canvas id="map" role="img" aria-label="Map: a quake (star) and four stations A to D. Blue and red rings are the P and S waves spreading out."></canvas>
-    </div>
-    <p id="log" role="status"></p>
-    <div id="trace-box" class="wa-box">
-      <canvas id="traces" role="img" aria-label="Seismograms at stations A to D, drawn as the waves arrive."></canvas>
-    </div>
-    <p class="hint">Click the map to move the quake. Drag the slider to step through time.</p>
+  <main class="redirect">
+    <p>This animation has moved: it is now <a href="../quake-waves/">Quake Waves</a>.</p>
   </main>
-  <footer class="credits">A cartoon model for teaching; the seismograms are made up.
-    For real seismograms, try <a href="../wave-race/">Wave Race</a>.</footer>
 </body>
 </html>

@@ -1,10 +1,12 @@
 {
   "name": "uhsn-figures",
   "private": true,
-  "description": "Screenshots of the apps for the docs (trace-figures.mjs needs no install)",
+  "description": "Screenshots of the apps for the docs (the seismogram SVG scripts need no install)",
   "type": "module",
   "scripts": {
     "traces": "node trace-figures.mjs",
+    "science": "node science-traces.mjs",
+    "seismograms": "node seismogram-figures.mjs && node seismogram-diagrams.mjs",
     "screenshots": "node screenshots.mjs"
   },
   "devDependencies": {

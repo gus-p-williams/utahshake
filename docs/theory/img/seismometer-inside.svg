@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" width="760" height="400" role="img" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<defs><marker id="a-note" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#111827"/></marker><marker id="a-p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1d4ed8"/></marker></defs>
+<rect x="0.5" y="0.5" width="759" height="399" rx="8" fill="#ffffff" stroke="#d9dde3"/>
+<text x="12" y="22" font-size="15" font-weight="600" fill="#111827">How a seismometer turns shaking into numbers</text>
+<rect x="14" y="280" width="300" height="34" fill="#e7dfcf"/>
+<line x1="14" y1="280" x2="314" y2="280" stroke="#a39478" stroke-width="2"/>
+<text x="24" y="302" font-size="12.5" font-weight="600" fill="#6b5d45">ground</text>
+<rect x="70" y="64" width="170" height="216" fill="#f8fafc" stroke="#1f2937" stroke-width="2.5"/>
+<text x="155" y="56" font-size="12.5" font-weight="600" text-anchor="middle" fill="#111827">frame (moves with the ground)</text>
+<rect x="80" y="274" width="8" height="14" fill="#5b6472"/>
+<rect x="222" y="274" width="8" height="14" fill="#5b6472"/>
+<path d="M155 64L155 76L167 82L143 90L167 98L143 106L167 114L143 122L167 130L143 138L155 148L155 156" fill="none" stroke="#1f2937" stroke-width="2" stroke-linejoin="round"/>
+<text x="177" y="114" font-size="12.5" font-weight="600" fill="#111827">spring</text>
+<rect x="121" y="156" width="68" height="44" rx="4" fill="#cbd5e1" stroke="#1f2937" stroke-width="1.5"/>
+<text x="155" y="183" font-size="12.5" font-weight="700" text-anchor="middle" fill="#111827">mass</text>
+<ellipse cx="155" cy="206" rx="38" ry="4" fill="none" stroke="#b45309" stroke-width="2"/>
+<ellipse cx="155" cy="212" rx="38" ry="4" fill="none" stroke="#b45309" stroke-width="2"/>
+<ellipse cx="155" cy="218" rx="38" ry="4" fill="none" stroke="#b45309" stroke-width="2"/>
+<ellipse cx="155" cy="224" rx="38" ry="4" fill="none" stroke="#b45309" stroke-width="2"/>
+<ellipse cx="155" cy="230" rx="38" ry="4" fill="none" stroke="#b45309" stroke-width="2"/>
+<text x="199" y="210" font-size="12.5" font-weight="600" fill="#92400e">coil</text>
+<rect x="139" y="200" width="32" height="80" fill="#c0262d" opacity="0.85"/>
+<rect x="139" y="244" width="32" height="36" fill="#1d4ed8" opacity="0.85"/>
+<text x="131" y="248" font-size="12.5" font-weight="600" text-anchor="end" fill="#111827">magnet</text>
+<line x1="44" y1="236" x2="44" y2="176" stroke="#111827" stroke-width="2" marker-start="url(#a-note)" marker-end="url(#a-note)"/>
+<text x="36" y="160" font-size="12" font-weight="600" text-anchor="middle" fill="#111827">ground</text>
+<text x="36" y="174" font-size="12" font-weight="600" text-anchor="middle" fill="#111827">shakes</text>
+<path d="M193 218H270" fill="none" stroke="#b45309" stroke-width="2"/>
+<rect x="270" y="170" width="128" height="96" rx="8" fill="#ffffff" stroke="#1f2937" stroke-width="1.8"/>
+<text x="334" y="192" font-size="13" font-weight="700" text-anchor="middle" fill="#111827">voltage</text>
+<text x="334" y="212" font-size="12" text-anchor="middle" fill="#5b6472">coil moving past</text>
+<text x="334" y="228" font-size="12" text-anchor="middle" fill="#5b6472">the magnet makes</text>
+<text x="334" y="244" font-size="12" text-anchor="middle" fill="#5b6472">a tiny voltage</text>
+<line x1="398" y1="218" x2="420" y2="218" stroke="#111827" stroke-width="1.8" marker-end="url(#a-note)"/>
+<rect x="424" y="170" width="128" height="96" rx="8" fill="#ffffff" stroke="#1f2937" stroke-width="1.8"/>
+<text x="488" y="192" font-size="13" font-weight="700" text-anchor="middle" fill="#111827">digitizer</text>
+<text x="488" y="212" font-size="12" text-anchor="middle" fill="#5b6472">measures the</text>
+<text x="488" y="228" font-size="12" text-anchor="middle" fill="#5b6472">voltage 100 times</text>
+<text x="488" y="244" font-size="12" text-anchor="middle" fill="#5b6472">every second</text>
+<line x1="552" y1="218" x2="574" y2="218" stroke="#111827" stroke-width="1.8" marker-end="url(#a-note)"/>
+<rect x="578" y="170" width="168" height="96" rx="8" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.8"/>
+<text x="662" y="192" font-size="13" font-weight="700" text-anchor="middle" fill="#1d4ed8">counts</text>
+<text x="662" y="212" font-size="12" text-anchor="middle" fill="#111827">…, 812, 790, 1,204,</text>
+<text x="662" y="228" font-size="12" text-anchor="middle" fill="#111827">1,655, 1,302, 640,</text>
+<text x="662" y="244" font-size="12" text-anchor="middle" fill="#111827">−215, −907, …</text>
+<polyline points="270,335.8 286.4,335.3 302.8,336.4 319.2,334.2 335.7,338.6 352.1,329.4 368.5,347.4 384.9,318.1 401.3,318.6 417.7,309.5 434.1,299.6 450.6,307.4 467,321.9 483.4,340.7 499.8,356 516.2,360.2 532.6,349.2 549,331.6 565.4,320.6 581.9,324.6 598.3,333.8 614.7,342.6 631.1,344.4 647.5,338.6 663.9,334 680.3,332.5 696.8,334.7 713.2,336.9 729.6,337.3 746,336.2" fill="none" stroke="#1f2937" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="270" y="292" font-size="12.5" fill="#111827">Plot the counts against time and you have a seismogram (sketch):</text>
+<text x="270" y="82" font-size="12.5" font-weight="600" fill="#111827">The heavy mass on its spring tends to stay put while the</text>
+<text x="270" y="98" font-size="12.5" font-weight="600" fill="#111827">frame shakes with the ground, so the two move past each other.</text>
+<text x="270" y="120" font-size="12.5" fill="#111827">The faster the coil moves past the magnet, the bigger the</text>
+<text x="270" y="136" font-size="12.5" fill="#111827">voltage. So the counts follow how fast the ground moves.</text>
+</svg>

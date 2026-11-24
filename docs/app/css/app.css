@@ -77,13 +77,22 @@ h1 { font-size: 1.25rem; }
 h2 { font-size: 1.05rem; display: flex; align-items: center; gap: .5rem; }
 .sub { font-weight: 400; color: var(--muted); font-size: .95rem; margin-left: .35rem; }
 
+/* The standard top bar (same on every app page; see js/ui/page.js). */
 .topbar {
   display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem 1rem;
   padding: .6rem 16px; background: var(--card); border-bottom: 1px solid var(--border);
 }
-.brand { display: flex; align-items: baseline; gap: .9rem; flex-wrap: wrap; }
-.home { font-weight: 600; text-decoration: none; }
-.topbar-right { display: flex; gap: .9rem; align-items: center; flex-wrap: wrap; font-size: .9rem; }
+.brand { display: flex; align-items: baseline; gap: .3rem .9rem; flex-wrap: wrap; min-width: 0; }
+.home { font-weight: 600; text-decoration: none; white-space: nowrap; }
+.topbar-right { display: flex; gap: .4rem .9rem; align-items: center; flex-wrap: wrap; font-size: .9rem; }
+.topbar-right a { white-space: nowrap; }
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0;
+  overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+/* Embedded in a docs page (body.embed, set by setupEmbed): no top bar or credits. */
+body.embed .topbar, body.embed .credits, body.embed .standalone-only { display: none; }
+body:not(.embed) .embed-only { display: none; }
 .badge {
   font-size: .8rem; padding: .15rem .55rem; border-radius: 999px; border: 1px solid var(--border);
   color: var(--muted);
@@ -191,6 +200,9 @@ button.guess-btn[aria-pressed=true] { background: var(--guess); color: var(--car
 .warn { color: var(--warn); }
 
 .credits { max-width: 1500px; margin: 0 auto; padding: 0 16px 24px; color: var(--muted); font-size: .82rem; }
+
+/* Redirect stubs (old addresses that forward to a new one). */
+.redirect { max-width: 40rem; margin: 3rem auto; padding: 0 16px; }
 
 /* Leaflet markers */
 .map-station { display: flex; align-items: center; gap: 2px; white-space: nowrap; }

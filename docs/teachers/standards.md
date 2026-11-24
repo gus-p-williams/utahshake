@@ -6,6 +6,9 @@ current [Utah SEEd standards](https://www.schools.utah.gov/curr/science/_science
 and [Utah 6–12 Computer Science standards](https://Schools.Utah.gov/cte/_cte/computer/612ComputerScienceStandards.pdf)
 before using them in official materials.
 
+For a one-table summary of every activity and science page, see
+[Utah standards at a glance](index.md#utah-standards).
+
 ## Wave Race { #wave-race }
 
 App: [Wave Race guide](../apps/wave-race.md) · Lesson: [Wave Race activity card](wave-race-card.md).
@@ -22,7 +25,9 @@ App: [Wave Race guide](../apps/wave-race.md) · Lesson: [Wave Race activity card
 
 ## Quake Waves (animation) { #quake-waves }
 
-A cartoon used as a warm-up for Wave Race, on the [Locating a quake](../theory/locating.md#watch-it-happen) page.
+App: [Quake Waves guide](../apps/quake-waves.md) · Lesson: the warm-up in the
+[Wave Race activity card](wave-race-card.md). A cartoon, also shown on the
+[Locating a quake](../theory/locating.md#watch-it-happen) page.
 
 | Standard | Where it shows up |
 | --- | --- |
