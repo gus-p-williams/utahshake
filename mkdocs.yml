@@ -59,6 +59,7 @@ nav:
       - theory/index.md
       - Seismic waves: theory/waves.md
       - Reading a seismogram: theory/seismograms.md
+      - Beyond one seismogram: theory/plots.md
       - Distance from S minus P: theory/s-minus-p.md
       - Locating a quake: theory/locating.md
       - Travel times and Earth's layers: theory/travel-times.md

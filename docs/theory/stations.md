@@ -71,5 +71,12 @@ apps do:
   ObsPy TauP.
 - Wind speeds (the wind figure on [Reading a seismogram](seismograms.md)): Milford Municipal
   Airport weather station, via the Iowa Environmental Mesonet.
+- Noise reference curves (on [Beyond one seismogram](plots.md)): Peterson, J. (1993),
+  *Observations and modeling of seismic background noise*, USGS Open-File Report 93-322.
+- Shear-wave speeds at the Utah FORGE site (the H/V figure): Zhang, H., and K. L. Pankow
+  (2021), *Geophysical Journal International* 225, 1605–1615; depth to granite: Utah
+  Geological Survey Miscellaneous Publication 169 (2019).
+- The rocket-motor explosions: Stump, B., and others (2007), *29th Monitoring Research
+  Review*, 674–676.
 
 Licensing and technical detail are in [Data sources and licensing](../developers/data-sources.md).

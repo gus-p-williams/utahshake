@@ -38,6 +38,13 @@ docs/app/
       picker.js            AIC computer picks
       teleseism.js         Earth-model (iasp91) travel times for distant quakes
       audify.js, record-section.js, hodogram.js   helpers for Quake Explorer's views
+      response.js          instrument response from StationXML poles and zeros (counts per m/s at any frequency)
+      psd.js               Welch noise spectra, octave averages, PPSD histograms and percentiles
+      noise-models.js      Peterson's (1993) low- and high-noise reference curves
+      helicorder.js        a day cut into lines; gaps bridged for filtering and put back
+      carpet.js            noise level per step, the day-by-time grid, morning-rise time
+      stack.js             cross-correlation, scaling to the noise, stacking, noise vs N
+      hv.js                H/V: Konno-Ohmachi smoothing, window rejection, peak, f0 = Vs/4H
     data/
       datasource.js        the DataSource interface; picks a source from the URL
       earthscope-usgs.js   live source: USGS events + EarthScope stations/waveforms
@@ -160,6 +167,10 @@ the same bytes every time it runs.
 | `science-travel-times.mjs` | `theory/img/tt-*.svg` (Travel times and Earth's layers) | Node only |
 | `science-frequencies.mjs` | `theory/img/freq-*.svg` (Frequencies, fading and sound) | Node only |
 | `science-ground-motion.mjs` | `theory/img/gm-*.svg` (Which way the ground moves) | Node only |
+| `plots-time.mjs` | `theory/img/plots-helicorder.svg`, `plots-carpet.svg` (Beyond one seismogram) | Node only; downloads data the first time; the carpet's levels are kept in `tools/figures/data/carpet-heb-2026.json` |
+| `plots-noise.mjs` | `theory/img/plots-ppsd.svg`, `plots-ppsd-compare.svg` | Node only; downloads four station-months the first time; the PPSD histograms are kept in `tools/figures/data/ppsd-*.json` |
+| `plots-hv.mjs` | `theory/img/plots-hv.svg` | Node only; curves kept in `tools/figures/data/hv-curves.json` |
+| `plots-repeats.mjs` | `theory/img/plots-stack.svg`, `plots-xcorr.svg` | Node only; the event list (with its provenance) is `tools/figures/data/uttr-explosions.json` |
 | `screenshots.mjs` | `apps/img/wave-race-*.png` | `npm install` in `tools/figures`, Chrome, `node tools/serve.mjs` running |
 | `quake-explorer-screens.mjs` | `apps/img/qe-*.png` (Quake Explorer guide) | as `screenshots.mjs` |
 

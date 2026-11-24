@@ -138,7 +138,9 @@ routine.
 
 You can read the work week in the ground: quiet nights, busy weekdays, a slower Saturday and a
 quiet Sunday. We don't know exactly which roads or machines HEB hears, but the pattern gives
-people away: wind and the ocean don't take weekends off.
+people away: wind and the ocean don't take weekends off. Three months of HEB in one picture,
+the [seismic carpet](plots.md#months-at-a-glance-the-seismic-carpet), even show the day the
+clocks changed.
 
 !!! note "Coming soon: School Pulse"
     School Pulse will draw this kind of picture for each school's stand-in station, and later
@@ -221,7 +223,7 @@ them as a quake:
 <figure markdown="span">
   ![Three panels. Clipped: the Magna magnitude 5.7 quake of 2020 recorded 14.5 km away on two recorders at site SAIU over 5 seconds; the 16-bit recorder's trace has flat tops at +32,767 and flat bottoms at −32,768 counts, while the 24-bit recorder's trace has normal rounded waves with a peak of 6.6 million counts. Dead: the same quake at stations NLU and SUU, about 90 km away and 25 km apart, over 90 seconds; NLU shows strong shaking peaking at 1.1 million counts, while SUU is a flat line, minus 3 to plus 1 counts the whole time. Gaps: two minutes from station SGU on November 13, 2026 at 9:26 am, filtered 1 to 10 Hz: steady background shaking on both sides of a 15-second stretch of missing data, shaded in red.](img/instrument-problems.svg){ loading=lazy }
   <figcaption>Figure 9. Three instrument problems: clipping and a dead channel during the
-  magnitude 5.7 Magna quake (March 18, 2020), and gaps at station SGU (the stand-in for
+  magnitude 5.7 Magna quake (March 18, 2020), and a gap at station SGU (the stand-in for
   Gunnison Valley). Data: University of Utah Seismograph Stations (network UU,
   doi:10.7914/SN/UU) via EarthScope; quake from USGS ComCat.</figcaption>
 </figure>
@@ -274,7 +276,7 @@ colour shows how strong the shaking is at each frequency and moment. A filter ke
 horizontal strip of the spectrogram.
 
 <figure markdown="span">
-  ![Top: three minutes of station TMU's vertical sensor around a magnitude 2.1 quake 36 km away, on February 22, 2026 at 9:41 pm. The raw trace shows smooth ocean-hum waves all the way through, with small fast wiggles riding on them from the P line at 7 seconds to about 40 seconds. The trace filtered 1 to 10 Hz is flat before P, then shows a clear burst that fades by 50 seconds. Bottom: the same three minutes as a spectrogram, with frequency from 0.1 to 50 Hz going up on a log scale and colour from dark purple (weak) to yellow (strong). A bright yellow band near 0.2 Hz, labelled ocean hum: always there, runs the whole way across. A dashed white box marks the band from 1 to 10 Hz that the filter keeps. Inside it, green colors start suddenly at the P line, 7 seconds, reach from about 1 to 20 Hz and fade by about 50 seconds; an arrow labelled the quake points to them.](img/hidden-quake.svg){ loading=lazy }
+  ![Top: three minutes of station TMU's vertical sensor around a magnitude 2.1 quake 36 km away, on February 22, 2026 at 9:41 pm. The raw trace shows smooth ocean-hum waves all the way through, with small fast wiggles riding on them from the P line at 7 seconds to about 40 seconds. The trace filtered 1 to 10 Hz is flat before P, then shows a clear burst that fades by 50 seconds. Bottom: the same three minutes as a spectrogram, with frequency from 0.1 to 50 Hz going up on a log scale and colour from dark purple (weak) to yellow (strong). A bright yellow band near 0.2 Hz, labelled ocean hum: always there, runs the whole way across. A dashed white box marks the band from 1 to 10 Hz that the filter keeps. At the P line, 7 seconds, green colors start suddenly, reaching from about 1 Hz up to 20 Hz, above the box, and fade by about 50 seconds; inside the box, an arrow labeled the quake points to them.](img/hidden-quake.svg){ loading=lazy }
   <figcaption>Figure 11. A small quake on a winter night at station TMU. In the raw record it
   rides on the ocean hum; the 1–10 Hz filter removes the hum and the quake stands out. The
   spectrogram shows why: the hum and the quake are at different frequencies. P pick by
@@ -314,4 +316,6 @@ and the time of day.
   clearest?
 - Look at the noise *before* P in Wave Race. Is it bigger at some stations than others? Which
   of the sources on this page could it be? Check the time of day of the quake.
+- Next: [Beyond one seismogram](plots.md) puts a whole day, months of noise, or a hundred
+  explosions into one picture.
 - Using these records in your own work? [Credit the data](stations.md#how-to-credit-the-data).
