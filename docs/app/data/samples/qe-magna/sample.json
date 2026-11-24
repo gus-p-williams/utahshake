@@ -1,0 +1,16 @@
+{
+ "kind": "explorer",
+ "event": "uu60363602",
+ "eventType": "earthquake",
+ "views": [
+  "record-section",
+  "motion"
+ ],
+ "window": {
+  "preSec": 10,
+  "postSec": 90
+ },
+ "sectionKm": 400,
+ "made": "2026-11-24",
+ "command": "node tools/quake-explorer/make-sample.mjs uu60363602 --dir qe-magna --section 400 --threeC SPU,BGU --pre 10 --post 90 --views record-section,motion"
+}

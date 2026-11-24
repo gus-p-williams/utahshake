@@ -1,0 +1,12 @@
+Quake Explorer offline sample: 5 km NNE of Magna, Utah, M5.7 (earthquake)
+
+- Event: uu60363602, 2020-03-18T13:09:31.530Z (UTC), https://earthquake.usgs.gov/earthquakes/eventpage/uu60363602
+- Window: 10 s before to 90 s after the origin time
+- Stations: NOQ, HRU, GMU, TCMU, RRCU, SPU (3 comp.), BGU (3 comp.), MPU, MTUT, BSUT, HVU, ELU, FSU, ARGU, SGU, BRPU, WCU, PNSU, FMC, CVRU, BRWY, TCRU, NMU, FORU, FOR1, PSUT, MTPU, HMU, ARUT, PKCU, VRUT
+- picks.json: UUSS analyst picks. computer-picks.json: AIC picks made by
+  tools/quake-explorer/make-sample.mjs where the analysts made none (P: SNR >= 3,
+  S: SNR >= 2); they can differ from what an analyst would pick.
+- Made with `node tools/quake-explorer/make-sample.mjs uu60363602 --dir qe-magna --section 400 --threeC SPU,BGU --pre 10 --post 90 --views record-section,motion` on 2026-11-24
+
+Waveforms: University of Utah Seismograph Stations, network UU (doi:10.7914/SN/UU), via EarthScope Data Services.
+Earthquake locations and analyst picks: U.S. Geological Survey ComCat / University of Utah Seismograph Stations.

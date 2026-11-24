@@ -1,0 +1,17 @@
+{
+ "kind": "explorer",
+ "event": "uu80162166",
+ "eventType": "earthquake",
+ "views": [
+  "record-section",
+  "frequencies",
+  "motion"
+ ],
+ "window": {
+  "preSec": 10,
+  "postSec": 110
+ },
+ "sectionKm": 300,
+ "made": "2026-11-24",
+ "command": "node tools/quake-explorer/make-sample.mjs uu80162166 --dir qe-junction --section 300 --threeC MTPU,TCRU,FOR1,TMU,SGU,SUU,PSUT,LIUT --pre 10 --post 110"
+}

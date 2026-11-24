@@ -1,0 +1,186 @@
+[
+ {
+  "net": "UU",
+  "sta": "PKCU",
+  "cha": "HHZ",
+  "phase": "S",
+  "timeMs": 1793421882660,
+  "snr": 2.1
+ },
+ {
+  "net": "UU",
+  "sta": "SZCU",
+  "cha": "HHZ",
+  "phase": "S",
+  "timeMs": 1793421885670,
+  "snr": 4.3
+ },
+ {
+  "net": "UU",
+  "sta": "SGU",
+  "cha": "HHZ",
+  "phase": "S",
+  "timeMs": 1793421890020,
+  "snr": 2.9
+ },
+ {
+  "net": "UU",
+  "sta": "CVRU",
+  "cha": "HHZ",
+  "phase": "S",
+  "timeMs": 1793421889560,
+  "snr": 3.2
+ },
+ {
+  "net": "UU",
+  "sta": "ZNPU",
+  "cha": "HHZ",
+  "phase": "S",
+  "timeMs": 1793421892950,
+  "snr": 3.3
+ },
+ {
+  "net": "UU",
+  "sta": "TMU",
+  "cha": "HHZ",
+  "phase": "S",
+  "timeMs": 1793421896930,
+  "snr": 5.1
+ },
+ {
+  "net": "UU",
+  "sta": "DBD",
+  "cha": "EHZ",
+  "phase": "S",
+  "timeMs": 1793421898600,
+  "snr": 9.7
+ },
+ {
+  "net": "UU",
+  "sta": "VRUT",
+  "cha": "HHZ",
+  "phase": "S",
+  "timeMs": 1793421903140,
+  "snr": 3.9
+ },
+ {
+  "net": "UU",
+  "sta": "ELU",
+  "cha": "EHZ",
+  "phase": "S",
+  "timeMs": 1793421907000,
+  "snr": 4.2
+ },
+ {
+  "net": "UU",
+  "sta": "SRU",
+  "cha": "HHZ",
+  "phase": "S",
+  "timeMs": 1793421905880,
+  "snr": 3.2
+ },
+ {
+  "net": "UU",
+  "sta": "SUU",
+  "cha": "EHZ",
+  "phase": "P",
+  "timeMs": 1793421885970,
+  "snr": 132.1
+ },
+ {
+  "net": "UU",
+  "sta": "SUU",
+  "cha": "EHZ",
+  "phase": "S",
+  "timeMs": 1793421908440,
+  "snr": 3
+ },
+ {
+  "net": "UU",
+  "sta": "LIUT",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1793421890350,
+  "snr": 587.8
+ },
+ {
+  "net": "UU",
+  "sta": "LIUT",
+  "cha": "HHZ",
+  "phase": "S",
+  "timeMs": 1793421914720,
+  "snr": 12
+ },
+ {
+  "net": "UU",
+  "sta": "BCE",
+  "cha": "EHZ",
+  "phase": "P",
+  "timeMs": 1793421891260,
+  "snr": 64.8
+ },
+ {
+  "net": "UU",
+  "sta": "BCE",
+  "cha": "EHZ",
+  "phase": "S",
+  "timeMs": 1793421916470,
+  "snr": 3.4
+ },
+ {
+  "net": "UU",
+  "sta": "PNSU",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1793421893320,
+  "snr": 358.8
+ },
+ {
+  "net": "UU",
+  "sta": "PNSU",
+  "cha": "HHZ",
+  "phase": "S",
+  "timeMs": 1793421919660,
+  "snr": 4.4
+ },
+ {
+  "net": "UU",
+  "sta": "WTU",
+  "cha": "EHZ",
+  "phase": "P",
+  "timeMs": 1793421895740,
+  "snr": 4.8
+ },
+ {
+  "net": "UU",
+  "sta": "HEB",
+  "cha": "EHZ",
+  "phase": "P",
+  "timeMs": 1793421895790,
+  "snr": 6.1
+ },
+ {
+  "net": "UU",
+  "sta": "HLJ",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1793421896690,
+  "snr": 8.7
+ },
+ {
+  "net": "UU",
+  "sta": "BSUT",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1793421899410,
+  "snr": 9
+ },
+ {
+  "net": "UU",
+  "sta": "BGU",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1793421898900,
+  "snr": 6.9
+ }
+]

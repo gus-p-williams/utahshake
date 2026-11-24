@@ -1,0 +1,38 @@
+[
+ {
+  "net": "UU",
+  "sta": "TMU",
+  "loc": "01",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1790476929780,
+  "uncertaintySec": 0.06
+ },
+ {
+  "net": "UU",
+  "sta": "BSUT",
+  "loc": "01",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1790476934510,
+  "uncertaintySec": 0.06
+ },
+ {
+  "net": "UU",
+  "sta": "MPU",
+  "loc": "01",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1790476933980,
+  "uncertaintySec": 0.06
+ },
+ {
+  "net": "UU",
+  "sta": "CVRU",
+  "loc": "01",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1790476934590,
+  "uncertaintySec": 0.06
+ }
+]

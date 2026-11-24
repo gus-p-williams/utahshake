@@ -1,0 +1,13 @@
+{
+ "id": "uu60363602",
+ "timeMs": 1584536971530,
+ "lat": 40.751,
+ "lon": -112.0783333,
+ "depthKm": 11.9,
+ "mag": 5.7,
+ "magType": "mw",
+ "place": "5 km NNE of Magna, Utah",
+ "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu60363602",
+ "hasPhaseData": true,
+ "eventType": "earthquake"
+}

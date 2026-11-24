@@ -1,0 +1,13 @@
+{
+ "id": "uu80120191",
+ "timeMs": 1761359424190,
+ "lat": 39.5368333333333,
+ "lon": -112.080833333333,
+ "depthKm": 2.59,
+ "mag": 2.11,
+ "magType": "ml",
+ "place": "17 km E of Leamington, Utah",
+ "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu80120191",
+ "hasPhaseData": true,
+ "eventType": "earthquake"
+}

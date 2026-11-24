@@ -13,10 +13,18 @@ async function getJson(url) {
 }
 
 export class SampleSource {
-  constructor(base = BASE) {
+  /**
+   * @param {URL} [base] folder holding index.json
+   * @param {{list?: string}} [opt] which list in index.json to use: "samples"
+   *   (Wave Race, the default) or "explorer" (Quake Explorer's samples, which
+   *   have more stations and longer windows; each folder's sample.json says
+   *   "kind": "explorer").
+   */
+  constructor(base = BASE, { list = 'samples' } = {}) {
     this.name = 'Offline sample';
     this.live = false;
     this.base = base;
+    this.list = list;
     this._samples = null;
   }
 
@@ -24,7 +32,7 @@ export class SampleSource {
   async _all() {
     this._samples ||= (async () => {
       const index = await getJson(new URL('index.json', this.base));
-      return Promise.all(index.samples.map(async (dir) => {
+      return Promise.all((index[this.list] || []).map(async (dir) => {
         const root = new URL(`${dir}/`, this.base);
         const [event, stations] = await Promise.all([
           getJson(new URL('event.json', root)), getJson(new URL('stations.json', root))]);

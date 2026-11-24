@@ -1,0 +1,831 @@
+[
+ {
+  "net": "UU",
+  "sta": "NOQ",
+  "lat": 40.6525,
+  "lon": -112.12033,
+  "elevM": 1622,
+  "role": "section",
+  "schools": [],
+  "distKm": 11.51,
+  "bazDeg": 17.9,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Trillium 120P, 120 s, 1201 V/m/s-RT130, gain 1, 10",
+    "sensitivity": 755584000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": true
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "HRU",
+  "lat": 40.7945,
+  "lon": -111.88567,
+  "elevM": 1620,
+  "role": "section",
+  "schools": [],
+  "distKm": 16.93,
+  "bazDeg": 253.5,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "EHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Kinemetrics Ranger SS-1 seismometer",
+    "sensitivity": 216910000,
+    "sensitivityFreq": 5,
+    "units": "M/S",
+    "clipped": true
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "GMU",
+  "lat": 40.5755,
+  "lon": -111.76317,
+  "elevM": 1829,
+  "role": "section",
+  "schools": [],
+  "distKm": 32.98,
+  "bazDeg": 306.4,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "EHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Velocity Sensor",
+    "sensitivity": 5213731826.958336,
+    "sensitivityFreq": 5,
+    "units": "M/S",
+    "clipped": true
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "TCMU",
+  "lat": 40.4377,
+  "lon": -111.7118,
+  "elevM": 2045,
+  "role": "section",
+  "schools": [],
+  "distKm": 46.6,
+  "bazDeg": 318.5,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "EHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "L-4C, 1 Hz",
+    "sensitivity": 550268000,
+    "sensitivityFreq": 5,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "RRCU",
+  "lat": 40.8869,
+  "lon": -111.437,
+  "elevM": 2028,
+  "role": "section",
+  "schools": [],
+  "distKm": 56.04,
+  "bazDeg": 254.6,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "EHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Kinemetrics Ranger SS-1 seismometer",
+    "sensitivity": 17058000000,
+    "sensitivityFreq": 5,
+    "units": "M",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "SPU",
+  "lat": 41.30867,
+  "lon": -112.44917,
+  "elevM": 2086,
+  "role": "section",
+  "schools": [],
+  "distKm": 69.37,
+  "bazDeg": 153.2,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "CMG-3ESP, 60 s, 2000 V/m/s-RT130, gain 1, 100 sps",
+    "sensitivity": 1250720000,
+    "sensitivityFreq": 0.05,
+    "units": "M/S",
+    "clipped": false
+   },
+   {
+    "loc": "01",
+    "cha": "HHN",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": 0,
+    "sensor": "CMG-3ESP, 60 s, 2000 V/m/s-RT130, gain 1, 100 sps",
+    "sensitivity": 1250720000,
+    "sensitivityFreq": 0.05,
+    "units": "M/S",
+    "clipped": false
+   },
+   {
+    "loc": "01",
+    "cha": "HHE",
+    "sampleRate": 100,
+    "azimuth": 90,
+    "dip": 0,
+    "sensor": "CMG-3ESP, 60 s, 2000 V/m/s-RT130, gain 1, 100 sps",
+    "sensitivity": 1250720000,
+    "sensitivityFreq": 0.05,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "BGU",
+  "lat": 40.92083,
+  "lon": -113.02983,
+  "elevM": 1640,
+  "role": "section",
+  "schools": [],
+  "distKm": 82.24,
+  "bazDeg": 103,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Trillium 120P, 120 s, 1201 V/m/s-Q330SR, gain 1, 1",
+    "sensitivity": 503735000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   },
+   {
+    "loc": "01",
+    "cha": "HHN",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": 0,
+    "sensor": "Trillium 120P, 120 s, 1201 V/m/s-Q330SR, gain 1, 1",
+    "sensitivity": 503735000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   },
+   {
+    "loc": "01",
+    "cha": "HHE",
+    "sampleRate": 100,
+    "azimuth": 90,
+    "dip": 0,
+    "sensor": "Trillium 120P, 120 s, 1201 V/m/s-Q330SR, gain 1, 1",
+    "sensitivity": 503735000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "MPU",
+  "lat": 40.0155,
+  "lon": -111.63333,
+  "elevM": 1909,
+  "role": "section",
+  "schools": [],
+  "distKm": 90.05,
+  "bazDeg": 335.4,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "CMG-3ESP, 60 s, 2000 V/m/s-RT130, gain 1, 100 sps",
+    "sensitivity": 1258260000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "MTUT",
+  "lat": 41.6709,
+  "lon": -112.4551,
+  "elevM": 1373,
+  "role": "section",
+  "schools": [],
+  "distKm": 107.03,
+  "bazDeg": 162.8,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "EHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "L-4C VERTICAL,Velocity Sensor,SERCEL",
+    "sensitivity": 1527950000,
+    "sensitivityFreq": 5,
+    "units": "M/S",
+    "clipped": true
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "BSUT",
+  "lat": 40.5365,
+  "lon": -110.7612,
+  "elevM": 3211,
+  "role": "section",
+  "schools": [],
+  "distKm": 113.66,
+  "bazDeg": 282.5,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Trillium 120P, 120 s, 1201 V/m/s-Q330SR, gain 1, 1",
+    "sensitivity": 502477000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "HVU",
+  "lat": 41.77967,
+  "lon": -112.775,
+  "elevM": 1609,
+  "role": "section",
+  "schools": [],
+  "distKm": 128.35,
+  "bazDeg": 152.8,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "TRILLIUM 120PA,Velocity Sensor,NANOMETRICS",
+    "sensitivity": 504316000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "ELU",
+  "lat": 39.64017,
+  "lon": -111.20383,
+  "elevM": 2970,
+  "role": "school",
+  "schools": [
+   "North Sanpete High School"
+  ],
+  "distKm": 144.13,
+  "bazDeg": 329.3,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "EHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Mark Products L-4c seismometer",
+    "sensitivity": 5540360000,
+    "sensitivityFreq": 5,
+    "units": "M",
+    "clipped": true
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "FSU",
+  "lat": 39.7225,
+  "lon": -113.39133,
+  "elevM": 1487,
+  "role": "section",
+  "schools": [],
+  "distKm": 159.69,
+  "bazDeg": 43.8,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "EHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Geotech 18300 seismometer",
+    "sensitivity": 6847440000,
+    "sensitivityFreq": 5,
+    "units": "M/S",
+    "clipped": true
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "ARGU",
+  "lat": 39.822833,
+  "lon": -110.543667,
+  "elevM": 2828,
+  "role": "section",
+  "schools": [],
+  "distKm": 166.12,
+  "bazDeg": 308.9,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "EHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Geotech S-13, 1.0 Hz seismometer",
+    "sensitivity": 27380000000,
+    "sensitivityFreq": 5,
+    "units": "M",
+    "clipped": true
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "SGU",
+  "lat": 39.18233,
+  "lon": -111.64467,
+  "elevM": 2357,
+  "role": "school",
+  "schools": [
+   "Gunnison Valley High School"
+  ],
+  "distKm": 178.3,
+  "bazDeg": 348.2,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "EHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Geotech 18300 seismometer",
+    "sensitivity": 223851000,
+    "sensitivityFreq": 5,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "BRPU",
+  "lat": 39.473,
+  "lon": -110.74,
+  "elevM": 1687,
+  "role": "section",
+  "schools": [],
+  "distKm": 182.06,
+  "bazDeg": 321.7,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Trillium 240, generation 1, 240 s, 1197 V/m/s-Q330",
+    "sensitivity": 502016000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "WCU",
+  "lat": 38.96467,
+  "lon": -112.09067,
+  "elevM": 2673,
+  "role": "school",
+  "schools": [
+   "Millard High School"
+  ],
+  "distKm": 198.63,
+  "bazDeg": 0.3,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "EHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Geotech 18300 seismometer",
+    "sensitivity": 431439000,
+    "sensitivityFreq": 5,
+    "units": "M/S",
+    "clipped": true
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "PNSU",
+  "lat": 39.62793,
+  "lon": -110.24574,
+  "elevM": 2749.5,
+  "role": "section",
+  "schools": [],
+  "distKm": 199.56,
+  "bazDeg": 309.3,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "TRILLIUM 240,Velocity Sensor,NANOMETRICS",
+    "sensitivity": 502595000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "FMC",
+  "lat": 41.40812,
+  "lon": -109.77794,
+  "elevM": 1903,
+  "role": "section",
+  "schools": [],
+  "distKm": 206.19,
+  "bazDeg": 250,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "CMG-40T, 30s-100Hz, 800 V/m/s-RT130, gain 1, 100 s",
+    "sensitivity": 503303000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "CVRU",
+  "lat": 38.9176,
+  "lon": -111.1716,
+  "elevM": 1910.3,
+  "role": "section",
+  "schools": [],
+  "distKm": 218.07,
+  "bazDeg": 339.5,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "STS-2,Velocity Sensor,STRECKEISEN",
+    "sensitivity": 629871000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "BRWY",
+  "lat": 41.622,
+  "lon": -109.5031,
+  "elevM": 2098,
+  "role": "section",
+  "schools": [],
+  "distKm": 236.25,
+  "bazDeg": 246.7,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Trillium 120 Posthole, generation 3, 120 s, 1203 V",
+    "sensitivity": 481000000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "TCRU",
+  "lat": 38.6095,
+  "lon": -112.4472,
+  "elevM": 2293,
+  "role": "section",
+  "schools": [],
+  "distKm": 240.21,
+  "bazDeg": 7.4,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Trillium 120P, 120 s, 1201 V/m/s-null",
+    "sensitivity": 366238000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "NMU",
+  "lat": 38.5165,
+  "lon": -112.85,
+  "elevM": 1853,
+  "role": "section",
+  "schools": [],
+  "distKm": 257.1,
+  "bazDeg": 14.6,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "EHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Geotech S-13, 1.0 Hz seismometer",
+    "sensitivity": 28235000000,
+    "sensitivityFreq": 5,
+    "units": "M",
+    "clipped": true
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "FORU",
+  "lat": 38.4588,
+  "lon": -112.8614,
+  "elevM": 1840,
+  "role": "section",
+  "schools": [],
+  "distKm": 263.56,
+  "bazDeg": 14.5,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "CMG-40T, 30 s, 800 V/m/s-RT130, gain 1, 100 sps",
+    "sensitivity": 459458000,
+    "sensitivityFreq": 0.05,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "FOR1",
+  "lat": 38.3689,
+  "lon": -113.0938,
+  "elevM": 1642,
+  "role": "section",
+  "schools": [],
+  "distKm": 278.81,
+  "bazDeg": 17.9,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Trillium 120 Posthole, generation 3, 120 s, 1203 V",
+    "sensitivity": 481000000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "PSUT",
+  "lat": 38.5337,
+  "lon": -113.8547,
+  "elevM": 1999,
+  "role": "section",
+  "schools": [],
+  "distKm": 289.68,
+  "bazDeg": 31.1,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Trillium 120P, 120 s, 1201 V/m/s-Q330SR, gain 1, 1",
+    "sensitivity": 502477000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "MTPU",
+  "lat": 38.0415,
+  "lon": -112.1843,
+  "elevM": 3112,
+  "role": "section",
+  "schools": [],
+  "distKm": 301.42,
+  "bazDeg": 1.7,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Trillium 120P, 120 s, 1201 V/m/s-Q330SR, gain 1, 1",
+    "sensitivity": 502477000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "HMU",
+  "lat": 37.938,
+  "lon": -110.7418,
+  "elevM": 2430,
+  "role": "section",
+  "schools": [],
+  "distKm": 333.23,
+  "bazDeg": 340.2,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Trillium 120P, 120 s, 1201 V/m/s-Q330SR, gain 1, 1",
+    "sensitivity": 502477000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "ARUT",
+  "lat": 37.788,
+  "lon": -113.44033,
+  "elevM": 1646,
+  "role": "section",
+  "schools": [],
+  "distKm": 349.7,
+  "bazDeg": 19.2,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "EHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Mark Products L-4c seismometer",
+    "sensitivity": 13963000000,
+    "sensitivityFreq": 5,
+    "units": "M",
+    "clipped": true
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "PKCU",
+  "lat": 37.4439,
+  "lon": -112.311,
+  "elevM": 2834,
+  "role": "section",
+  "schools": [],
+  "distKm": 368.28,
+  "bazDeg": 3.1,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Trillium 120P, 120 s, 1201 V/m/s-null",
+    "sensitivity": 366238000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "VRUT",
+  "lat": 37.4618,
+  "lon": -113.8569,
+  "elevM": 1874,
+  "role": "section",
+  "schools": [],
+  "distKm": 396.61,
+  "bazDeg": 22.2,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Trillium 120P, 120 s, 1201 V/m/s-null",
+    "sensitivity": 366238000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ }
+]

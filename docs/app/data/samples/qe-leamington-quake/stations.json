@@ -1,0 +1,179 @@
+[
+ {
+  "net": "UU",
+  "sta": "SUU",
+  "lat": 39.88817,
+  "lon": -111.79083,
+  "elevM": 2024,
+  "role": "school",
+  "schools": [
+   "Juab High School"
+  ],
+  "distKm": 46.28,
+  "bazDeg": 212.5,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "EHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "S-13, 1 Hz, 629 V/m/s, 3600 ohm coil-Rock family,",
+    "sensitivity": 959730000,
+    "sensitivityFreq": 5,
+    "units": "M/S",
+    "clipped": false
+   },
+   {
+    "loc": "01",
+    "cha": "EHN",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": 0,
+    "sensor": "S-13, 1 Hz, 629 V/m/s, 3600 ohm coil-Rock family,",
+    "sensitivity": 959730000,
+    "sensitivityFreq": 5,
+    "units": "M/S",
+    "clipped": false
+   },
+   {
+    "loc": "01",
+    "cha": "EHE",
+    "sampleRate": 100,
+    "azimuth": 90,
+    "dip": 0,
+    "sensor": "S-13, 1 Hz, 629 V/m/s, 3600 ohm coil-Rock family,",
+    "sensitivity": 959730000,
+    "sensitivityFreq": 5,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "LEVU",
+  "lat": 39.5065,
+  "lon": -111.81467,
+  "elevM": 1996,
+  "role": "extra",
+  "schools": [],
+  "distKm": 23.08,
+  "bazDeg": 278.5,
+  "channels": [
+   {
+    "loc": "02",
+    "cha": "EHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Mark Products L-4c seismometer",
+    "sensitivity": 17262000000,
+    "sensitivityFreq": 5,
+    "units": "M",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "FLU",
+  "lat": 39.37817,
+  "lon": -112.1715,
+  "elevM": 1951,
+  "role": "extra",
+  "schools": [],
+  "distKm": 19.28,
+  "bazDeg": 23.8,
+  "channels": [
+   {
+    "loc": "02",
+    "cha": "EHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Geotech 18300 seismometer",
+    "sensitivity": 46147000000,
+    "sensitivityFreq": 5,
+    "units": "M",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "NLU",
+  "lat": 39.95483,
+  "lon": -112.075,
+  "elevM": 2036,
+  "role": "extra",
+  "schools": [],
+  "distKm": 46.48,
+  "bazDeg": 180.6,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Trillium 120P, 120 s, 1201 V/m/s-Centaur, 40 vpp (",
+    "sensitivity": 480400000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   },
+   {
+    "loc": "01",
+    "cha": "HHN",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": 0,
+    "sensor": "Trillium 120P, 120 s, 1201 V/m/s-Centaur, 40 vpp (",
+    "sensitivity": 480400000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   },
+   {
+    "loc": "01",
+    "cha": "HHE",
+    "sampleRate": 100,
+    "azimuth": 90,
+    "dip": 0,
+    "sensor": "Trillium 120P, 120 s, 1201 V/m/s-Centaur, 40 vpp (",
+    "sensitivity": 480400000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "WCU",
+  "lat": 38.96467,
+  "lon": -112.09067,
+  "elevM": 2673,
+  "role": "school",
+  "schools": [
+   "Millard High School"
+  ],
+  "distKm": 63.63,
+  "bazDeg": 0.8,
+  "channels": [
+   {
+    "loc": "02",
+    "cha": "EHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Geotech 18300 seismometer",
+    "sensitivity": 39209000000,
+    "sensitivityFreq": 5,
+    "units": "M",
+    "clipped": false
+   }
+  ]
+ }
+]

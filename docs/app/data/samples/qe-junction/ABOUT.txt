@@ -1,0 +1,12 @@
+Quake Explorer offline sample: 8 km NW of Junction, Utah, M3.3 (earthquake)
+
+- Event: uu80162166, 2026-10-31T04:44:15.580Z (UTC), https://earthquake.usgs.gov/earthquakes/eventpage/uu80162166
+- Window: 10 s before to 110 s after the origin time
+- Stations: MTPU (3 comp.), TCRU (3 comp.), NMU, FOR1 (3 comp.), WCU, PKCU, SZCU, SGU (3 comp.), CVRU, ZNPU, TMU (3 comp.), DBD, VRUT, ELU, SRU, SUU (3 comp.), LIUT (3 comp.), BCE, PNSU, WTU, HEB, HLJ, BSUT, BGU
+- picks.json: UUSS analyst picks. computer-picks.json: AIC picks made by
+  tools/quake-explorer/make-sample.mjs where the analysts made none (P: SNR >= 3,
+  S: SNR >= 2); they can differ from what an analyst would pick.
+- Made with `node tools/quake-explorer/make-sample.mjs uu80162166 --dir qe-junction --section 300 --threeC MTPU,TCRU,FOR1,TMU,SGU,SUU,PSUT,LIUT --pre 10 --post 110` on 2026-11-24
+
+Waveforms: University of Utah Seismograph Stations, network UU (doi:10.7914/SN/UU), via EarthScope Data Services.
+Earthquake locations and analyst picks: U.S. Geological Survey ComCat / University of Utah Seismograph Stations.

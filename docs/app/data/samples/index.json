@@ -1,5 +1,12 @@
 {
  "samples": [
   "uu80162166"
+ ],
+ "explorer": [
+  "qe-junction",
+  "qe-magna",
+  "qe-leamington-blast",
+  "qe-leamington-quake",
+  "qe-kenilworth"
  ]
 }

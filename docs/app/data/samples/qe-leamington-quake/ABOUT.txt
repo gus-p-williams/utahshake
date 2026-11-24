@@ -1,0 +1,12 @@
+Quake Explorer offline sample: 17 km E of Leamington, Utah, M2.11 (earthquake)
+
+- Event: uu80120191, 2025-10-25T02:30:24.190Z (UTC), https://earthquake.usgs.gov/earthquakes/eventpage/uu80120191
+- Window: 10 s before to 50 s after the origin time
+- Stations: SUU (3 comp.), LEVU, FLU, NLU (3 comp.), WCU
+- picks.json: UUSS analyst picks. computer-picks.json: AIC picks made by
+  tools/quake-explorer/make-sample.mjs where the analysts made none (P: SNR >= 3,
+  S: SNR >= 2); they can differ from what an analyst would pick.
+- Made with `node tools/quake-explorer/make-sample.mjs uu80120191 --dir qe-leamington-quake --stations SUU,LEVU,FLU,NLU,WCU --pre 10 --post 50 --views frequencies` on 2026-11-24
+
+Waveforms: University of Utah Seismograph Stations, network UU (doi:10.7914/SN/UU), via EarthScope Data Services.
+Earthquake locations and analyst picks: U.S. Geological Survey ComCat / University of Utah Seismograph Stations.

@@ -1,0 +1,13 @@
+{
+ "id": "uu80158051",
+ "timeMs": 1790476918040,
+ "lat": 39.711,
+ "lon": -110.621666666667,
+ "depthKm": 3.21,
+ "mag": 2.69,
+ "magType": "ml",
+ "place": "15 km E of Kenilworth, Utah",
+ "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu80158051",
+ "hasPhaseData": true,
+ "eventType": "earthquake"
+}

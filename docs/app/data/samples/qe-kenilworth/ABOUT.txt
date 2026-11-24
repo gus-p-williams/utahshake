@@ -1,0 +1,12 @@
+Quake Explorer offline sample: 15 km E of Kenilworth, Utah, M2.69 (earthquake)
+
+- Event: uu80158051, 2026-09-27T02:41:58.040Z (UTC), https://earthquake.usgs.gov/earthquakes/eventpage/uu80158051
+- Window: 10 s before to 50 s after the origin time
+- Stations: TMU (3 comp.), MPU (3 comp.), CVRU (3 comp.), BSUT (3 comp.)
+- picks.json: UUSS analyst picks. computer-picks.json: AIC picks made by
+  tools/quake-explorer/make-sample.mjs where the analysts made none (P: SNR >= 3,
+  S: SNR >= 2); they can differ from what an analyst would pick.
+- Made with `node tools/quake-explorer/make-sample.mjs uu80158051 --dir qe-kenilworth --stations TMU,MPU,CVRU,BSUT --pre 10 --post 50 --views motion,frequencies` on 2026-11-24
+
+Waveforms: University of Utah Seismograph Stations, network UU (doi:10.7914/SN/UU), via EarthScope Data Services.
+Earthquake locations and analyst picks: U.S. Geological Survey ComCat / University of Utah Seismograph Stations.

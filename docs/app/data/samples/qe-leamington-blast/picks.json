@@ -1,0 +1,56 @@
+[
+ {
+  "net": "UU",
+  "sta": "FLU",
+  "loc": "02",
+  "cha": "EHZ",
+  "phase": "P",
+  "timeMs": 1793057619190,
+  "uncertaintySec": 0.06
+ },
+ {
+  "net": "UU",
+  "sta": "LEVU",
+  "loc": "02",
+  "cha": "EHZ",
+  "phase": "P",
+  "timeMs": 1793057622020,
+  "uncertaintySec": 0.12
+ },
+ {
+  "net": "UU",
+  "sta": "NLU",
+  "loc": "01",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1793057623860,
+  "uncertaintySec": 0.06
+ },
+ {
+  "net": "UU",
+  "sta": "NLU",
+  "loc": "01",
+  "cha": "HHN",
+  "phase": "S",
+  "timeMs": 1793057630540,
+  "uncertaintySec": 0.3
+ },
+ {
+  "net": "UU",
+  "sta": "SUU",
+  "loc": "01",
+  "cha": "EHZ",
+  "phase": "P",
+  "timeMs": 1793057625150,
+  "uncertaintySec": 0.12
+ },
+ {
+  "net": "UU",
+  "sta": "WCU",
+  "loc": "02",
+  "cha": "EHZ",
+  "phase": "P",
+  "timeMs": 1793057627610,
+  "uncertaintySec": 0.3
+ }
+]

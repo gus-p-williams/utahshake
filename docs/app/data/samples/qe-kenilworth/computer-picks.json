@@ -1,0 +1,18 @@
+[
+ {
+  "net": "UU",
+  "sta": "TMU",
+  "cha": "HHZ",
+  "phase": "S",
+  "timeMs": 1790476939990,
+  "snr": 3
+ },
+ {
+  "net": "UU",
+  "sta": "CVRU",
+  "cha": "HHZ",
+  "phase": "S",
+  "timeMs": 1790476949790,
+  "snr": 2.5
+ }
+]

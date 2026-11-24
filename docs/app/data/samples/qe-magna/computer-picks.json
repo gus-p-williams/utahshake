@@ -1,0 +1,202 @@
+[
+ {
+  "net": "UU",
+  "sta": "TCMU",
+  "cha": "EHZ",
+  "phase": "S",
+  "timeMs": 1584536986080,
+  "snr": 5.7
+ },
+ {
+  "net": "UU",
+  "sta": "SPU",
+  "cha": "HHZ",
+  "phase": "S",
+  "timeMs": 1584536992040,
+  "snr": 3.1
+ },
+ {
+  "net": "UU",
+  "sta": "MPU",
+  "cha": "HHZ",
+  "phase": "S",
+  "timeMs": 1584537000650,
+  "snr": 2.1
+ },
+ {
+  "net": "UU",
+  "sta": "MTUT",
+  "cha": "EHZ",
+  "phase": "P",
+  "timeMs": 1584536990080,
+  "snr": 593.4
+ },
+ {
+  "net": "UU",
+  "sta": "HVU",
+  "cha": "HHZ",
+  "phase": "S",
+  "timeMs": 1584537010200,
+  "snr": 3.2
+ },
+ {
+  "net": "UU",
+  "sta": "ELU",
+  "cha": "EHZ",
+  "phase": "S",
+  "timeMs": 1584537006820,
+  "snr": 2.2
+ },
+ {
+  "net": "UU",
+  "sta": "ARGU",
+  "cha": "EHZ",
+  "phase": "P",
+  "timeMs": 1584536999960,
+  "snr": 814.7
+ },
+ {
+  "net": "UU",
+  "sta": "BRPU",
+  "cha": "HHZ",
+  "phase": "S",
+  "timeMs": 1584537025410,
+  "snr": 2
+ },
+ {
+  "net": "UU",
+  "sta": "WCU",
+  "cha": "EHZ",
+  "phase": "P",
+  "timeMs": 1584537002820,
+  "snr": 2077.8
+ },
+ {
+  "net": "UU",
+  "sta": "PNSU",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1584537004500,
+  "snr": 7160.6
+ },
+ {
+  "net": "UU",
+  "sta": "PNSU",
+  "cha": "HHZ",
+  "phase": "S",
+  "timeMs": 1584537029650,
+  "snr": 3.6
+ },
+ {
+  "net": "UU",
+  "sta": "FMC",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1584537004390,
+  "snr": 459.1
+ },
+ {
+  "net": "UU",
+  "sta": "FMC",
+  "cha": "HHZ",
+  "phase": "S",
+  "timeMs": 1584537031310,
+  "snr": 2.6
+ },
+ {
+  "net": "UU",
+  "sta": "CVRU",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1584537005520,
+  "snr": 1546
+ },
+ {
+  "net": "UU",
+  "sta": "BRWY",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1584537008280,
+  "snr": 288.1
+ },
+ {
+  "net": "UU",
+  "sta": "TCRU",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1584537008270,
+  "snr": 508.6
+ },
+ {
+  "net": "UU",
+  "sta": "NMU",
+  "cha": "EHZ",
+  "phase": "P",
+  "timeMs": 1584537010330,
+  "snr": 99.3
+ },
+ {
+  "net": "UU",
+  "sta": "FORU",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1584537011140,
+  "snr": 77.8
+ },
+ {
+  "net": "UU",
+  "sta": "FOR1",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1584537013140,
+  "snr": 113.9
+ },
+ {
+  "net": "UU",
+  "sta": "PSUT",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1584537014610,
+  "snr": 663.4
+ },
+ {
+  "net": "UU",
+  "sta": "MTPU",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1584537016620,
+  "snr": 399
+ },
+ {
+  "net": "UU",
+  "sta": "HMU",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1584537020880,
+  "snr": 246.9
+ },
+ {
+  "net": "UU",
+  "sta": "ARUT",
+  "cha": "EHZ",
+  "phase": "P",
+  "timeMs": 1584537022810,
+  "snr": 52.5
+ },
+ {
+  "net": "UU",
+  "sta": "PKCU",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1584537025490,
+  "snr": 12.5
+ },
+ {
+  "net": "UU",
+  "sta": "VRUT",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1584537028530,
+  "snr": 166.4
+ }
+]

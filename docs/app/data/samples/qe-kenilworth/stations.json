@@ -1,0 +1,200 @@
+[
+ {
+  "net": "UU",
+  "sta": "TMU",
+  "lat": 39.2965,
+  "lon": -111.20817,
+  "elevM": 2731,
+  "role": "school",
+  "schools": [
+   "Wasatch Academy"
+  ],
+  "distKm": 68.24,
+  "bazDeg": 47.3,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Trillium Horizon 120, 120 s, 1200 V/m/s-Centaur, 4",
+    "sensitivity": 481000000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   },
+   {
+    "loc": "01",
+    "cha": "HHN",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": 0,
+    "sensor": "Trillium Horizon 120, 120 s, 1200 V/m/s-Centaur, 4",
+    "sensitivity": 481000000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   },
+   {
+    "loc": "01",
+    "cha": "HHE",
+    "sampleRate": 100,
+    "azimuth": 90,
+    "dip": 0,
+    "sensor": "Trillium Horizon 120, 120 s, 1200 V/m/s-Centaur, 4",
+    "sensitivity": 481000000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "MPU",
+  "lat": 40.0155,
+  "lon": -111.63333,
+  "elevM": 1909,
+  "role": "extra",
+  "schools": [],
+  "distKm": 92.75,
+  "bazDeg": 111.1,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "TRILLIUM HORIZON 120,Velocity Sensor,NANOMETRICS",
+    "sensitivity": 481000000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   },
+   {
+    "loc": "01",
+    "cha": "HHN",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": 0,
+    "sensor": "TRILLIUM HORIZON 120,Velocity Sensor,NANOMETRICS",
+    "sensitivity": 481000000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   },
+   {
+    "loc": "01",
+    "cha": "HHE",
+    "sampleRate": 100,
+    "azimuth": 90,
+    "dip": 0,
+    "sensor": "TRILLIUM HORIZON 120,Velocity Sensor,NANOMETRICS",
+    "sensitivity": 481000000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "CVRU",
+  "lat": 38.9176,
+  "lon": -111.1716,
+  "elevM": 1910.3,
+  "role": "extra",
+  "schools": [],
+  "distKm": 100.11,
+  "bazDeg": 28,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "STS-2,Velocity Sensor,STRECKEISEN",
+    "sensitivity": 629871000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   },
+   {
+    "loc": "01",
+    "cha": "HHN",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": 0,
+    "sensor": "STS-2,Velocity Sensor,STRECKEISEN",
+    "sensitivity": 629871000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   },
+   {
+    "loc": "01",
+    "cha": "HHE",
+    "sampleRate": 100,
+    "azimuth": 90,
+    "dip": 0,
+    "sensor": "STS-2,Velocity Sensor,STRECKEISEN",
+    "sensitivity": 629871000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "BSUT",
+  "lat": 40.5365,
+  "lon": -110.7612,
+  "elevM": 3211,
+  "role": "extra",
+  "schools": [],
+  "distKm": 92.55,
+  "bazDeg": 172.6,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": -90,
+    "sensor": "Trillium 120P, 120 s, 1201 V/m/s-Q330SR, gain 1, 1",
+    "sensitivity": 502477000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   },
+   {
+    "loc": "01",
+    "cha": "HHN",
+    "sampleRate": 100,
+    "azimuth": 0,
+    "dip": 0,
+    "sensor": "Trillium 120P, 120 s, 1201 V/m/s-Q330SR, gain 1, 1",
+    "sensitivity": 502477000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   },
+   {
+    "loc": "01",
+    "cha": "HHE",
+    "sampleRate": 100,
+    "azimuth": 90,
+    "dip": 0,
+    "sensor": "Trillium 120P, 120 s, 1201 V/m/s-Q330SR, gain 1, 1",
+    "sensitivity": 502477000,
+    "sensitivityFreq": 1,
+    "units": "M/S",
+    "clipped": false
+   }
+  ]
+ }
+]

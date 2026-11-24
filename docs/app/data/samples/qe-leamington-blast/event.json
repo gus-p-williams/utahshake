@@ -1,0 +1,13 @@
+{
+ "id": "uu80161881",
+ "timeMs": 1793057615070,
+ "lat": 39.5468333333333,
+ "lon": -112.228666666667,
+ "depthKm": -2,
+ "mag": 2.11,
+ "magType": "ml",
+ "place": "4 km ENE of Leamington, Utah",
+ "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu80161881",
+ "hasPhaseData": true,
+ "eventType": "quarry blast"
+}

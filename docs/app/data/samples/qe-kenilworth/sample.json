@@ -1,0 +1,16 @@
+{
+ "kind": "explorer",
+ "event": "uu80158051",
+ "eventType": "earthquake",
+ "views": [
+  "motion",
+  "frequencies"
+ ],
+ "window": {
+  "preSec": 10,
+  "postSec": 50
+ },
+ "sectionKm": null,
+ "made": "2026-11-24",
+ "command": "node tools/quake-explorer/make-sample.mjs uu80158051 --dir qe-kenilworth --stations TMU,MPU,CVRU,BSUT --pre 10 --post 50 --views motion,frequencies"
+}

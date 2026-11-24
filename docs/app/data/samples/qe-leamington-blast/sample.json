@@ -1,0 +1,15 @@
+{
+ "kind": "explorer",
+ "event": "uu80161881",
+ "eventType": "quarry blast",
+ "views": [
+  "frequencies"
+ ],
+ "window": {
+  "preSec": 10,
+  "postSec": 50
+ },
+ "sectionKm": null,
+ "made": "2026-11-24",
+ "command": "node tools/quake-explorer/make-sample.mjs uu80161881 --dir qe-leamington-blast --stations SUU,LEVU,FLU,NLU,WCU --pre 10 --post 50 --views frequencies"
+}

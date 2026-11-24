@@ -324,3 +324,46 @@ export function clipInfo(data, opt = {}) {
   }
   return { clipped: count > 0, count, firstIndex };
 }
+
+/**
+ * Clipping at any digitizer size. Older stations count with 16 bits and top
+ * out at 32 767, so the 24-bit test above misses them (many Utah short-period
+ * stations clipped this way in the 2020 Magna quake). A clipped record has
+ * flat tops: its highest (or lowest) value repeats for several samples in a
+ * row, which a real wave almost never does at 100 samples per second.
+ * @param {ArrayLike<number>} data raw counts
+ * @param {{minRun?: number, minCounts?: number}} [opt] minRun: samples in a row
+ *   at the extreme value that count as a flat top; minCounts: ignore extremes
+ *   smaller than this (quiet records repeat small whole numbers by chance)
+ * @returns {{clipped: boolean, level: number, longestRun: number, firstIndex: number}}
+ *   level = the count value where the record is cut (NaN if not clipped)
+ */
+export function flatTopInfo(data, opt = {}) {
+  const { minRun = 3, minCounts = 1000 } = opt;
+  let max = -Infinity;
+  let min = Infinity;
+  for (let i = 0; i < data.length; i++) {
+    const v = data[i];
+    if (v > max) max = v;
+    if (v < min) min = v;
+  }
+  let longestRun = 0;
+  let level = NaN;
+  let firstIndex = -1;
+  for (const ext of [max, min]) {
+    if (!(Math.abs(ext) >= minCounts)) continue;
+    let run = 0;
+    for (let i = 0; i < data.length; i++) {
+      run = data[i] === ext ? run + 1 : 0;
+      if (run > longestRun) { longestRun = run; level = ext; }
+      if (run === minRun && (firstIndex < 0 || i - minRun + 1 < firstIndex)) firstIndex = i - minRun + 1;
+    }
+  }
+  const clipped = longestRun >= minRun;
+  return { clipped, level: clipped ? level : NaN, longestRun, firstIndex: clipped ? firstIndex : -1 };
+}
+
+/** True if a raw-count record clipped: at the 24-bit limit, or flat-topped at any size. */
+export function isClipped(data) {
+  return clipInfo(data).clipped || flatTopInfo(data).clipped;
+}

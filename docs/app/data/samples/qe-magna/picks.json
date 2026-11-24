@@ -1,0 +1,128 @@
+[
+ {
+  "net": "UU",
+  "sta": "HRU",
+  "loc": "01",
+  "cha": "EHZ",
+  "phase": "P",
+  "timeMs": 1584536975360,
+  "uncertaintySec": 0.06
+ },
+ {
+  "net": "UU",
+  "sta": "NOQ",
+  "loc": "01",
+  "cha": "ENN",
+  "phase": "S",
+  "timeMs": 1584536977040,
+  "uncertaintySec": 0.3
+ },
+ {
+  "net": "UU",
+  "sta": "GMU",
+  "loc": "01",
+  "cha": "EHZ",
+  "phase": "P",
+  "timeMs": 1584536977780,
+  "uncertaintySec": 0.06
+ },
+ {
+  "net": "UU",
+  "sta": "TCMU",
+  "loc": "01",
+  "cha": "EHZ",
+  "phase": "P",
+  "timeMs": 1584536980090,
+  "uncertaintySec": 0.06
+ },
+ {
+  "net": "UU",
+  "sta": "RRCU",
+  "loc": "01",
+  "cha": "EHZ",
+  "phase": "P",
+  "timeMs": 1584536982030,
+  "uncertaintySec": 0.06
+ },
+ {
+  "net": "UU",
+  "sta": "SPU",
+  "loc": "01",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1584536983870,
+  "uncertaintySec": 0.06
+ },
+ {
+  "net": "UU",
+  "sta": "BGU",
+  "loc": "01",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1584536986230,
+  "uncertaintySec": 0.06
+ },
+ {
+  "net": "UU",
+  "sta": "MPU",
+  "loc": "01",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1584536987450,
+  "uncertaintySec": 0.06
+ },
+ {
+  "net": "UU",
+  "sta": "BSUT",
+  "loc": "01",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1584536991280,
+  "uncertaintySec": 0.06
+ },
+ {
+  "net": "UU",
+  "sta": "HVU",
+  "loc": "01",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1584536993120,
+  "uncertaintySec": 0.06
+ },
+ {
+  "net": "UU",
+  "sta": "ELU",
+  "loc": "01",
+  "cha": "EHZ",
+  "phase": "P",
+  "timeMs": 1584536996460,
+  "uncertaintySec": 0.06
+ },
+ {
+  "net": "UU",
+  "sta": "FSU",
+  "loc": "01",
+  "cha": "EHZ",
+  "phase": "P",
+  "timeMs": 1584536997260,
+  "uncertaintySec": 0.06
+ },
+ {
+  "net": "UU",
+  "sta": "BRPU",
+  "loc": "01",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1584537001050,
+  "uncertaintySec": 0.06
+ },
+ {
+  "net": "UU",
+  "sta": "NOQ",
+  "loc": "01",
+  "cha": "ENZ",
+  "phase": "P",
+  "timeMs": 1584536974680,
+  "uncertaintySec": 0.06
+ }
+]

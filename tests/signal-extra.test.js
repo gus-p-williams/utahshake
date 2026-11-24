@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  detrend, rms, snr, lowpassKernel, lowpassFIR, decimate, clipInfo,
+  detrend, rms, snr, lowpassKernel, lowpassFIR, decimate, clipInfo, flatTopInfo, isClipped,
 } from '../docs/app/js/lib/signal.js';
 
 const sine = (n, sr, f, amp = 1) =>
@@ -97,4 +97,20 @@ test('clipInfo finds samples at the 24-bit limit', () => {
   assert.deepEqual(clipInfo(Float32Array.from([1, -2, NaN])), { clipped: false, count: 0, firstIndex: -1 });
   assert.deepEqual(clipInfo(Float32Array.from([0, 900, -1000]), { limit: 1000, frac: 0.9 }),
     { clipped: true, count: 2, firstIndex: 1 });
+});
+
+test('flatTopInfo finds 16-bit clipping that the 24-bit test misses', () => {
+  // A sine that a 16-bit digitizer cut flat at ±32 767.
+  const x = Float32Array.from({ length: 400 }, (_, i) =>
+    Math.max(-32768, Math.min(32767, 60000 * Math.sin((2 * Math.PI * i) / 100))));
+  assert.equal(clipInfo(x).clipped, false);
+  const f = flatTopInfo(x);
+  assert.equal(f.clipped, true);
+  assert.ok(f.level === 32767 || f.level === -32768);
+  assert.ok(f.longestRun > 10);
+  assert.ok(isClipped(x));
+  // A clean sine and a quiet record of small whole numbers are not clipped.
+  assert.equal(flatTopInfo(Float32Array.from({ length: 400 }, (_, i) => Math.round(30000 * Math.sin(i / 7)))).clipped, false);
+  assert.equal(flatTopInfo(Float32Array.from([3, 3, 3, -2, 1, 3])).clipped, false);
+  assert.equal(isClipped(Float32Array.from([1, 2, NaN, -3])), false);
 });
