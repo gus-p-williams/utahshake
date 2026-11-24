@@ -99,11 +99,17 @@ export function createC(ctx) {
     const f = (a) => filteredData({ data: a, sampleRate: d.sampleRate }, band);
     const arr = await ctx.arrivalsAt(key);
     const picks = { P: arr.P?.tSec, S: arr.S?.tSec };
+    // Say who made each pick: University of Utah analysts, the computer, or the Earth model.
+    const who = (a) => (a?.who === 'analyst' ? 'UUSS' : a ? 'computer' : '');
+    const labels = { P: who(arr.P), S: who(arr.S) };
     if (isDistant() && picks.P == null) {
       const t = await ctx.modelTimes(item.station);
       picks.P = t.P;
       picks.S = t.S;
+      labels.P = 'Earth model';
+      labels.S = 'Earth model';
     }
+    mv.pickLabel = labels;
     st = { ...d, item, picks, band };
     mode = 'NE';
     $('c-mode').setAttribute('aria-pressed', 'false');
@@ -171,7 +177,7 @@ export function createC(ctx) {
     const g = mv.getGuess();
     const est = mv.getEstimate();
     steps.readout.innerHTML = `
-      <div><span>Station</span><b>${esc(ctx.label(st.item.station.sta))}, ${Math.round(st.item.distKm).toLocaleString('en-US')} km</b></div>
+      <div><span>Station</span><b>${esc(ctx.label(st.item.station.sta))}${ctx.preset?.hidePlace && stage < 2 ? '' : `, ${Math.round(st.item.distKm).toLocaleString('en-US')} km`}</b></div>
       <div><span>Your guess</span><b>${Number.isFinite(g) ? `${Math.round(g)}°` : '–'}</b></div>
       ${stage >= 1 && est ? `<div><span>Computer (from the P motion)</span><b>${Math.round(est.bazDeg)}°</b></div>` : ''}
       ${stage >= 2 ? `<div><span>True direction</span><b>${Math.round(st.bazDeg)}°</b></div>` : ''}`;
@@ -250,7 +256,7 @@ export function createC(ctx) {
       map.invalidate();
       if (loadedFor === ctx.event.id) return;
       loadedFor = ctx.event.id;
-      stations = await fillStationSelect($('c-station'), ctx, { threeC: true,
+      stations = await fillStationSelect($('c-station'), ctx, { threeC: true, hideKm: !!ctx.preset?.hidePlace,
         maxKm: isDistant() ? undefined : 200, farKm: isDistant() ? undefined : Q.motion.goodWithinKm, limit: 30 });
       if (!stations.length) throw new Error('No three-component stations recorded this quake');
       await select($('c-station').value);

@@ -145,7 +145,9 @@ export class MotionView {
    * @param {{before:number, after:number}} [opt.pWindow={before:0.05, after:0.5}] the default
    *   window around the P pick, s (the same as the Phase 0 answer key)
    * @param {{before:number, after:number}} [opt.sWindow={before:0.1, after:1}] the window selectPhase('S') uses
-   * @param {string} [opt.pickLabel='UUSS'] who made the picks, shown as "P (UUSS)"; '' for just "P"
+   * @param {string|{P?:string, S?:string}} [opt.pickLabel='UUSS'] who made the picks, shown as
+   *   "P (UUSS)"; '' for just "P"; or one label per pick, e.g. {P: 'UUSS', S: 'computer'}
+   *   (can also be set later: view.pickLabel = …, before setData)
    * @param {boolean} [opt.sharedScale=true] one amplitude scale for all three seismograms, so
    *   their sizes compare fairly (needed to see "P on R, S on T")
    * @param {number} [opt.farKm=100] beyond this distance, warn that directions get unreliable
@@ -900,9 +902,13 @@ export class MotionView {
         ctx.fillText(label, x + (x > w - 70 ? -3 : 3), plotH - 2 - lift);
         ctx.font = '11px system-ui, sans-serif';
       };
-      const who = this.pickLabel ? ` (${this.pickLabel})` : '';
-      marker(d.picks.P, col.p, `P${who}`, 0);
-      marker(d.picks.S, col.s, `S${who}`, 0);
+      // pickLabel: one label for both picks ('UUSS'), or one per pick ({P: 'UUSS', S: 'computer'}).
+      const who = (ph) => {
+        const l = this.pickLabel && typeof this.pickLabel === 'object' ? this.pickLabel[ph] : this.pickLabel;
+        return l ? ` (${l})` : '';
+      };
+      marker(d.picks.P, col.p, `P${who('P')}`, 0);
+      marker(d.picks.S, col.s, `S${who('S')}`, 0);
     }
 
     // the moving line while tracing the path

@@ -11,7 +11,7 @@ covers. Every app runs in a browser, so students need no install and no accounts
 | [Quake Waves](../apps/quake-waves.md) (animation) | The warm-up in the [Wave Race card](wave-race-card.md) ("Model" in the 15-minute version, "Engage" in the full period) | About 1 minute | Watch P and S waves race out from a quake and turn into circles that cross at it |
 | [Quake Explorer](../apps/quake-explorer.md) (A) | [How fast is the rock?](how-fast-is-the-rock.md) | 15 min (whole class) or a full period (pairs) | Lay rulers along the arrivals on a record section to measure P and S speeds; find the bend that reveals the crust's thickness |
 | [Quake Explorer](../apps/quake-explorer.md) (B) | [What notes is the ground playing?](notes-of-a-quake.md) | 15 min or a full period | Filter a seismogram with its spectrogram, listen to it sped up, compare near and far stations, and a quarry blast with a quake |
-| [Quake Explorer](../apps/quake-explorer.md) (C) | [Which way did the ground move?](which-way-did-it-move.md) | 15 min or a full period | Watch the path the ground traced, find the direction to the quake, and locate it from one station |
+| [Quake Explorer](../apps/quake-explorer.md) (C) | [Which way did the ground move?](which-way-did-it-move.md) | 15 min, or a full period with A | Watch the path the ground traced, find the direction to the quake, and locate it from one station with speeds measured in A |
 | [Quake Explorer](../apps/quake-explorer.md) (D) | [A message from far away](far-side-of-the-world.md) | 15 min or a full period | Pick P and S from a big quake thousands of km away, turn S − P into a distance, and build a class travel-time chart |
 
 Students follow the [Wave Race guide](../apps/wave-race.md): it walks them through the app

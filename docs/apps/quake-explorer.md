@@ -95,7 +95,7 @@ steady speed makes its arrivals line up. The steeper the line, the faster the wa
 | Make an 8 km/s wave run straight down | Tick **Reduced time (advanced)** |
 
 **The bend.** For the Magna quake, look past about 150 km. The first arrivals leave the P line
-and follow a faster one, near 7.8 km/s. Those waves went down to the top of the mantle (the
+and follow a faster one, about 7.7 km/s. Those waves went down to the top of the mantle (the
 **Moho**), raced along it in faster rock and came back up. Where the two lines cross tells you
 how thick the crust is: about 36 km here. [Travel times and Earth's layers](../theory/travel-times.md)
 explains how.

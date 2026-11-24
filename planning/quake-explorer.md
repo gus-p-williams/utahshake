@@ -1,8 +1,9 @@
 # Quake Explorer: development plan
 
-*2026-11-24. Status: approved for building with the working answers in section 8; Phase 0
-and the logic modules are under way on the `quake-explorer` branch. Update `roadmap.md`
-(Stage 3) and `decisions.md` when the branch merges.*
+*2026-11-24. Status: built on the `quake-explorer` branch (app, guide, three science pages,
+Build a Wiggle, four activity cards, standards, developer notes); `npm test`, the strict
+build and `tools/site-check.mjs` pass. Waiting for review and merge with Gus's OK. At merge,
+log the decisions in section 11 as D22 onward; `roadmap.md` (Stage 3) is already updated.*
 
 Quake Explorer is Stage 3 in [roadmap.md](roadmap.md): the multi-view app the name is
 reserved for (D18). It combines a spectrogram, a record section, particle motion and sound.

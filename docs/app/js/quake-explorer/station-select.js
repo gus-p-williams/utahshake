@@ -8,8 +8,9 @@ import { esc } from '../ui/page.js';
  * Fill a <select> with stations for this quake.
  * @param {HTMLSelectElement} select
  * @param {object} ctx the page context (app.js)
- * @param {{threeC?:boolean, maxKm?:number, farKm?:number, limit?:number}} [opt]
- *   threeC: only stations with three components; farKm: mark farther ones "(far)"
+ * @param {{threeC?:boolean, maxKm?:number, farKm?:number, limit?:number, hideKm?:boolean}} [opt]
+ *   threeC: only stations with three components; farKm: mark farther ones "(far)";
+ *   hideKm: leave the distances out (when finding the quake is the student's job)
  * @returns {Promise<Array<{key:string, station:object, distKm:number}>>} in menu order
  */
 export async function fillStationSelect(select, ctx, opt = {}) {
@@ -24,10 +25,10 @@ export async function fillStationSelect(select, ctx, opt = {}) {
   }
   list.sort((a, b) => a.distKm - b.distKm);
   const shown = opt.limit ? list.slice(0, opt.limit) : list;
-  const far = (d) => (opt.farKm && d > opt.farKm ? ' (far: less reliable)' : '');
-  const km = (d) => (d >= 1000 ? `${Math.round(d).toLocaleString('en-US')} km` : `${Math.round(d)} km`);
+  const far = (d) => (opt.farKm && d > opt.farKm && !opt.hideKm ? ' (far: less reliable)' : '');
+  const km = (d) => (opt.hideKm ? '' : d >= 1000 ? `, ${Math.round(d).toLocaleString('en-US')} km` : `, ${Math.round(d)} km`);
   select.innerHTML = shown.map((x) =>
-    `<option value="${esc(x.key)}">${esc(ctx.label(x.station.sta))}, ${km(x.distKm)}${far(x.distKm)}</option>`).join('');
+    `<option value="${esc(x.key)}">${esc(ctx.label(x.station.sta))}${km(x.distKm)}${far(x.distKm)}</option>`).join('');
   const want = [ctx.preset?.station && `UU.${ctx.preset.station}`, ctx.selectedKey].filter(Boolean);
   const first = want.find((k) => shown.some((x) => x.key === k)) ?? shown[0]?.key;
   if (first) select.value = first;
