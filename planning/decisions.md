@@ -4,6 +4,20 @@ Newest first. Each entry: date, decision, why, consequences.
 
 ## 2026-11-24 (Quake Explorer; planning documents; teacher cards)
 
+**D31. "Beyond one seismogram": the six missing plots on one science page, from real data.**
+Gus, 2026-11-24 (session D2-plots). The evaluation's plots not yet shown (helicorder, PPSD,
+seismic carpet, event stack, H/V, cross-correlation) are static real-data figures on a new
+page after Reading a seismogram (`theory/plots.md`). Gus's choices: the helicorder day is SUU
+(Juab's stand-in) on October 26, 2026; the repeated explosions west of the Great Salt Lake are
+named as most likely the Air Force's rocket-motor detonations at the Utah Test and Training
+Range, explaining ComCat's "quarry blast" label, in a callout students will enjoy; H/V uses
+FOR4 (closed in 2021) because no current UU three-component station sits on deep fill.
+Interactive versions belong to apps later (the carpet in School Pulse, the PPSD in "Our Shake
+vs the pros"); the new library modules are written for that reuse. Standards: PHYS.4.1 ·
+ESS.2.2 · ESS.4.1 · CS 9/10.DA.3 · CS 11/12.DA.1 (ESS.4.1 because soft ground amplifies
+shaking). Sources are logged in `planning/plots-sources.md`. SUU's vertical channel, about
+10× weaker than its horizontals, is passed to UUSS through Dale and Cleat (question 9).
+
 **D30. Wave Race is renamed Quake Locator; names only.** Gus, 2026-11-24, so the name says
 what the app does (it also matches Quake Waves and Quake Explorer). Its activity card is
 "Activity card: Quake Locator"; the race between P and S stays in the lesson text as the

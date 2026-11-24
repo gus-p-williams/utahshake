@@ -44,7 +44,11 @@ see, analyze and do research with seismic data from their own school and the reg
    PHYS.2.1, ESS.2.2, ESS.2.3, ESS.2.6, ESS.4.1, GEOL.3.x) and CS standards
    (9/10.DA.3, 11/12.DA.1). Keep the crosswalk in the docs current.
 5. **Attribution.** Every page that shows data cites its source network (e.g. UU,
-   doi:10.7914/SN/UU — verify) and USGS ComCat for events.
+   doi:10.7914/SN/UU — verify) and USGS ComCat for events. Pages keep only that short credit;
+   every outside source behind a caption or claim (papers, agency pages, event lists, station
+   metadata) goes in a source log in `planning/` (e.g. `planning/plots-sources.md`) with
+   citation, link, access date and what it supports (Gus, D28). Event lists we compile are
+   saved as data files with their provenance (e.g. `tools/figures/data/uttr-explosions.json`).
 6. **Installed Shakes stay put (D26, working assumption).** No activity moves, re-levels,
    unplugs or re-orients a school's installed Shake: activities move the source or add a
    second sensor (roaming Shake, phones).
@@ -87,7 +91,8 @@ docs/
   developers/           index.md, architecture, data sources, adding-an-app, adding-a-card,
                         per-app notes
 planning/               overview (evaluation.md), activities (questions doc), Word copies,
-                        roadmap, decisions, quake-explorer plan, reviews (not on site)
+                        roadmap, decisions, quake-explorer plan, source logs (*-sources.md),
+                        reviews (not on site)
 package.json            npm test (node --test), npm run serve
 tests/                  node --test for js logic + real-data sample checks
 tools/                  vendor/ (esbuild bundles), samples/, figures/ (guide images),
@@ -152,10 +157,11 @@ sequences the work and integrates it.
   | P1-activities | Questions document for Dale and Cleat (`planning/activities.md` + Word) | main folder, `planning/` | done, committed (D28) |
   | P2-overview | Project overview (`planning/evaluation.md` + Word) | main folder, `planning/` | done, committed (D28) |
   | D1-cards | "At a glance" boxes, Teachers catalog, Quake Waves card, QE follow-ups | `-cards`, branch `teacher-cards` | merged 2026-11-24 (D29) |
-  | D2-plots | Six missing plots, three figure fixes | `-plots`, branch `plots` | active |
+  | D2-plots | Six missing plots, three figure fixes | `-plots`, branch `plots` | merged 2026-11-24 (D31) |
   | D3-rename | Wave Race → Quake Locator (names only; addresses unchanged), incl. both documents | `-rename`, branch `rename` | merged 2026-11-24 (D30) |
-  | D4-spelling | US spelling across the site | `-spelling`, branch `us-spelling` | after D2, D3 and D5 merge |
+  | D4-spelling | US spelling across the site | `-spelling`, branch `us-spelling` | ready to start |
   | D5-band-hint | Quake Explorer B: show on the spectrogram that dragging chooses a band | `-band`, branch `band-hint` | merged 2026-11-24 |
+  | D6-clear-s | Point students to quakes with a clear S − P (Quake Explorer and Quake Locator) | `-band`, branch `clear-s` | Phase 0 reported; waiting for Gus |
 
   Retired before IDs: the figures sessions, the Quake Explorer session (merged, D22–D25).
 
@@ -308,6 +314,17 @@ out of the menus:
   action; fixed an error on Esc or double-click (all notes); D's spectrogram is look-only.
   `npm test` = 177. Left for later: for distant quakes B's bottom edge reads 0.039 Hz while
   the panel says 0.020 Hz (the filter used).
+- 2026-11-24 (night): **"Beyond one seismogram" merged** (D31, session D2-plots): a new
+  science page after Reading a seismogram with seven real-data figures: a helicorder (SUU,
+  Oct 26, 2026), a seismic carpet (HEB, three months; the Nov 1 clock change shows), a PPSD
+  (TMU against Peterson's curves) and two comparisons, H/V (FOR4 on deep fill against CTU on
+  rock), a stack of 144 rocket-motor explosions from the Utah Test and Training Range (most
+  likely; ComCat labels them "quarry blast") and their cross-correlation. Library modules
+  `psd`, `response`, `noise-models`, `helicorder`, `carpet`, `stack`, `hv` with tests; scripts
+  `plots-*.mjs`; event list `tools/figures/data/uttr-explosions.json`; sources in
+  `planning/plots-sources.md`. Also the three figure fixes on Reading a seismogram. Standards
+  row PHYS.4.1 · ESS.2.2 · ESS.4.1 · CS 9/10.DA.3 · CS 11/12.DA.1 (Gus). `npm test` = 218;
+  site check 35 pages. The plots worktree's figure cache is 3.4 GB (git-ignored).
 
 ## Next steps
 
@@ -317,18 +334,20 @@ out of the menus:
       Dale and Cleat passed a side-by-side review; the old living doc is deleted; the rename
       is in. **Ready for Gus to send** with the cover note M1 drafted. Their answers then
       drive the roadmap's "Proposed, pending Dale and Cleat" list and the next activity cards.
-   c. *D1-cards* (D29) and *D3-rename* (D30): merged. Remove their worktrees
-      (`-cards`, `-rename`) when nothing more is needed from them.
-   d. *Plots session* (branch `plots`, worktree `G:\GIT_Repo\2026_11_Shake-plots`): helicorder,
-      PPSD, seismic carpet, event stack, H/V, cross-correlation on a new science page; the
-      three figure fixes in `planning/science-figures.md`. Merge cards before plots.
+   c. *D1-cards* (D29), *D3-rename* (D30), *D5-band-hint* and *D2-plots* (D31): merged.
+      Remove their worktrees (`-cards`, `-rename`, `-plots`, and the old `-qexp`) when nothing
+      more is needed from them; `-band` is still in use by D6.
+   d. *D6-clear-s*: Phase 0 reported (which ready-made quakes have a clear S; a Kanosh M3.3
+      quake with clear S at 10 of 10 stations; advice not to build a live "S picks" count).
+      Waiting for Gus's answers, then it builds on branch `clear-s`.
+   e. *D4-spelling*: can start now (prompt 5 of the earlier set, first line "You are session
+      D4-spelling."). D6 merges main into its branch before its report.
 2. **Open questions for Gus / DRI:**
    a. Which Raspberry Shake model is at each school (they may differ)? The seismometer figure
       on Reading a seismogram is a generic geophone.
    b. Spelling: **US spelling everywhere** (Gus, 2026-11-24). All new writing uses it now
       (kilometer, color, gray, labeled, center, meter). Existing pages are converted in one
-      cleanup pass after the teacher-cards and plots branches merge (to avoid conflicts);
-      log the decision when that pass lands.
+      cleanup pass (D4-spelling, now unblocked); log the decision when that pass lands.
    c. DRI: choose a license (MIT or BSD) and add LICENSE; the public repo has none yet.
    d. `tools/figures/.cache/` holds about 715 MB (git-ignored). Gus keeps it for now.
 3. **Trials:** Quake Locator, Quake Waves and each Quake Explorer investigation's 15-minute

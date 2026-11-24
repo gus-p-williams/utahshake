@@ -105,7 +105,8 @@ offline, and reach the answer key's result.
 The evaluation lists 12 plots. On the site: waveform, spectrogram, record section, particle
 motion, audification, amplitude against distance, spectra.
 
-- [ ] The other six as real-data figures on a science page (plots session, branch `plots`):
+- [x] The other six as real-data figures on the science page "Beyond one seismogram"
+      (`theory/plots.md`, D31; sources in `planning/plots-sources.md`):
       helicorder, PPSD against the Peterson noise models, seismic carpet (a static preview;
       the app is Stage 2), event stack, H/V ratio, cross-correlation.
 

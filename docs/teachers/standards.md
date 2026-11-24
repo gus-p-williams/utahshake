@@ -54,6 +54,19 @@ App: [Quake Waves guide](../apps/quake-waves.md) · Lessons:
 | [PHYS.4.1](https://www.uen.org/core/core.do?courseNum=3642) | Two waves with different speeds in the same rock; the gap between them grows with distance. In the demo card, P moves rock along its path and S across it |
 | [ESS.2.2](https://www.uen.org/core/core.do?courseNum=3601) | Seismic waves as the evidence used to locate quakes (and, by the same reasoning, to model Earth's interior). In the demo card, S cannot cross a liquid, which is how we know the outer core is liquid |
 
+## Beyond one seismogram (science page) { #beyond-one-seismogram }
+
+Page: [Beyond one seismogram](../theory/plots.md): a helicorder, a seismic carpet, spectra and
+the PPSD, H/V, stacking and cross-correlation, all from real records. No activity card yet.
+
+| Standard | Where it shows up |
+| --- | --- |
+| [PHYS.4.1](https://www.uen.org/core/core.do?courseNum=3642) | Spectra and the PPSD sort a record by frequency; H/V uses the wave speed and the resonance frequency (f₀ = Vs/4H, from v = fλ) to estimate how deep the soft ground goes |
+| [ESS.2.2](https://www.uen.org/core/core.do?courseNum=3601) | H/V reveals layers in the ground under a station from seismic waves alone |
+| [ESS.4.1](https://www.uen.org/core/core.do?courseNum=3601) | Soft ground amplifies shaking (H/V); telling repeated explosions from a quake (stacking and cross-correlation) |
+| [CS 9/10.DA.3](https://Schools.Utah.gov/cte/_cte/computer/612ComputerScienceStandards.pdf) | The helicorder, the carpet and the PPSD are visualizations of days to months of data |
+| [CS 11/12.DA.1](https://Schools.Utah.gov/cte/_cte/computer/612ComputerScienceStandards.pdf) | Stacking is checked against a model: noise falling as 1/√N |
+
 ## Science and engineering practices
 
 Quake Locator is built around the practices that SEEd standards share:
