@@ -23,7 +23,8 @@ repeating header row (so reply columns can be filled in). It replaces the export
 above for these files.
 
 ```bash
-python -I tools/planning-docx/md_to_docx.py planning/activities.md "planning/UHSN activities by setup.docx" <path to pandoc>
+python -I tools/planning-docx/md_to_docx.py planning/activities.md "planning/UHSN questions - classroom activities by setup.docx" <path to pandoc>
+python -I tools/planning-docx/md_to_docx.py planning/evaluation.md "planning/UHSN overview - student apps and activities.docx" <path to pandoc>
 ```
 
 Pandoc sizes table columns by the length of the `---` runs in each column's separator line, so

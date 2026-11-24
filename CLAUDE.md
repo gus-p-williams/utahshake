@@ -13,12 +13,14 @@ Wasatch Academy, Gunnison Valley, Millard). The apps let technically strong stud
 see, analyze and do research with seismic data from their own school and the region.
 
 - Owner/lead: Gus Williams (DRI UHSN team).
-- Project overview (canonical since D27): `planning/evaluation.md`, being rewritten around
-  current status; Word copy "Raspberry Shake in Utah High Schools … Concepts.docx". The old
-  living claude.ai doc (138FYiSq…) is retired: delete it once the rewrite lands.
-- Questions document for Dale and Cleat: `planning/activities.md` (46 activity cards by
-  setup, E/S/R/P IDs) + Word copy "UHSN activities by setup.docx". Both Word copies are built
-  with `tools/planning-docx/md_to_docx.py`.
+- Project overview (canonical since D27): `planning/evaluation.md`, "Utah High School Seismic
+  Network: Student Apps and Activities"; Word copy "planning/UHSN overview - student apps and
+  activities.docx". The old living claude.ai doc was deleted on 2026-11-24 (Gus); its
+  23 November text is in git history.
+- Questions document for Dale and Cleat: `planning/activities.md`, "UHSN classroom activities
+  by setup" (46 activities by setup, IDs E1–E14, S1–S18, R1–R8, P1–P6) + Word copy
+  "planning/UHSN questions - classroom activities by setup.docx". Both Word copies are built
+  with `tools/planning-docx/md_to_docx.py`; images in `planning/img/`.
 - Outside review of these materials (Codex, input only): `planning/co-pi-review-2026-11-24.md`
 - Staged build plan: `planning/roadmap.md`
 - Decision log: `planning/decisions.md`
@@ -146,11 +148,12 @@ sequences the work and integrates it.
   | ID | Job | Where | Status |
   | --- | --- | --- | --- |
   | M1-master | Plans, writes prompts, reviews, integrates, commits | main | active |
-  | P1-activities | Questions document for Dale and Cleat (`planning/activities.md` + Word) | main folder, `planning/` | active, uncommitted |
-  | P2-overview | Project overview (`planning/evaluation.md` + Word) | main folder, `planning/` | active, uncommitted |
-  | D1-cards | "At a glance" boxes, Teachers catalog, Quake Waves card, QE follow-ups | `-cards`, branch `teacher-cards` | active |
+  | P1-activities | Questions document for Dale and Cleat (`planning/activities.md` + Word) | main folder, `planning/` | done, committed (D28) |
+  | P2-overview | Project overview (`planning/evaluation.md` + Word) | main folder, `planning/` | done, committed (D28) |
+  | D1-cards | "At a glance" boxes, Teachers catalog, Quake Waves card, QE follow-ups | `-cards`, branch `teacher-cards` | done (fad0919), in review |
   | D2-plots | Six missing plots, three figure fixes | `-plots`, branch `plots` | active |
-  | D3-spelling | US spelling across the site | `-spelling`, branch `us-spelling` | after D1 and D2 merge |
+  | D3-rename | Wave Race → Quake Locator (names only; addresses unchanged), incl. both documents | `-rename`, branch `rename` | after D1 merges |
+  | D4-spelling | US spelling across the site | `-spelling`, branch `us-spelling` | after D2 and D3 merge |
 
   Retired before IDs: the figures sessions, the Quake Explorer session (merged, D22–D25).
 
@@ -287,16 +290,12 @@ out of the menus:
 
 1. **Sessions at work** (started by Gus from the master session's prompts, 2026-11-24). The
    master reviews each, commits by path or merges, and runs the integration checklist.
-   a. *Activities session*: the questions document (`planning/activities.md` + Word copy)
-      with Gus's notes (lead with the questions, no costs or small items in tables, the
-      weight-drop figure before S10–S18, how phones connect), the surviving review fixes,
-      and the Codex review's proposals (top three, readiness labels, audience, pilot set,
-      per-school inventory). Uncommitted until reviewed.
-   b. *Overview session*: rewrites `planning/evaluation.md` (+ Word copy) around current
-      status, apps, how pages/cards/apps link, standards and data rules; detail to
-      appendices, open questions to the questions document. Then: check both documents side
-      by side, commit both with their Word copies, delete the old living doc (Gus confirms),
-      and Gus sends them to Dale and Cleat.
+   a–b. *P1-activities and P2-overview*: **done and committed** (D28). The two documents for
+      Dale and Cleat passed a side-by-side review; the old living doc is deleted. Before Gus
+      sends them (with the cover note M1 drafted): merge D1-cards (the questions document
+      links its new card, "One quake, two waves", which is 404 until then), then D3-rename
+      (Wave Race → Quake Locator in the site and both documents). Their answers then drive
+      the roadmap's "Proposed, pending Dale and Cleat" list and the next activity cards.
    c. *Teacher-cards session* (branch `teacher-cards`, worktree `G:\GIT_Repo\2026_11_Shake-cards`):
       "At a glance" boxes on all five cards, the Teachers catalog, a Quake Waves card, the
       Wave Race card (S picked at only 3 offline stations; 6 of 9 P picks in its key;
@@ -318,10 +317,10 @@ out of the menus:
 3. **Trials:** Wave Race, Quake Waves and each Quake Explorer investigation's 15-minute
    version with a teacher or students; someone listens to Quake Explorer's sound on a school
    device.
-4. **From the Codex review, not yet assigned:** standards claims labelled "assessed /
-   contributes / extension" with a teacher's review; offline behaviour of map tiles and
-   picking by trackpad, touch and keyboard; a pilot feedback sheet; a short visual path
-   through the long Reading a seismogram page.
+4. **From the Codex review, not yet assigned:** offline behavior of map tiles and picking by
+   trackpad, touch and keyboard; a pilot feedback sheet; a short visual path through the long
+   Reading a seismogram page. *Not doing* (Gus, 2026-11-24): labelling standards claims
+   "assessed / contributes / extension"; the site is a prototype, not yet shown to teachers.
 5. Phone legibility of figures: the 760 px figures shrink to about 358 px with small labels;
    consider bigger labels or a tap-to-enlarge link.
 6. Stage 2: School Pulse / seismic carpet (scheduled job + heatmap; see roadmap).

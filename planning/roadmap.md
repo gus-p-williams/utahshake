@@ -146,6 +146,20 @@ cards. Every app gets at least one card.
       that Gus, Dale and Cleat choose from `planning/activities.md` (the questions document sent
   to Dale and Cleat; D27).
 
+## Proposed, pending Dale and Cleat
+
+From the questions document (`planning/activities.md`, "UHSN classroom activities by setup";
+D28). None is scheduled until Dale and Cleat choose activities.
+
+- Phone track, only if phone activities are chosen and after bench trials T1 to T3: the Phone
+  Recorder page, then a locator for "Find the hit" (P3).
+- Felt Map Locator (E13): a small add-on (USGS "Did You Feel It?" squares).
+- Own-Shake file loader: a bridge before Stage 4 (day files from the school Shake's own page).
+- In Stage 4: the viewer's experiment mode (S10–S18, R cards), a source log for experiments at
+  each school, and a roaming kit (R cards) if DRI budgets one.
+- Standards crosswalk: add ESS.2.6, PHYS.1.2, PHYS.1.3 and CS 9/10.NI.1 when activities using
+  them are published.
+
 ## Later
 
 - Python package + notebooks (ObsPy) for local analysis and the research track.
