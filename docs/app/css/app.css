@@ -15,10 +15,14 @@
   --ok: #15803d;
   --warn: #b45309;
   --selected: #eef2ff;
+  --guess: #15803d;
+  --land: #f3efe4;
   color-scheme: light;
 }
+/* Dark theme: follows the device, unless a page sets data-theme on <html>
+   (an app embedded in the docs follows the docs' own light/dark switch). */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #0f1216;
     --card: #171b21;
     --text: #e6e8eb;
@@ -34,8 +38,30 @@
     --ok: #4ade80;
     --warn: #fbbf24;
     --selected: #1e2638;
+    --guess: #4ade80;
+    --land: #1d2228;
     color-scheme: dark;
   }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1216;
+  --card: #171b21;
+  --text: #e6e8eb;
+  --muted: #9aa3ae;
+  --border: #2c333c;
+  --accent: #6b9cff;
+  --accent-text: #0b1020;
+  --trace-bg: #12161b;
+  --trace: #d6dbe1;
+  --grid: #232a32;
+  --pick-p: #6b9cff;
+  --pick-s: #ff6b6b;
+  --ok: #4ade80;
+  --warn: #fbbf24;
+  --selected: #1e2638;
+  --guess: #4ade80;
+  --land: #1d2228;
+  color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -156,6 +182,10 @@ button.pick-s[aria-pressed=true] { background: var(--pick-s); color: #fff; borde
 .actions { display: flex; flex-wrap: wrap; gap: .4rem; }
 .result, .answer { margin-top: .6rem; font-size: .95rem; }
 .result ul { margin: .3rem 0 0 1.1rem; padding: 0; }
+.result > div:not(:empty) + div:not(:empty) { margin-top: .5rem; padding-top: .5rem; border-top: 1px solid var(--border); }
+button.guess-btn { color: var(--guess); font-weight: 600; }
+button.guess-btn[aria-pressed=true] { background: var(--guess); color: var(--card); border-color: var(--guess); }
+.leaflet-container.placing, .leaflet-container.placing .leaflet-grab { cursor: crosshair; }
 .answer { padding: .6rem .8rem; border: 1px solid var(--border); border-radius: 8px; }
 .answer .big { font-size: 1.15rem; font-weight: 600; }
 .warn { color: var(--warn); }
@@ -168,4 +198,6 @@ button.pick-s[aria-pressed=true] { background: var(--pick-s); color: #fff; borde
 .map-station span { font: 600 11px system-ui, sans-serif; color: #111; text-shadow: 0 0 3px #fff, 0 0 3px #fff; margin-left: 2px; }
 .map-star.star-student polygon { fill: #7c3aed; }
 .map-star.star-official polygon { fill: #f59e0b; }
+.map-pin path { fill: #16a34a; }
+.map-pin { cursor: grab; }
 .leaflet-container { font: inherit; }

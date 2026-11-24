@@ -73,7 +73,8 @@ docs/
 planning/               evaluation snapshot (+ .docx), roadmap, decisions (not on site)
 package.json            npm test (node --test), npm run serve
 tests/                  node --test for js logic + real-data sample checks
-tools/                  vendor/ (esbuild bundles), samples/, planning-docx/, serve.mjs
+tools/                  vendor/ (esbuild bundles), samples/, figures/ (guide images),
+                        planning-docx/, serve.mjs
 ```
 
 ## Environment notes
@@ -125,6 +126,16 @@ tools/                  vendor/ (esbuild bundles), samples/, planning-docx/, ser
     profile, scripts kept outside the repo): offline sample 6.0 km error from 3
     stations; live Enterprise M3.4 3.2 km from 7 stations; phone width OK.
   - Local preview: `node tools/serve.mjs` (apps) or `mkdocs serve` (full site).
+- 2026-11-24: Stage 1 additions from Gus's review (decisions D14–D16):
+  - Student guide figures in `docs/apps/img/`: whole record → zoom P → zoom S (SVG,
+    `tools/figures/trace-figures.mjs`) and app screenshots incl. the speed settings
+    (`tools/figures/screenshots.mjs`, needs `npm install` in tools/figures).
+  - Wave Race "Place my own epicenter" (draggable green pin, live RMS) alongside
+    "Find the best epicenter"; reveal reports both.
+  - Watch the Waves animation (`docs/app/wave-animation/`, `lib/wave-sim.js`), embedded on
+    the Locating a quake page; listed on the apps page; teacher card and standards updated.
+  - `npm test` = 36 tests. mkdocs is in the base Anaconda env
+    (`C:\Users\williagp\anaconda3\Scripts\mkdocs.exe`).
 
 ## Next steps
 

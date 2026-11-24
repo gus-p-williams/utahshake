@@ -48,6 +48,15 @@ epicenter → compare with the official USGS/UUSS location.
 **Done when:** a student on a Chromebook can locate a recent M3 Utah quake from 4+
 stations in under 15 minutes, landing within about 10 km of the official location.
 
+Added 2026-11-24 (after Gus's review):
+
+- [x] Student guide figures: whole record → zoom on P → zoom on S (SVG from the offline sample),
+      plus screenshots of the picking panel and of the speed/depth settings (`tools/figures/`).
+- [x] "Place my own epicenter": students click the map (or drag a pin) and see the RMS misfit
+      live; "Find the best epicenter" still runs the grid search; the reveal reports both.
+- [x] Watch the Waves: cartoon animation of P and S fronts reaching four stations, with
+      seismograms and S − P circles; embedded on the Locating a quake page.
+
 *Status 2026-11-23:* checked in headless Chrome at Chromebook size (1366×768) by clicking
 picks at the UUSS analyst times: offline sample 6.0 km (3 stations), Enterprise M3.4
 (uu80164656) 3.2 km (7 stations), both live and offline. Still to do: a real student or

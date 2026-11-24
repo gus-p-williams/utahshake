@@ -26,8 +26,27 @@ function star(cls, title) {
   });
 }
 
+function pin(title) {
+  return L.divIcon({
+    className: 'map-pin',
+    html: `<svg width="26" height="34" viewBox="0 0 26 34" aria-label="${esc(title)}">
+      <path d="M13 1C6.6 1 1.5 6 1.5 12.3 1.5 20.6 13 33 13 33s11.5-12.4 11.5-20.7C24.5 6 19.4 1 13 1z"
+        stroke="#111" stroke-width="1.2"/>
+      <circle cx="13" cy="12.5" r="4.2" fill="#fff" stroke="#111" stroke-width="1"/></svg>`,
+    iconSize: [26, 34],
+    iconAnchor: [13, 33],
+  });
+}
+
 export class MapView {
-  constructor(el, { onStationClick } = {}) {
+  /**
+   * @param {HTMLElement} el
+   * @param {object} [opt]
+   * @param {(key:string)=>void} [opt.onStationClick]
+   * @param {(lat:number, lon:number, final:boolean)=>void} [opt.onGuess] the student
+   *   placed (click) or is dragging (final=false) / dropped (final=true) their own epicenter
+   */
+  constructor(el, { onStationClick, onGuess } = {}) {
     // No initial view: the first fitTo() sets it, so no tiles are fetched and then
     // thrown away (kinder to the OpenStreetMap tile servers).
     this.map = L.map(el, { zoomSnap: 0.5, scrollWheelZoom: true });
@@ -40,11 +59,48 @@ export class MapView {
     this.circles = L.layerGroup().addTo(this.map);
     this.solution = L.layerGroup().addTo(this.map);
     this.official = L.layerGroup().addTo(this.map);
+    this.guess = L.layerGroup().addTo(this.map);
+    this.guessMarker = null;
     this.onStationClick = onStationClick || (() => {});
+    this.onGuess = onGuess || (() => {});
+    this.placing = false;
     this.attribution = ATTRIBUTION.map;
+    this.map.on('click', (e) => {
+      if (!this.placing) return;
+      this.setGuess({ lat: e.latlng.lat, lon: e.latlng.lng });
+      this.onGuess(e.latlng.lat, e.latlng.lng, true);
+    });
   }
 
   invalidate() { this.map.invalidateSize(); }
+
+  /** While placing is on, a click on the map puts the student's epicenter there. */
+  setPlacing(on) {
+    this.placing = !!on;
+    this.map.getContainer().classList.toggle('placing', this.placing);
+  }
+
+  /** The student's own epicenter (green pin); drag it to move it. Null removes it. */
+  setGuess(g) {
+    if (!g) {
+      this.guess.clearLayers();
+      this.guessMarker = null;
+      return;
+    }
+    if (this.guessMarker) {
+      this.guessMarker.setLatLng([g.lat, g.lon]);
+      return;
+    }
+    const report = (final) => (e) => {
+      const p = e.target.getLatLng();
+      this.onGuess(p.lat, p.lng, final);
+    };
+    this.guessMarker = L.marker([g.lat, g.lon], { icon: pin('Your guess'), draggable: true,
+      zIndexOffset: 1100, title: 'Your guess (drag to move it)' })
+      .on('drag', report(false))
+      .on('dragend', report(true))
+      .addTo(this.guess);
+  }
 
   showSchools(schools) {
     this.schools.clearLayers();
@@ -86,17 +142,23 @@ export class MapView {
     if (!sol) return;
     L.circle([sol.lat, sol.lon], { radius: sol.uncertaintyKm * 1000, color: '#7c3aed', weight: 1.5,
       dashArray: '6 5', fillColor: '#7c3aed', fillOpacity: 0.08, interactive: false }).addTo(this.solution);
-    L.marker([sol.lat, sol.lon], { icon: star('star-student', 'Your epicenter'), zIndexOffset: 1000 })
-      .bindTooltip('Your epicenter').addTo(this.solution);
+    L.marker([sol.lat, sol.lon], { icon: star('star-student', 'Best fit from your picks'), zIndexOffset: 1000 })
+      .bindTooltip('Best fit from your picks').addTo(this.solution);
   }
 
-  setOfficial(event, sol) {
+  /**
+   * Official epicenter (orange star), with a dashed line to each of the student's answers.
+   * @param {object|null} event
+   * @param {Array<{lat:number, lon:number}|null>} [answers] best fit and/or guess
+   */
+  setOfficial(event, answers = []) {
     this.official.clearLayers();
     if (!event) return;
     L.marker([event.lat, event.lon], { icon: star('star-official', 'Official epicenter'), zIndexOffset: 900 })
       .bindTooltip(`Official epicenter (UUSS/USGS): ${esc(event.place)}`).addTo(this.official);
-    if (sol) {
-      L.polyline([[sol.lat, sol.lon], [event.lat, event.lon]], { color: '#111', weight: 1.5,
+    for (const a of answers) {
+      if (!a) continue;
+      L.polyline([[a.lat, a.lon], [event.lat, event.lon]], { color: '#111', weight: 1.5,
         dashArray: '4 4', interactive: false }).addTo(this.official);
     }
   }

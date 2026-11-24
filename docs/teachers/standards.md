@@ -18,6 +18,15 @@ before using them in official materials.
 | [CS 9/10.DA.3](https://Schools.Utah.gov/cte/_cte/computer/612ComputerScienceStandards.pdf) | Computer Science | Create data visualizations that help others understand real phenomena | Reading seismograms and the map; the CSV export for students' own plots |
 | [CS 11/12.DA.1](https://Schools.Utah.gov/cte/_cte/computer/612ComputerScienceStandards.pdf) | Computer Science | Refine or create computational models from data | The grid search is a computational model; students test how its settings change the answer |
 
+## Watch the Waves (animation)
+
+A cartoon used as a warm-up for Wave Race, on the [Locating a quake](../theory/locating.md#watch-it-happen) page.
+
+| Standard | Where it shows up |
+| --- | --- |
+| [PHYS.4.1](https://www.uen.org/core/core.do?courseNum=3642) | Two waves with different speeds in the same rock; the gap between them grows with distance |
+| [ESS.2.2](https://www.uen.org/core/core.do?courseNum=3601) | Seismic waves as the evidence used to locate quakes (and, by the same reasoning, to model Earth's interior) |
+
 ## Science and engineering practices
 
 Wave Race is built around the practices that SEEd standards share:

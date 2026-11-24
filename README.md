@@ -5,8 +5,9 @@ Browser apps and documentation for students in the **Utah High School Seismic Ne
 rural Utah high schools.
 
 - **Apps** (no install, any browser): **Wave Race** (pick P and S on real Utah
-  seismograms and locate the quake) is live; campus-noise and explorer apps follow in
-  stages (see the roadmap).
+  seismograms and locate the quake, by eye or by grid search) and **Watch the Waves** (a
+  cartoon of P and S waves reaching four stations) are live; campus-noise and explorer apps
+  follow in stages (see the roadmap).
 - **Docs**: student guides, theory written for advanced high-school students, teacher
   activity cards mapped to Utah SEEd standards, and developer notes.
 

@@ -2,6 +2,27 @@
 
 Newest first. Each entry: date, decision, why, consequences.
 
+## 2026-11-24 (Stage 1 additions)
+
+**D16. Guide figures are generated, not hand-drawn.**
+The seismogram figures are SVGs made from the offline sample with the app's own parser and
+filter (`tools/figures/trace-figures.mjs`), with the UUSS analysts' picks; screenshots come
+from the app in headless Chrome (`tools/figures/screenshots.mjs`, puppeteer-core with the
+installed Chrome). Rerun them when the app's look changes.
+
+**D15. Watch the Waves is a labelled cartoon, embedded where locating is explained.**
+Quake at the surface, uniform rock, made-up seismograms, but exact arrival times (Vp 5.8,
+Vs 3.3), so the S − P circles cross exactly at the quake. It lives at `app/wave-animation/`
+and is embedded with an iframe on the Locating a quake page (Gus's suggestion), following the
+docs' light/dark switch. Arrival logic is in `lib/wave-sim.js` with tests.
+
+**D14. Students can place their own epicenter as well as run the grid search.**
+Placing a pin by eye and watching the RMS misfit change as they drag it makes the misfit idea
+concrete before the computer searches. Both are kept: green pin (guess) and purple star (best
+fit); the reveal gives the distance of each from the official epicenter. Changing picks or
+settings removes the best fit (it was computed with the old numbers) but keeps the pin. The
+pin is stored in the browser like the picks, and included in the CSV.
+
 ## 2026-11-23 (Stage 1)
 
 **D13. Planning documents live in `planning/`, outside the website.**

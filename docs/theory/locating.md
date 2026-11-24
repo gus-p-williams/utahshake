@@ -11,6 +11,21 @@ could be anywhere on a circle around the station. More stations narrow it down:
 This is called **trilateration** (locating by distances). GPS receivers find themselves the
 same way, using distances to satellites.
 
+## Watch it happen
+
+<iframe src="../../app/wave-animation/?embed=1" title="Animation: P and S waves spread out from a quake and reach four stations; their S minus P times become distance circles that cross at the quake" loading="lazy" style="width:100%;height:700px;border:1px solid var(--md-default-fg-color--lightest);border-radius:8px"></iframe>
+
+*A cartoon, not real data: the quake is at the surface and all the rock is the same.*
+Press **Play**. The P wave (blue) and the S wave (red) leave the quake (star) at the same
+moment. P pulls ahead, so the farther a station is, the longer it waits between P and S. Each
+station's seismogram is drawn as the waves pass. When S arrives, the S − P time becomes a
+distance, drawn as a dashed circle around the station, and the four circles cross at the quake.
+Click the map to move the quake, or drag the slider to step through time.
+[Open the animation full screen](../app/wave-animation/index.html).
+
+Notice the **order** in which P reaches the stations: nearest first. That order alone already
+hints where the quake is. Professionals use it, as described below.
+
 ## Circles never meet perfectly
 
 Real picks are a little off, the rock speeds are not exactly right, and the depth is a guess.
@@ -26,6 +41,10 @@ $$
 $$
 
 The best epicenter is the point with the smallest RMS.
+
+In Wave Race you can search for it yourself: **Place my own epicenter** puts a pin on the map,
+and the app shows the RMS for that point as you drag it. Then **Find the best epicenter** lets
+the computer search.
 
 ## How Wave Race searches: a grid
 
@@ -60,6 +79,8 @@ The University of Utah Seismograph Stations locate Utah quakes with their region
 of stations across the state. Their method goes beyond S − P:
 
 - They use **every P and S arrival time**, and solve for the origin time as well as the place.
+  In the animation above, that means using *when* P and S reach each station, not only the gap
+  between them. Even a station where S is unclear still helps.
 - They solve for **depth** instead of assuming it.
 - They use a **layered velocity model** of Utah's crust instead of one pair of speeds.
 - They estimate an **error ellipse**, which is longer in the direction the stations can't

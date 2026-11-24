@@ -7,7 +7,7 @@ import { isFlat } from '../lib/signal.js';
 import { selectStations } from '../lib/stations.js';
 import { picksByStation, pickRanks } from '../lib/fdsn.js';
 import { distanceKm } from '../lib/geo.js';
-import { kmPerSecond, spToDistanceKm, hypoToEpiKm, locateGrid } from '../lib/locate.js';
+import { kmPerSecond, spToDistanceKm, hypoToEpiKm, locateGrid, misfitAt } from '../lib/locate.js';
 import { TraceView } from '../ui/trace-view.js';
 import { MapView } from '../ui/map-view.js';
 
@@ -34,7 +34,11 @@ const state = {
   showAnalyst: false,
   filterId: 'bp1-10',
   vp: W.vp, vs: W.vs, depthKm: W.depthKm,
-  solution: null,
+  solution: null,    // best fit from the picks (grid search)
+  fitObs: [],        // the stations that best fit used
+  fitNote: '',       // shown in place of the best fit (errors, "press again")
+  guess: null,       // {lat, lon} the student placed on the map
+  placing: false,    // map clicks place the guess
   revealed: false,
   busy: false,
 };
@@ -59,6 +63,21 @@ function savePicks() {
 function loadPicks(id) {
   try { return JSON.parse(localStorage.getItem(storageKey(id)) || '{}') || {}; } catch { return {}; }
 }
+function guessKey(id) { return `uhsn.waveRace.guess.${id}`; }
+function saveGuess() {
+  try {
+    if (state.guess) localStorage.setItem(guessKey(state.event.id), JSON.stringify(state.guess));
+    else localStorage.removeItem(guessKey(state.event.id));
+  } catch { /* private mode */ }
+}
+function loadGuess(id) {
+  try {
+    const g = JSON.parse(localStorage.getItem(guessKey(id)) || 'null');
+    return g && Number.isFinite(g.lat) && Number.isFinite(g.lon) ? { lat: g.lat, lon: g.lon } : null;
+  } catch { return null; }
+}
+
+function fmtLatLon(p) { return `${p.lat.toFixed(3)}° N, ${Math.abs(p.lon).toFixed(3)}° W`; }
 
 function station(key) { return state.stations.find((s) => s.key === key); }
 
@@ -205,7 +224,7 @@ async function loadEvent(id) {
     withData.forEach((s, i) => { s.color = PALETTE[i % PALETTE.length]; });
 
     Object.assign(state, { event: ev, stations: withData, analyst, picks: loadPicks(id),
-      solution: null, revealed: false, showAnalyst: false });
+      solution: null, fitObs: [], fitNote: '', guess: loadGuess(id), revealed: false, showAnalyst: false });
     const p = new URLSearchParams(location.search);
     p.set('event', id);
     history.replaceState(null, '', `${location.pathname}?${p}`);
@@ -228,16 +247,18 @@ function showWorkspace() {
   renderSummary();
   showChooser(false);
   if (!map) {
-    map = new MapView($('map'), { onStationClick: (key) => { select(key); revealPicker(); } });
+    map = new MapView($('map'), { onStationClick: (key) => { select(key); revealPicker(); }, onGuess });
     map.showSchools(SCHOOLS);
   }
   map.invalidate();
   map.showStations(state.stations);
   map.setSolution(null);
   map.setOfficial(null);
+  map.setGuess(state.guess);
+  setPlacing(false);
   map.fitTo([...state.stations, ...SCHOOLS]);
   $('answer').hidden = true;
-  $('result').innerHTML = '';
+  renderFit();
   renderStationList();
   select(state.stations[0].key);
   updateDistances();
@@ -355,6 +376,7 @@ function onPick(phase, ms) {
   savePicks();
   picker.setPicks(state.picks[key]);
   minis.get(key)?.setPicks(state.picks[key]);
+  clearFit('Your picks changed: press “Find the best epicenter” again.');
   updateRowNumbers(key);
   updateTitle();
   updateDistances();
@@ -383,28 +405,87 @@ function updateDistances() {
   map?.setCircles(circles);
   state.stations.forEach((s) => updateRowNumbers(s.key));
   updateTitle();
+  renderGuess();
 }
 
-function locate() {
+/** Stations with both picks, as distances for locating. */
+function observations() {
   const obs = [];
   for (const st of state.stations) {
     const m = measure(st.key);
     if (m && !m.bad) obs.push({ key: st.key, sta: st.sta, lat: st.lat, lon: st.lon, distKm: m.distKm });
   }
-  const out = $('result');
-  if (obs.length < 3) {
-    out.innerHTML = `<span class="error">Pick P and S on at least 3 stations first (4 or more is better). You have ${obs.length}.</span>`;
-    return;
+  return obs;
+}
+
+// --- the student's own epicenter (placed on the map) -------------------------
+
+function setPlacing(on) {
+  state.placing = on;
+  map?.setPlacing(on);
+  const b = $('place-guess');
+  b.setAttribute('aria-pressed', String(on));
+  b.textContent = on ? 'Done placing' : state.guess ? 'Move my epicenter' : 'Place my own epicenter';
+  $('place-hint').hidden = !on;
+}
+
+function onGuess(lat, lon, final) {
+  state.guess = { lat, lon };
+  renderGuess();
+  if (final) {
+    saveGuess();
+    setPlacing(state.placing);
+    if (state.revealed) showAnswer();
   }
-  if (!speedsOk()) { out.innerHTML = '<span class="error">The S speed must be less than the P speed.</span>'; return; }
-  const sigmaKm = W.pickUncertaintySec * kmPerSecond(state.vp, state.vs);
-  const fit = locateGrid(obs, { depthKm: state.depthKm, sigmaKm });
-  state.solution = fit;
-  map.setSolution(fit);
+}
+
+function clearGuess() {
+  state.guess = null;
+  saveGuess();
+  map?.setGuess(null);
+  renderGuess();
+  setPlacing(false);
   if (state.revealed) showAnswer();
+}
+
+/** How well the student's circles fit their own epicenter; updates live while they drag it. */
+function renderGuess() {
+  const box = $('guess-result');
+  const g = state.guess;
+  if (!g || !state.event) { box.innerHTML = ''; return; }
+  const obs = observations();
+  let fit = '';
+  if (!obs.length) fit = 'Pick P and S at some stations to see how well your circles fit it.';
+  else if (speedsOk()) {
+    const { rmsKm } = misfitAt(g.lat, g.lon, obs, state.depthKm);
+    fit = `Your circles miss it by <b>${rmsKm.toFixed(1)} km</b> on average
+      (RMS, ${obs.length} station${obs.length === 1 ? '' : 's'}). Smaller is better: drag the pin to try.`;
+  }
+  box.innerHTML = `<div><b>Your guess</b> (green pin): ${fmtLatLon(g)}. ${fit}
+    <button type="button" class="link" id="clear-guess">Remove it</button></div>`;
+  $('clear-guess').addEventListener('click', clearGuess);
+}
+
+// --- the best fit from the picks (grid search) -------------------------------
+
+function clearFit(note) {
+  if (!state.solution) return;
+  state.solution = null;
+  state.fitObs = [];
+  state.fitNote = `<span class="hint">${note}</span>`;
+  map?.setSolution(null);
+  if (state.revealed) showAnswer();
+  renderFit();
+}
+
+function renderFit() {
+  const box = $('fit-result');
+  const fit = state.solution;
+  if (!fit) { box.innerHTML = state.fitNote; return; }
+  const obs = state.fitObs;
   const rows = obs.map((o, i) => `<li>${esc(o.sta)}: your circle misses by ${Math.abs(fit.residualsKm[i]).toFixed(1)} km</li>`).join('');
-  out.innerHTML = `
-    <div><b>Your epicenter:</b> ${fit.lat.toFixed(3)}° N, ${Math.abs(fit.lon).toFixed(3)}° W (purple star)
+  box.innerHTML = `
+    <div><b>Best fit from your picks</b> (purple star): ${fmtLatLon(fit)},
       from ${obs.length} stations, assuming a depth of ${state.depthKm} km.</div>
     <div>The circles miss this point by <b>${fit.rmsKm.toFixed(1)} km</b> on average (RMS).
       Rough uncertainty: <b>±${fit.uncertaintyKm.toFixed(0)} km</b>${fit.unbounded ? ' or more' : ''} (dashed circle).</div>
@@ -412,17 +493,35 @@ function locate() {
     <details><summary>Station by station</summary><ul>${rows}</ul></details>`;
 }
 
+function locate() {
+  const obs = observations();
+  if (obs.length < 3) {
+    state.fitNote = `<span class="error">Pick P and S on at least 3 stations first (4 or more is better). You have ${obs.length}.</span>`;
+  } else if (!speedsOk()) {
+    state.fitNote = '<span class="error">The S speed must be less than the P speed.</span>';
+  } else {
+    const sigmaKm = W.pickUncertaintySec * kmPerSecond(state.vp, state.vs);
+    state.solution = locateGrid(obs, { depthKm: state.depthKm, sigmaKm });
+    state.fitObs = obs;
+    state.fitNote = '';
+    map.setSolution(state.solution);
+    if (state.revealed) showAnswer();
+  }
+  renderFit();
+}
+
 function showAnswer() {
   const e = state.event;
   state.revealed = true;
-  map.setOfficial(e, state.solution);
+  map.setOfficial(e, [state.solution, state.guess]);
   renderSummary();
-  const err = state.solution ? distanceKm(state.solution.lat, state.solution.lon, e.lat, e.lon) : null;
+  const off = (p) => distanceKm(p.lat, p.lon, e.lat, e.lon).toFixed(1);
   const hasAnalyst = state.stations.some((s) => state.analyst[s.key]);
   const box = $('answer');
   box.hidden = false;
   box.innerHTML = `
-    ${err != null ? `<div class="big">You were ${err.toFixed(1)} km from the official epicenter.</div>` : ''}
+    ${state.guess ? `<div class="big">Your guess (green pin) was ${off(state.guess)} km from the official epicenter.</div>` : ''}
+    ${state.solution ? `<div class="big">The best fit from your picks (purple star) was ${off(state.solution)} km from the official epicenter.</div>` : ''}
     <div>Official location (University of Utah / USGS): <b>${esc(e.place)}</b>,
       ${e.lat.toFixed(3)}° N, ${Math.abs(e.lon).toFixed(3)}° W, depth ${e.depthKm.toFixed(1)} km,
       magnitude ${e.mag == null ? '?' : e.mag.toFixed(1)} (orange star).
@@ -451,7 +550,13 @@ function downloadCsv() {
   lines.push('');
   lines.push(`# quake,${e.id},${iso(e.timeMs)},M${e.mag}`);
   lines.push(`# P speed km/s,${state.vp},S speed km/s,${state.vs},depth km,${state.depthKm}`);
-  if (state.solution) lines.push(`# your epicenter,${state.solution.lat.toFixed(4)},${state.solution.lon.toFixed(4)},rms km,${state.solution.rmsKm.toFixed(2)}`);
+  const obs = observations();
+  if (state.guess) {
+    const g = state.guess;
+    const rms = obs.length && speedsOk() ? misfitAt(g.lat, g.lon, obs, state.depthKm).rmsKm.toFixed(2) : '';
+    lines.push(`# your guess,${g.lat.toFixed(4)},${g.lon.toFixed(4)},rms km,${rms}`);
+  }
+  if (state.solution) lines.push(`# best fit from your picks,${state.solution.lat.toFixed(4)},${state.solution.lon.toFixed(4)},rms km,${state.solution.rmsKm.toFixed(2)}`);
   lines.push(`# ${ATTRIBUTION.waveforms}`);
   const blob = new Blob([lines.join('\n') + '\n'], { type: 'text/csv' });
   const a = document.createElement('a');
@@ -491,12 +596,7 @@ function init() {
     input.value = state[prop];
     input.addEventListener('input', () => {
       state[prop] = Number(input.value);
-      if (state.solution) {
-        state.solution = null;
-        map?.setSolution(null);
-        if (state.revealed) map?.setOfficial(state.event, null);
-        $('result').innerHTML = '<span class="hint">Settings changed: press “Find the best epicenter” again.</span>';
-      }
+      clearFit('Settings changed: press “Find the best epicenter” again.');
       updateDistances();
     });
   }
@@ -510,6 +610,7 @@ function init() {
     picker.setPicks({});
     minis.get(state.selected)?.setPicks({});
     picker.arm('P');
+    clearFit('Your picks changed: press “Find the best epicenter” again.');
     updateDistances();
   });
   $('zoom-in').addEventListener('click', () => picker.zoom(1 / 1.5));
@@ -517,6 +618,10 @@ function init() {
   $('zoom-reset').addEventListener('click', () => picker.resetZoom());
   $('prev-station').addEventListener('click', () => step(-1));
   $('next-station').addEventListener('click', () => step(1));
+  $('place-guess').addEventListener('click', () => setPlacing(!state.placing));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && state.placing) setPlacing(false);
+  });
   $('locate').addEventListener('click', locate);
   $('reveal').addEventListener('click', showAnswer);
   $('download').addEventListener('click', downloadCsv);

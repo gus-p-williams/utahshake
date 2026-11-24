@@ -1,0 +1,13 @@
+{
+  "name": "uhsn-figures",
+  "private": true,
+  "description": "Screenshots of the apps for the docs (trace-figures.mjs needs no install)",
+  "type": "module",
+  "scripts": {
+    "traces": "node trace-figures.mjs",
+    "screenshots": "node screenshots.mjs"
+  },
+  "devDependencies": {
+    "puppeteer-core": "24.43.1"
+  }
+}

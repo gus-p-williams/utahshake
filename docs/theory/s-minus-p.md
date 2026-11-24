@@ -2,6 +2,7 @@
 
 P and S waves leave the quake at the same moment. P is faster, so it wins the race; the
 farther the station, the bigger P's lead. Measuring that lead gives the distance.
+The [animation on Locating a quake](locating.md#watch-it-happen) shows the race.
 
 ## The formula
 

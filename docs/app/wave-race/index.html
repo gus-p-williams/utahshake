@@ -83,11 +83,17 @@
           <span class="kps" id="kps"></span>
         </div>
         <div class="actions">
+          <button id="place-guess" type="button" class="guess-btn" aria-pressed="false">Place my own epicenter</button>
           <button id="locate" type="button" class="primary">Find the best epicenter</button>
           <button id="reveal" type="button">Reveal the official answer</button>
           <button id="download" type="button">Download my picks (CSV)</button>
         </div>
-        <div id="result" class="result" role="status"></div>
+        <p id="place-hint" class="hint" hidden>Click the map where you think the circles cross.
+          Click again, or drag the green pin, to move it. Press <b>Done placing</b> (or Esc) when you are happy.</p>
+        <div class="result">
+          <div id="guess-result"></div>
+          <div id="fit-result" role="status"></div>
+        </div>
         <div id="answer" class="answer" hidden></div>
       </section>
     </div>

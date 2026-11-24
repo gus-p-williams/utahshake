@@ -9,6 +9,7 @@ publishes both to GitHub Pages.
 docs/app/
   index.html               app list
   wave-race/index.html     Wave Race page
+  wave-animation/index.html  Watch the Waves (cartoon; ?embed=1 inside a docs page)
   css/app.css              shared styles (light and dark)
   js/
     config.js              schools, stand-in stations, defaults, presets, credits
@@ -18,6 +19,7 @@ docs/app/
       fdsn.js              parsers for USGS GeoJSON, FDSN station text, QuakeML picks
       stations.js          which stations to show for a quake
       signal.js            gaps, tapers, min/max per pixel, dead-channel check
+      wave-sim.js          cartoon arrivals and seismograms for the animation
     data/
       datasource.js        the DataSource interface; picks a source from the URL
       earthscope-usgs.js   live source: USGS events + EarthScope stations/waveforms
@@ -26,14 +28,16 @@ docs/app/
       filters.js           Butterworth band-pass (vendored seisplotjs)
     ui/
       trace-view.js        canvas seismogram with zoom, pan, picks
-      map-view.js          Leaflet map: stations, circles, epicenters
+      map-view.js          Leaflet map: stations, circles, epicenters, the student's pin
     wave-race/app.js       the Wave Race page controller
+    wave-animation/app.js  the Watch the Waves animation (canvas)
   vendor/                  seisplotjs + Leaflet bundles (generated; see below)
   data/samples/<event>/    offline sample: event, stations, picks, waveforms.mseed
 tests/                     node --test, including real-data checks on the sample
 tools/
   vendor/                  esbuild script that regenerates docs/app/vendor/
   samples/fetch-sample.mjs bundles a quake for offline use
+  figures/                 figures for the student guide (docs/apps/img/)
   serve.mjs                tiny local server for docs/
 ```
 
@@ -48,8 +52,10 @@ flowchart TD
   A --> C
   C --> W[getWaveforms: one POST for all channels]
   W --> F[filter, draw, pick P and S]
+  F --> G[student places a pin: misfitAt]
   F --> L[locateGrid: best epicenter]
-  L --> R[reveal official location]
+  G --> R[reveal official location]
+  L --> R
 ```
 
 All data goes through a **DataSource** object (`js/data/datasource.js`), never straight to a web
@@ -85,6 +91,26 @@ npm run build
 The seisplotjs bundle registers a web component when it loads, so code that imports it in
 Node must first define `globalThis.HTMLElement` and `globalThis.customElements` (see
 `tests/sample.test.js`).
+
+## Figures in the student guide
+
+The seismogram figures in `docs/apps/img/` are SVG files made from the offline sample with
+the app's own parser and filter, and the screenshots are taken from the app in headless
+Chrome. Regenerate them after changing the app's look or the sample:
+
+```bash
+node tools/figures/trace-figures.mjs      # picking-*.svg (no install needed)
+cd tools/figures && npm install           # once: puppeteer-core, uses your installed Chrome
+node ../serve.mjs                         # in another terminal
+node screenshots.mjs                      # wave-race-*.png; set CHROME=... if Chrome is elsewhere
+```
+
+## The animation in a docs page
+
+`docs/theory/locating.md` embeds `app/wave-animation/?embed=1` in an `<iframe>`. In embed mode
+the page hides its header and fills the frame. Because the docs and the app are on the same
+site, the animation reads the docs' light/dark switch (`data-md-color-scheme`) and sets
+`data-theme` on its own `<html>`; `app.css` honours `data-theme` before the device setting.
 
 ## Design choices worth knowing
 
