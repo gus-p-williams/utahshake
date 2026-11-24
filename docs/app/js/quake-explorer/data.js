@@ -6,6 +6,8 @@ import { distanceKm, azimuthDeg } from '../lib/geo.js';
 import { toVelocity } from '../lib/units.js';
 import { isFlat, isClipped } from '../lib/signal.js';
 import { aicPick, searchWindow } from '../lib/picker.js';
+import { speedFromArrivals, twoLineFit, BEND_F_RATIO } from '../lib/linefit.js';
+import { crustFromIntercept } from '../lib/traveltime.js';
 import { rotateHorizontals, verticalUp } from '../lib/motion.js';
 import { filteredData } from '../data/filters.js';
 import { QUAKE_EXPLORER, SCHOOLS } from './config.js';
@@ -82,6 +84,33 @@ export async function loadRecordSection(source, eventId, opt = {}) {
   let computer = source.getComputerPicks ? await source.getComputerPicks(eventId) : null;
   if (!computer) computer = computerPicks(event, traces, analyst);
   return { event, traces, arrivals: mergeArrivals(event, analyst, computer), missing, window: { startMs, endMs } };
+}
+
+/**
+ * The lines investigation A reveals, fitted through the picks on a loaded record section
+ * (loadRecordSection's result): P near the quake (analyst picks within 100 km), S (all S
+ * picks within 240 km), and the Pg -> Pn bend with the crust's thickness when the bend is
+ * clear: an F ratio above BEND_F_RATIO, at least 8 far stations, and a mantle-speed far line
+ * known to within 0.3 km/s (Phase 0: Magna 2020 yes; Junction's few noisy far picks no).
+ * @returns {{pg?:object, sg?:object, bend?:object}} pg/sg as speedFromArrivals; bend as
+ *   twoLineFit plus crustKm
+ */
+export function sectionFits(section, depthKm) {
+  const dist = new Map(section.traces.map((t) => [t.key, t.distKm]));
+  const pts = (list) => list.filter((a) => dist.has(a.key)).map((a) => ({ distKm: dist.get(a.key), tSec: a.tSec }));
+  const P = section.arrivals.filter((a) => a.phase === 'P');
+  const S = section.arrivals.filter((a) => a.phase === 'S');
+  const out = {};
+  const nearP = pts(P.filter((a) => a.who === 'analyst')).filter((p) => p.distKm <= 100);
+  if (nearP.length >= 3) out.pg = speedFromArrivals(nearP);
+  const sPts = pts(S).filter((p) => p.distKm <= 240);
+  if (sPts.length >= 3) out.sg = speedFromArrivals(sPts);
+  const two = twoLineFit(pts(P), { minPerLine: 4 });
+  if (two && two.fRatio > BEND_F_RATIO && two.far.n >= 8 && two.far.speedSE < 0.3 &&
+    two.far.speedKms > 7.2 && two.far.speedKms < 8.6) {
+    out.bend = { ...two, crustKm: crustFromIntercept(two.far.interceptSec, two.near.speedKms, two.far.speedKms, depthKm) };
+  }
+  return out;
 }
 
 /**

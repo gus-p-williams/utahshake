@@ -83,6 +83,25 @@ for (const d of ['qe-junction', 'qe-magna']) {
     .filter((r) => Number(r['x line']) > 5 || Number(r['x line']) < 0.2), ['sta', 'cha', 'km', 'peak ground speed', 'x line', 'units', 'sens', 'clipped']).replace(/^/gm, '    '));
 }
 
+// What the app's reveal shows: the same calls as inv-a.js (loadRecordSection, then
+// sectionFits), so the activity cards can quote exactly what students will see.
+{
+  const { SampleSource } = await app('data/sample-source.js');
+  const { loadRecordSection, sectionFits } = await app('quake-explorer/data.js');
+  const fileFetch = async (url) => {
+    try { return new Response(fs.readFileSync(new URL(url))); } catch { return new Response(null, { status: 404 }); }
+  };
+  const src = new SampleSource(new URL(`file:///${base.replace(/\\/g, '/')}/`), { list: 'explorer', fetch: fileFetch });
+  for (const [id, opt] of [['uu80162166', { maxKm: 300 }], ['uu60363602', { maxKm: 400, postSec: 140 }]]) {
+    const r = await loadRecordSection(src, id, opt);
+    const f = sectionFits(r, r.event.depthKm);
+    console.log(`app reveal ${id} (${r.traces.length} stations to ${opt.maxKm} km): ` +
+      `P ${f.pg ? `${f2(f.pg.speedKms)} km/s (n=${f.pg.n})` : '–'}, S ${f.sg ? `${f2(f.sg.speedKms)} km/s (n=${f.sg.n})` : '–'}` +
+      (f.bend ? `, bend: Pg ${f2(f.bend.near.speedKms)} -> Pn ${f2(f.bend.far.speedKms)} ± ${f2(f.bend.far.speedSE)} km/s, ` +
+        `lines cross ${Math.round(f.bend.crossoverKm)} km, crust ${f.bend.crustKm.toFixed(1)} km` : ', no clear bend (hint text)'));
+  }
+}
+
 console.log('\n== B. What notes is the ground playing?');
 const hfAt = (d, sta) => {
   const s = load(d);

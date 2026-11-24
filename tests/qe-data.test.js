@@ -49,6 +49,21 @@ test('Junction record section: traces by distance, in m/s, with analyst and comp
   for (const a of r.arrivals) assert.ok(a.tSec > 0 && a.tSec < 110);
 });
 
+test("A's reveal: Junction gets no bend (a hint only); Magna gets Pg -> Pn and the crust", async () => {
+  const { sectionFits } = await import('../docs/app/js/quake-explorer/data.js');
+  const src = explorer();
+  // The same calls inv-a.js makes (Magna's preset reaches 400 km, with 140 s of record).
+  const j = await loadRecordSection(src, 'uu80162166', { maxKm: 300 });
+  const fj = sectionFits(j, j.event.depthKm);
+  assert.ok(!fj.bend, 'Junction: no clear bend');
+  assert.ok(fj.pg.speedKms > 5.9 && fj.pg.speedKms < 6.4, `Junction P ${fj.pg.speedKms}`);
+  const m = await loadRecordSection(src, 'uu60363602', { maxKm: 400, postSec: 140 });
+  const fm = sectionFits(m, m.event.depthKm);
+  assert.ok(fm.bend, 'Magna: a clear bend');
+  assert.ok(fm.bend.far.speedKms > 7.4 && fm.bend.far.speedKms < 8.1, `Magna Pn ${fm.bend.far.speedKms}`);
+  assert.ok(fm.bend.crustKm > 32 && fm.bend.crustKm < 40, `Magna crust ${fm.bend.crustKm}`);
+});
+
 test('Magna record section flags clipped stations', async () => {
   const r = await loadRecordSection(explorer(), 'uu60363602', { maxKm: 400 });
   const clipped = r.traces.filter((t) => t.clipped).map((t) => t.label);

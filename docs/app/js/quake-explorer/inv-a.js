@@ -5,11 +5,10 @@
 // the analysts made none), the lines fitted through them, and, for a big quake, the bend
 // where the head wave along the top of the mantle (Pn) overtakes the direct wave.
 import { RecordSectionView } from './record-section-view.js';
-import { loadRecordSection } from './data.js';
+import { loadRecordSection, sectionFits } from './data.js';
 import { renderSteps } from './steps.js';
 import { QUAKE_EXPLORER as Q } from './config.js';
-import { speedFromArrivals, twoLineFit, BEND_F_RATIO } from '../lib/linefit.js';
-import { curves, crustFromIntercept } from '../lib/traveltime.js';
+import { curves } from '../lib/traveltime.js';
 import { esc } from '../ui/page.js';
 
 const $ = (id) => document.getElementById(id);
@@ -84,26 +83,7 @@ export function createA(ctx) {
       <div><span>P ÷ S</span><b>${p && s ? f2(p / s) : '–'}</b></div>`;
   }
 
-  /** Lines through the professionals' picks: P near the quake, S, and Pg/Pn if the bend is clear. */
-  function fitPicks() {
-    const P = data.arrivals.filter((a) => a.phase === 'P');
-    const S = data.arrivals.filter((a) => a.phase === 'S');
-    const dist = new Map(data.traces.map((t) => [t.key, t.distKm]));
-    const pts = (list) => list.filter((a) => dist.has(a.key)).map((a) => ({ distKm: dist.get(a.key), tSec: a.tSec }));
-    const out = {};
-    const nearP = pts(P.filter((a) => a.who === 'analyst')).filter((p) => p.distKm <= 100);
-    if (nearP.length >= 3) out.pg = speedFromArrivals(nearP);
-    const sPts = pts(S).filter((p) => p.distKm <= 240);
-    if (sPts.length >= 3) out.sg = speedFromArrivals(sPts);
-    // A bend counts only when it is clear: many far stations on a tight, mantle-speed line
-    // (Phase 0: Magna yes; Junction's few noisy picks beyond 200 km are only a hint).
-    const two = twoLineFit(pts(P), { minPerLine: 4 });
-    if (two && two.fRatio > BEND_F_RATIO && two.far.n >= 8 && two.far.speedSE < 0.3 &&
-      two.far.speedKms > 7.2 && two.far.speedKms < 8.6) {
-      out.bend = { ...two, crustKm: crustFromIntercept(two.far.interceptSec, two.near.speedKms, two.far.speedKms, ctx.event.depthKm) };
-    }
-    return out;
-  }
+  const fitPicks = () => sectionFits(data, ctx.event.depthKm);
 
   function reveal() {
     if (!data) return;

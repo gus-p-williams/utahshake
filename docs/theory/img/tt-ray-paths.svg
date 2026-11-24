@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 349" width="760" height="349" role="img" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<title>Two ways to a far station: straight, or down to the faster mantle</title>
+<desc>Cross-section drawn to scale: crust 37 km thick (P at 6.2 km/s) over the mantle (P at 7.8 km/s). A quake 11.9 km deep and a station 220 km away. The direct wave Pg goes straight through the crust: 220.3 km in 35.7 s. The head wave Pn goes down to the Moho at the critical angle of 52.5 degrees, runs 138 km along the top of the mantle and comes back up: 103 km in the crust and 138 km in the mantle, 34.5 s, so it arrives 1.2 s sooner. Faint lines show the head wave leaving the Moho all along the way; the nearest place it reaches the surface is 82 km from the epicenter.</desc>
+<defs><marker id="arr-pg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0d9488"/></marker><marker id="arr-pn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7c3aed"/></marker></defs>
+<rect x="0.5" y="0.5" width="759" height="348" rx="8" fill="#ffffff" stroke="#d9dde3"/>
+<text x="12" y="22" font-size="15" font-weight="600" fill="#111827">Two ways to a far station: straight, or down to the faster mantle</text>
+<rect x="5.399999999999999" y="104" width="725" height="108" fill="#f1ece2"/>
+<rect x="5.399999999999999" y="212" width="725" height="37" fill="#e2d6c3"/>
+<line x1="5.4" y1="104" x2="730.4" y2="104" stroke="#a39478" stroke-width="1.5"/>
+<line x1="5.4" y1="212" x2="730.4" y2="212" stroke="#a39478" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="388.2" y="176.5" font-size="13" font-weight="600" text-anchor="middle" fill="#111827" stroke="#f1ece2" stroke-width="4" stroke-linejoin="round" paint-order="stroke">crust: P travels 6.2 km/s</text>
+<text x="721.7" y="230" font-size="13" font-weight="600" text-anchor="end" fill="#111827" stroke="#e2d6c3" stroke-width="4" stroke-linejoin="round" paint-order="stroke">mantle: P travels 7.8 km/s</text>
+<text x="14.1" y="206" font-size="12" font-weight="600" fill="#5b6472" stroke="#f1ece2" stroke-width="4" stroke-linejoin="round" paint-order="stroke">Moho, 37 km down</text>
+<text x="14.1" y="242" font-size="12" font-style="italic" fill="#5b6472" stroke="#e2d6c3" stroke-width="4" stroke-linejoin="round" paint-order="stroke">drawn to scale</text>
+<line x1="141.8" y1="212" x2="282.6" y2="104" stroke="#7c3aed" stroke-width="1" stroke-opacity="0.35" stroke-dasharray="4 3"/>
+<line x1="312.8" y1="212" x2="453.6" y2="104" stroke="#7c3aed" stroke-width="1" stroke-opacity="0.35" stroke-dasharray="4 3"/>
+<line x1="405.6" y1="212" x2="546.4" y2="104" stroke="#7c3aed" stroke-width="1" stroke-opacity="0.35" stroke-dasharray="4 3"/>
+<line x1="282.6" y1="104" x2="282.6" y2="96" stroke="#5b6472" stroke-width="1"/>
+<text x="282.6" y="92" font-size="11.5" text-anchor="middle" fill="#5b6472">head wave first reaches the surface (82 km)</text>
+<path d="M46 138.5L676 104.4" fill="none" stroke="#0d9488" stroke-width="2.6" stroke-linejoin="round" marker-end="url(#arr-pg)"/>
+<path d="M46 138.5L141.8 212L543.2 212L677.7 108.9" fill="none" stroke="#7c3aed" stroke-width="2.6" stroke-linejoin="round" marker-end="url(#arr-pn)"/>
+<line x1="141.8" y1="212" x2="141.8" y2="168" stroke="#5b6472" stroke-width="1" stroke-dasharray="3 3"/>
+<path d="M141.8 182A30 30 0 0 0 118 193.7" fill="none" stroke="#111827" stroke-width="1.3"/>
+<text x="137.8" y="176" font-size="12.5" font-weight="700" text-anchor="end" fill="#111827" stroke="#f1ece2" stroke-width="4" stroke-linejoin="round" paint-order="stroke">52.5°</text>
+<polygon points="46,127.5 47.9,133.9 53.8,130.7 50.6,136.6 57,138.5 50.6,140.4 53.8,146.3 47.9,143.1 46,149.5 44.1,143.1 38.2,146.3 41.4,140.4 35,138.5 41.4,136.6 38.2,130.7 44.1,133.9" fill="#f59e0b" stroke="#b45309" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="58" y="156.5" font-size="12.5" font-weight="600" fill="#111827" stroke="#f1ece2" stroke-width="4" stroke-linejoin="round" paint-order="stroke">quake, 11.9 km deep</text>
+<polygon points="684,89.6 675,104 693,104" fill="#374151" stroke="#ffffff" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="684" y="82" font-size="13" font-weight="600" text-anchor="middle" fill="#111827">station 220 km away</text>
+<text x="365" y="118.3" font-size="14" font-weight="700" text-anchor="middle" fill="#0d9488" stroke="#f1ece2" stroke-width="4" stroke-linejoin="round" paint-order="stroke">Pg</text>
+<text x="342.5" y="205" font-size="13" font-weight="700" text-anchor="middle" fill="#7c3aed" stroke="#f1ece2" stroke-width="4" stroke-linejoin="round" paint-order="stroke">Pn: along the top of the mantle</text>
+<line x1="11.2" y1="279" x2="37.2" y2="279" stroke="#0d9488" stroke-width="3"/>
+<text x="45.2" y="283" font-size="13" fill="#111827"><tspan font-weight="700" fill="#0d9488">Pg (direct):</tspan> 220.3 km through the crust at 6.2 km/s → 35.7 s</text>
+<line x1="11.2" y1="301" x2="37.2" y2="301" stroke="#7c3aed" stroke-width="3"/>
+<text x="45.2" y="305" font-size="13" fill="#111827"><tspan font-weight="700" fill="#7c3aed">Pn (head wave):</tspan> 103 km in the crust at 6.2 km/s + 138 km along the mantle at 7.8 km/s → 34.5 s</text>
+<text x="45.2" y="327" font-size="13" font-weight="700" fill="#111827">A longer path, but it arrives 1.2 s sooner.</text>
+</svg>
