@@ -28,7 +28,9 @@ function star(cls, title) {
 
 export class MapView {
   constructor(el, { onStationClick } = {}) {
-    this.map = L.map(el, { zoomSnap: 0.5, scrollWheelZoom: true }).setView([39.3, -111.8], 7);
+    // No initial view: the first fitTo() sets it, so no tiles are fetched and then
+    // thrown away (kinder to the OpenStreetMap tile servers).
+    this.map = L.map(el, { zoomSnap: 0.5, scrollWheelZoom: true });
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 14,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
