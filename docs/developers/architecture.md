@@ -16,6 +16,7 @@ docs/app/
   quake-waves/index.html   Quake Waves (cartoon; ?embed=1 inside Locating a quake)
   wave-animation/index.html  redirect stub: Quake Waves' old address, forwards to ../quake-waves/
   wave-motion/index.html   How P and S waves move rock (cartoon embedded in Seismic waves)
+  build-a-wiggle/index.html  Build a Wiggle (cartoon; ?embed=1 inside Frequencies, fading and sound)
   css/app.css              shared styles (light and dark, top bar, embed mode)
   css/quake-explorer.css   Quake Explorer's layout, on top of app.css
   js/
@@ -28,6 +29,7 @@ docs/app/
       signal.js            gaps, tapers, min/max per pixel, dead-channel and clipping checks, decimation
       wave-sim.js          cartoon arrivals and seismograms for Quake Waves
       wave-motion.js       pulse shape and rock displacement for the P/S motion cartoon
+      wiggle.js            sums of sine waves for Build a Wiggle
       spectral.js          FFT, amplitude spectrum, spectrogram
       traveltime.js        direct and head-wave times, crossover, crust from the intercept
       linefit.js           speeds from arrivals, two-line (Pg/Pn) fit
@@ -50,6 +52,7 @@ docs/app/
     quake-explorer/        Quake Explorer: controller, one module per investigation, its views
     quake-waves/app.js     the Quake Waves animation (canvas)
     wave-motion/app.js     the P/S rock-motion animation (canvas)
+    build-a-wiggle/app.js  the Build a Wiggle animation (canvas)
   vendor/                  seisplotjs + Leaflet bundles (generated; see below)
   data/samples/<event>/    offline sample: event, stations, picks, waveforms.mseed
   data/samples/qe-*/       Quake Explorer's offline samples (the "explorer" list in index.json)
@@ -115,9 +118,10 @@ Node must first define `globalThis.HTMLElement` and `globalThis.customElements` 
 
 ## Animations in a docs page
 
-Two animations sit inside science pages in an `<iframe>`: `docs/theory/locating.md` embeds
-Quake Waves (`app/quake-waves/?embed=1`) and `docs/theory/waves.md` embeds the P/S
-rock-motion cartoon (`app/wave-motion/?embed=1`). Both page controllers call `setupEmbed()`
+Three animations sit inside science pages in an `<iframe>`: `docs/theory/locating.md` embeds
+Quake Waves (`app/quake-waves/?embed=1`), `docs/theory/waves.md` embeds the P/S
+rock-motion cartoon (`app/wave-motion/?embed=1`) and `docs/theory/frequencies.md` embeds
+Build a Wiggle (`app/build-a-wiggle/?embed=1`). All three page controllers call `setupEmbed()`
 and `followDocsTheme(draw)` from `ui/page.js`:
 
 - **Embed mode.** `setupEmbed()` adds `body.embed` when the address has `?embed` or the page

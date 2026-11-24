@@ -12,7 +12,7 @@ Students and teachers who only want to use the apps can skip this section: start
 | [Architecture](architecture.md) | The code tree, shared modules, running locally, vendored libraries, design choices |
 | [Data sources and licensing](data-sources.md) | Which services the apps use, credits, licenses, offline samples, adding a data source |
 | [Adding an app](adding-an-app.md) | A checklist so a new app fits the site: hub page, All apps card, top bar, shared page helpers, renaming an app |
-| App notes: [Wave Race](wave-race.md) | How one app works inside, for apps with internals worth explaining |
+| App notes: [Wave Race](wave-race.md) · [Quake Explorer](quake-explorer.md) | How one app works inside, for apps with internals worth explaining |
 
 ## Preview locally
 

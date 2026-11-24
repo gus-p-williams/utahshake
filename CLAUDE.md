@@ -13,9 +13,13 @@ Wasatch Academy, Gunnison Valley, Millard). The apps let technically strong stud
 see, analyze and do research with seismic data from their own school and the region.
 
 - Owner/lead: Gus Williams (DRI UHSN team).
-- Planning doc (canonical, living): https://claude.ai/artifact/138FYiSqhWYYs268h66uxn
-- Snapshot of that doc in this repo: `planning/evaluation.md` (+ Word copy, for
-  sharing with DRI colleagues)
+- Project overview (canonical since D27): `planning/evaluation.md`, being rewritten around
+  current status; Word copy "Raspberry Shake in Utah High Schools … Concepts.docx". The old
+  living claude.ai doc (138FYiSq…) is retired: delete it once the rewrite lands.
+- Questions document for Dale and Cleat: `planning/activities.md` (46 activity cards by
+  setup, E/S/R/P IDs) + Word copy "UHSN activities by setup.docx". Both Word copies are built
+  with `tools/planning-docx/md_to_docx.py`.
+- Outside review of these materials (Codex, input only): `planning/co-pi-review-2026-11-24.md`
 - Staged build plan: `planning/roadmap.md`
 - Decision log: `planning/decisions.md`
 - `planning/` is deliberately outside `docs/`: kept in git, NOT on the website
@@ -39,6 +43,9 @@ see, analyze and do research with seismic data from their own school and the reg
    (9/10.DA.3, 11/12.DA.1). Keep the crosswalk in the docs current.
 5. **Attribution.** Every page that shows data cites its source network (e.g. UU,
    doi:10.7914/SN/UU — verify) and USGS ComCat for events.
+6. **Installed Shakes stay put (D26, working assumption).** No activity moves, re-levels,
+   unplugs or re-orients a school's installed Shake: activities move the source or add a
+   second sensor (roaming Shake, phones).
 
 ## Stack and layout (decided)
 
@@ -76,11 +83,13 @@ docs/
   teachers/             index.md (#before-class, Utah standards at a glance), activity cards
                         (one per activity; many-to-many with apps, D19), standards crosswalk
   developers/           index.md, architecture, data sources, adding-an-app, per-app notes
-planning/               evaluation snapshot (+ .docx), roadmap, decisions (not on site)
+planning/               overview (evaluation.md), activities (questions doc), Word copies,
+                        roadmap, decisions, quake-explorer plan, reviews (not on site)
 package.json            npm test (node --test), npm run serve
 tests/                  node --test for js logic + real-data sample checks
 tools/                  vendor/ (esbuild bundles), samples/, figures/ (guide images),
-                        planning-docx/, serve.mjs
+                        quake-explorer/ (science checks, answer key, samples),
+                        planning-docx/ (Word copies), serve.mjs
 ```
 
 ## Setting up on a new machine (check this first)
@@ -124,8 +133,9 @@ sequences the work and integrates it.
 
 - Sessions in this folder stay on `main`, edit only their own files, and commit by path
   (`git commit -- <paths>`), never `git add -A`. Code work that runs alongside others gets
-  its own worktree and branch (Quake Explorer: `G:\GIT_Repo\2026_11_Shake-qexp`, branch
-  `quake-explorer`). A session told not to commit hands its files to the master session.
+  its own worktree `G:\GIT_Repo\2026_11_Shake-<short name>` and branch (e.g. `-cards` on
+  `teacher-cards`, `-plots` on `plots`). A session told not to commit hands its files to the master
+  session.
 - Decision numbers: the next free number when the entry lands on `main`; none are reserved.
 
 **Whenever the master session takes in another session's work** (a commit, a merge or a
@@ -234,51 +244,74 @@ out of the menus:
   `tools/site-check.mjs`. Math no longer makes phone pages scroll sideways
   (`docs/stylesheets/extra.css`). `npm test` = 51. This was the last work of the first
   master session; a new master session takes over (see "Parallel sessions").
-- 2026-11-24 (night, branch `quake-explorer`): **Quake Explorer built (Stage 3)**, ready for
-  review and merge with Gus's OK. App `app/quake-explorer/` (four tabs: A record section,
-  B spectrogram + sound, C particle motion, D distant quakes; each Predict · Explore · Why? ·
-  Check), hub `apps/quake-explorer.md` (#a–#d), science pages `theory/travel-times.md`,
-  `frequencies.md` (with the Build a wiggle animation), `ground-motion.md`, four activity
-  cards under Teachers › Activity cards, standards rows, developer notes. Six offline samples
-  (2.4 MB, `explorer` list) and an iasp91 table. Phase 0 science, approvals and draft
-  decisions (D22 on) in `planning/quake-explorer.md` sections 9–11.
+- 2026-11-24 (night): **Quake Explorer built (Stage 3) and merged into main** (D22–D25). App
+  `app/quake-explorer/` (four tabs: A record section, B spectrogram + sound, C particle
+  motion, D distant quakes; each Predict · Explore · Why? · Check), hub
+  `apps/quake-explorer.md` (#a–#d), science pages `theory/travel-times.md`, `frequencies.md`
+  (with the Build a Wiggle animation, `app/build-a-wiggle/`), `ground-motion.md`, four
+  activity cards under Teachers › Activity cards, standards rows (PHYS.2.1 added), developer
+  notes. Six offline samples (2.4 MB, `explorer` list) and an iasp91 table. Merge review
+  (master session 2): main merged into the branch, `npm test` = 153, strict build, site
+  check of 32 pages at 3 widths; an independent read found no constraint problems and the
+  answer keys reproduce. Fixed at the merge: "13 Utah quakes" in card C; Our stations and
+  data covers Quake Explorer's samples, computer picks and the iasp91 credit (also README,
+  data-sources); Wave Race is "Before this" on the QE cards (D19); SGU's 2020 record labelled
+  in card A; hub science line, developer pages, Build a Wiggle in the Teachers table and
+  architecture tree; roadmap order (Stage 3 before 2) and a plots section.
+- 2026-11-24 (night, master session 2): planning. `planning/evaluation.md` is the canonical
+  overview and is being rewritten; `planning/activities.md` is the questions document for
+  Dale and Cleat (D27). Installed Shakes are fixed stations (D26, constraint 6). Word copies
+  come from `tools/planning-docx/md_to_docx.py`. An outside review by Codex
+  (`planning/co-pi-review-2026-11-24.md`) is input to both documents. Reading a seismogram's
+  standards row is now PHYS.4.1 · ESS.2.2 · CS 9/10.DA.3 (Gus). The activities plan had two
+  fact-check reviews (SB 69 and R277-495 wording, phone timing ±11 ms, Shake power and
+  specs); its session applies them with Gus's notes.
 
 ## Next steps
 
-1. **Quake Explorer** (branch `quake-explorer`, worktree `G:\GIT_Repo\2026_11_Shake-qexp`,
-   529b0c5 or later; all four views built, 133 tests, offline samples 2.4 MB). Navigation
-   Phase 2 has landed, so its session can now build the app page, hub guide, theory pages
-   and teacher cards (its plan, `planning/quake-explorer.md` section 10, on the branch).
-   For each phase it reports ready: review it (merge main into the branch, `npm test`,
-   strict build, `tools/site-check.mjs`, the integration checklist above), then merge into
-   main only with Gus's OK. Its decisions take the next free numbers (D22 on). Answer-key
-   note from it: in the 2020 Magna data SGU was short-period and shows no quake (about 100×
-   too small); label it next to the clipped stations.
-2. **Activity planning** (`planning/activities.md` and `planning/UHSN activities by
-   setup.docx`, uncommitted): confirm with Gus that it is final, review it, commit by path,
-   carry its proposals into the roadmap, and plan the activity catalog on the Teachers page.
-3. **Teacher activity cards** (D19; roadmap "Across all stages: teacher activity cards"):
-   card format and catalog on the Teachers page; a Quake Waves card; Quake Explorer's cards;
-   cards for the starter set chosen from `planning/activities.md`.
-4. **Open questions for Gus / DRI:**
-   a. Which Raspberry Shake model, geophone and digitizer do the UHSN schools have? The
-      seismometer figure on Reading a seismogram is a generic geophone.
-   b. Confirm the standards row for Reading a seismogram: PHYS.4.1 · ESS.4.1 ·
-      CS 9/10.DA.3 (ESS.4.1 rests on mines and blasts as resources, a stretch).
-   c. `tools/figures/.cache/` holds 716 MB (git-ignored; the scripts re-download what they
-      need). Delete it if the disk space matters.
-5. **Figure follow-ups** (`planning/science-figures.md`, "Follow-ups from the review"): three
-   SVG fixes (hidden-quake label, gap-edge burst, blast axis). Phone legibility: the 760 px
-   figures shrink to about 358 px with small labels (house style for all figures); consider
-   bigger labels or a tap-to-enlarge link.
-6. Gus: try Wave Race and Quake Waves with a teacher or student (15-minute target).
-7. DRI: choose a license (MIT or BSD) and add LICENSE; the public repo has none yet.
-8. Stage 2: School Pulse / seismic carpet (scheduled job + heatmap; see roadmap).
-9. Bump GitHub Actions to Node 24 majors (runs warn that checkout@v4, setup-python@v5,
+1. **Sessions at work** (started by Gus from the master session's prompts, 2026-11-24). The
+   master reviews each, commits by path or merges, and runs the integration checklist.
+   a. *Activities session*: the questions document (`planning/activities.md` + Word copy)
+      with Gus's notes (lead with the questions, no costs or small items in tables, the
+      weight-drop figure before S10–S18, how phones connect), the surviving review fixes,
+      and the Codex review's proposals (top three, readiness labels, audience, pilot set,
+      per-school inventory). Uncommitted until reviewed.
+   b. *Overview session*: rewrites `planning/evaluation.md` (+ Word copy) around current
+      status, apps, how pages/cards/apps link, standards and data rules; detail to
+      appendices, open questions to the questions document. Then: check both documents side
+      by side, commit both with their Word copies, delete the old living doc (Gus confirms),
+      and Gus sends them to Dale and Cleat.
+   c. *Teacher-cards session* (branch `teacher-cards`, worktree `G:\GIT_Repo\2026_11_Shake-cards`):
+      "At a glance" boxes on all five cards, the Teachers catalog, a Quake Waves card, the
+      Wave Race card (S picked at only 3 offline stations; 6 of 9 P picks in its key;
+      standards line), a hub/card link test, the card template for developers. Quake
+      Explorer follow-ups for it: SGU's 2020 record labelled inside the app (`inv-a.js`),
+      the iasp91 credit in `config.js` ATTRIBUTION.
+   d. *Plots session* (branch `plots`, worktree `G:\GIT_Repo\2026_11_Shake-plots`): helicorder,
+      PPSD, seismic carpet, event stack, H/V, cross-correlation on a new science page; the
+      three figure fixes in `planning/science-figures.md`. Merge cards before plots.
+2. **Open questions for Gus / DRI:**
+   a. Which Raspberry Shake model is at each school (they may differ)? The seismometer figure
+      on Reading a seismogram is a generic geophone.
+   b. Spelling: the site's prose is British (kilometre, colour, grey, labelled), its
+      seismology terms US (epicenter, hypocenter, toward). The audience is Utah schools, so
+      US spelling throughout is the natural rule; Gus to decide, then one cleanup pass.
+   c. DRI: choose a license (MIT or BSD) and add LICENSE; the public repo has none yet.
+   d. `tools/figures/.cache/` holds about 715 MB (git-ignored). Gus keeps it for now.
+3. **Trials:** Wave Race, Quake Waves and each Quake Explorer investigation's 15-minute
+   version with a teacher or students; someone listens to Quake Explorer's sound on a school
+   device.
+4. **From the Codex review, not yet assigned:** standards claims labelled "assessed /
+   contributes / extension" with a teacher's review; offline behaviour of map tiles and
+   picking by trackpad, touch and keyboard; a pilot feedback sheet; a short visual path
+   through the long Reading a seismogram page.
+5. Phone legibility of figures: the 760 px figures shrink to about 358 px with small labels;
+   consider bigger labels or a tap-to-enlarge link.
+6. Stage 2: School Pulse / seismic carpet (scheduled job + heatmap; see roadmap).
+7. Bump GitHub Actions to Node 24 majors (runs warn that checkout@v4, setup-python@v5,
    upload/deploy-pages target deprecated Node 20).
-10. Optional: move the repo to a DRI GitHub org if one exists (GitHub redirects old links;
-    update site_url/repo_url).
-11. Optional: confirm SEEd standard wording against the current USBE PDF.
-12. Ask UUSS about the S − P page's "beyond about 120 km" (first P through the mantle): the
-    sample's far P picks (114–177 km) are only 0.4–1.2 s early on 5.8 km/s, and a simple
-    estimate puts the crossover near 140–160 km. Blocks plan figure S5.
+8. Optional: move the repo to a DRI GitHub org if one exists; confirm SEEd wording against
+   the current USBE PDF; ask UUSS about the S − P page's "beyond about 120 km" (the sample's
+   far P picks suggest a crossover near 140–160 km; blocks plan figure S5).
+9. Clean up the old Quake Explorer worktree (`G:\GIT_Repo\2026_11_Shake-qexp`) once nothing
+   more is needed from it (`git worktree remove`).

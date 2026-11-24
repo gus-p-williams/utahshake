@@ -57,7 +57,7 @@ page goes under **The Science** in `nav:`.
 - Make sure at least one activity card uses the app. Cards are per activity, not per app: a
   card may use several apps (the Wave Race card uses Quake Waves as its warm-up), and an app
   may appear in several cards. Write new cards as `docs/teachers/<activity>.md`, add them to
-  `nav:` under **Teachers**, and list every card that uses the app in the hub's "For
+  `nav:` under **Teachers › Activity cards**, and list every card that uses the app in the hub's "For
   teachers" line. Use the [Wave Race activity card](../teachers/wave-race-card.md) as the
   model. Each card names the apps or tools it uses and the setup it needs.
 - Add a `## <App> { #<slug> }` heading to [standards.md](../teachers/standards.md), with one
@@ -106,8 +106,8 @@ Every app page starts with the same top bar, written as static HTML in its `inde
 
 ## 8. Shared page helpers { #page-helpers }
 
-`docs/app/js/ui/page.js` holds what every app page needs. Wave Race, Quake Waves and the P/S
-motion cartoon all import from it; a new app should too, instead of copying the helpers.
+`docs/app/js/ui/page.js` holds what every app page needs. Wave Race, Quake Explorer, Quake Waves,
+Build a Wiggle and the P/S motion cartoon all import from it; a new app should too, instead of copying the helpers.
 
 | Export | What it does |
 | --- | --- |
@@ -135,7 +135,8 @@ no real data says so in a static footer instead (Quake Waves).
 ## 10. Showing the app inside a docs page (only if needed) { #embed }
 
 An animation can sit on a docs page in an `<iframe>` with `?embed=1` added to its address
-(Quake Waves on Locating a quake, the P/S motion cartoon on Seismic waves). In the page
+(Quake Waves on Locating a quake, the P/S motion cartoon on Seismic waves, Build a Wiggle on
+Frequencies, fading and sound). In the page
 controller:
 
 - call `setupEmbed()` before the first draw; in embed mode `app.css` hides the top bar, the

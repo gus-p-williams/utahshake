@@ -13,6 +13,7 @@ covers. Every app runs in a browser, so students need no install and no accounts
 | [Quake Explorer](../apps/quake-explorer.md) (B) | [What notes is the ground playing?](notes-of-a-quake.md) | 15 min or a full period | Filter a seismogram with its spectrogram, listen to it sped up, compare near and far stations, and a quarry blast with a quake |
 | [Quake Explorer](../apps/quake-explorer.md) (C) | [Which way did the ground move?](which-way-did-it-move.md) | 15 min, or a full period with A | Watch the path the ground traced, find the direction to the quake, and locate it from one station with speeds measured in A |
 | [Quake Explorer](../apps/quake-explorer.md) (D) | [A message from far away](far-side-of-the-world.md) | 15 min or a full period | Pick P and S from a big quake thousands of km away, turn S − P into a distance, and build a class travel-time chart |
+| [Build a Wiggle](../theory/frequencies.md) (animation) | The warm-up in [What notes is the ground playing?](notes-of-a-quake.md) | About 5 minutes | Add sine waves together and watch the spectrum find each one |
 
 Students follow the [Wave Race guide](../apps/wave-race.md): it walks them through the app
 step by step. [Quake Waves](../apps/quake-waves.md) has a short guide of its own, and the

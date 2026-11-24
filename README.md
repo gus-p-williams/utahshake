@@ -52,5 +52,6 @@ happen, so they are kept in git but not published on the site.
 ## Data credits
 
 Waveforms: University of Utah Seismograph Stations (network UU), via EarthScope.
-Events: U.S. Geological Survey ComCat. Raspberry Shake network data is not
+Events: U.S. Geological Survey ComCat. Travel times for distant quakes: the iasp91 Earth model
+(Kennett and Engdahl, 1991), via ObsPy TauP. Raspberry Shake network data is not
 redistributed by these apps; see their own tools at raspberryshake.org.

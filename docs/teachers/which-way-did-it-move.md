@@ -7,7 +7,9 @@ how fast the rock carries waves, then locate a quake from a single station.
 
 **Apps used:** [Quake Explorer](../apps/quake-explorer.md), investigation C (particle motion),
 plus A in the full period · [How P and S waves move rock](../theory/waves.md#two-body-waves) (the
-warm-up animation) · [Wave Race](../apps/wave-race.md) (done before: distance from S − P)
+warm-up animation)
+
+**Before this:** [Wave Race](../apps/wave-race.md) (distance from S − P)
 
 **Driving question:** Which way did the ground move when the waves arrived, and can one station
 tell us where the quake was?
@@ -150,7 +152,7 @@ C opens at MTPU. The menu lists the three-component stations within 200 km:
 Two more with clear P motion, if you load the 2020 Magna earthquake in C: SPU (69 km) −5°, with a
 one-station location about 9 km off; BGU (82 km) +1°.
 
-**What to expect in general.** In a check of 271 station–quake pairs from 14 Utah quakes, the
+**What to expect in general.** In a check of 271 station–quake pairs from 13 Utah quakes, the
 computer's direction was typically 12–14° off, within 30° about 70% of the time, and pointed the
 wrong way about 1 time in 15. With clear motion only (both trust bars green) it was typically
 10° off. Beyond about 100 km it becomes unreliable: by 130–150 km, which is how far SGU and TMU

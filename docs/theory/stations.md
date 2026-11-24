@@ -46,13 +46,16 @@ The seismograms reach the apps through **EarthScope Data Services**.
 
 The list of quakes and their official locations come from the **USGS earthquake catalog**,
 called **ComCat**. For many Utah quakes, ComCat also holds the P and S picks made by
-University of Utah analysts. Wave Race shows those picks after you reveal the answer.
+University of Utah analysts. Wave Race and Quake Explorer show those picks after you reveal the
+answer; Quake Explorer also shows its own computer picks, marked as such, where analysts made
+none.
 
 ## If the school network blocks the data
 
-Some school networks block the data services. For that, one quake is stored with the site:
-the magnitude 3.3 quake near Junction, Utah, on October 31, 2026 (UTC). In Wave Race, press
-**Use the offline sample** to load it.
+Some school networks block the data services. For that, some quakes are stored with the site.
+In Wave Race, **Use the offline sample** loads the magnitude 3.3 quake near Junction, Utah, on
+October 31, 2026 (UTC). In Quake Explorer, **Use the offline samples** loads six quakes and
+blasts, enough for all four investigations.
 
 ## How to credit the data
 
@@ -64,6 +67,8 @@ apps do:
 - Earthquake locations and analyst picks: U.S. Geological Survey ComCat / University of Utah
   Seismograph Stations.
 - Map data © OpenStreetMap contributors.
+- Travel times for distant quakes: the iasp91 Earth model (Kennett and Engdahl, 1991), via
+  ObsPy TauP.
 - Wind speeds (the wind figure on [Reading a seismogram](seismograms.md)): Milford Municipal
   Airport weather station, via the Iowa Environmental Mesonet.
 

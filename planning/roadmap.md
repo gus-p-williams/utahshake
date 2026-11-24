@@ -2,11 +2,13 @@
 
 Stages follow the order agreed on 2026-11-23: Wave Race + Locator first, then the
 seismic carpet (School Pulse), then the multi-view explorer, then the switch to live
-UHSN data. Each stage ends with working app + docs deployed to GitHub Pages.
+UHSN data. Each stage ends with working app + docs deployed to GitHub Pages. Stage 3 (Quake
+Explorer) was built before Stage 2 (Gus, 2026-11-24; D22).
 
 Until the school Shakes stream, **University of Utah (UU) stations near each Phase I
-school stand in for the school sensors**, configured in one file so the swap is a
-config change.
+school stand in for the school sensors**, configured in one file. The apps read data through
+one `DataSource` interface, so they need no rewrite for the school Shakes; the switch still
+needs the DRI ingest server and a UHSN data source (Stage 4).
 
 ## Stage 0 — Repo, docs site, CI
 
@@ -54,7 +56,7 @@ Added 2026-11-24 (after Gus's review):
       plus screenshots of the picking panel and of the speed/depth settings (`tools/figures/`).
 - [x] "Place my own epicenter": students click the map (or drag a pin) and see the RMS misfit
       live; "Find the best epicenter" still runs the grid search; the reveal reports both.
-- [x] Watch the Waves: cartoon animation of P and S fronts reaching four stations, with
+- [x] Quake Waves (first called Watch the Waves): cartoon animation of P and S fronts reaching four stations, with
       seismograms and S − P circles; embedded on the Locating a quake page.
 
 *Status 2026-11-23:* checked in headless Chrome at Chromebook size (1366×768) by clicking
@@ -78,8 +80,8 @@ station's carpet without help.
 
 ## Stage 3 — Multi-view explorer (Quake Explorer)
 
-Built on the `quake-explorer` branch (plan, Phase 0 results and decisions: `planning/quake-explorer.md`).
-Four investigations, each Predict · Explore · Why? · Check:
+Built and merged 2026-11-24 (decisions D22–D25; plan and Phase 0 results:
+`planning/quake-explorer.md`). Four investigations, each Predict · Explore · Why? · Check:
 
 - [x] A. Record section across many UU stations: P/S rulers, analyst + computer picks, fitted
       lines, the Pg → Pn bend and crust thickness (Magna), reduced time, true ground speed.
@@ -90,7 +92,22 @@ Four investigations, each Predict · Explore · Why? · Check:
 - [x] D. Distant quakes: P/S picks, S − P → distance from an iasp91 table, travel-time chart.
 - [x] Offline samples for all four (2.4 MB, `explorer` list).
 - [x] Docs: hub/guide, three science pages, four activity cards, standards, developer notes.
+- [x] Build a Wiggle: cartoon of sine waves adding up and the spectrum finding each one,
+      embedded on Frequencies, fading and sound (no hub; listed under Animations).
+- [ ] A person listens to B's sound on a school device (checked only in code so far).
 - [ ] A classroom trial with a teacher (each investigation's 15-minute version).
+
+**Done when:** a class on Chromebooks can run each investigation's 15-minute version, live or
+offline, and reach the answer key's result.
+
+## Across all stages: plots students learn to read
+
+The evaluation lists 12 plots. On the site: waveform, spectrogram, record section, particle
+motion, audification, amplitude against distance, spectra.
+
+- [ ] The other six as real-data figures on a science page (plots session, branch `plots`):
+      helicorder, PPSD against the Peterson noise models, seismic carpet (a static preview;
+      the app is Stage 2), event stack, H/V ratio, cross-correlation.
 
 ## Stage 4 — Switch to UHSN data
 
@@ -117,15 +134,17 @@ cards. Every app gets at least one card.
   - The Teachers page's activities table becomes the catalog (Activity · Apps used · Setup ·
     Time · Standards). Each card gets a row in "Utah standards at a glance".
   - Each app hub's "For teachers" line lists every card that uses the app.
-  - Past about five cards, group them in the sidebar under Teachers › Activity cards (D17:
-    revisit the layout if the sidebar passes about 35 entries).
+  - [x] Past about five cards, group them in the sidebar under Teachers › Activity cards (done
+    with Quake Explorer, D25; D17: revisit the layout if the sidebar passes about 35 entries).
+  - Still to do (teacher-cards session): the "At a glance" boxes, the catalog, the hub lines.
 - [ ] Quake Waves: a short card of its own (proposed: a 10-minute predict-and-watch demo for a
       physics waves unit), besides its role as the Wave Race warm-up.
 - [x] Quake Explorer: one card per investigation (A–D) and a full-period lesson chaining A and
       C (`planning/quake-explorer.md` §5).
 - [ ] School Pulse: card(s) with Stage 2.
 - [ ] Activities with no app (campus experiments, phone activities): cards for the starter set
-      that Gus, Dale and Cleat choose from `planning/activities.md` (being written).
+      that Gus, Dale and Cleat choose from `planning/activities.md` (the questions document sent
+  to Dale and Cleat; D27).
 
 ## Later
 

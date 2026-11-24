@@ -14,10 +14,6 @@ Every app runs in any browser, including Chromebooks. No install, no accounts.
     [Open Wave Race](../app/wave-race/index.html){ .md-button .md-button--primary }
     [Wave Race guide](wave-race.md)
 
-- **School Pulse** (coming soon)
-
-    See the daily rhythm of a school in its seismic noise: class changes, weekends, holidays.
-
 - **Quake Explorer**
 
     Four investigations with real seismograms: measure how fast the rock is, find the notes
@@ -26,6 +22,10 @@ Every app runs in any browser, including Chromebooks. No install, no accounts.
 
     [Open Quake Explorer](../app/quake-explorer/index.html){ .md-button .md-button--primary }
     [Quake Explorer guide](quake-explorer.md)
+
+- **School Pulse** (coming soon)
+
+    See the daily rhythm of a school in its seismic noise: class changes, weekends, holidays.
 
 </div>
 

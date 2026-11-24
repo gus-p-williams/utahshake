@@ -446,9 +446,10 @@ must do:
   sample is a smooth wave about 100 times too small (not flagged as clipped). The 10 clipped
   Magna stations are labelled.
 
-## 11. Decisions to log at merge (D22 on, in this order)
+## 11. Decisions (logged as D22 to D25, 2026-11-24)
 
-Draft text for `planning/decisions.md`. Numbers are given when the branch lands on `main`.
+Logged in `planning/decisions.md` at the merge, with wording fixes from the merge review. The
+drafts below are kept for the record.
 
 **Quake Explorer: four investigations, each Predict · Explore · Why? · Check.**
 A record section (measure P and S speeds with rulers; the Pg → Pn bend and the crust's

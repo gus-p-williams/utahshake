@@ -4,8 +4,9 @@ Students follow [investigation D in the Quake Explorer guide](../apps/quake-expl
 they see, step by step) and use [Quake Explorer](../app/quake-explorer/index.html?event=us7000qd1y&inv=D).
 
 **Apps used:** [Quake Explorer](../apps/quake-explorer.md), investigation D (distant quakes;
-B and C work for the same quake) · [Wave Race](../apps/wave-race.md) (done before: distance from
-S − P) · a spreadsheet or graph paper for the class chart
+B and C work for the same quake) · a spreadsheet or graph paper for the class chart
+
+**Before this:** [Wave Race](../apps/wave-race.md) (distance from S − P)
 
 **Driving question:** A big quake thousands of kilometres away shakes Utah's seismometers, though
 nobody here feels it. What can its waves tell us about the inside of the Earth?
@@ -119,7 +120,7 @@ that suited a chart in late 2026 (their distances from the schools are approxima
 
 | Quake | USGS event | Distance |
 | --- | --- | --- |
-| Hubbard Glacier, M7.0 | `us6000rsy1` | about 27° |
+| Hubbard Glacier, M7.0, December 6, 2025 | `us6000rsy1` | about 27° |
 | Sand Point, Alaska, M7.3, July 16, 2025 | `us7000qd1y` | 36° |
 | Panama, M7.7, October 9, 2026 | `us6000u18k` | about 42° |
 | Kamchatka, Russia, M8.8, July 29, 2025 | `us6000qw60` | about 59° |

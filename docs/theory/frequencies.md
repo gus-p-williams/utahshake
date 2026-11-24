@@ -222,10 +222,10 @@ limit (about ±32,768 counts), and NOQ hit the limit of its 24-bit recorder. Oth
 [Instrument problems](seismograms.md#instrument-problems)). That is why Quake Explorer uses
 the Junction quake for true ground speed.
 
-!!! note "Coming later: how big was it?"
+!!! note "Going further: how big was it?"
     If you know how fast shaking fades with distance, you can correct each station's peak for
     its distance and compare one quake with another. That is the idea behind **magnitude**.
-    A future app, *How Big Was It?*, will build on it.
+    Seismologists do exactly this to work out a quake's magnitude.
 
 ## Listening to a quake
 

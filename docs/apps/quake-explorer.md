@@ -13,7 +13,7 @@ way it shakes the ground, and what a quake on the far side of the world can tell
     - **Time:** each of the four investigations takes about 15 minutes as a class demo, or a
       full class period (45–55 minutes) in pairs.
     - **Works on:** any browser, including Chromebooks. No install, no accounts.
-    - **The science:** [Travel times and Earth's layers](../theory/travel-times.md) · [Frequencies, fading and sound](../theory/frequencies.md) · [Which way the ground moves](../theory/ground-motion.md) · [Reading a seismogram](../theory/seismograms.md) · [Seismic waves](../theory/waves.md)
+    - **The science:** [Travel times and Earth's layers](../theory/travel-times.md) · [Frequencies, fading and sound](../theory/frequencies.md) · [Which way the ground moves](../theory/ground-motion.md) · [Distance from S minus P](../theory/s-minus-p.md) · [Reading a seismogram](../theory/seismograms.md) · [Seismic waves](../theory/waves.md)
     - **For teachers:** [How fast is the rock?](../teachers/how-fast-is-the-rock.md) · [What notes is the ground playing?](../teachers/notes-of-a-quake.md) · [Which way did the ground move?](../teachers/which-way-did-it-move.md) · [A message from far away](../teachers/far-side-of-the-world.md) · [Standards](../teachers/standards.md#quake-explorer)
     - **Data:** [Our stations and data](../theory/stations.md)
     - **For developers:** [Quake Explorer notes](../developers/quake-explorer.md)

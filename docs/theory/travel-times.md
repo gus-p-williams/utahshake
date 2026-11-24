@@ -254,7 +254,8 @@ leans 3.7 s per 100 km; Pn at 7.78 km/s only 0.36 s per 100 km. In Quake Explore
   moves the answer between 35 and 39 km.
 - **Which picks go in.** Quake Explorer's reveal uses one station for every 12.5 km of
   distance (30 of the 31 stations here), so its numbers differ a little from these: Pn
-  7.67 km/s, the lines crossing at 143 km, and a crust about 36 km thick.
+  7.67 km/s, the lines crossing at 143 km, and a crust about 36 km thick. For the Junction quake
+  it uses 23 of the 24 stations and 16 S picks, so it gives P 6.14 and S 3.68 km/s.
 - **The model.** One even crust over the mantle is the simplest model there is. The Pg line in
   Figure 3 starts at 1.2 s, not 0 s. If that is a delay every P wave picks up (for example in
   slow rock near the surface), it should come off the Pn intercept too, and the crust comes

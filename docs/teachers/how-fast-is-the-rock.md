@@ -3,8 +3,9 @@
 Students follow [investigation A in the Quake Explorer guide](../apps/quake-explorer.md#a) (what
 they see, step by step) and use [Quake Explorer](../app/quake-explorer/index.html?event=uu80162166&inv=A).
 
-**Apps used:** [Quake Explorer](../apps/quake-explorer.md), investigation A (the record section) ·
-[Wave Race](../apps/wave-race.md) (done before: this lesson answers "where did 5.8 and 3.3 km/s
+**Apps used:** [Quake Explorer](../apps/quake-explorer.md), investigation A (the record section)
+
+**Before this:** [Wave Race](../apps/wave-race.md) (this lesson answers "where did 5.8 and 3.3 km/s
 come from?")
 
 **Driving question:** How fast do waves travel through the rock under Utah, and how deep does
@@ -145,6 +146,10 @@ if students compare.
 Ten records are **clipped** (the sensor reached its limit, so the trace has flat tops): NOQ,
 HRU, GMU, MTUT, ELU, FSU, ARGU, WCU, NMU and ARUT. That is why **Wiggles** offers "true ground
 speed (not for this quake)". P can still be picked on clipped records.
+
+**SGU** (Gunnison Valley's stand-in, 178 km) shows no quake and has no pick. In 2020 it had an
+older short-period sensor, and its record that day is about 100 times too small (Figure 3 on
+[Travel times and Earth's layers](../theory/travel-times.md)).
 
 ## Common difficulties
 

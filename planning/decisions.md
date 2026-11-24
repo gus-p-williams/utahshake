@@ -2,6 +2,64 @@
 
 Newest first. Each entry: date, decision, why, consequences.
 
+## 2026-11-24 (Quake Explorer; planning documents)
+
+**D27. `planning/evaluation.md` is the canonical project overview; two Word documents go to
+Dale and Cleat.** Gus, 2026-11-24. The repo copy replaces the living claude.ai planning doc,
+which is deleted once the rewrite lands. The overview is being rewritten around current
+status: what we are trying to do (teach by doing, with real, local data), what is live, how
+science pages, activity cards and apps link, Utah standards, data rules. Detail moves to
+appendices, and open decisions move to the questions document, `planning/activities.md`. The
+Word copies ("Raspberry Shake in Utah High Schools … Concepts.docx" and "UHSN activities by
+setup.docx") are built from the Markdown with `tools/planning-docx/md_to_docx.py`. An outside
+review (`planning/co-pi-review-2026-11-24.md`, Codex) is input to both rewrites, not a
+decision.
+
+**D26. Installed Shakes are fixed stations (working assumption).** Gus, 2026-11-24. No
+activity moves, re-levels, unplugs or re-orients a school's installed Shake: activities move
+the *source* (drops, jumps, sounds at measured spots) or add a *second* sensor (a roaming
+Shake, phones). Moving one would break its continuous record and its registered location.
+Revisit if DRI says a school has a spare unit (Juab has two Shakes).
+
+**D25. Teacher cards for Quake Explorer: one per investigation.** The full-period lesson that
+chains A and C (speeds, then locating a quake from one station) is the full-period version of
+the C card. With five cards, the Teachers sidebar groups them under "Activity cards". Wave
+Race appears on these cards as "Before this", not as an app the lesson uses, so the D19 rule
+(each hub lists every card that uses its app) holds. The cards' "At a glance" boxes are still
+to come, with the Wave Race card's.
+
+**D24. Quake Explorer's offline samples and travel times.** Six samples (2.4 MB) in their own
+`explorer` list in `samples/index.json`, so Wave Race's sample and test are unchanged;
+`SampleSource` offers only the requested quake's stations. Each sample keeps full channel
+metadata, labelled computer picks and the command that made it. Distant-quake travel times
+come from a precomputed iasp91 table (39 KB, ObsPy TauP), because the EarthScope/IRIS
+travel-time service has been retired.
+
+**D23. What the data support in Quake Explorer, and how the app shows it.** Approved by Gus
+(Phase 0, `planning/quake-explorer.md` section 9). Pn and the Moho are taught with Magna 2020:
+Pg about 6.2 → Pn about 7.7–7.8 km/s, crust about 36–37 km (the app's reveal, 30 stations:
+6.22 → 7.67 km/s, 36 km; the science page, all 31: 6.17 → 7.78 km/s, 37 km). The bend is
+shown only when clear (F > 12, at least 8 far stations, Pn between 7.2 and 8.6 km/s and
+within 0.3 km/s), so Junction gets a hint. Computer (AIC) picks fill in where the analysts
+made none (P beyond about 180 km, and most S picks), shown when P SNR ≥ 8 and labelled as
+computer picks; differences from analyst picks are discussion material, not errors (Gus).
+Particle motion: 1–5 Hz, window P − 0.05 s to P + 0.5 s, "usually within about 15° for
+stations within about 100 km". "True ground speed" only when no station clipped (flat-top
+detection) and m/s is known for at least 80% of stations. Reduced time is an optional
+advanced toggle. Quake Explorer only converts counts to m/s; magnitude is left to a possible
+future app (not on the roadmap).
+
+**D22. Quake Explorer: four investigations, each Predict · Explore · Why? · Check.**
+A record section (measure P and S speeds with rulers; the Pg → Pn bend and the crust's
+thickness), B spectrogram and sound (drag-a-band filter; near vs far; quarry blast vs quake),
+C particle motion (own guess, then the computer's and the true direction; one-station
+location), D distant quakes (P and S picks; S − P → distance from an Earth model; travel-time
+chart). Check stays off until a prediction is chosen; predictions stay in `localStorage`.
+Built before School Pulse (Gus, 2026-11-24), which changes the stage order of 2026-11-23.
+With it came three science pages (Travel times and Earth's layers; Frequencies, fading and
+sound; Which way the ground moves) and the Build a Wiggle animation (`app/build-a-wiggle/`,
+no hub, embedded on Frequencies and listed under Animations).
+
 ## 2026-11-24 (Stage 1 additions)
 
 Numbering: an entry takes the next free number when it lands on `main`. Branches and parallel
