@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 572" width="760" height="572" role="img" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
-<title>The misfit map: Wave Race’s grid search</title>
+<title>The misfit map: Quake Locator’s grid search</title>
 <desc>Map of the RMS misfit for every possible epicenter, light where the circles fit well and dark where they fit badly. A long light valley holds the best fit; the rough-uncertainty contour encloses the points within 1.5 km of the best RMS.</desc>
 <defs><clipPath id="mm-map"><rect x="12" y="44" width="357.9" height="476" rx="4"/></clipPath><clipPath id="mm-inset"><rect x="395.89473684210526" y="284" width="236" height="236" rx="4"/></clipPath></defs>
 <rect x="0.5" y="0.5" width="759" height="571" rx="8" fill="#ffffff" stroke="#d9dde3"/>
-<text x="12" y="22" font-size="15" font-weight="600" fill="#111827">The misfit map: Wave Race’s grid search</text>
+<text x="12" y="22" font-size="15" font-weight="600" fill="#111827">The misfit map: Quake Locator’s grid search</text>
 <g clip-path="url(#mm-map)">
 <rect x="12" y="44" width="357.9" height="476" fill="#08519c"/>
 <path d="M10.2 521.8L10.2 42.2L371.7 42.2L371.7 521.8Z" fill="#1562a9" fill-rule="evenodd"/>
@@ -163,5 +163,5 @@
 <text x="657.9" y="376" font-size="12" fill="#111827">0.05 km</text>
 <text x="657.9" y="391" font-size="12" fill="#111827">grid</text>
 <text x="14" y="542" font-size="12" fill="#5b6472">Real data: M3.3 quake near Junction, Utah, uu80162166; University of Utah analyst picks (network UU) at MTPU, TCRU and WCU.</text>
-<text x="14" y="559" font-size="12" fill="#5b6472">The RMS of the three residuals at every point, with P 5.8 km/s, S 3.3 km/s, depth 8 km (Wave Race defaults). Best fit: RMS 0.3 km.</text>
+<text x="14" y="559" font-size="12" fill="#5b6472">The RMS of the three residuals at every point, with P 5.8 km/s, S 3.3 km/s, depth 8 km (Quake Locator defaults). Best fit: RMS 0.3 km.</text>
 </svg>

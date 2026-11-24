@@ -1,6 +1,6 @@
 // Offline data bundled with the site (docs/app/data/samples/), for school
 // networks that block or throttle the live services. Same interface as the
-// live source. Samples are made by tools/samples/fetch-sample.mjs (Wave Race)
+// live source. Samples are made by tools/samples/fetch-sample.mjs (Quake Locator)
 // and tools/quake-explorer/make-sample.mjs (Quake Explorer).
 import { distanceKm } from '../lib/geo.js';
 import { parseMiniseed } from './mseed.js';
@@ -13,7 +13,7 @@ export class SampleSource {
   /**
    * @param {URL} [base] folder holding index.json
    * @param {{list?: string, fetch?: (url: URL) => Promise<Response>}} [opt]
-   *   list: which list in index.json to use: "samples" (Wave Race, the default)
+   *   list: which list in index.json to use: "samples" (Quake Locator, the default)
    *   or "explorer" (Quake Explorer's samples, which have more stations and
    *   longer windows; each folder's sample.json says "kind": "explorer").
    *   fetch: replacement for the browser's fetch (node tests read files).

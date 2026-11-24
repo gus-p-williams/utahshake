@@ -6,7 +6,7 @@
 // so its notes become audible. The check compares a near and a far station (high notes fade
 // first) and, for the Leamington pair, a quarry blast with an earthquake of the same size.
 import { TraceView } from '../ui/trace-view.js';
-import { SpectrogramView, followTraceView } from './spectrogram-view.js';
+import { SpectrogramView, followTraceView, fmtBandHz as fHz } from './spectrogram-view.js';
 import { QuakeAudio } from './audio.js';
 import { loadStation, trimToData } from './data.js';
 import { fillStationSelect } from './station-select.js';
@@ -21,7 +21,8 @@ import { distanceKm } from '../lib/geo.js';
 import { esc } from '../ui/page.js';
 
 const $ = (id) => document.getElementById(id);
-const fHz = (f) => (f >= 1 ? f.toFixed(f >= 10 ? 0 : 1) : f.toPrecision(2));
+/** The band as text: "1.0–10 Hz", or "all notes" when there is none (Escape or a double-click). */
+const bandText = (b) => (b.lo && b.hi ? `${fHz(b.lo)}–${fHz(b.hi)} Hz` : 'all notes');
 
 /** Mean of a spectrum's amplitudes between f0 and f1 Hz. */
 function bandMean(spec, f0, f1) {
@@ -79,9 +80,10 @@ export function createB(ctx) {
         { value: 'same', label: 'Both the same: it is the same quake' },
       ],
     },
-    explore: `<p>The coloured picture is a <b>spectrogram</b>: time across, frequency (pitch) up,
-      colour = how strong. Drag up or down on it to choose a band of notes: the record above
-      keeps only those notes.</p>
+    explore: `<p><b>Drag on the spectrogram</b> (the colored picture) to choose a band of notes:
+      the record above keeps only those notes. Drag the band's top or bottom edge to change it;
+      double-click to keep all notes.</p>
+      <p>A <b>spectrogram</b> shows time across, frequency (pitch) up, and color = how strong.</p>
       <p>Find the band where the quake stands out most. Then press <b>▶ Listen</b> and try
       <b>Nearest</b> and <b>Farthest</b>.</p>`,
     why: `<p>Every wiggle is a mix of notes (frequencies). Each time the rock squeezes back and
@@ -165,7 +167,7 @@ export function createB(ctx) {
     const start = (st.startMs - st.refMs) / 1000;
     const dur = st.z.length / st.sampleRate;
     const y = filteredData({ data: st.z, sampleRate: st.sampleRate }, band);
-    tv.setData([{ label: `${ctx.label(st.label)} · up (Z) · ${fHz(band.lo)}–${fHz(band.hi)} Hz`, data: y,
+    tv.setData([{ label: `${ctx.label(st.label)} · up (Z) · ${bandText(band)}`, data: y,
       startMs: st.startMs, sampleRate: st.sampleRate }], st.refMs, start, start + dur, keepView);
     const p = st.arr.P?.tSec ?? (isDistant() ? null : st.distKm / 6.1);
     let stands = null;
@@ -178,7 +180,7 @@ export function createB(ctx) {
     const speed = Number($('b-speed').value) || Q.frequencies.defaultSpeedUp;
     const ar = audibleRange(st.rawRate, speed);
     steps.readout.innerHTML = `
-      <div><span>Band</span><b>${fHz(band.lo)}–${fHz(band.hi)} Hz</b></div>
+      <div><span>Band</span><b>${bandText(band)}</b></div>
       <div><span>Quake ÷ noise in this band</span><b>${stands ? `×${stands >= 10 ? Math.round(stands) : stands.toFixed(1)}` : '–'}</b></div>
       <div><span>At ${speed}×, 1 Hz sounds like</span><b>${ar.oneHzHeardAs} Hz</b></div>
       <div><span>The sensor's top note (${ar.nyquistHz} Hz) becomes</span><b>${Math.round(ar.nyquistHeardHz).toLocaleString('en-US')} Hz</b></div>`;
@@ -312,7 +314,7 @@ export function createB(ctx) {
       if (steps.prediction()) rows.push(['prediction', steps.predictionLabel(), '', '']);
       if (st) {
         rows.push(['station', st.label, '', `${Math.round(st.distKm)} km`]);
-        rows.push(['band', `${fHz(band.lo)}-${fHz(band.hi)}`, 'Hz', '']);
+        rows.push(['band', band.lo && band.hi ? `${fHz(band.lo)}-${fHz(band.hi)}` : 'all notes', band.lo && band.hi ? 'Hz' : '', '']);
         if (lastStands) rows.push(['quake ÷ noise in the band', lastStands.toFixed(1), '', '']);
       }
       for (const r of checked || []) {

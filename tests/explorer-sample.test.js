@@ -34,7 +34,7 @@ function load(d) {
     picks: json(d, 'picks.json'), computer: json(d, 'computer-picks.json') };
 }
 
-test('Wave Race and Quake Explorer samples are listed separately', () => {
+test('Quake Locator and Quake Explorer samples are listed separately', () => {
   assert.ok(index.samples.includes('uu80162166'));
   assert.ok(Array.isArray(index.explorer) && index.explorer.length >= 1);
   for (const d of index.explorer) assert.ok(!index.samples.includes(d));

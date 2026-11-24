@@ -1,0 +1,143 @@
+<!doctype html>
+<!-- The overview's data diagram, planning/img/overview-architecture.png (evaluation.md, Appendix C, Figure 4).
+     Render with: node tools/planning-docx/overview-images.mjs arch -->
+<html><head><meta charset="utf-8">
+<style>
+  html, body { margin: 0; background: #fff; }
+  svg { display: block; font-family: "Segoe UI", Arial, sans-serif; }
+  .title { font-size: 27px; font-weight: 600; fill: #111; }
+  .sub { font-size: 18px; fill: #555; }
+  .col { font-size: 16px; font-weight: 600; fill: #666; letter-spacing: 0.06em; }
+  .h { font-size: 20px; font-weight: 600; fill: #111; }
+  .t { font-size: 17px; fill: #444; }
+  .small { font-size: 16px; fill: #555; }
+  .plan { font-size: 16px; font-weight: 600; fill: #b45309; letter-spacing: 0.04em; }
+  .box { fill: #fff; stroke: #bdbdb5; stroke-width: 2; }
+  .blue { fill: #f1f6fd; stroke: #2a6fd6; stroke-width: 3; }
+  .ds { fill: #fff; stroke: #2a6fd6; stroke-width: 2; }
+  .dash { fill: #fffaf3; stroke: #d08a3a; stroke-width: 2; stroke-dasharray: 8 6; }
+  .region { fill: none; stroke: #d08a3a; stroke-width: 2; stroke-dasharray: 10 7; }
+  .line { fill: none; stroke: #9a9a92; stroke-width: 2; }
+  .lineb { fill: none; stroke: #2a6fd6; stroke-width: 2; }
+  .lined { fill: none; stroke: #d08a3a; stroke-width: 2; stroke-dasharray: 8 6; }
+  .dot { fill: none; stroke: #9a9a92; stroke-width: 2; stroke-dasharray: 3 5; }
+</style></head>
+<body>
+<svg width="1320" height="975" viewBox="0 0 1320 975" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9a9a92"/></marker>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2a6fd6"/></marker>
+    <marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d08a3a"/></marker>
+  </defs>
+
+  <text class="title" x="40" y="44">How the apps get their data: built today, and the planned path to school data</text>
+  <text class="sub" x="40" y="74">Solid boxes are built and live. Dashed orange boxes are planned (roadmap Stages 2 and 4).</text>
+
+  <!-- column headers -->
+  <text class="col" x="40" y="118">OPEN DATA (USED TODAY)</text>
+  <text class="col" x="440" y="118">IN THE STUDENT'S BROWSER</text>
+  <text class="col" x="980" y="118">PLANNED PRODUCT</text>
+
+  <!-- column 1: open data -->
+  <rect class="box" x="40" y="130" width="330" height="104" rx="10"/>
+  <text class="h" x="62" y="165">EarthScope</text>
+  <text class="t" x="62" y="193">University of Utah (UU) stations:</text>
+  <text class="t" x="62" y="217">seismograms, station lists</text>
+
+  <rect class="box" x="40" y="252" width="330" height="104" rx="10"/>
+  <text class="h" x="62" y="287">USGS earthquake catalog</text>
+  <text class="t" x="62" y="315">quake lists, official locations,</text>
+  <text class="t" x="62" y="339">analyst picks</text>
+
+  <rect class="box" x="40" y="374" width="330" height="104" rx="10"/>
+  <text class="h" x="62" y="409">Offline samples</text>
+  <text class="t" x="62" y="437">stored with the site, for school</text>
+  <text class="t" x="62" y="461">networks that block the services</text>
+
+  <!-- bus into DataSource -->
+  <path class="line" d="M370,182 H408 M370,304 H408 M370,426 H408 M408,182 V426"/>
+  <path class="line" d="M408,247 H462" marker-end="url(#ag)"/>
+
+  <!-- column 2: browser -->
+  <rect class="blue" x="440" y="130" width="485" height="405" rx="12"/>
+  <text class="h" x="465" y="165">Static website on GitHub Pages</text>
+  <text class="small" x="465" y="190">browser only, no install, no accounts; picks stay on the device</text>
+
+  <rect class="ds" x="465" y="212" width="435" height="66" rx="8"/>
+  <text class="h" x="485" y="240">DataSource</text>
+  <text class="t" x="485" y="265">one interface in front of every data service</text>
+
+  <path class="lineb" d="M537,278 V308" marker-end="url(#ab)"/>
+  <path class="lineb" d="M682,278 V308" marker-end="url(#ab)"/>
+  <path class="lined" d="M828,278 V308" marker-end="url(#ao)"/>
+
+  <rect class="box" x="465" y="310" width="142" height="84" rx="8"/>
+  <text class="h" x="482" y="346">Quake</text>
+  <text class="h" x="482" y="371">Locator</text>
+  <rect class="box" x="611" y="310" width="142" height="84" rx="8"/>
+  <text class="h" x="626" y="346">Quake</text>
+  <text class="h" x="626" y="371">Explorer</text>
+  <rect class="dash" x="757" y="310" width="143" height="84" rx="8"/>
+  <text class="h" x="772" y="346">School Pulse</text>
+  <text class="small" x="772" y="372">Stage 2</text>
+
+  <text class="t" x="465" y="430">Also on the site, no data service needed:</text>
+  <text class="t" x="465" y="455">Quake Waves and two other animations,</text>
+  <text class="t" x="465" y="480">science pages, student guides, teacher cards</text>
+  <text class="t" x="465" y="505">Every page that shows data credits its source.</text>
+
+  <!-- column 3: scheduled job -->
+  <rect class="dash" x="980" y="130" width="300" height="132" rx="10"/>
+  <text class="h" x="1000" y="165">Scheduled job</text>
+  <text class="t" x="1000" y="193">for School Pulse (Stage 2):</text>
+  <text class="t" x="1000" y="217">hourly noise levels saved to</text>
+  <text class="t" x="1000" y="241">the site as small data files</text>
+  <path class="lined" d="M980,196 H929" marker-end="url(#ao)"/>
+
+  <!-- link-out to Raspberry Shake -->
+  <path class="dot" d="M925,470 H1135 V688" marker-end="url(#ag)"/>
+  <text class="small" x="1148" y="560">students</text>
+  <text class="small" x="1148" y="582">link out</text>
+
+  <!-- row 2: school shakes -->
+  <rect class="box" x="40" y="640" width="290" height="150" rx="10"/>
+  <text class="h" x="62" y="675">School Shakes (x5)</text>
+  <text class="t" x="62" y="703">installed at the UHSN schools;</text>
+  <text class="t" x="62" y="727">not yet read by our apps</text>
+  <text class="small" x="62" y="760">(model to be confirmed)</text>
+
+  <!-- planned region -->
+  <rect class="region" x="360" y="592" width="580" height="290" rx="14"/>
+  <text class="plan" x="380" y="622">PLANNED, STAGE 4: SCHOOL DATA</text>
+
+  <rect class="dash" x="385" y="645" width="200" height="140" rx="10"/>
+  <text class="h" x="403" y="680">Forwarder</text>
+  <text class="t" x="403" y="708">rsudp or a small Pi</text>
+  <text class="t" x="403" y="732">at the school;</text>
+  <text class="t" x="403" y="756">outbound HTTPS only</text>
+
+  <rect class="dash" x="625" y="645" width="290" height="210" rx="10"/>
+  <text class="h" x="645" y="680">UHSN server (DRI)</text>
+  <text class="t" x="645" y="710">ingest and archive</text>
+  <text class="t" x="645" y="736">processing: noise levels,</text>
+  <text class="t" x="645" y="760">triggers, picks</text>
+  <text class="t" x="645" y="788">data API, read by a new</text>
+  <text class="t" x="645" y="812">"UHSN" DataSource that</text>
+  <text class="t" x="645" y="836">replaces the stand-ins</text>
+
+  <path class="lined" d="M330,715 H382" marker-end="url(#ao)"/>
+  <path class="lined" d="M585,715 H622" marker-end="url(#ao)"/>
+  <path class="lined" d="M860,645 V539" marker-end="url(#ao)"/>
+
+  <!-- raspberry shake servers -->
+  <rect class="box" x="975" y="690" width="315" height="150" rx="10"/>
+  <text class="h" x="995" y="725">Raspberry Shake servers</text>
+  <text class="t" x="995" y="753">StationView, DataView, ShakeNet</text>
+  <text class="t" x="995" y="777">Their license: our apps never</text>
+  <text class="t" x="995" y="801">read or copy this data</text>
+
+  <!-- school shakes to raspberry shake -->
+  <path class="line" d="M185,790 V915 H1135 V843" marker-end="url(#ag)"/>
+  <text class="small" x="390" y="948">School Shakes that share their data send it to Raspberry Shake (outbound TCP 55555 and 55556)</text>
+</svg>
+</body></html>

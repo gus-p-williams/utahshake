@@ -54,7 +54,10 @@ export const EXPLORER_PRESETS = [
   { id: 'uu80162166', sample: 'qe-junction', views: ['record-section', 'frequencies', 'motion'], station: 'MTPU',
     label: '2026 Junction quake (M3.3)', note: 'the worked example' },
   { id: 'uu60363602', sample: 'qe-magna', views: ['record-section', 'motion'], sectionKm: 400, station: 'SPU',
-    label: '2020 Magna earthquake (M5.7)', note: 'a bigger quake: look for the bend at 150 km' },
+    label: '2020 Magna earthquake (M5.7)', note: 'a bigger quake: look for the bend at 150 km',
+    stationNotes: {
+      SGU: "in 2020 its record is about 100 times weaker than its neighbors'; no clear quake",
+    } },
   { id: 'uu80161881', sample: 'qe-leamington-blast', views: ['frequencies'], pair: 'uu80120191', station: 'SUU',
     label: '2026 quarry blast near Leamington (M2.1)', note: 'compare with the quake 13 km away' },
   { id: 'uu80120191', sample: 'qe-leamington-quake', views: ['frequencies'], pair: 'uu80161881', station: 'SUU',
@@ -64,6 +67,20 @@ export const EXPLORER_PRESETS = [
   { id: 'us7000qd1y', sample: 'qe-sand-point', views: ['distant', 'frequencies', 'motion'], station: 'SGU',
     label: '2025 Sand Point, Alaska earthquake (M7.3)', note: 'P, S and surface waves from 4,000 km away' },
 ];
+
+/**
+ * Notes on particular stations' records for one quake (a preset's stationNotes),
+ * for the stations that are shown, as "STA: note" lines. Investigation A lists
+ * them beside the clipped stations.
+ * @param {string} eventId
+ * @param {string[]} stations station codes on the page
+ * @returns {string[]}
+ */
+export function stationNotes(eventId, stations) {
+  const notes = EXPLORER_PRESETS.find((p) => p.id === eventId)?.stationNotes;
+  if (!notes) return [];
+  return [...new Set(stations)].filter((s) => notes[s]).map((s) => `${s}: ${notes[s]}`);
+}
 
 /** Settings for distant quakes (investigation D). */
 export const DISTANT = {

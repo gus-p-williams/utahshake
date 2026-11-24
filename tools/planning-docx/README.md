@@ -23,8 +23,20 @@ repeating header row (so reply columns can be filled in). It replaces the export
 above for these files.
 
 ```bash
-python -I tools/planning-docx/md_to_docx.py planning/activities.md "planning/UHSN activities by setup.docx" <path to pandoc>
+python -I tools/planning-docx/md_to_docx.py planning/activities.md "planning/UHSN questions - classroom activities by setup.docx" <path to pandoc>
+python -I tools/planning-docx/md_to_docx.py planning/evaluation.md "planning/UHSN overview - student apps and activities.docx" <path to pandoc>
 ```
 
 Pandoc sizes table columns by the length of the `---` runs in each column's separator line, so
 widen a run to widen its column. Images must be PNG (or JPEG) to show in Word.
+
+## Overview images
+
+Two of the overview's figures are made in headless Chrome by `overview-images.mjs`: the data
+diagram (`overview-architecture.png`, drawn in `overview-architecture.html`) and the Quake Waves
+screenshot (`overview-quake-waves.png`, needs `node tools/serve.mjs` running). It uses
+puppeteer-core from `tools/figures` (`npm install` there once).
+
+```bash
+node tools/planning-docx/overview-images.mjs        # both, or name one: arch or qw
+```

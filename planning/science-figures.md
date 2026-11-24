@@ -15,7 +15,7 @@ https://claude.ai/artifact/Q314GDdZvGNXHTznCLaWKQ
 | `theory/stations.md` | D1 schools and stand-in stations map |
 | `apps/wave-race.md` | O2 step 1 screenshot (guide figures renumbered 1–6) |
 
-"Picking S is hard" text (analysts picked P at 9 stations, S at only 3) is in the Wave Race
+"Picking S is hard" text (analysts picked P at 9 stations, S at only 3) is in the Quake Locator
 guide tip, Reading a seismogram (moved there from Seismic waves), the S2 caption and the
 teacher card's Common difficulties.
 

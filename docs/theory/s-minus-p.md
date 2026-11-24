@@ -1,6 +1,6 @@
 # Distance from S minus P
 
-**Used in:** [Wave Race](../apps/wave-race.md) · [Quake Explorer](../apps/quake-explorer.md) · [Quake Waves](../apps/quake-waves.md)
+**Used in:** [Quake Locator](../apps/wave-race.md) · [Quake Explorer](../apps/quake-explorer.md) · [Quake Waves](../apps/quake-waves.md)
 
 [P and S waves](waves.md) leave the quake at the same moment. P is faster, so it wins the
 race; the farther the station, the bigger P's lead. Measuring that lead gives the distance.
@@ -52,7 +52,7 @@ $$
 k = \frac{6.0 \times 3.5}{6.0 - 3.5} = 8.4 \text{ km/s}
 $$
 
-[Wave Race](../apps/wave-race.md#changing-the-speeds-and-depth) uses \(V_P = 5.8\) km/s and
+[Quake Locator](../apps/wave-race.md#changing-the-speeds-and-depth) uses \(V_P = 5.8\) km/s and
 \(V_S = 3.3\) km/s instead, which gives
 \(k \approx 7.66\) km/s. We chose these by checking real Utah quakes. For three quakes in
 2026, we took the University of Utah analysts' P and S picks and the official locations.
@@ -94,7 +94,7 @@ $$
   6 km) and a far station's hardly at all (80 km becomes 79.6 km).</figcaption>
 </figure>
 
-Utah quakes are mostly 2–15 km deep, so Wave Race assumes 8 km (you can change it). Depth
+Utah quakes are mostly 2–15 km deep, so Quake Locator assumes 8 km (you can change it). Depth
 matters for close stations and hardly at all for far ones. For a station 10 km away it
 shrinks the circle to 6 km; for one 80 km away, to 79.6 km.
 

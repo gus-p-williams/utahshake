@@ -18,7 +18,7 @@ way it shakes the ground, and what a quake on the far side of the world can tell
     - **Data:** [Our stations and data](../theory/stations.md)
     - **For developers:** [Quake Explorer notes](../developers/quake-explorer.md)
 
-In [Wave Race](wave-race.md) you were *given* two numbers: P waves travel 5.8 km/s and S waves
+In [Quake Locator](wave-race.md) you were *given* two numbers: P waves travel 5.8 km/s and S waves
 3.3 km/s. Where do numbers like that come from? In Quake Explorer you measure them yourself,
 and more: how thick the crust under Utah is, why far-away quakes sound like a low rumble,
 which way the ground moved, and how long a wave takes to cross the planet. Every answer
@@ -30,8 +30,8 @@ comes from real seismograms, and you can check it against the professionals'.
     "TMU (Wasatch Academy)", and they are drawn in orange in the record section.
     [Our stations and data](../theory/stations.md) lists the stand-in for each school.
 
-!!! tip "Do Wave Race first"
-    Quake Explorer builds on [Wave Race](wave-race.md): picking P and S, and turning the time
+!!! tip "Do Quake Locator first"
+    Quake Explorer builds on [Quake Locator](wave-race.md): picking P and S, and turning the time
     between them into a distance. If P and S waves are new to you, start there.
 
 ## How every investigation works
@@ -113,14 +113,17 @@ One station's record (top) sits above its **spectrogram** (bottom): time across,
 introduces spectrograms.
 
 <figure markdown="span">
-  ![Investigation B for the Junction quake at station MTPU, 29 km away. Top: the seismogram filtered 1 to 10 Hz, flat until P at 5 seconds, then a burst that fades by 40 seconds. Below: the spectrogram, dark before 5 seconds, then green and yellow from about 1 to 20 Hz. A bright band from 1 to 10 Hz is marked by two lines; outside it the picture is dimmed. The panel lists Band 1.0 to 10 Hz, how many times the quake is stronger than the noise in that band, and what a 1 Hz wave sounds like at 100 times speed.](img/qe-b-spectrogram.png){ loading=lazy }
+  ![Investigation B for the Junction quake at station MTPU, 29 km away. Top: the seismogram filtered 1 to 10 Hz, flat until P at 5 seconds, then a burst that fades by 40 seconds. Below: the spectrogram, dark before 5 seconds, then green and yellow from about 1 to 20 Hz. A bright band from 1 to 10 Hz is marked by two lines, each with a white handle in the middle; outside it the picture is dimmed. A blue label at the top of the spectrogram says "Drag up or down to choose a band of notes". The panel lists Band 1.0 to 10 Hz, how many times the quake is stronger than the noise in that band, and what a 1 Hz wave sounds like at 100 times speed.](img/qe-b-spectrogram.png){ loading=lazy }
   <figcaption>Figure 3. The Junction quake at station MTPU, 29 km away. The band marked on the
   spectrogram is the filter: the record above keeps only those notes.</figcaption>
 </figure>
 
-- **Choose the notes.** Drag up or down on the spectrogram to mark a band. The record above
-  keeps only those frequencies, and the panel says how many times stronger the quake is than
-  the background noise in that band. Find the band where it stands out most.
+- **Choose the notes.** Drag up or down on the spectrogram to mark a band (the blue label on
+  it says so until you do). The record above keeps only those frequencies, and the panel says
+  how many times stronger the quake is than the background noise in that band. Drag the
+  handle on the band's top or bottom edge to change it; double-click to keep all notes again.
+  Find the band where the quake stands out most. With a keyboard: click the spectrogram, then
+  ↑ ↓ move the top edge, Shift + ↑ ↓ the bottom edge, and Esc keeps all notes.
 - **Listen.** Choose a **Speed-up** and press **▶ Listen**. The part of the record on screen
   plays sped up, so its notes become high enough to hear; a cursor moves across the
   spectrogram. Headphones help in class.
@@ -154,7 +157,7 @@ above** (like a map) and **seen from the side**.
    ground moved along and uses "up goes with away" to pick its end.
 4. Press **Show the true direction**. The map then shows the epicenter, and the panel shows
    how one station alone can locate the quake: its direction from the P motion, its distance
-   from S − P, as in Wave Race.
+   from S − P, as in Quake Locator.
 5. Press **S window**, then **Turn to Z R T**: R is along the path to the quake, T is sideways.
    Which one carries the S wave?
 

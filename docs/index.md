@@ -6,20 +6,20 @@ find earthquakes yourself. Everything runs in a browser, including Chromebooks: 
 no accounts.
 
 New here? Watch [Quake Waves](apps/quake-waves.md) first, then try
-[Wave Race](apps/wave-race.md), then [Quake Explorer](apps/quake-explorer.md).
+[Quake Locator](apps/wave-race.md), then [Quake Explorer](apps/quake-explorer.md).
 
 <div class="grid cards" markdown>
 
 - **[Apps](apps/index.md)**
 
-    [Wave Race](apps/wave-race.md): pick P and S waves on real Utah seismograms, turn them
+    [Quake Locator](apps/wave-race.md): pick P and S waves on real Utah seismograms, turn them
     into distances, and locate the quake.
 
     [Quake Explorer](apps/quake-explorer.md): measure how fast the rock is, hear the notes of
     a quake, find which way the ground moved, and read a quake from the far side of the world.
 
     [Quake Waves](apps/quake-waves.md): watch P and S waves race out from a
-    quake to four stations. A good warm-up for Wave Race.
+    quake to four stations. A good warm-up for Quake Locator.
 
     More are coming: see [All apps](apps/index.md).
 
@@ -34,7 +34,8 @@ New here? Watch [Quake Waves](apps/quake-waves.md) first, then try
 
 - **[Teachers](teachers/index.md)**
 
-    Activity cards: [Wave Race](teachers/wave-race-card.md) ·
+    Activity cards: [One quake, two waves](teachers/one-quake-two-waves.md) ·
+    [Quake Locator](teachers/wave-race-card.md) ·
     [How fast is the rock?](teachers/how-fast-is-the-rock.md) ·
     [What notes is the ground playing?](teachers/notes-of-a-quake.md) ·
     [Which way did the ground move?](teachers/which-way-did-it-move.md) ·

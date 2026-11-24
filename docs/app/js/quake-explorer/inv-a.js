@@ -7,7 +7,7 @@
 import { RecordSectionView } from './record-section-view.js';
 import { loadRecordSection, sectionFits } from './data.js';
 import { renderSteps } from './steps.js';
-import { QUAKE_EXPLORER as Q } from './config.js';
+import { QUAKE_EXPLORER as Q, stationNotes } from './config.js';
 import { curves } from '../lib/traveltime.js';
 import { esc } from '../ui/page.js';
 
@@ -195,6 +195,8 @@ export function createA(ctx) {
         notes.push(`Clipped (the sensor maxed out, so its true size is unknown): ${clipped.join(', ')}.` +
           ' That is why "true ground speed" is off for this quake.');
       }
+      const special = stationNotes(ctx.event.id, [...data.traces.map((t) => t.label), ...data.missing]);
+      if (special.length) notes.push(`${special.join('. ')}.`);
       if (data.missing.length) notes.push(`No usable data from ${data.missing.join(', ')}.`);
       $('a-note').textContent = notes.join(' ');
       if (revealed) reveal();

@@ -8,14 +8,69 @@
 // followTraceView() below.
 //
 // Students drag up or down on it to choose a band of notes [lo, hi] Hz; the
-// page uses that band as the filter (onBand). setCursor draws the moving line
-// while the sound plays.
+// page uses that band as the filter (onBand). The plot itself says so: a hint
+// at the top ("↕ Drag up or down…") until the student first changes the band,
+// then the band in Hz; grips on the band's edges; a resize cursor. With no band
+// (all notes, after a double-click or Escape) the hint comes back. Without
+// onBand (or with selectBand: false) the view is look-only. setCursor draws the
+// moving line while the sound plays.
 import { niceStep } from '../lib/signal.js';
 import { dbRange } from '../lib/spectral.js';
 
 const AXIS_H = 22; // time axis height, same as TraceView
 const LEGEND_H = 30; // colour bar row under the time axis
-const EDGE_GRAB_PX = 7; // how close (px) to a band edge counts as grabbing it
+/** How close (px) to a band edge counts as grabbing it: a finger is less exact than a mouse. */
+const EDGE_GRAB_PX = Object.freeze({ mouse: 7, pen: 10, touch: 16 });
+const GRIP = { w: 36, h: 12 }; // the handle drawn on each band edge, px
+const LABEL = { h: 21, pad: 9, top: 4, side: 30 }; // the hint / band label at the top, px
+
+/** Grab distance (px) for a pointer type ('mouse', 'pen', 'touch'; anything else counts as a mouse). */
+export function edgeGrabPx(pointerType) {
+  return EDGE_GRAB_PX[pointerType] ?? EDGE_GRAB_PX.mouse;
+}
+
+/**
+ * Which band edge a pointer at height y grabs: 'hi' (the top edge), 'lo' (the bottom
+ * edge) or null. Heights are in px from the top of the plot, so yHi <= yLo. When both
+ * edges are in reach (a thin band), the nearer one wins; on a tie, a pointer below the
+ * band takes the bottom edge and any other the top.
+ * @param {number} y @param {number} yHi @param {number} yLo @param {number} grabPx
+ * @returns {'hi'|'lo'|null}
+ */
+export function bandEdgeAt(y, yHi, yLo, grabPx) {
+  const dHi = Math.abs(y - yHi);
+  const dLo = Math.abs(y - yLo);
+  if (!(Math.min(dHi, dLo) <= grabPx)) return null;
+  if (dHi === dLo) return y > yLo ? 'lo' : 'hi';
+  return dHi < dLo ? 'hi' : 'lo';
+}
+
+/** A band edge in Hz as the readouts write it: 0.05, 0.50, 1.0, 2.5, 10, 19. */
+export function fmtBandHz(f) {
+  return f >= 1 ? f.toFixed(f >= 10 ? 0 : 1) : f.toPrecision(2);
+}
+
+/**
+ * What the label at the top of the plot can say, longest first (the view shows the
+ * first that fits). With no band yet changed by the student, or no band at all (all
+ * notes), it is the how-to hint; otherwise the band and how to change it.
+ * @param {{lo:number, hi:number}|null} band
+ * @param {boolean} learned the student has changed the band at least once
+ * @returns {{hint:boolean, choices:string[]}}
+ */
+export function bandLabel(band, learned) {
+  if (!band || !learned) {
+    return { hint: true, choices: ['↕ Drag up or down to choose a band of notes', '↕ Drag up or down to choose notes', '↕ Drag to choose notes'] };
+  }
+  const r = `${fmtBandHz(band.lo)}–${fmtBandHz(band.hi)} Hz`;
+  return { hint: false, choices: [`${r} · drag an edge to change it · double-click for all notes`,
+    `${r} · drag an edge to change it`, `${r} · drag an edge`, r] };
+}
+
+/** The first text whose width (measure(text), px) is at most maxW; the last one if none fits. */
+export function firstThatFits(choices, maxW, measure) {
+  return choices.find((t) => measure(t) <= maxW) ?? choices[choices.length - 1];
+}
 
 /**
  * Viridis (matplotlib's default colour map), 12 colours from quiet to loud.
@@ -66,6 +121,8 @@ export class SpectrogramView {
    * @param {(lo:number|null, hi:number|null, info:{final:boolean})=>void} [opt.onBand]
    *   called while a band is dragged (final false) and when it is let go (final true);
    *   null, null when the band is cleared
+   * @param {boolean} [opt.selectBand] students can choose a band (default: when onBand is given);
+   *   false = look only (hover readout, no band, no hint)
    */
   constructor(canvas, opt = {}) {
     this.canvas = canvas;
@@ -77,6 +134,9 @@ export class SpectrogramView {
     this.fMaxOpt = opt.fMax;
     this.dbLabel = opt.dbLabel ?? 'dB';
     this.onBand = opt.onBand || (() => {});
+    this.selectable = opt.selectBand ?? !!opt.onBand;
+    this.bandLearned = false; // the student has changed the band (then the hint gives way to the band)
+    this._hotEdge = null; // 'hi' | 'lo': the edge under the mouse or being dragged, its grip lit
     this.spec = null;
     this.offsetSec = 0; // time of data[0], seconds after refMs
     this.full = { from: 0, to: 1 };
@@ -90,7 +150,8 @@ export class SpectrogramView {
     this._image = null; // {canvas, key}
     this._frame = 0;
 
-    canvas.tabIndex = 0;
+    if (this.selectable) canvas.tabIndex = 0; // the arrow keys move the band's edges
+    canvas.style.cursor = this.selectable ? 'ns-resize' : 'crosshair';
     canvas.setAttribute('aria-roledescription', 'spectrogram');
     this._readTheme();
     this._updateAria();
@@ -193,8 +254,11 @@ export class SpectrogramView {
     this._col = {
       bg: v('--trace-bg', '#fff'),
       text: v('--muted', '#6b7280'),
+      strong: v('--text', '#111827'),
       grid: v('--grid', '#e5e7eb'),
       border: v('--border', '#d9dde3'),
+      accent: v('--accent', '#1d4ed8'),
+      accentText: v('--accent-text', '#fff'),
     };
   }
 
@@ -352,7 +416,10 @@ export class SpectrogramView {
       if (this.legend) this._drawLegend(w, plotH + (this.axis ? AXIS_H : 0));
     }
     this._drawCursor(plotH);
-    if (hasData) this._drawHover(w, plotH);
+    if (hasData) {
+      this._drawHover(w, plotH);
+      this._drawBandLabel(w, plotH);
+    }
   }
 
   /** Same ticks and labels as TraceView, so stacked views read the same. */
@@ -428,7 +495,7 @@ export class SpectrogramView {
     ctx.fillText(label, x, y);
   }
 
-  /** The kept band: everything outside it is dimmed, its edges outlined. */
+  /** The kept band: everything outside it is dimmed, its edges outlined, with a grip on each. */
   _drawBand(w) {
     if (!this.band) return;
     const { ctx } = this;
@@ -443,11 +510,87 @@ export class SpectrogramView {
     ctx.restore();
     for (const [y, f] of [[yHi, this.band.hi], [yLo, this.band.lo]]) {
       this._haloLine(0, y, w, y);
-      const label = `${fmtHz(f)} Hz`;
+      const label = `${fmtBandHz(f)} Hz`; // as in the label at the top and the page's readouts
       const tw = ctx.measureText(label).width;
       const ly = y === yHi ? Math.max(9, y - 10) : Math.min(plotH - 9, y + 10);
       this._labelBox(label, w - tw - 8, ly, tw);
     }
+    if (this.selectable) {
+      this._drawGrip(w / 2, this._gripY(yHi), this._hotEdge === 'hi');
+      this._drawGrip(w / 2, this._gripY(yLo), this._hotEdge === 'lo');
+    }
+  }
+
+  /** A grip's center height for an edge at y: kept whole inside the plot. */
+  _gripY(y) { return Math.max(GRIP.h / 2 + 1, Math.min(this._plotH - GRIP.h / 2 - 1, y)); }
+
+  /** A pill-shaped handle with two ridges on a band edge; lit (accent color) while grabbed or under the mouse. */
+  _drawGrip(x, y, hot) {
+    const { ctx } = this;
+    const col = this._col;
+    ctx.save();
+    this._pill(x - GRIP.w / 2, y - GRIP.h / 2, GRIP.w, GRIP.h);
+    ctx.fillStyle = hot ? col.accent : '#fff';
+    ctx.fill();
+    ctx.lineWidth = 1.5;
+    ctx.strokeStyle = 'rgba(0,0,0,0.65)';
+    ctx.stroke();
+    ctx.strokeStyle = hot ? col.accentText : 'rgba(0,0,0,0.6)';
+    ctx.lineWidth = 1;
+    for (const dy of [-2, 2]) {
+      const yy = Math.round(y + dy) + 0.5;
+      ctx.beginPath(); ctx.moveTo(x - 9, yy); ctx.lineTo(x + 9, yy); ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  /** Path of a rectangle with fully rounded ends. */
+  _pill(x, y, w, h) {
+    const { ctx } = this;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(x, y, w, h, h / 2);
+    else ctx.rect(x, y, w, h);
+  }
+
+  /**
+   * The label at the top of the plot: the how-to hint (accent pill) until the student
+   * first changes the band, and whenever there is no band; afterwards the band in Hz.
+   * It moves below the top grip when the band reaches the top of the plot.
+   */
+  _drawBandLabel(w, plotH) {
+    if (!this.selectable) return;
+    const { ctx } = this;
+    const col = this._col;
+    const { hint, choices } = bandLabel(this.band, this.bandLearned);
+    ctx.save();
+    ctx.font = `${hint ? '600 ' : ''}${w >= 600 ? 13 : 12}px system-ui, sans-serif`;
+    const maxW = w - 2 * LABEL.side - 2 * LABEL.pad;
+    const text = firstThatFits(choices, maxW, (t) => ctx.measureText(t).width);
+    const bw = Math.min(w - 4, ctx.measureText(text).width + 2 * LABEL.pad);
+    const x = Math.round((w - bw) / 2);
+    let y = LABEL.top;
+    if (this.band) {
+      const gy = this._gripY(Math.max(0, Math.min(plotH, this._yOfF(this.band.hi))));
+      if (gy - GRIP.h / 2 < y + LABEL.h + 4) y = Math.min(plotH - LABEL.h - 2, gy + GRIP.h / 2 + 6);
+    }
+    this._pill(x, y, bw, LABEL.h);
+    if (hint) {
+      ctx.fillStyle = col.accent;
+      ctx.fill();
+    } else {
+      ctx.globalAlpha = 0.88;
+      ctx.fillStyle = col.bg;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+      ctx.strokeStyle = col.border;
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+    ctx.fillStyle = hint ? col.accentText : col.strong;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(text, w / 2, y + LABEL.h / 2 + 0.5, bw - 2 * LABEL.pad);
+    ctx.restore();
   }
 
   /** A white line with a dark edge: easy to see on every colour of the map. */
@@ -526,13 +669,16 @@ export class SpectrogramView {
 
   // --- interaction ---------------------------------------------------------
   _updateAria() {
-    const band = this.band ? ` Kept notes: ${fmtHz(this.band.lo)} to ${fmtHz(this.band.hi)} Hz.` : ' All notes kept.';
-    this.canvas.setAttribute('aria-label', 'Spectrogram: time across, frequency up, colour shows how strong ' +
-      `each note is.${band} Drag up or down to choose a band of notes; arrow keys move the top edge, ` +
-      'Shift + arrow keys the bottom edge, Escape keeps all notes.');
+    const what = 'Spectrogram: time across, frequency up, color shows how strong each note is.';
+    if (!this.selectable) { this.canvas.setAttribute('aria-label', what); return; }
+    const band = this.band ? ` Kept notes: ${fmtBandHz(this.band.lo)} to ${fmtBandHz(this.band.hi)} Hz.` : ' All notes kept.';
+    this.canvas.setAttribute('aria-label', `${what}${band} Drag up or down to choose a band of notes; ` +
+      'arrow keys move the top edge, Shift + arrow keys the bottom edge, Escape or a double-click keeps all notes.');
   }
 
+  /** Tell the page the band changed; the student has now found out how, so the hint gives way. */
   _emit(final) {
+    this.bandLearned = true;
     this._updateAria();
     if (this.band) this.onBand(this.band.lo, this.band.hi, { final });
     else this.onBand(null, null, { final });
@@ -545,38 +691,39 @@ export class SpectrogramView {
       return { x: e.clientX - r.left - c.clientLeft, y: e.clientY - r.top - c.clientTop };
     };
     const inPlot = (p) => p.y >= 0 && p.y <= this._plotH;
-    // Which band edge (if any) is under the pointer.
-    const edgeAt = (y) => {
-      if (!this.band) return null;
-      const dHi = Math.abs(y - this._yOfF(this.band.hi));
-      const dLo = Math.abs(y - this._yOfF(this.band.lo));
-      if (Math.min(dHi, dLo) > EDGE_GRAB_PX) return null;
-      return dHi <= dLo ? 'hi' : 'lo';
-    };
+    // Which band edge (if any) a pointer of this type at height y grabs.
+    const edgeAt = (y, pointerType) => (this.band
+      ? bandEdgeAt(y, this._yOfF(this.band.hi), this._yOfF(this.band.lo), edgeGrabPx(pointerType))
+      : null);
 
     c.addEventListener('pointerdown', (e) => {
       const p = pos(e);
-      if (!this.spec?.nF || !inPlot(p)) return;
-      const edge = edgeAt(p.y);
+      if (!this.selectable || !this.spec?.nF || !inPlot(p)) return;
+      const edge = edgeAt(p.y, e.pointerType);
       // Dragging an edge keeps the other edge still; otherwise start a new band here.
       const anchor = edge === 'hi' ? this.band.lo : edge === 'lo' ? this.band.hi : this._fOfY(p.y);
-      this._drag = { y0: p.y, anchor, moved: !!edge };
+      this._drag = { y0: p.y, anchor, edge, moved: false };
+      this._hotEdge = edge;
       c.setPointerCapture(e.pointerId);
       c.focus({ preventScroll: true });
       e.preventDefault();
+      this.draw();
     });
     c.addEventListener('pointermove', (e) => {
       const p = pos(e);
       const d = this._drag;
       if (d) {
-        if (Math.abs(p.y - d.y0) > 3) d.moved = true;
+        if (Math.abs(p.y - d.y0) > (d.edge ? 0 : 3)) d.moved = true; // a grabbed edge follows even a small move
         if (d.moved) {
           const f = this._fOfY(Math.max(0, Math.min(this._plotH, p.y)));
           this.band = this._clampBand(Math.min(d.anchor, f), Math.max(d.anchor, f));
+          this._hotEdge = f >= d.anchor ? 'hi' : 'lo'; // the edge that follows the pointer
           this._emit(false);
         }
       } else {
-        c.style.cursor = inPlot(p) ? (edgeAt(p.y) ? 'ns-resize' : 'crosshair') : '';
+        const over = inPlot(p) && this.selectable && e.pointerType === 'mouse' ? edgeAt(p.y, e.pointerType) : null;
+        this._hotEdge = over;
+        c.style.cursor = !inPlot(p) ? 'default' : this.selectable ? 'ns-resize' : 'crosshair';
       }
       this.hover = inPlot(p) && this.spec ? { sec: this._secOf(p.x), f: this._fOfY(p.y) } : null;
       this.draw();
@@ -584,6 +731,7 @@ export class SpectrogramView {
     const end = () => {
       const d = this._drag;
       this._drag = null;
+      this._hotEdge = null;
       if (d?.moved && this.band) {
         if (this.band.hi <= this.band.lo) this.band = null; // squashed to nothing: keep all notes
         this._emit(true);
@@ -592,10 +740,19 @@ export class SpectrogramView {
     };
     c.addEventListener('pointerup', end);
     c.addEventListener('pointercancel', end);
-    c.addEventListener('pointerleave', () => { this.hover = null; this.draw(); });
-    c.addEventListener('dblclick', () => { this.band = null; this._emit(true); this.draw(); });
+    c.addEventListener('pointerleave', () => {
+      this.hover = null;
+      if (!this._drag) this._hotEdge = null;
+      this.draw();
+    });
+    c.addEventListener('dblclick', () => {
+      if (!this.selectable || !this.spec?.nF) return;
+      this.band = null;
+      this._emit(true);
+      this.draw();
+    });
     c.addEventListener('keydown', (e) => {
-      if (!this.spec?.nF) return;
+      if (!this.selectable || !this.spec?.nF) return;
       if (e.key === 'Escape' || e.key === 'Delete' || e.key === 'Backspace') {
         if (!this.band) return;
         this.band = null;

@@ -1,8 +1,8 @@
-# Wave Race
+# Quake Locator
 
 Find where a real Utah earthquake happened from the waves it sent to stations around it.
 
-[Open Wave Race](../app/wave-race/index.html){ .md-button .md-button--primary }
+[Open Quake Locator](../app/wave-race/index.html){ .md-button .md-button--primary }
 
 !!! abstract "At a glance"
     - **You will:** pick the P and S waves on real seismograms, turn the time between them into
@@ -10,13 +10,13 @@ Find where a real Utah earthquake happened from the waves it sent to stations ar
     - **Time:** about 15 minutes as a class demo, or a full class period (45–55 minutes) in pairs.
     - **Works on:** any browser, including Chromebooks. No install, no accounts.
     - **The science:** [Seismic waves](../theory/waves.md) · [Reading a seismogram](../theory/seismograms.md) · [Distance from S minus P](../theory/s-minus-p.md) · [Locating a quake](../theory/locating.md)
-    - **For teachers:** [Wave Race activity card](../teachers/wave-race-card.md) · [Standards](../teachers/standards.md#wave-race)
+    - **For teachers:** [Quake Locator activity card](../teachers/wave-race-card.md) · [Standards](../teachers/standards.md#wave-race)
     - **Data:** [Our stations and data](../theory/stations.md)
-    - **For developers:** [Wave Race notes](../developers/wave-race.md)
+    - **For developers:** [Quake Locator notes](../developers/wave-race.md)
 
 When an earthquake happens, two kinds of waves race outward: the fast **P wave** and the
 slower **S wave**. The farther a station is from the quake, the bigger the gap between them.
-In Wave Race you measure that gap on real seismograms from University of Utah stations,
+In Quake Locator you measure that gap on real seismograms from University of Utah stations,
 turn it into a distance, and use several stations to find where the quake was. Then you
 compare your answer with the official one.
 
@@ -40,7 +40,7 @@ near the UHSN schools. **The location is hidden**: finding it is your job. Magni
 is easiest; small quakes are harder to see above the background noise.
 
 <figure markdown="span">
-  ![The Wave Race quake chooser: buttons for two classic quakes, then a table of recent Utah quakes with date, time and magnitude, a star on quakes near the UHSN schools and a Load button on each row. The first star and the Use the offline sample link at the top right are outlined in orange.](img/wave-race-choose.png){ loading=lazy }
+  ![The Quake Locator quake chooser: buttons for two classic quakes, then a table of recent Utah quakes with date, time and magnitude, a star on quakes near the UHSN schools and a Load button on each row. The first star and the Use the offline sample link at the top right are outlined in orange.](img/wave-race-choose.png){ loading=lazy }
   <figcaption>Figure 1. Choosing a quake. A ★ marks quakes near the UHSN schools; where each
   quake happened is hidden. <b>Use the offline sample</b> (top right) loads a quake stored
   with the site.</figcaption>
@@ -55,7 +55,7 @@ The big panel shows the selected station. A three-part station has three traces:
 after the quake started.
 
 <figure markdown="span">
-  ![The Wave Race picking panel for station TCRU, zoomed in to about 4 to 20 seconds after the quake. A blue line marks the P pick at 6.92 seconds and a red line the S pick at 11.99 seconds. The title line reads S minus P = 5.07 s, distance 38.8 km.](img/wave-race-picker.png){ loading=lazy }
+  ![The Quake Locator picking panel for station TCRU, zoomed in to about 4 to 20 seconds after the quake. A blue line marks the P pick at 6.92 seconds and a red line the S pick at 11.99 seconds. The title line reads S minus P = 5.07 s, distance 38.8 km.](img/wave-race-picker.png){ loading=lazy }
   <figcaption>Figure 2. The picking panel, zoomed in, with P and S picked at station TCRU.
   The line above the seismogram turns S − P into a distance.</figcaption>
 </figure>
@@ -160,7 +160,7 @@ The **P speed**, **S speed** and **Depth** boxes are under the map (orange box i
 Click in a box and type a new number, or use the arrows in the box.
 
 - The line next to them shows how many **km of distance per second of S − P** those speeds
-  give. Wave Race starts with 5.8 and 3.3 km/s, which give 7.66.
+  give. Quake Locator starts with 5.8 and 3.3 km/s, which give 7.66.
 - The circles redraw as soon as you change a number. Faster speeds make the circles bigger;
   a bigger difference between the P and S speeds makes them smaller.
 - A deeper quake makes the circles a little smaller, most of all for nearby stations.

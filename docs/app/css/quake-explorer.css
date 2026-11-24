@@ -1,6 +1,6 @@
 /* Quake Explorer: layout on top of app.css (theme colours and controls come from there). */
 
-/* app.css lays #workspace out for Wave Race (two columns); here: tabs, then one investigation. */
+/* app.css lays #workspace out for Quake Locator (two columns); here: tabs, then one investigation. */
 #workspace { display: flex; flex-direction: column; gap: 12px; }
 #workspace[hidden] { display: none; }
 

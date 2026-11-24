@@ -29,7 +29,7 @@ const { event } = sample;
 const originMs = event.timeMs;
 const stations = JSON.parse(fs.readFileSync(new URL(`../../docs/app/data/samples/${ID}/stations.json`, import.meta.url)));
 
-const VP = 5.8; // km/s, the Wave Race defaults (decision D9)
+const VP = 5.8; // km/s, the Quake Locator defaults (decision D9)
 const VS = 3.3;
 const DEPTH = event.depthKm; // the official depth, 3.96 km
 const MINUS = '−';

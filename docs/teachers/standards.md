@@ -9,11 +9,11 @@ before using them in official materials.
 For a one-table summary of every activity and science page, see
 [Utah standards at a glance](index.md#utah-standards).
 
-## Wave Race { #wave-race }
+## Quake Locator { #wave-race }
 
-App: [Wave Race guide](../apps/wave-race.md) · Lesson: [Wave Race activity card](wave-race-card.md).
+App: [Quake Locator guide](../apps/wave-race.md) · Lesson: [Quake Locator activity card](wave-race-card.md).
 
-| Standard | Course | What it asks (paraphrased) | Where it shows up in Wave Race |
+| Standard | Course | What it asks (paraphrased) | Where it shows up in Quake Locator |
 | --- | --- | --- | --- |
 | [PHYS.4.1](https://www.uen.org/core/core.do?courseNum=3642) | Physics | Analyze data to relate frequency, wavelength and wave speed in different media; seismic waves are an example | P and S travel at different speeds through the same rock; \(v = f\lambda\); filters keep chosen frequencies |
 | [ESS.2.2](https://www.uen.org/core/core.do?courseNum=3601) | Earth & Space Science | Develop a model of Earth's interior from evidence, including seismic waves | Body waves; why S waves not crossing the outer core revealed it is liquid; speeds depend on the rock |
@@ -43,18 +43,20 @@ App: [Quake Explorer guide](../apps/quake-explorer.md) · Lessons, one per inves
 
 ## Quake Waves (animation) { #quake-waves }
 
-App: [Quake Waves guide](../apps/quake-waves.md) · Lesson: the warm-up in the
-[Wave Race activity card](wave-race-card.md). A cartoon, also shown on the
+App: [Quake Waves guide](../apps/quake-waves.md) · Lessons:
+[One quake, two waves](one-quake-two-waves.md) (a 10-minute demo, with the
+[How P and S waves move rock](../app/wave-motion/index.html) animation) and the warm-up in the
+[Quake Locator activity card](wave-race-card.md). A cartoon, also shown on the
 [Locating a quake](../theory/locating.md#watch-it-happen) page.
 
 | Standard | Where it shows up |
 | --- | --- |
-| [PHYS.4.1](https://www.uen.org/core/core.do?courseNum=3642) | Two waves with different speeds in the same rock; the gap between them grows with distance |
-| [ESS.2.2](https://www.uen.org/core/core.do?courseNum=3601) | Seismic waves as the evidence used to locate quakes (and, by the same reasoning, to model Earth's interior) |
+| [PHYS.4.1](https://www.uen.org/core/core.do?courseNum=3642) | Two waves with different speeds in the same rock; the gap between them grows with distance. In the demo card, P moves rock along its path and S across it |
+| [ESS.2.2](https://www.uen.org/core/core.do?courseNum=3601) | Seismic waves as the evidence used to locate quakes (and, by the same reasoning, to model Earth's interior). In the demo card, S cannot cross a liquid, which is how we know the outer core is liquid |
 
 ## Science and engineering practices
 
-Wave Race is built around the practices that SEEd standards share:
+Quake Locator is built around the practices that SEEd standards share:
 
 - **Analyzing and interpreting data:** picking arrivals on noisy real data and judging quality.
 - **Using mathematics and computational thinking:** deriving and using the S-minus-P formula;

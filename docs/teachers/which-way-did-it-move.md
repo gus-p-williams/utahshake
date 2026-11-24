@@ -5,14 +5,21 @@ they see, step by step) and use [Quake Explorer](../app/quake-explorer/index.htm
 The full-period version adds [investigation A](../apps/quake-explorer.md#a): students measure
 how fast the rock carries waves, then locate a quake from a single station.
 
-**Apps used:** [Quake Explorer](../apps/quake-explorer.md), investigation C (particle motion),
-plus A in the full period · [How P and S waves move rock](../theory/waves.md#two-body-waves) (the
-warm-up animation)
-
-**Before this:** [Wave Race](../apps/wave-race.md) (distance from S − P)
-
-**Driving question:** Which way did the ground move when the waves arrived, and can one station
-tell us where the quake was?
+!!! abstract "At a glance"
+    - **Driving question:** Which way did the ground move when the waves arrived, and can one
+      station tell us where the quake was?
+    - **Time:** 15 min (investigation C, whole class, on the projector) or 45–55 min (A then C,
+      pairs).
+    - **Setup:** Browser only. Live records from University of Utah stations, or the offline
+      samples if the school network blocks them.
+    - **Apps and tools:** [Quake Explorer](../apps/quake-explorer.md), investigation C (particle
+      motion), plus A in the full period · [How P and S waves move rock](../app/wave-motion/index.html)
+      (the warm-up animation, also on [Seismic waves](../theory/waves.md#two-body-waves))
+    - **Before this:** [Quake Locator](wave-race-card.md) (distance from S − P)
+    - **Materials:** Student devices with a browser (Chromebooks are fine) and a projector. Keep
+      this card off the projector until the reveal: its answer key names the quake's place.
+    - **Utah standards:** PHYS.4.1 · ESS.2.2 · CS&nbsp;9/10.DA.3
+      ([crosswalk](standards.md#quake-explorer))
 
 **Students will:** combine three sensors (up, north, east) into the path the ground traced; show
 from real data that P waves push and pull along their path and S waves shake across it; find
@@ -20,11 +27,7 @@ the direction to a quake from the first half second of P; locate a quake from on
 direction plus S − P distance, using wave speeds they measured; judge how far to trust the
 answer.
 
-**Standards:** PHYS.4.1, ESS.2.2, CS 9/10.DA.3 (see the
-[standards crosswalk](standards.md#quake-explorer)).
-
-**You need:** student devices with a browser (Chromebooks are fine), a projector, and these
-quakes in Quake Explorer:
+**Quakes to load.** Each link opens the investigation it names:
 
 | Quake | Use it for | Live data | Offline sample |
 | --- | --- | --- | --- |
@@ -76,7 +79,7 @@ the time to Explore 2.
 | Engage | 5 min | Play [How P and S waves move rock](../theory/waves.md#two-body-waves). "If you stood on this rock, which way would P push you? Which way would S?" Then the challenge: "Could you find a quake with only one station?" Pairs choose their prediction in C. |
 | Explore 1: speeds (A) | 10 min | Pairs open the Junction quake in A and lay the **P ruler** and the **S ruler** on stations within about 100 km. They write down both speeds and work out kilometres of distance per second of S − P: \(k = V_P V_S/(V_P - V_S)\) (about 7.7 km per second with 6.1 and 3.4 km/s). |
 | Explore 2: direction (C) | 15 min | Pairs open the quake "recorded at Wasatch Academy" in C (station TMU). (1) **▶ Trace the path**, then aim a guess on **Seen from above**. (2) Measure S − P: press **S window**, then **P window**, and read each window's start in the readout above the plots ("Window … to … s"); the difference is S − P to within 0.1 s. Ending on **P window** puts the window back on P. (3) Distance = S − P × \(k\). Write the answer as "___ km toward ___°" and sketch it on the map. |
-| Explain | 10 min | Press **Lock my guess and show the computer's direction**, then **Show the true direction**. Discuss with [Which way the ground moves](../theory/ground-motion.md): P pushes and pulls along its path, so the line points to the quake, and "up goes with away" picks the end. Compare each pair's location with the app's one-station point (it uses Wave Race's speeds). Which was further off, the direction or the distance? |
+| Explain | 10 min | Press **Lock my guess and show the computer's direction**, then **Show the true direction**. Discuss with [Which way the ground moves](../theory/ground-motion.md): P pushes and pulls along its path, so the line points to the quake, and "up goes with away" picks the end. Compare each pair's location with the app's one-station point (it uses Quake Locator's speeds). Which was further off, the direction or the distance? |
 | Elaborate | 5–10 min | **S window** and **Turn to Z R T**: compare R and T in the P window and in the S window. Then try the other stations in the **Station** menu. Which point closest? Which are marked "(far: less reliable)", and why? |
 | Evaluate | 5 min | Exit ticket (below). **Download my answers (CSV)**. |
 
@@ -125,7 +128,7 @@ analysts) and S at 21.95 s (the computer; the analysts picked no S here), so S �
 | --- | --- | --- |
 | 6.14 and 3.41 km/s (A, analyst picks near the quake) | 7.7 | 78 km |
 | 6.14 and 3.68 km/s (A, the reveal's S line out to 240 km) | 9.2 | 94 km |
-| Wave Race's 5.8 and 3.3 km/s (what the app uses) | 7.66 | 78 km |
+| Quake Locator's 5.8 and 3.3 km/s (what the app uses) | 7.66 | 78 km |
 
 So S − P puts this quake about 10 km too far even with good speeds, and the near-station S speed
 works better than the one from far stations (why: card A's [common difficulties](how-fast-is-the-rock.md#common-difficulties)).
@@ -191,7 +194,7 @@ are from many recent quakes, the waves have bent and scattered too much.
 - **Every station.** Try every station in the menu for the Junction and Magna quakes. From
   everyone's CSV files, plot the computer's error against distance. Where does it stop being
   trustworthy?
-- **One station or three?** Locate the Junction quake in [Wave Race](../apps/wave-race.md) with
+- **One station or three?** Locate the Junction quake in [Quake Locator](../apps/wave-race.md) with
   three circles, and compare with the one-station answers above. When is one station good
   enough, and when is it risky?
 - **A quake 4,000 km away.** Load the 2025 Sand Point, Alaska earthquake in C (station SGU). Far

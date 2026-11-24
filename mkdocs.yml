@@ -52,7 +52,7 @@ nav:
   - Home: index.md
   - Apps:
       - apps/index.md
-      - Wave Race: apps/wave-race.md
+      - Quake Locator: apps/wave-race.md
       - Quake Explorer: apps/quake-explorer.md
       - Quake Waves: apps/quake-waves.md
   - The Science:
@@ -70,7 +70,8 @@ nav:
       - teachers/index.md
       # Grouped once there were five cards (roadmap: "Across all stages: teacher activity cards").
       - Activity cards:
-          - Wave Race: teachers/wave-race-card.md
+          - One quake, two waves: teachers/one-quake-two-waves.md
+          - Quake Locator: teachers/wave-race-card.md
           - How fast is the rock?: teachers/how-fast-is-the-rock.md
           - What notes is the ground playing?: teachers/notes-of-a-quake.md
           - Which way did the ground move?: teachers/which-way-did-it-move.md
@@ -81,6 +82,7 @@ nav:
       - Architecture: developers/architecture.md
       - Data sources and licensing: developers/data-sources.md
       - Adding an app: developers/adding-an-app.md
+      - Adding an activity card: developers/adding-a-card.md
       - App notes:
-          - Wave Race: developers/wave-race.md
+          - Quake Locator: developers/wave-race.md
           - Quake Explorer: developers/quake-explorer.md

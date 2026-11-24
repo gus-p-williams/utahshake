@@ -86,10 +86,10 @@ with the analysts' S picks, or 6.1 ÷ 3.7 ≈ 1.65 with all of them. The Univers
 1.74 to locate Utah quakes from 1981 to 2012 ([UUSS](https://quake.utah.edu/?p=425)).
 
 Why are these faster than the 5.8 and 3.3 km/s that
-[Wave Race uses](s-minus-p.md#which-speeds)? Look where the P line starts: not at 0 s at 0 km,
+[Quake Locator uses](s-minus-p.md#which-speeds)? Look where the P line starts: not at 0 s at 0 km,
 but at 0.5 s. Every trip loses about half a second somewhere, for example in the slow rock near
 the surface. A ruler doesn't care: it measures how much later the wave arrives *for each extra
-kilometre*. Wave Race needs speeds that turn a whole S − P time into a distance, delays
+kilometre*. Quake Locator needs speeds that turn a whole S − P time into a distance, delays
 included, and it uses stations close to the quake.
 
 !!! note "Analysts and computers disagree: good questions to discuss"

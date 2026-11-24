@@ -217,7 +217,7 @@ within about 15°**. Sometimes it points the wrong way.
 
 ## One station can locate a quake
 
-[Wave Race](../apps/wave-race.md) needs at least three stations, because one S − P time gives
+[Quake Locator](../apps/wave-race.md) needs at least three stations, because one S − P time gives
 only a distance: a circle around the station. Add a **direction** from P-wave motion, and one
 station is enough: go that far, that way.
 
@@ -226,8 +226,8 @@ station is enough: go that far, that way.
     - **Distance:** P arrived 11.74 s after the quake (an analyst's pick). The analysts did not
       pick S at TMU; the computer picked it at 21.95 s.
         - S − P = 21.95 − 11.74 = **10.21 s**
-        - d = 10.21 s × 7.66 km/s = **78.2 km**, using Wave Race's speeds (5.8 and 3.3 km/s;
-          see [Which speeds?](s-minus-p.md#which-speeds)). With Wave Race's 8 km depth this is
+        - d = 10.21 s × 7.66 km/s = **78.2 km**, using Quake Locator's speeds (5.8 and 3.3 km/s;
+          see [Which speeds?](s-minus-p.md#which-speeds)). With Quake Locator's 8 km depth this is
           77.8 km along the surface ([the hidden triangle](s-minus-p.md#depth-the-hidden-triangle)).
     - **Location:** go 77.8 km from TMU toward 44°.
 

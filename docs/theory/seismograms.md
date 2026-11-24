@@ -1,13 +1,13 @@
 # Reading a seismogram
 
-**Used in:** [Wave Race](../apps/wave-race.md) · [Quake Explorer](../apps/quake-explorer.md) · School Pulse (coming soon)
+**Used in:** [Quake Locator](../apps/wave-race.md) · [Quake Explorer](../apps/quake-explorer.md) · School Pulse (coming soon)
 
 A seismometer never stops recording. Most of what it records is not a nearby quake: it is the
 ocean, the wind, traffic, mines, and quakes on the other side of the world. This page shows
 real records of each, so you can tell a quake from everything else.
 
 !!! tip "In a hurry?"
-    For [Wave Race](../apps/wave-race.md) you need the first two sections: what the
+    For [Quake Locator](../apps/wave-race.md) you need the first two sections: what the
     instrument records and the anatomy of a quake record. The rest helps you tell a quake from
     everything else.
 
@@ -37,7 +37,7 @@ a whole number, called a **count**. A seismogram is these counts plotted against
 - **Counts have a limit.** A 24-bit digitizer counts from −8,388,608 to +8,388,607; an older
   16-bit one only from −32,768 to +32,767. Shaking that goes past the limit is cut off
   ([clipped](#instrument-problems)).
-- **Wave Race shows counts,** each trace stretched to fit its panel. Picking arrival *times*
+- **Quake Locator shows counts,** each trace stretched to fit its panel. Picking arrival *times*
   doesn't need the true ground speed.
 
 The University of Utah's best stations use **broadband** seismometers, which use electronics to
@@ -95,7 +95,7 @@ apart (0.1–0.3 Hz; Hz, or hertz, means waves per second); a weaker part has wa
 - **It is stronger in winter,** when ocean storms are stronger: at TMU, 2 to 4 times bigger on
   winter nights than on a July night.
 - **A 1–10 Hz filter removes it** (bottom trace), because 0.2 Hz is far below 1 Hz. That is
-  one reason Wave Race filters 1–10 Hz by default.
+  one reason Quake Locator filters 1–10 Hz by default.
 
 ## Wind and weather
 
@@ -266,7 +266,7 @@ Different sources shake the ground at different frequencies, like low and high n
 
 A **band-pass filter** keeps only a chosen range of frequencies, for example 1–10 Hz, so a
 quake stands out from the noise. That is what the Filter menu in
-[Wave Race](../apps/wave-race.md#2-pick-the-p-and-s-waves) does.
+[Quake Locator](../apps/wave-race.md#2-pick-the-p-and-s-waves) does.
 
 The instruments sample the ground 100 times per second, so nothing faster than 50 Hz (half
 the sampling rate, the **Nyquist frequency**) can be recorded.
@@ -311,10 +311,10 @@ and the time of day.
 
 ## Try it
 
-- In [Wave Race](../apps/wave-race.md), switch the Filter menu to **Raw**. On broadband (HH)
+- In [Quake Locator](../apps/wave-race.md), switch the Filter menu to **Raw**. On broadband (HH)
   stations, especially in winter, you will see the ocean hum. Which filter makes the quake
   clearest?
-- Look at the noise *before* P in Wave Race. Is it bigger at some stations than others? Which
+- Look at the noise *before* P in Quake Locator. Is it bigger at some stations than others? Which
   of the sources on this page could it be? Check the time of day of the quake.
 - Next: [Beyond one seismogram](plots.md) puts a whole day, months of noise, or a hundred
   explosions into one picture.

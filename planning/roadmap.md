@@ -1,6 +1,6 @@
 # Roadmap: staged build plan
 
-Stages follow the order agreed on 2026-11-23: Wave Race + Locator first, then the
+Stages follow the order agreed on 2026-11-23: Quake Locator (then called Wave Race + Locator) first, then the
 seismic carpet (School Pulse), then the multi-view explorer, then the switch to live
 UHSN data. Each stage ends with working app + docs deployed to GitHub Pages. Stage 3 (Quake
 Explorer) was built before Stage 2 (Gus, 2026-11-24; D22).
@@ -24,7 +24,7 @@ needs the DRI ingest server and a UHSN data source (Stage 4).
 
 **Done when:** the empty site is live on GitHub Pages and builds on every push.
 
-## Stage 1 — Wave Race + Utah Quake Locator
+## Stage 1 — Quake Locator (called Wave Race until November 2026)
 
 Student flow: pick a recent Utah quake → see records from the stand-in stations →
 pick P and S on each → app converts S−P to distance → circles on a map → best-fit
@@ -122,29 +122,43 @@ Teachers work from activities, not apps (D19). An activity card is one lesson. A
 apps are many-to-many: a card may use several apps or none, and an app may appear in several
 cards. Every app gets at least one card.
 
-- [x] Wave Race activity card (uses Quake Waves as the warm-up).
-- [ ] Card format and site structure (with or after navigation Phase 2):
+- [x] Quake Locator activity card (uses Quake Waves as the warm-up).
+- [x] Card format and site structure (done 2026-11-24, D29; template in
+      `docs/developers/adding-a-card.md`):
   - One file per activity in `docs/teachers/`, named after the activity
     (`wave-race-card.md` keeps its URL).
   - An "At a glance" box on every card: Time · Setup (the tier from `planning/activities.md`:
     external data, the school's Shake, a roaming Shake, phones) · Apps and tools used ·
     Materials · Utah standards.
-  - Then the sections of the Wave Race card: short version, full-period version, exit ticket,
+  - Then the sections of the Quake Locator card: short version, full-period version, exit ticket,
     answer key, common difficulties, extensions.
   - The Teachers page's activities table becomes the catalog (Activity · Apps used · Setup ·
     Time · Standards). Each card gets a row in "Utah standards at a glance".
   - Each app hub's "For teachers" line lists every card that uses the app.
   - [x] Past about five cards, group them in the sidebar under Teachers › Activity cards (done
     with Quake Explorer, D25; D17: revisit the layout if the sidebar passes about 35 entries).
-  - Still to do (teacher-cards session): the "At a glance" boxes, the catalog, the hub lines.
-- [ ] Quake Waves: a short card of its own (proposed: a 10-minute predict-and-watch demo for a
-      physics waves unit), besides its role as the Wave Race warm-up.
+- [x] Quake Waves: a short card of its own, "One quake, two waves" (proposed: a 10-minute predict-and-watch demo for a
+      physics waves unit), besides its role as the Quake Locator warm-up.
 - [x] Quake Explorer: one card per investigation (A–D) and a full-period lesson chaining A and
       C (`planning/quake-explorer.md` §5).
 - [ ] School Pulse: card(s) with Stage 2.
 - [ ] Activities with no app (campus experiments, phone activities): cards for the starter set
       that Gus, Dale and Cleat choose from `planning/activities.md` (the questions document sent
   to Dale and Cleat; D27).
+
+## Proposed, pending Dale and Cleat
+
+From the questions document (`planning/activities.md`, "UHSN classroom activities by setup";
+D28). None is scheduled until Dale and Cleat choose activities.
+
+- Phone track, only if phone activities are chosen and after bench trials T1 to T3: the Phone
+  Recorder page, then a locator for "Find the hit" (P3).
+- Felt Map Locator (E13): a small add-on (USGS "Did You Feel It?" squares).
+- Own-Shake file loader: a bridge before Stage 4 (day files from the school Shake's own page).
+- In Stage 4: the viewer's experiment mode (S10–S18, R cards), a source log for experiments at
+  each school, and a roaming kit (R cards) if DRI budgets one.
+- Standards crosswalk: add ESS.2.6, PHYS.1.2, PHYS.1.3 and CS 9/10.NI.1 when activities using
+  them are published.
 
 ## Later
 

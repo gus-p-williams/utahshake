@@ -2,7 +2,48 @@
 
 Newest first. Each entry: date, decision, why, consequences.
 
-## 2026-11-24 (Quake Explorer; planning documents)
+## 2026-11-24 (Quake Explorer; planning documents; teacher cards)
+
+**D30. Wave Race is renamed Quake Locator; names only.** Gus, 2026-11-24, so the name says
+what the app does (it also matches Quake Waves and Quake Explorer). Its activity card is
+"Activity card: Quake Locator"; the race between P and S stays in the lesson text as the
+idea. Only names change: the addresses (`app/wave-race/`, `apps/wave-race.md`,
+`teachers/wave-race-card.md`), code names (`js/wave-race/`, `WAVE_RACE`, `uhsn.waveRace.*`)
+and test file names stay, and renamed headings keep their old anchors, so no link breaks. The
+CSV download is `quake-locator-<id>.csv`. `tests/old-app-name.test.js` keeps the old name off
+the site; one developer note says where the old name survives. Decisions above and earlier
+status notes keep the old name as history.
+
+**D29. Every activity card opens with the same "At a glance" box, and a test keeps cards and
+apps linked.** Gus, 2026-11-24 (session D1-cards). The box has seven lines: driving question,
+time, setup, apps and tools, before this, materials, Utah standards (linked to the
+crosswalk). The Teachers page lists the cards in a catalog (Activity · Apps and tools · Setup
+· Time · Standards), grouped by setup; the site names only the setups that have cards
+("Browser only" so far; "School Shake" when one exists), since plans stay off the site (D13).
+Standards claims carry no "assessed / contributes / extension" labels: the site is a
+prototype, not yet shown to teachers (Gus). `tests/teacher-cards.test.js` checks D19 both
+ways, that every hub and every All apps entry is used by a card, the box layout, and that the
+catalog and "Utah standards at a glance" match each card. Template and checklist:
+`docs/developers/adding-a-card.md`. New card "One quake, two waves" (Quake Waves and the P/S
+motion animation, 10 minutes). The Wave Race card gained a group competition (lowest miss,
+then closest to the official epicenter; the teacher names the stations). Closes D25's "boxes
+still to come".
+
+**D28. The two documents for Dale and Cleat: activities by setup, one set of status words, a
+small pilot, no prices.** Gus, 2026-11-24. The questions document ("UHSN classroom activities
+by setup", `planning/activities.md`) opens with the questions, then 46 activities grouped by
+setup with IDs E (external data), S (the school's installed Shake), R (a roaming Shake), P
+(phones), each with one readiness label (available now / needs data or a tool / proposed /
+needs a trial). The overview ("Utah High School Seismic Network: Student Apps and
+Activities", `planning/evaluation.md`) gives status and concepts and points to the questions
+document for every ask. Both use the same words: "planned" means on the roadmap, anything
+else is "proposed" (How Big Was It?, Build a Detector and Weather Ears are proposed). The
+suggested pilot, worded the same in both: E2 Quake Waves → E1 Wave Race → S1 Meet our Shake
+now, then S3 School Pulse once the school data and its tool are ready (Stage 4); Quake
+Explorer is the next step for classes that want more. No prices anywhere in either document;
+US spelling. Word copies: "UHSN overview - student apps and activities.docx" and "UHSN
+questions - classroom activities by setup.docx". Outside sources behind figures go in a
+source log in `planning/` (e.g. `planning/plots-sources.md`), not on student or teacher pages.
 
 **D27. `planning/evaluation.md` is the canonical project overview; two Word documents go to
 Dale and Cleat.** Gus, 2026-11-24. The repo copy replaces the living claude.ai planning doc,
