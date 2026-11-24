@@ -352,10 +352,28 @@ that depends on these results waits for Gus's OK.**
 | Junction | MTPU 16°; TCRU 14°; FOR1 2° |
 | Magna | SPU −5°; BGU 1° |
 
-**D. Distant quakes:** only the feasibility checks in section 3. Its sample (about 1 MB) will be
-built when Phase D starts.
+**D. Distant quakes: supported (groundwork done the same day).**
 
-**Offline samples** (`docs/app/data/samples/`, `"explorer"` list), 1.6 MB in total:
+- Travel times come from a table, not a web service: EarthScope's travel-time service has been
+  retired. `tools/quake-explorer/traveltime_table.py` (ObsPy TauP, iasp91) writes
+  `docs/app/data/traveltimes-iasp91.json` (37 KB).
+- Sand Point M7.3 at SGU (35.8°, 3 985 km):
+
+| Wave | iasp91 | Picked at SGU |
+|---|---|---|
+| P | 6:56 | 6:59 |
+| S | 12:32 | about 12:45 on the horizontal channels (on the vertical it is hardly visible) |
+| Surface waves (10–33 s period) | expected 15:49–22:08 | peak at 19:39 |
+
+- In Utah, P arrives about 3 s and S about 14 s later than the global average model predicts.
+  That makes a short discussion point; check any explanation (slow upper mantle under the Basin
+  and Range) before it goes into the docs.
+- S shows on the horizontal channels: far away it arrives from almost straight below and shakes
+  sideways. This is the same physics as investigation C.
+- Sample `qe-sand-point`: 860 KB, 30 minutes (SGU with 3 components, TMU vertical).
+
+**Offline samples** (`docs/app/data/samples/`, `"explorer"` list), 2.4 MB in total
+(qe-sand-point, listed under D above, is 860 KB of that):
 
 | Sample | Contents | Size |
 |---|---|---|

@@ -60,4 +60,15 @@ export const EXPLORER_PRESETS = [
     label: '2025 earthquake near Leamington (M2.1)', note: 'compare with the quarry blast' },
   { id: 'uu80158051', sample: 'qe-kenilworth', views: ['motion', 'frequencies'],
     label: '2026 quake (M2.7) recorded at Wasatch Academy', note: 'which way did it come from?' },
+  { id: 'us7000qd1y', sample: 'qe-sand-point', views: ['distant', 'frequencies', 'motion'],
+    label: '2025 Sand Point, Alaska earthquake (M7.3)', note: 'P, S and surface waves from 4,000 km away' },
 ];
+
+/** Settings for distant quakes (investigation D). */
+export const DISTANT = {
+  minMagnitude: 6.5,
+  decimateTo: 20,       // samples per second; plenty for waves slower than 2 Hz
+  // Stations near the schools with broadband (HH) sensors.
+  stations: ['SGU', 'TMU'],
+  travelTimes: '../../data/traveltimes-iasp91.json',
+};
