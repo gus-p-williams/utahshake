@@ -4,8 +4,9 @@ Browser apps and documentation for students in the **Utah High School Seismic Ne
 (UHSN)**, a Desert Research Institute program placing Raspberry Shake seismometers in
 rural Utah high schools.
 
-- **Apps** (no install, any browser): locate Utah earthquakes from S−P times, explore
-  campus noise, and more, in stages (see the roadmap).
+- **Apps** (no install, any browser): **Wave Race** (pick P and S on real Utah
+  seismograms and locate the quake) is live; campus-noise and explorer apps follow in
+  stages (see the roadmap).
 - **Docs**: student guides, theory written for advanced high-school students, teacher
   activity cards mapped to Utah SEEd standards, and developer notes.
 
@@ -20,6 +21,15 @@ conda activate uhsn
 pip install -r requirements-docs.txt
 mkdocs serve          # http://127.0.0.1:8000  (app at /app/)
 ```
+
+Apps only, and tests (Node 22+; no npm install needed):
+
+```bash
+node tools/serve.mjs  # http://127.0.0.1:8001/app/
+npm test              # unit tests + real-data checks on the offline sample
+```
+
+See `docs/developers/architecture.md` for the code layout.
 
 ## Where to look
 

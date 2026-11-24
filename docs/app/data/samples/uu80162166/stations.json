@@ -1,0 +1,202 @@
+[
+ {
+  "net": "UU",
+  "sta": "SUU",
+  "lat": 39.88817,
+  "lon": -111.79083,
+  "elevM": 2024,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "EHZ",
+    "sampleRate": 100
+   },
+   {
+    "loc": "01",
+    "cha": "EHN",
+    "sampleRate": 100
+   },
+   {
+    "loc": "01",
+    "cha": "EHE",
+    "sampleRate": 100
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "ELU",
+  "lat": 39.64017,
+  "lon": -111.20383,
+  "elevM": 2970,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "EHZ",
+    "sampleRate": 100
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "TMU",
+  "lat": 39.2965,
+  "lon": -111.20817,
+  "elevM": 2731,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100
+   },
+   {
+    "loc": "01",
+    "cha": "HHN",
+    "sampleRate": 100
+   },
+   {
+    "loc": "01",
+    "cha": "HHE",
+    "sampleRate": 100
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "SGU",
+  "lat": 39.18233,
+  "lon": -111.64467,
+  "elevM": 2357,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100
+   },
+   {
+    "loc": "01",
+    "cha": "HHN",
+    "sampleRate": 100
+   },
+   {
+    "loc": "01",
+    "cha": "HHE",
+    "sampleRate": 100
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "WCU",
+  "lat": 38.96467,
+  "lon": -112.09067,
+  "elevM": 2673,
+  "channels": [
+   {
+    "loc": "02",
+    "cha": "EHZ",
+    "sampleRate": 100
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "DWU",
+  "lat": 38.10577,
+  "lon": -112.99935,
+  "elevM": 2307.3,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "EHZ",
+    "sampleRate": 100
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "FOR6",
+  "lat": 38.489818,
+  "lon": -112.787486,
+  "elevM": 2421,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 200
+   },
+   {
+    "loc": "01",
+    "cha": "HHN",
+    "sampleRate": 200
+   },
+   {
+    "loc": "01",
+    "cha": "HHE",
+    "sampleRate": 200
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "MSU",
+  "lat": 38.51233,
+  "lon": -112.17717,
+  "elevM": 2105,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "EHZ",
+    "sampleRate": 100
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "MTPU",
+  "lat": 38.0415,
+  "lon": -112.1843,
+  "elevM": 3112,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100
+   },
+   {
+    "loc": "01",
+    "cha": "HHN",
+    "sampleRate": 100
+   },
+   {
+    "loc": "01",
+    "cha": "HHE",
+    "sampleRate": 100
+   }
+  ]
+ },
+ {
+  "net": "UU",
+  "sta": "TCRU",
+  "lat": 38.6095,
+  "lon": -112.4472,
+  "elevM": 2293,
+  "channels": [
+   {
+    "loc": "01",
+    "cha": "HHZ",
+    "sampleRate": 100
+   },
+   {
+    "loc": "01",
+    "cha": "HHN",
+    "sampleRate": 100
+   },
+   {
+    "loc": "01",
+    "cha": "HHE",
+    "sampleRate": 100
+   }
+  ]
+ }
+]

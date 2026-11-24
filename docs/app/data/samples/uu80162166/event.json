@@ -1,0 +1,12 @@
+{
+ "id": "uu80162166",
+ "timeMs": 1793421855580,
+ "lat": 38.2896666666667,
+ "lon": -112.289666666667,
+ "depthKm": 3.96,
+ "mag": 3.3,
+ "magType": "ml",
+ "place": "8 km NW of Junction, Utah",
+ "url": "https://earthquake.usgs.gov/earthquakes/eventpage/uu80162166",
+ "hasPhaseData": true
+}

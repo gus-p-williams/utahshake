@@ -1,0 +1,7 @@
+# Binary data: never convert line endings
+*.mseed binary
+*.docx binary
+*.png binary
+
+# Generated third-party bundles (see tools/vendor/)
+docs/app/vendor/** linguist-vendored -diff

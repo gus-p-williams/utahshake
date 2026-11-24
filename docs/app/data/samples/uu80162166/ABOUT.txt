@@ -1,0 +1,9 @@
+Offline sample: 8 km NW of Junction, Utah, M3.3
+
+- Event: uu80162166, 2026-10-31T04:44:15.580Z (UTC), https://earthquake.usgs.gov/earthquakes/eventpage/uu80162166
+- Window: 10 s before to 80 s after the origin time
+- Stations: SUU, ELU, TMU, SGU, WCU, DWU, FOR6, MSU, MTPU, TCRU
+- Made with `node tools/samples/fetch-sample.mjs uu80162166` on 2026-11-24
+
+Waveforms: University of Utah Seismograph Stations, network UU (doi:10.7914/SN/UU), via EarthScope Data Services.
+Earthquake locations and analyst picks: U.S. Geological Survey ComCat / University of Utah Seismograph Stations.

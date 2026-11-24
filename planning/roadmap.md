@@ -10,11 +10,14 @@ config change.
 
 ## Stage 0 — Repo, docs site, CI
 
-- [ ] Repo skeleton (see `CLAUDE.md` tree), MIT or BSD license (DRI to choose), `.gitignore`.
-- [ ] MkDocs Material site with sections: Apps, Theory, Teachers, Developers, Planning.
-- [ ] GitHub Actions workflow: build MkDocs (app copied as static files), deploy to Pages.
-- [ ] `docs/app/` placeholder page that proves the app path is served.
-- [ ] Connectivity check from Gus's machine: EarthScope station/dataselect and USGS event
+- [x] Repo skeleton (see `CLAUDE.md` tree), `.gitignore`.
+- [ ] License file: MIT or BSD (DRI to choose). **Still open**: a public repo without a
+      license file is "all rights reserved" by default.
+- [x] MkDocs Material site with sections: Apps, Theory, Teachers, Developers. (Planning
+      moved off the site; decision D13.)
+- [x] GitHub Actions workflow: tests, build MkDocs (app copied as static files), deploy to Pages.
+- [x] `docs/app/` placeholder page that proves the app path is served.
+- [x] Connectivity check from Gus's machine: EarthScope station/dataselect and USGS event
       queries succeed, and browser CORS allows them from a `github.io` origin.
 
 **Done when:** the empty site is live on GitHub Pages and builds on every push.
@@ -25,23 +28,30 @@ Student flow: pick a recent Utah quake → see records from the stand-in station
 pick P and S on each → app converts S−P to distance → circles on a map → best-fit
 epicenter → compare with the official USGS/UUSS location.
 
-- [ ] `DataSource` interface (`getEvents`, `getStations`, `getWaveforms`) and an
-      `EarthScopeUSGS` implementation; school → stand-in station table in `config/`.
-- [ ] Vendor seisplotjs (pinned 3.3.0) and Leaflet as ESM bundles via esbuild script.
-- [ ] Event list: Utah region, last 90 days, M ≥ 2.0, plus a few classic presets
-      (e.g. 2020 Magna M5.7; verify times against ComCat).
-- [ ] Waveform panel: filter presets (raw, 1–10 Hz, 2–8 Hz), zoom, P/S pick markers.
-- [ ] Physics module: S−P → distance with editable Vp/Vs (defaults 6.0/3.5 km/s);
-      grid-search epicenter; misfit and rough uncertainty. Unit tests.
-- [ ] Map: stations, distance circles, student solution, official epicenter, error in km.
-- [ ] Offline sample: one event's data bundled in `docs/app/data/samples/` for flaky
-      school networks and for tests.
-- [ ] Docs: student guide, theory pages (waves; S−P distance; locating), teacher
+- [x] `DataSource` interface (`getEvents`, `getEvent`, `getStations`, `getWaveforms`,
+      `getAnalystPicks`) with `EarthScopeUSGSSource` and an offline `SampleSource`;
+      school → stand-in station table in `docs/app/js/config.js`.
+- [x] Vendor seisplotjs (pinned 3.3.0; miniseed + filter only) and Leaflet 1.9.4 as ESM
+      bundles via `tools/vendor/build.mjs` (esbuild).
+- [x] Event list: Utah region, last 90 days, M ≥ 2.0, plus presets: 2020 Magna M5.7
+      (uu60363602, verified against ComCat) and the 2026 Junction M3.3 offline sample.
+- [x] Waveform panel: filter presets (raw, 1–10 Hz, 2–8 Hz), zoom, pan, P/S pick markers,
+      3 components where available.
+- [x] Physics module: S−P → distance with editable Vp/Vs (defaults 5.8/3.3 km/s, see D9)
+      and depth; grid-search epicenter; misfit and rough uncertainty. Unit tests.
+- [x] Map: stations, distance circles, student solution, official epicenter, error in km.
+- [x] Offline sample: uu80162166 bundled in `docs/app/data/samples/`, with real-data tests.
+- [x] Docs: student guide, theory pages (waves; S−P distance; locating), teacher
       activity card (15-min and full-period versions), standards crosswalk, data
-      attribution.
+      attribution, developer architecture.
 
 **Done when:** a student on a Chromebook can locate a recent M3 Utah quake from 4+
 stations in under 15 minutes, landing within about 10 km of the official location.
+
+*Status 2026-11-23:* checked in headless Chrome at Chromebook size (1366×768) by clicking
+picks at the UUSS analyst times: offline sample 6.0 km (3 stations), Enterprise M3.4
+(uu80164656) 3.2 km (7 stations), both live and offline. Still to do: a real student or
+teacher trial for the 15-minute target.
 
 ## Stage 2 — Seismic carpet / School Pulse
 

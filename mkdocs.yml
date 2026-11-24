@@ -20,6 +20,7 @@ theme:
 markdown_extensions:
   - admonition
   - attr_list
+  - md_in_html
   - tables
   - toc: {permalink: true}
   - pymdownx.details
@@ -30,8 +31,20 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
 extra_javascript:
-  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3.2.2/es5/tex-mml-chtml.js
 nav:
   - Home: index.md
   - Apps:
       - Open the apps: app/index.html
+      - Wave Race guide: apps/wave-race.md
+  - Theory:
+      - Seismic waves: theory/waves.md
+      - Distance from S minus P: theory/s-minus-p.md
+      - Locating a quake: theory/locating.md
+  - Teachers:
+      - "Activity card: Wave Race": teachers/wave-race-card.md
+      - Standards crosswalk: teachers/standards.md
+  - Developers:
+      - Architecture: developers/architecture.md
+      - Data sources and licensing: developers/data-sources.md

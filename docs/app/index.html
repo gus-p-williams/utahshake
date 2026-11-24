@@ -3,11 +3,49 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
   <title>UHSN Apps</title>
+  <meta name="description" content="Browser apps for students in the Utah High School Seismic Network.">
+  <link rel="stylesheet" href="css/app.css">
+  <style>
+    .apps { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+    .app h2 { margin-bottom: .4rem; }
+    .app p { margin: .3rem 0 .6rem; }
+    .app .soon { color: var(--muted); font-size: .85rem; }
+    .app a.open { display: inline-block; padding: .35rem .8rem; border-radius: 7px; background: var(--accent);
+      color: var(--accent-text); text-decoration: none; font-weight: 600; }
+  </style>
 </head>
 <body>
-  <h1>UHSN Apps</h1>
-  <p>Stage 0 placeholder. Stage 1 (Wave Race + Utah Quake Locator) is coming next.</p>
-  <p><a href="../">Back to the docs</a></p>
+  <header class="topbar">
+    <div class="brand"><h1>UHSN Apps <span class="sub">Utah High School Seismic Network</span></h1></div>
+    <div class="topbar-right"><a href="../">Guides, theory and teacher pages</a></div>
+  </header>
+  <main>
+    <p class="hint">These apps run in any browser, including Chromebooks. Nothing to install, no accounts.
+      Until the school seismometers stream to UHSN, they use University of Utah stations near each school.</p>
+    <div class="apps">
+      <section class="card app">
+        <h2>Wave Race</h2>
+        <p>Pick the P and S waves of a real Utah earthquake at several stations, turn the time
+          between them into distances, and find where the quake happened. Then compare with the
+          University of Utah's answer.</p>
+        <a class="open" href="wave-race/">Open Wave Race</a>
+        <a href="../apps/wave-race/" style="margin-left:.6rem">Student guide</a>
+      </section>
+      <section class="card app">
+        <h2>School Pulse</h2>
+        <p>See the daily rhythm of a school in its seismic noise: class changes, weekends, holidays.</p>
+        <p class="soon">Coming in the next stage.</p>
+      </section>
+      <section class="card app">
+        <h2>Quake Explorer</h2>
+        <p>Spectrograms, record sections, particle motion and sound from the same quakes.</p>
+        <p class="soon">Planned.</p>
+      </section>
+    </div>
+  </main>
+  <footer class="credits">Waveforms: University of Utah Seismograph Stations (network UU,
+    doi:10.7914/SN/UU) via EarthScope. Quakes: USGS ComCat.</footer>
 </body>
 </html>

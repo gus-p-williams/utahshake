@@ -55,7 +55,7 @@ see, analyze and do research with seismic data from their own school and the reg
 - Later: Python notebooks (ObsPy) for local/research analysis; a scheduled job for
   precomputed products (e.g. hourly noise for the seismic carpet).
 
-Planned tree:
+Tree (see docs/developers/architecture.md for docs/app/ in detail):
 
 ```
 CLAUDE.md               this file
@@ -71,8 +71,9 @@ docs/
   teachers/             activity cards, standards crosswalk
   developers/           architecture, data sources, adding a source, licensing
 planning/               evaluation snapshot (+ .docx), roadmap, decisions (not on site)
-tests/                  node --test for js logic
-tools/                  vendoring and data-sample scripts
+package.json            npm test (node --test), npm run serve
+tests/                  node --test for js logic + real-data sample checks
+tools/                  vendor/ (esbuild bundles), samples/, planning-docx/, serve.mjs
 ```
 
 ## Environment notes
@@ -106,31 +107,32 @@ tools/                  vendoring and data-sample scripts
 - MkDocs Material reaches end of life 2027-05-05; plan a Zensical migration test
   before then (see decisions D4).
 
-- 2026-11-23 (later): Planning files moved from `docs/planning/` to top-level
-  `planning/` (off the website). Gus added a Word export of the evaluation doc there.
-  Its 5 equations are raw LaTeX in "Code" paragraphs (and V_P, 10^0.3 are plain
-  text); fix was in progress: replace those paragraphs with OMML from pandoc
-  (`C:\Users\williagp\anaconda3\Library\bin\pandoc.exe`, 3.8). Diagrams are fine.
-- Stage 1 started (no app code yet). Findings so far:
-  - npm: seisplotjs 3.3.0 (MIT, ESM), leaflet 1.9.4, esbuild 0.28.2. Node 24 here.
-  - UU network DOI verified: 10.7914/SN/UU -> fdsn.org/networks/detail/UU/.
-  - Nearest active UU velocity stations (HHZ/EHZ) to each school (approx. coords):
-    Juab (39.709,-111.836): SUU 20 km (01.EHZ), LEVU 23 km (02.EHZ), NLU 34 km (01.HHZ).
-    North Sanpete (39.540,-111.463) and Wasatch Academy (39.547,-111.455): ELU
-    ~25 km (01.EHZ), TMU 35 km (01.HHZ). Gunnison Valley (39.153,-111.817): SGU
-    15 km (01.HHZ), ECUT 27 km (01.HHZ). Millard (38.969,-112.343): WCU 22 km
-    (02.EHZ), ECUT 29 km. Many UU urban sites are EN? accelerometers only; prefer HH/EH.
-  - Design notes: hide USGS place name until "reveal" (it gives the answer away);
-    fetch 3 components where available (S picks are easier on horizontals); add
-    nearest UU stations to the event so 4+ stations surround it (school stand-ins
-    alone are clustered within ~100 km); S−P gives hypocentral distance, so use an
-    assumed depth (editable) in the grid search.
+- 2026-11-23 (later): Planning files moved to top-level `planning/` (off the site,
+  decision D13). Word copy of the evaluation fixed (real equations) with
+  `tools/planning-docx/`; ready to send to Dale Anderson and Cleat.
+- 2026-11-23: **Stage 1 (Wave Race + Locator) built** and checked. App at
+  `docs/app/wave-race/`; logic in `docs/app/js/lib/` (geo, locate, fdsn, stations,
+  signal); data sources in `docs/app/js/data/`; config (schools, stand-ins, defaults,
+  presets, credits) in `docs/app/js/config.js`. Offline sample uu80162166 (M3.3 near
+  Junction) in `docs/app/data/samples/`. `npm test` = 32 tests incl. real-data checks.
+  Docs: student guide, 3 theory pages, teacher card with answer key, standards
+  crosswalk, developer architecture + data sources. Decisions D9–D13 logged.
+  - Stand-ins: Juab=SUU, North Sanpete=ELU, Wasatch Academy=TMU, Gunnison Valley=SGU,
+    Millard=WCU (nearest active UU velocity sensors). SUU was dead (flat) in 2020.
+  - Default speeds 5.8/3.3 km/s (7.66 km per s of S−P), calibrated on UUSS analyst
+    picks (D9); the textbook 6.0/3.5 runs ~10% long.
+  - Verified in headless Chrome (puppeteer-core + system Chrome with a separate
+    profile, scripts kept outside the repo): offline sample 6.0 km error from 3
+    stations; live Enterprise M3.4 3.2 km from 7 stations; phone width OK.
+  - Local preview: `node tools/serve.mjs` (apps) or `mkdocs serve` (full site).
 
 ## Next steps
 
-1. Stage 1 build (Wave Race + Locator; see roadmap and notes above).
-2. Finish the equation fix in the planning .docx, then send to Dale Anderson and Cleat.
-3. Bump GitHub Actions to Node 24 majors (runs warn that checkout@v4,
+1. Gus: try Wave Race with a teacher or student (15-minute target in the roadmap).
+2. DRI: choose a license (MIT or BSD) and add LICENSE; the public repo has none yet.
+3. Stage 2: School Pulse / seismic carpet (scheduled job + heatmap; see roadmap).
+4. Bump GitHub Actions to Node 24 majors (runs warn that checkout@v4,
    setup-python@v5, upload/deploy-pages target deprecated Node 20).
-4. Optional: move the repo to a DRI GitHub org if one exists (GitHub redirects old
+5. Optional: move the repo to a DRI GitHub org if one exists (GitHub redirects old
    links; update site_url/repo_url).
+6. Optional: confirm SEEd standard wording against the current USBE PDF.

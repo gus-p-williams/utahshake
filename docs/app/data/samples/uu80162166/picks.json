@@ -1,0 +1,110 @@
+[
+ {
+  "net": "UU",
+  "sta": "MSU",
+  "loc": "01",
+  "cha": "EHZ",
+  "phase": "P",
+  "timeMs": 1793421860380,
+  "uncertaintySec": 0.06
+ },
+ {
+  "net": "UU",
+  "sta": "MTPU",
+  "loc": "01",
+  "cha": "HHE",
+  "phase": "S",
+  "timeMs": 1793421864790,
+  "uncertaintySec": 0.12
+ },
+ {
+  "net": "UU",
+  "sta": "TCRU",
+  "loc": "01",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1793421862500,
+  "uncertaintySec": 0.06
+ },
+ {
+  "net": "UU",
+  "sta": "FOR6",
+  "loc": "01",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1793421864350,
+  "uncertaintySec": 0.06
+ },
+ {
+  "net": "UU",
+  "sta": "WCU",
+  "loc": "02",
+  "cha": "EHZ",
+  "phase": "P",
+  "timeMs": 1793421868510,
+  "uncertaintySec": 0.12
+ },
+ {
+  "net": "UU",
+  "sta": "WCU",
+  "loc": "01",
+  "cha": "ENN",
+  "phase": "S",
+  "timeMs": 1793421878910,
+  "uncertaintySec": 0.3
+ },
+ {
+  "net": "UU",
+  "sta": "MTPU",
+  "loc": "01",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1793421860650,
+  "uncertaintySec": 0.12
+ },
+ {
+  "net": "UU",
+  "sta": "TCRU",
+  "loc": "01",
+  "cha": "HHE",
+  "phase": "S",
+  "timeMs": 1793421867570,
+  "uncertaintySec": 0.12
+ },
+ {
+  "net": "UU",
+  "sta": "DWU",
+  "loc": "01",
+  "cha": "EHZ",
+  "phase": "P",
+  "timeMs": 1793421866770,
+  "uncertaintySec": 0.12
+ },
+ {
+  "net": "UU",
+  "sta": "SGU",
+  "loc": "01",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1793421874810,
+  "uncertaintySec": 0.3
+ },
+ {
+  "net": "UU",
+  "sta": "TMU",
+  "loc": "01",
+  "cha": "HHZ",
+  "phase": "P",
+  "timeMs": 1793421879600,
+  "uncertaintySec": 0.06
+ },
+ {
+  "net": "UU",
+  "sta": "ELU",
+  "loc": "01",
+  "cha": "EHZ",
+  "phase": "P",
+  "timeMs": 1793421884880,
+  "uncertaintySec": 0.3
+ }
+]

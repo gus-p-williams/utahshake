@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Wave Race: Locate a Utah Quake</title>
+  <meta name="description" content="Pick P and S waves on real University of Utah seismograms, turn S-minus-P times into distances, and locate a Utah earthquake.">
+  <link rel="stylesheet" href="../vendor/leaflet.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <script type="module" src="../js/wave-race/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <a href="../" class="home" title="All UHSN apps">UHSN Apps</a>
+      <h1>Wave Race <span class="sub">Locate a Utah quake</span></h1>
+    </div>
+    <div class="topbar-right">
+      <span id="source-badge" class="badge"></span>
+      <a id="source-switch" href="#"></a>
+      <a href="../../apps/wave-race/" target="_blank" rel="noopener">Student guide</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="step-quake" class="card">
+      <div class="card-head">
+        <h2><span class="step">1</span> Choose a quake</h2>
+        <button id="change-quake" type="button" class="link" hidden>Choose a different quake</button>
+      </div>
+      <div id="quake-chooser">
+        <p class="hint">Where each quake happened is hidden: finding it is your job. A ★ means
+          the quake is near the UHSN schools.</p>
+        <div class="row-wrap">
+          <div class="presets" id="presets"></div>
+        </div>
+        <div id="event-status" class="status" role="status"></div>
+        <div class="table-wrap">
+          <table id="event-table" class="events">
+            <thead><tr><th>Date (Utah time)</th><th>Time</th><th>Magnitude</th><th></th><th></th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <div id="quake-summary" hidden></div>
+    </section>
+
+    <div id="workspace" hidden>
+      <section class="card picker-card">
+        <div class="card-head">
+          <h2><span class="step">2</span> Pick the P and S waves</h2>
+          <label class="inline">Filter
+            <select id="filter-select"></select>
+          </label>
+        </div>
+        <div class="toolbar" role="toolbar" aria-label="Picking tools">
+          <button id="arm-p" type="button" class="pick-p" aria-pressed="false">Pick P</button>
+          <button id="arm-s" type="button" class="pick-s" aria-pressed="false">Pick S</button>
+          <button id="clear-picks" type="button">Clear this station</button>
+          <span class="spacer"></span>
+          <button id="zoom-in" type="button" title="Zoom in (+)">＋</button>
+          <button id="zoom-out" type="button" title="Zoom out (−)">－</button>
+          <button id="zoom-reset" type="button" title="Show the whole record (0)">Whole record</button>
+          <button id="prev-station" type="button" title="Previous station">◀</button>
+          <button id="next-station" type="button" title="Next station">▶</button>
+        </div>
+        <div id="picker-title" class="picker-title"></div>
+        <canvas id="picker" class="trace-canvas big" aria-label="Seismogram of the selected station. Drag to move, scroll to zoom, click to place a pick when Pick P or Pick S is on."></canvas>
+        <p id="pick-hint" class="hint"></p>
+        <div id="station-list" class="station-list"></div>
+      </section>
+
+      <section class="card map-card">
+        <div class="card-head">
+          <h2><span class="step">3</span> Locate the quake</h2>
+        </div>
+        <div id="map" class="map" role="region" aria-label="Map of stations and distance circles"></div>
+        <div class="locate-controls">
+          <label>P speed (km/s) <input id="vp" type="number" step="0.1" min="1" max="9"></label>
+          <label>S speed (km/s) <input id="vs" type="number" step="0.1" min="0.5" max="6"></label>
+          <label>Depth (km) <input id="depth" type="number" step="1" min="0" max="40"></label>
+          <span class="kps" id="kps"></span>
+        </div>
+        <div class="actions">
+          <button id="locate" type="button" class="primary">Find the best epicenter</button>
+          <button id="reveal" type="button">Reveal the official answer</button>
+          <button id="download" type="button">Download my picks (CSV)</button>
+        </div>
+        <div id="result" class="result" role="status"></div>
+        <div id="answer" class="answer" hidden></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="credits" id="credits"></footer>
+</body>
+</html>
