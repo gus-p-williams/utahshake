@@ -35,7 +35,3 @@ nav:
   - Home: index.md
   - Apps:
       - Open the apps: app/index.html
-  - Planning:
-      - Evaluation (snapshot): planning/evaluation.md
-      - Roadmap: planning/roadmap.md
-      - Decisions: planning/decisions.md

@@ -14,9 +14,13 @@ see, analyze and do research with seismic data from their own school and the reg
 
 - Owner/lead: Gus Williams (DRI UHSN team).
 - Planning doc (canonical, living): https://claude.ai/artifact/138FYiSqhWYYs268h66uxn
-- Snapshot of that doc in this repo: `docs/planning/evaluation.md`
-- Staged build plan: `docs/planning/roadmap.md`
-- Decision log: `docs/planning/decisions.md`
+- Snapshot of that doc in this repo: `planning/evaluation.md` (+ Word copy, for
+  sharing with DRI colleagues)
+- Staged build plan: `planning/roadmap.md`
+- Decision log: `planning/decisions.md`
+- `planning/` is deliberately outside `docs/`: kept in git, NOT on the website
+  (it discusses things that may not happen). The repo is public, so it is still
+  readable on github.com.
 
 ## Key constraints (do not violate)
 
@@ -66,7 +70,7 @@ docs/
   theory/               theory primer pages
   teachers/             activity cards, standards crosswalk
   developers/           architecture, data sources, adding a source, licensing
-  planning/             evaluation snapshot, roadmap, decisions
+planning/               evaluation snapshot (+ .docx), roadmap, decisions (not on site)
 tests/                  node --test for js logic
 tools/                  vendoring and data-sample scripts
 ```
@@ -102,10 +106,31 @@ tools/                  vendoring and data-sample scripts
 - MkDocs Material reaches end of life 2027-05-05; plan a Zensical migration test
   before then (see decisions D4).
 
+- 2026-11-23 (later): Planning files moved from `docs/planning/` to top-level
+  `planning/` (off the website). Gus added a Word export of the evaluation doc there.
+  Its 5 equations are raw LaTeX in "Code" paragraphs (and V_P, 10^0.3 are plain
+  text); fix was in progress: replace those paragraphs with OMML from pandoc
+  (`C:\Users\williagp\anaconda3\Library\bin\pandoc.exe`, 3.8). Diagrams are fine.
+- Stage 1 started (no app code yet). Findings so far:
+  - npm: seisplotjs 3.3.0 (MIT, ESM), leaflet 1.9.4, esbuild 0.28.2. Node 24 here.
+  - UU network DOI verified: 10.7914/SN/UU -> fdsn.org/networks/detail/UU/.
+  - Nearest active UU velocity stations (HHZ/EHZ) to each school (approx. coords):
+    Juab (39.709,-111.836): SUU 20 km (01.EHZ), LEVU 23 km (02.EHZ), NLU 34 km (01.HHZ).
+    North Sanpete (39.540,-111.463) and Wasatch Academy (39.547,-111.455): ELU
+    ~25 km (01.EHZ), TMU 35 km (01.HHZ). Gunnison Valley (39.153,-111.817): SGU
+    15 km (01.HHZ), ECUT 27 km (01.HHZ). Millard (38.969,-112.343): WCU 22 km
+    (02.EHZ), ECUT 29 km. Many UU urban sites are EN? accelerometers only; prefer HH/EH.
+  - Design notes: hide USGS place name until "reveal" (it gives the answer away);
+    fetch 3 components where available (S picks are easier on horizontals); add
+    nearest UU stations to the event so 4+ stations surround it (school stand-ins
+    alone are clustered within ~100 km); S−P gives hypocentral distance, so use an
+    assumed depth (editable) in the grid search.
+
 ## Next steps
 
-1. Stage 1 build (Wave Race + Locator; see roadmap).
-2. Bump GitHub Actions to Node 24 majors (runs warn that checkout@v4,
+1. Stage 1 build (Wave Race + Locator; see roadmap and notes above).
+2. Finish the equation fix in the planning .docx, then send to Dale Anderson and Cleat.
+3. Bump GitHub Actions to Node 24 majors (runs warn that checkout@v4,
    setup-python@v5, upload/deploy-pages target deprecated Node 20).
-3. Optional: move the repo to a DRI GitHub org if one exists (GitHub redirects old
+4. Optional: move the repo to a DRI GitHub org if one exists (GitHub redirects old
    links; update site_url/repo_url).

@@ -25,9 +25,12 @@ mkdocs serve          # http://127.0.0.1:8000  (app at /app/)
 
 - Live site: https://gus-p-williams.github.io/utahshake/ (apps at `/app/`)
 - `CLAUDE.md` — project context, constraints, status (read first)
-- `docs/planning/roadmap.md` — staged plan
-- `docs/planning/decisions.md` — decision log
-- `docs/planning/evaluation.md` — planning study (snapshot)
+- `planning/roadmap.md` — staged plan
+- `planning/decisions.md` — decision log
+- `planning/evaluation.md` — planning study (snapshot; Word copy alongside)
+
+Planning files live outside `docs/` on purpose: they discuss ideas that may not
+happen, so they are kept in git but not published on the site.
 
 ## Data credits
 
