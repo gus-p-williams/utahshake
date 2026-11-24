@@ -8,11 +8,12 @@ covers. Every app runs in a browser, so students need no install and no accounts
 | App | Activity | Time | What students do |
 | --- | --- | --- | --- |
 | [Wave Race](../apps/wave-race.md) | [Wave Race activity card](wave-race-card.md) | 15 min (whole class) or a full period (pairs) | Pick P and S on real Utah seismograms, turn S − P into distances, and locate the quake |
-| [Quake Waves](../theory/locating.md#watch-it-happen) (animation) | The warm-up in the [Wave Race card](wave-race-card.md) ("Model" in the 15-minute version, "Engage" in the full period) | About 1 minute | Watch P and S waves race out from a quake and turn into circles that cross at it |
+| [Quake Waves](../apps/quake-waves.md) (animation) | The warm-up in the [Wave Race card](wave-race-card.md) ("Model" in the 15-minute version, "Engage" in the full period) | About 1 minute | Watch P and S waves race out from a quake and turn into circles that cross at it |
 
 Students follow the [Wave Race guide](../apps/wave-race.md): it walks them through the app
-step by step. The [Locating a quake](../theory/locating.md) page holds Quake Waves and the
-science behind it.
+step by step. [Quake Waves](../apps/quake-waves.md) has a short guide of its own, and the
+[Locating a quake](../theory/locating.md#watch-it-happen) page shows it next to the science
+behind it.
 
 **Coming soon:** School Pulse, which looks at the daily rhythm of campus noise.
 **Planned:** Quake Explorer. Activity cards for them will be added here when they are released.
@@ -25,7 +26,7 @@ the table; the [standards crosswalk](standards.md) shows where each one comes up
 | Activity or topic | What it is | Utah standards |
 | --- | --- | --- |
 | [Wave Race](wave-race-card.md) | App and activity card | PHYS.4.1 · ESS.2.2 · ESS.2.3 · ESS.4.1 · GEOL.3.x · CS&nbsp;9/10.DA.3 · CS&nbsp;11/12.DA.1 |
-| [Quake Waves](../theory/locating.md#watch-it-happen) | Animation (warm-up) | PHYS.4.1 · ESS.2.2 |
+| [Quake Waves](../apps/quake-waves.md) | Animation (warm-up) | PHYS.4.1 · ESS.2.2 |
 | [Seismic waves](../theory/waves.md) | Science page | PHYS.4.1 · ESS.2.2 |
 | [Reading a seismogram](../theory/seismograms.md) | Science page | PHYS.4.1 · ESS.4.1 · CS&nbsp;9/10.DA.3 |
 | [Distance from S minus P](../theory/s-minus-p.md) | Science page | PHYS.4.1 |

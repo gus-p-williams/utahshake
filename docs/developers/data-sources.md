@@ -24,7 +24,11 @@ skipped because they are too noisy for small quakes.
 
 ## Credits shown in the apps
 
-Every page that shows data cites its source (from `ATTRIBUTION` in `js/config.js`):
+Every page that shows data cites its source in a credits footer. The texts are `ATTRIBUTION`
+in `js/config.js`; `showCredits(el, keys)` in `js/ui/page.js` writes the entries a page names
+(Wave Race: all three) and adds an "About the data ↗" link to
+[Our stations and data](../theory/stations.md). The map also shows the OpenStreetMap credit
+in its corner (`ui/map-view.js`).
 
 - Waveforms: University of Utah Seismograph Stations, network UU
   ([doi:10.7914/SN/UU](https://doi.org/10.7914/SN/UU)), via EarthScope Data Services.

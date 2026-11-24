@@ -36,6 +36,8 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+extra_css:
+  - stylesheets/extra.css
 extra_javascript:
   - javascripts/mathjax.js
   - https://unpkg.com/mathjax@3.2.2/es5/tex-mml-chtml.js
@@ -51,6 +53,7 @@ nav:
   - Apps:
       - apps/index.md
       - Wave Race: apps/wave-race.md
+      - Quake Waves: apps/quake-waves.md
   - The Science:
       - theory/index.md
       - Seismic waves: theory/waves.md

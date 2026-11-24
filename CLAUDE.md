@@ -91,7 +91,7 @@ Git does not carry installed packages (`node_modules/` is ignored), so after clo
 | --- | --- | --- |
 | Node 22+ | `npm test`, `node tools/serve.mjs`, `node tools/figures/trace-figures.mjs` | nothing to install: these use no packages |
 | MkDocs Material | `mkdocs serve` / `mkdocs build --strict` | `pip install -r requirements-docs.txt` (conda env) |
-| puppeteer-core | `tools/figures/screenshots.mjs` (guide screenshots) | `cd tools/figures && npm install`, plus Google Chrome installed (or set `CHROME=` to its path) |
+| puppeteer-core | `tools/figures/screenshots.mjs` (guide screenshots), `tools/site-check.mjs` (site check at 3 widths) | `cd tools/figures && npm install`, plus Google Chrome installed (or set `CHROME=` to its path) |
 | esbuild, seisplotjs, Leaflet | only when changing vendored library versions | `cd tools/vendor && npm install` |
 
 If `tools/figures/node_modules/` is missing and screenshots need regenerating, run the
@@ -141,9 +141,11 @@ out of the menus:
    `adding-an-app.md` if a convention changed.
 4. Records: the README app list; this file (tree, status, next steps); roadmap checkboxes;
    decisions.
-5. Checks: `npm test` (includes the app-to-docs link check), `mkdocs build --strict` (fails
-   if a page is missing from nav), the 1366/1093/390 px check; push, then confirm the Pages
-   deploy succeeded.
+5. Checks: `npm test` (includes the app-to-docs link check and the app list),
+   `mkdocs build --strict -d site` (fails if a page is missing from nav), then
+   `node tools/site-check.mjs site` (every page and app at 1366/1093/390 px: no sideways
+   scroll, images load, no script errors); push, then confirm the Pages deploy succeeded
+   (`gh run list --limit 1`).
 
 ## Status
 
@@ -221,46 +223,54 @@ out of the menus:
   downloads cached in `tools/figures/.cache/` (git-ignored, ~0.7 GB), noise levels kept in
   `tools/figures/data/`. `npm test` = 48. Open: UHSN Shake model/geophone/digitizer for the
   instrument section (diagram is a generic geophone); no real spike example found.
+- 2026-11-24 (evening): **Navigation Phase 2 done** (D21). `app/wave-animation/` →
+  `app/quake-waves/` (a redirect stub keeps old links and `?embed=1` working); hub
+  `apps/quake-waves.md` in the Apps menu. The HTML launcher `app/index.html` forwards to
+  the All apps page (`apps/index.md`), which also lists the animations (Quake Waves, the
+  P/S motion cartoon `app/wave-motion/`, no hub). One static top bar on every app
+  ("UHSN · All apps", "Guide ↗", "About the data ↗"); shared helpers in
+  `docs/app/js/ui/page.js`. New guards: `tests/app-list.test.js` (every app folder listed),
+  `validation.nav.omitted_files` in mkdocs.yml (every page in the menu),
+  `tools/site-check.mjs`. Math no longer makes phone pages scroll sideways
+  (`docs/stylesheets/extra.css`). `npm test` = 51. This was the last work of the first
+  master session; a new master session takes over (see "Parallel sessions").
 
 ## Next steps
 
-1. Navigation Phase 2 (app side; not started, plan agreed with Gus):
-   a. Rename `app/wave-animation/` → `app/quake-waves/` (+ `js/wave-animation/`), title
-      "Quake Waves"; leave a redirect stub at the old path; update the iframe in
-      `theory/locating.md`, README, CLAUDE.md, architecture/roadmap text.
-   b. Add the hub `apps/quake-waves.md` (+ nav entry); point "Used in" and card links at it.
-   c. Replace `docs/app/index.html` with a redirect to `../apps/` (visible fallback link).
-   d. Same top bar in both apps: "All apps" → `../../apps/`, "Guide" (new tab, labelled),
-      "About the data" → `../../theory/stations/` (wave-race `app.js` "About the data").
-      Build it as a shared module in `docs/app/js/ui/` (top bar, credits, source badge,
-      `esc`, CSV helper), so Quake Explorer reuses it (planning/quake-explorer.md §4);
-      document it in `developers/adding-an-app.md`.
-   e. Regenerate guide screenshots (`tools/figures/screenshots.mjs`) if the top bar shows.
-   f. `npm test`, `mkdocs build --strict`, check at 3 widths; log as the next free decision
-      number (decision numbers are taken when an entry lands on main; none are reserved).
-   g. Menus: Quake Waves and the P/S motion animation (`app/wave-motion/`, figure W1 on
-      Seismic waves) are live but in no menu. Quake Waves gets its hub (b). Decide whether
-      the motion animation is an app (hub + Apps menu) or a figure (embedded only), and add
-      a test that every folder in `docs/app/` is either listed on `apps/index.md` or marked
-      as an embedded figure.
-   Order: after the figures work is fully committed (most landed in eb85d0d; a follow-on
-   "Reading a seismogram" session is still editing `theory/waves.md` and `tools/figures/`).
-   Quake Explorer's app page, docs pages and nav wait for Phase 2 (its pure-logic modules
-   can start now on the `quake-explorer` branch in its own worktree).
-2. Teacher activity cards (D19; roadmap "Across all stages: teacher activity cards"): card
-   format and the activity catalog on the Teachers page, with or after Phase 2; then a
-   Quake Waves card, Quake Explorer's cards, and cards for the starter set chosen from
-   `planning/activities.md` (activity-planning session, in progress).
-3. Gus: try Wave Race with a teacher or student (15-minute target in the roadmap).
-4. DRI: choose a license (MIT or BSD) and add LICENSE; the public repo has none yet.
-5. Stage 2: School Pulse / seismic carpet (scheduled job + heatmap; see roadmap).
-6. Bump GitHub Actions to Node 24 majors (runs warn that checkout@v4,
-   setup-python@v5, upload/deploy-pages target deprecated Node 20).
-7. Optional: move the repo to a DRI GitHub org if one exists (GitHub redirects old
-   links; update site_url/repo_url).
-8. Optional: confirm SEEd standard wording against the current USBE PDF.
-9. Phone width: on `theory/s-minus-p.md` the wide display equation (MathJax) makes the page
-   scroll sideways by about 17 px at 390 px. Needs a small CSS rule for display math.
-10. Ask UUSS about the S − P page's "beyond about 120 km" (first P through the mantle): the
-   sample's far P picks (114–177 km) are only 0.4–1.2 s early on 5.8 km/s, and a simple
-   estimate puts the crossover near 140–160 km. Blocks plan figure S5.
+1. **Quake Explorer** (branch `quake-explorer`, worktree `G:\GIT_Repo\2026_11_Shake-qexp`,
+   529b0c5 or later; all four views built, 133 tests, offline samples 2.4 MB). Navigation
+   Phase 2 has landed, so its session can now build the app page, hub guide, theory pages
+   and teacher cards (its plan, `planning/quake-explorer.md` section 10, on the branch).
+   For each phase it reports ready: review it (merge main into the branch, `npm test`,
+   strict build, `tools/site-check.mjs`, the integration checklist above), then merge into
+   main only with Gus's OK. Its decisions take the next free numbers (D22 on). Answer-key
+   note from it: in the 2020 Magna data SGU was short-period and shows no quake (about 100×
+   too small); label it next to the clipped stations.
+2. **Activity planning** (`planning/activities.md` and `planning/UHSN activities by
+   setup.docx`, uncommitted): confirm with Gus that it is final, review it, commit by path,
+   carry its proposals into the roadmap, and plan the activity catalog on the Teachers page.
+3. **Teacher activity cards** (D19; roadmap "Across all stages: teacher activity cards"):
+   card format and catalog on the Teachers page; a Quake Waves card; Quake Explorer's cards;
+   cards for the starter set chosen from `planning/activities.md`.
+4. **Open questions for Gus / DRI:**
+   a. Which Raspberry Shake model, geophone and digitizer do the UHSN schools have? The
+      seismometer figure on Reading a seismogram is a generic geophone.
+   b. Confirm the standards row for Reading a seismogram: PHYS.4.1 · ESS.4.1 ·
+      CS 9/10.DA.3 (ESS.4.1 rests on mines and blasts as resources, a stretch).
+   c. `tools/figures/.cache/` holds 716 MB (git-ignored; the scripts re-download what they
+      need). Delete it if the disk space matters.
+5. **Figure follow-ups** (`planning/science-figures.md`, "Follow-ups from the review"): three
+   SVG fixes (hidden-quake label, gap-edge burst, blast axis). Phone legibility: the 760 px
+   figures shrink to about 358 px with small labels (house style for all figures); consider
+   bigger labels or a tap-to-enlarge link.
+6. Gus: try Wave Race and Quake Waves with a teacher or student (15-minute target).
+7. DRI: choose a license (MIT or BSD) and add LICENSE; the public repo has none yet.
+8. Stage 2: School Pulse / seismic carpet (scheduled job + heatmap; see roadmap).
+9. Bump GitHub Actions to Node 24 majors (runs warn that checkout@v4, setup-python@v5,
+   upload/deploy-pages target deprecated Node 20).
+10. Optional: move the repo to a DRI GitHub org if one exists (GitHub redirects old links;
+    update site_url/repo_url).
+11. Optional: confirm SEEd standard wording against the current USBE PDF.
+12. Ask UUSS about the S − P page's "beyond about 120 km" (first P through the mantle): the
+    sample's far P picks (114–177 km) are only 0.4–1.2 s early on 5.8 km/s, and a simple
+    estimate puts the crossover near 140–160 km. Blocks plan figure S5.

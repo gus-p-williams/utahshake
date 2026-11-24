@@ -7,6 +7,7 @@
 // only moves and comes back. Everything is a function of the time t, so the slider can
 // step back and forth. The pulse itself is in js/lib/wave-motion.js.
 import { VP, VS, displacement, peakKm, endTime } from '../lib/wave-motion.js';
+import { setupEmbed, followDocsTheme } from '../ui/page.js';
 
 const $ = (id) => document.getElementById(id);
 const LENGTH = 60;                 // km of rock shown
@@ -369,25 +370,8 @@ function setPlaying(on) {
   }
 }
 
-/** In a docs page (same site), follow the docs' light/dark switch instead of the device. */
-function followDocsTheme() {
-  try {
-    if (window.parent === window) return;
-    const body = window.parent.document.body;
-    const apply = () => {
-      const scheme = body.getAttribute('data-md-color-scheme');
-      if (!scheme) return;
-      document.documentElement.dataset.theme = scheme === 'slate' ? 'dark' : 'light';
-      draw();
-    };
-    apply();
-    new MutationObserver(apply).observe(body, { attributes: true, attributeFilter: ['data-md-color-scheme'] });
-  } catch { /* another site: keep following the device */ }
-}
-
 function init() {
-  const params = new URLSearchParams(location.search);
-  if (params.has('embed') || window.parent !== window) document.body.classList.add('embed');
+  setupEmbed();
   $('scrub').max = String(DURATION);
 
   $('play').addEventListener('click', () => setPlaying(!sim.playing));
@@ -400,7 +384,7 @@ function init() {
   });
   new ResizeObserver(() => draw()).observe(canvas);
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => draw());
-  followDocsTheme();
+  followDocsTheme(draw);
   draw();
 }
 

@@ -14,7 +14,8 @@ services and their licenses are in [Data sources and licensing](data-sources.md)
 | `docs/app/js/lib/stations.js` | Which stations to show for a quake |
 | `docs/app/js/ui/trace-view.js` | Canvas seismogram with zoom, pan, picks |
 | `docs/app/js/ui/map-view.js` | Leaflet map: stations, circles, epicenters, the student's pin |
-| `docs/app/js/config.js` | Schools, stand-in stations, defaults, presets (classic quakes), credits |
+| `docs/app/js/ui/page.js` | Shared with the other apps: credits footer (`showCredits`), Live/Offline badge (`showSourceBadge`), CSV download (`csvRow`, `downloadCsv`), HTML escaping (`esc`) |
+| `docs/app/js/config.js` | Schools, stand-in stations, defaults, presets (classic quakes), credit texts (`ATTRIBUTION`) |
 | `docs/app/data/samples/uu80162166/` | The offline sample quake (M3.3 near Junction) |
 
 ## Data flow in Wave Race
@@ -56,7 +57,8 @@ the address, so teachers can share the address to send a class to the same quake
 - **Velocity defaults** (Vp 5.8, Vs 3.3 km/s) were calibrated against UUSS analyst picks; the
   textbook 6.0 and 3.5 made distances about 10% too long. Students can still edit them.
 - **Picks and the student's pin** are kept in the browser's `localStorage` per quake, for
-  convenience only, and are included in the CSV download.
+  convenience only, and are included in the CSV download (built with `csvRow` and saved with
+  `downloadCsv` from `ui/page.js`).
 
 The reasons are logged as decisions D9, D10, D11 and D14 in
 [planning/decisions.md](https://github.com/gus-p-williams/utahshake/blob/main/planning/decisions.md)

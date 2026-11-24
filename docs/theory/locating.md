@@ -1,6 +1,6 @@
 # Locating a quake
 
-**Used in:** [Wave Race](../apps/wave-race.md) · [Quake Waves](#watch-it-happen)
+**Used in:** [Wave Race](../apps/wave-race.md) · [Quake Waves](../apps/quake-waves.md)
 
 One station tells you **how far** away a quake was (from its
 [S-minus-P time](s-minus-p.md)), but not **in which direction**. The quake
@@ -24,15 +24,15 @@ same way, using distances to satellites.
 
 ## Watch it happen
 
-<iframe src="../../app/wave-animation/?embed=1" title="Quake Waves animation: P and S waves spread out from a quake and reach four stations; their S minus P times become distance circles that cross at the quake" loading="lazy" style="width:100%;height:700px;border:1px solid var(--md-default-fg-color--lightest);border-radius:8px"></iframe>
+<iframe src="../../app/quake-waves/?embed=1" title="Quake Waves animation: P and S waves spread out from a quake and reach four stations; their S minus P times become distance circles that cross at the quake" loading="lazy" style="width:100%;height:700px;border:1px solid var(--md-default-fg-color--lightest);border-radius:8px"></iframe>
 
-**Quake Waves** is a cartoon, not real data: the quake is at the surface and all the rock is
+**[Quake Waves](../apps/quake-waves.md)** is a cartoon, not real data: the quake is at the surface and all the rock is
 the same. Press **Play**. The P wave (blue) and the S wave (red) leave the quake (star) at the same
 moment. P pulls ahead, so the farther a station is, the longer it waits between P and S. Each
 station's seismogram is drawn as the waves pass. When S arrives, the S − P time becomes a
 distance, drawn as a dashed circle around the station, and the four circles cross at the quake.
 Click the map to move the quake, or drag the slider to step through time.
-[Open Quake Waves full screen](../app/wave-animation/index.html).
+[Open Quake Waves full screen](../app/quake-waves/index.html).
 
 Notice the **order** in which P reaches the stations: nearest first. That order alone already
 hints where the quake is. Professionals use it, as described below.

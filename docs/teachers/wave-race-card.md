@@ -3,6 +3,9 @@
 Students follow the [Wave Race guide](../apps/wave-race.md) (what they see, step by step) and
 use the [Wave Race app](../app/wave-race/index.html).
 
+**Apps used:** [Wave Race](../apps/wave-race.md) · [Quake Waves](../apps/quake-waves.md)
+(the warm-up)
+
 **Driving question:** How far away was that earthquake, and where did it happen?
 
 **Students will:** read real seismograms; identify P and S arrivals; calculate distance from the
@@ -27,7 +30,7 @@ entered or stored.
 1. **Hook (2 min).** Show the seismogram of one station. "Something happened. When did the
    shaking start? Why are there two bursts?"
 2. **Model (5 min).** Play the [Quake Waves animation](../theory/locating.md#watch-it-happen)
-   once (about a minute at 4× speed). Then pick P and S together on one station (zoom in first).
+   once (under a minute at 4× speed; run it again with the quake moved). Then pick P and S together on one station (zoom in first).
    Read off S − P and the distance. Explain the race: P is fast, S is slow, the gap grows with
    distance.
 3. **Class picks (5 min).** Volunteers pick two more stations. Watch the circles appear on

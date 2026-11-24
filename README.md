@@ -5,9 +5,9 @@ Browser apps and documentation for students in the **Utah High School Seismic Ne
 rural Utah high schools.
 
 - **Apps** (no install, any browser): **Wave Race** (pick P and S on real Utah
-  seismograms and locate the quake, by eye or by grid search) and **Watch the Waves** (a
+  seismograms and locate the quake, by eye or by grid search) and **Quake Waves** (a
   cartoon of P and S waves reaching four stations) are live; campus-noise and explorer apps
-  follow in stages (see the roadmap).
+  follow in stages (see the roadmap). All of them are listed on the site's All apps page.
 - **Docs**: student guides, theory written for advanced high-school students, teacher
   activity cards mapped to Utah SEEd standards, and developer notes.
 
@@ -20,21 +20,25 @@ Seismograph Stations (via EarthScope) and the USGS earthquake catalog.
 conda create -n uhsn python=3.12 -y
 conda activate uhsn
 pip install -r requirements-docs.txt
-mkdocs serve          # http://127.0.0.1:8000  (app at /app/)
+mkdocs serve          # http://127.0.0.1:8000  (All apps at /apps/)
 ```
 
 Apps only, and tests (Node 22+; no npm install needed):
 
 ```bash
-node tools/serve.mjs  # http://127.0.0.1:8001/app/
-npm test              # unit tests + real-data checks on the offline sample
+node tools/serve.mjs  # http://127.0.0.1:8001/app/wave-race/
+npm test              # unit tests, link and app-list checks, real-data checks on the offline sample
 ```
+
+`tools/serve.mjs` serves the raw `docs/` folder without building the guides, so start at an
+app's own address; the All apps page and the guides need `mkdocs serve`.
 
 See `docs/developers/architecture.md` for the code layout.
 
 ## Where to look
 
-- Live site: https://gus-p-williams.github.io/utahshake/ (apps at `/app/`)
+- Live site: https://gus-p-williams.github.io/utahshake/ (All apps page at `/apps/`; each
+  app at `/app/<name>/`, for example `/app/wave-race/`)
 - `CLAUDE.md` — project context, constraints, status (read first)
 - `planning/roadmap.md` — staged plan
 - `planning/decisions.md` — decision log

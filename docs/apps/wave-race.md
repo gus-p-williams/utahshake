@@ -10,7 +10,7 @@ Find where a real Utah earthquake happened from the waves it sent to stations ar
     - **Time:** about 15 minutes as a class demo, or a full class period (45–55 minutes) in pairs.
     - **Works on:** any browser, including Chromebooks. No install, no accounts.
     - **The science:** [Seismic waves](../theory/waves.md) · [Reading a seismogram](../theory/seismograms.md) · [Distance from S minus P](../theory/s-minus-p.md) · [Locating a quake](../theory/locating.md)
-    - **For teachers:** [Activity card](../teachers/wave-race-card.md) · [Standards](../teachers/standards.md#wave-race)
+    - **For teachers:** [Wave Race activity card](../teachers/wave-race-card.md) · [Standards](../teachers/standards.md#wave-race)
     - **Data:** [Our stations and data](../theory/stations.md)
     - **For developers:** [Wave Race notes](../developers/wave-race.md)
 
@@ -27,9 +27,9 @@ compare your answer with the official one.
     [Our stations and data](../theory/stations.md) lists the stand-in for each school.
 
 !!! tip "New to P and S waves? Watch Quake Waves first"
-    The [Quake Waves animation](../theory/locating.md#watch-it-happen) shows P and S waves
+    The [Quake Waves](quake-waves.md) animation shows P and S waves
     racing out from a quake, the seismograms they make at four stations, and how the gap
-    between them turns into circles that cross at the quake. It takes about a minute.
+    between them turns into circles that cross at the quake. It takes well under a minute.
 
 ## The steps
 

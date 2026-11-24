@@ -7,6 +7,18 @@ Newest first. Each entry: date, decision, why, consequences.
 Numbering: an entry takes the next free number when it lands on `main`. Branches and parallel
 sessions don't reserve numbers.
 
+**D21. Navigation Phase 2: a hub for Quake Waves, one app list, one top bar for every app.**
+The animation app moved to `app/quake-waves/` and got its hub, `apps/quake-waves.md`; a
+redirect stub at the old path keeps old links and embeds working (it passes on `?embed=1` and
+the `#hash`). The plain-HTML launcher `app/index.html` now forwards to the themed All apps
+page, so there is one app list. Every app page has the same static top bar ("UHSN · All apps";
+"Guide ↗" and "About the data ↗" open in new tabs so students don't lose work); its links stay
+plain `href`s so the link test checks them. Shared page helpers (credits, source badge, `esc`,
+CSV, embed mode, following the docs' theme) live in `docs/app/js/ui/page.js`, which Quake
+Explorer will reuse. Animations embedded on science pages are listed on All apps; the P/S
+motion animation (`app/wave-motion/`) has no hub of its own. `tests/app-list.test.js` checks
+that every app folder is listed; redirect stubs carry a `uhsn-redirect` marker.
+
 **D20. New science page "Reading a seismogram" (signals and noise), built from real records.**
 `docs/theory/seismograms.md`, between Seismic waves and Distance from S minus P. Students see
 what else a seismometer records, so they can tell a quake from everything else: the instrument

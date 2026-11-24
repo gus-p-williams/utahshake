@@ -25,7 +25,9 @@ App: [Wave Race guide](../apps/wave-race.md) · Lesson: [Wave Race activity card
 
 ## Quake Waves (animation) { #quake-waves }
 
-A cartoon used as a warm-up for Wave Race, on the [Locating a quake](../theory/locating.md#watch-it-happen) page.
+App: [Quake Waves guide](../apps/quake-waves.md) · Lesson: the warm-up in the
+[Wave Race activity card](wave-race-card.md). A cartoon, also shown on the
+[Locating a quake](../theory/locating.md#watch-it-happen) page.
 
 | Standard | Where it shows up |
 | --- | --- |

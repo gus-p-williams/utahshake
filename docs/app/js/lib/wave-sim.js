@@ -1,4 +1,4 @@
-// Cartoon P and S waves for the "Watch the waves" animation.
+// Cartoon P and S waves for the Quake Waves animation (js/quake-waves/app.js).
 //
 // A quake at the surface sends out a P wave and an S wave at the same moment.
 // Each travels at a constant speed through one kind of rock, so a station at

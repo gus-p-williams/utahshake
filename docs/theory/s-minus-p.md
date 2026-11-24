@@ -1,10 +1,10 @@
 # Distance from S minus P
 
-**Used in:** [Wave Race](../apps/wave-race.md) · [Quake Waves](locating.md#watch-it-happen)
+**Used in:** [Wave Race](../apps/wave-race.md) · [Quake Waves](../apps/quake-waves.md)
 
 [P and S waves](waves.md) leave the quake at the same moment. P is faster, so it wins the
 race; the farther the station, the bigger P's lead. Measuring that lead gives the distance.
-The [Quake Waves](locating.md#watch-it-happen) animation shows the race.
+The [Quake Waves](../apps/quake-waves.md) animation shows the race.
 
 ## The formula
 

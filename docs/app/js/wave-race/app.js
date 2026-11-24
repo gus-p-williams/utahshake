@@ -10,9 +10,9 @@ import { distanceKm } from '../lib/geo.js';
 import { kmPerSecond, spToDistanceKm, hypoToEpiKm, locateGrid, misfitAt } from '../lib/locate.js';
 import { TraceView } from '../ui/trace-view.js';
 import { MapView } from '../ui/map-view.js';
+import { esc, showCredits, showSourceBadge, csvRow, downloadCsv } from '../ui/page.js';
 
 const $ = (id) => document.getElementById(id);
-const esc = (s) => String(s).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
 const PALETTE = ['#e6194b', '#3cb44b', '#4363d8', '#f58231', '#911eb4',
   '#0ea5b7', '#f032e6', '#9a6324', '#469990', '#808000'];
 const DAY_MS = 86400000;
@@ -157,7 +157,7 @@ async function loadEventList() {
     tbody.append(tr);
   }
   status(events.length
-    ? `${events.length} quakes. Pick one, or a classic quake above.${source.live ? ' Quakes of magnitude 3 and up are easiest.' : ''}`
+    ? `${events.length} ${events.length === 1 ? 'quake' : 'quakes'}. Pick one, or a classic quake above.${source.live ? ' Quakes of magnitude 3 and up are easiest.' : ''}`
     : 'No quakes found.');
 }
 
@@ -535,17 +535,16 @@ function showAnswer() {
   });
 }
 
-function downloadCsv() {
+function downloadPicks() {
   const e = state.event;
   const iso = (ms) => (ms == null ? '' : new Date(ms).toISOString());
   const lines = ['station,role,latitude,longitude,P_time_utc,S_time_utc,S_minus_P_s,distance_km'];
   for (const st of state.stations) {
     const p = state.picks[st.key] || {};
     const m = measure(st.key);
-    lines.push([st.key, st.schools.length ? `stand-in for ${st.schools.join(' & ')}` : 'helper',
+    lines.push(csvRow([st.key, st.schools.length ? `stand-in for ${st.schools.join(' & ')}` : 'helper',
       st.lat.toFixed(4), st.lon.toFixed(4), iso(p.P), iso(p.S),
-      m ? m.sp.toFixed(2) : '', m && !m.bad ? m.distKm.toFixed(1) : '']
-      .map((v) => (/[",]/.test(v) ? `"${v.replace(/"/g, '""')}"` : v)).join(','));
+      m ? m.sp.toFixed(2) : '', m && !m.bad ? m.distKm.toFixed(1) : '']));
   }
   lines.push('');
   lines.push(`# quake,${e.id},${iso(e.timeMs)},M${e.mag}`);
@@ -558,23 +557,15 @@ function downloadCsv() {
   }
   if (state.solution) lines.push(`# best fit from your picks,${state.solution.lat.toFixed(4)},${state.solution.lon.toFixed(4)},rms km,${state.solution.rmsKm.toFixed(2)}`);
   lines.push(`# ${ATTRIBUTION.waveforms}`);
-  const blob = new Blob([lines.join('\n') + '\n'], { type: 'text/csv' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = `wave-race-${e.id}.csv`;
-  a.click();
-  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  downloadCsv(`wave-race-${e.id}.csv`, lines);
 }
 
 // ---------------------------------------------------------------------------
 // Start
 
 function init() {
-  $('credits').innerHTML = `${esc(ATTRIBUTION.waveforms)} ${esc(ATTRIBUTION.events)} ${esc(ATTRIBUTION.map)}
-    <a href="../../developers/data-sources/" target="_blank" rel="noopener">About the data</a>.`;
-  const badge = $('source-badge');
-  badge.textContent = source.live ? 'Live data' : 'Offline sample';
-  badge.className = `badge ${source.live ? 'live' : 'offline'}`;
+  showCredits($('credits'), ['waveforms', 'events', 'map']);
+  showSourceBadge($('source-badge'), source);
   const sw = $('source-switch');
   sw.href = switchUrl(source.live);
   sw.textContent = source.live ? 'Use the offline sample' : 'Use live data';
@@ -624,7 +615,7 @@ function init() {
   });
   $('locate').addEventListener('click', locate);
   $('reveal').addEventListener('click', showAnswer);
-  $('download').addEventListener('click', downloadCsv);
+  $('download').addEventListener('click', downloadPicks);
   $('change-quake').addEventListener('click', () => showChooser(true));
 
   if (source.live) renderPresets();
