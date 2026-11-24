@@ -13,7 +13,18 @@
     .wa-controls .spacer { flex: 1; }
     .wa-controls label { display: inline-flex; align-items: center; gap: .35rem; font-size: .9rem; color: var(--muted); }
     #play { min-width: 6.2rem; }
-    #scrub { width: 100%; margin: .1rem 0; accent-color: var(--accent); }
+    /* The Time slider, its label and its hint (the pill wraps under the slider on a phone). */
+    .wa-time { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem .6rem; }
+    .wa-time label { font-size: .9rem; font-weight: 600; color: var(--muted); }
+    #scrub { flex: 1 1 12rem; min-width: 0; margin: .1rem 0; accent-color: var(--accent); }
+    /* A hint pill: bold (accent) until the student does what it says, then faint (.learned).
+       Only the colors change, so nothing moves under the student's finger. */
+    .wa-pill { font-size: .82rem; font-weight: 600; line-height: 1.5; padding: .05rem .65rem;
+      border: 1px solid var(--accent); border-radius: 999px; white-space: nowrap;
+      background: var(--accent); color: var(--accent-text);
+      transition: background-color .4s, color .4s, border-color .4s; }
+    .wa-pill.learned { background: transparent; color: var(--muted); border-color: var(--border); }
+    @media (prefers-reduced-motion: reduce) { .wa-pill { transition: none; } }
     .wa-box { position: relative; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--trace-bg); }
     .wa-box canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
     #map-box { aspect-ratio: 5 / 3; max-height: 62vh; }
@@ -61,15 +72,18 @@
       <span class="spacer"></span>
       <a class="embed-only" href="./" target="_blank" rel="noopener">Open full screen ↗<span class="visually-hidden"> (opens in a new tab)</span></a>
     </div>
-    <input id="scrub" type="range" min="0" max="40" step="0.05" value="0" aria-label="Time after the quake (seconds)">
+    <div class="wa-time">
+      <label for="scrub">Time</label>
+      <input id="scrub" type="range" min="0" max="40" step="0.05" value="0" aria-describedby="scrub-hint">
+      <span id="scrub-hint" class="wa-pill">↔ Drag to step through time</span>
+    </div>
     <div id="map-box" class="wa-box">
-      <canvas id="map" role="img" aria-label="Map: a quake (star) and four stations A to D. Blue and red rings are the P and S waves spreading out."></canvas>
+      <canvas id="map" role="img" aria-label="Map: a quake (star) and four stations A to D. Blue and red rings are the P and S waves spreading out. Click the map to move the quake."></canvas>
     </div>
     <p id="log" role="status"></p>
     <div id="trace-box" class="wa-box">
       <canvas id="traces" role="img" aria-label="Seismograms at stations A to D, drawn as the waves arrive."></canvas>
     </div>
-    <p class="hint">Click the map to move the quake. Drag the slider to step through time.</p>
   </main>
   <footer class="credits">A cartoon model for teaching; the seismograms are made up.
     For real seismograms, try <a href="../wave-race/">Quake Locator</a>.</footer>

@@ -36,6 +36,8 @@ No accounts or logins, and nothing is entered or stored.
     starts by itself. Quake Waves starts at **4× faster**, so one run takes about 10 seconds;
     leave it there. Both use Quake Locator's speeds (P 5.8 km/s, S 3.3 km/s). They are cartoons:
     the quake is at the surface, all the rock is the same and the motion is exaggerated.
+    Quake Waves' blue labels, **Click the map to move the quake** and **Drag to step through
+    time**, fade after their first use; reload the page to bring them back for the class.
 
 ## 10-minute version (whole class, on the projector)
 

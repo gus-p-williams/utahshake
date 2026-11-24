@@ -29,9 +29,12 @@ finds the quake.
 | Start or pause | **▶ Play** (it turns into **❚❚ Pause**) |
 | Start again | **↺ Restart** |
 | Change the speed | **Speed**: real time, 2×, 4× (the start) or 8× faster |
-| Step through time | Drag the slider |
-| Move the quake | Click the map |
+| Step through time | Drag the **Time** slider |
+| Move the quake | Click the map (tap it on a phone or tablet); it plays again by itself |
 | Hide the circles | Untick **Distance circles** |
+
+Two blue labels point these out: **Click the map to move the quake** on the map, and **Drag to
+step through time** beside the slider. Each one fades once you have tried it.
 
 ## Predict, then watch
 

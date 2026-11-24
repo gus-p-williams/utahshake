@@ -4,9 +4,14 @@
 // and the circles cross at the quake. Everything is a function of the time t,
 // so the slider can step back and forth. See docs/apps/quake-waves.md and
 // docs/theory/locating.md (which embeds it with ?embed=1).
+//
+// Two hints show what students can do: a label on the map ("Click the map to move
+// the quake", map-hint.js) and a pill beside the Time slider ("Drag to step through
+// time"). Each is bold until the student first does it, then faint.
 import { arrivals, synthTrace, durationFor } from '../lib/wave-sim.js';
 import { kmPerSecond } from '../lib/locate.js';
 import { setupEmbed, followDocsTheme } from '../ui/page.js';
+import { pointerVerb, mapHintChoices, layoutMapHint } from './map-hint.js';
 
 const $ = (id) => document.getElementById(id);
 const VP = 5.8;
@@ -20,9 +25,11 @@ const STATIONS = [
   { name: 'D', x: 30, y: 100, color: '#15803d' },
 ];
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const HINT_CHOICES = mapHintChoices(pointerVerb(matchMedia('(pointer: coarse)').matches));
 
 const sim = {
   quake: { x: 85, y: 62 },
+  moved: false,      // the student has moved the quake (then the map hint turns faint)
   t: 0,
   playing: false,
   speed: 4,
@@ -43,6 +50,7 @@ function colors() {
     land: css('--land', '#f3efe4'), grid: css('--grid', '#e8ebef'), text: css('--text', '#111'),
     muted: css('--muted', '#5b6472'), bg: css('--trace-bg', '#fff'), trace: css('--trace', '#1f2937'),
     p: css('--pick-p', '#1d4ed8'), s: css('--pick-s', '#c0262d'), border: css('--border', '#d9dde3'),
+    accent: css('--accent', '#1d4ed8'), accentText: css('--accent-text', '#ffffff'),
   };
 }
 
@@ -116,11 +124,95 @@ function haloText(ctx, text, x, y, color, bg) {
   ctx.fillText(text, x, y);
 }
 
+/** The quake's five-pointed star (orange, dark edge), centered on x, y. */
+function drawStar(ctx, x, y, outer) {
+  ctx.beginPath();
+  for (let i = 0; i < 10; i++) {
+    const a = -Math.PI / 2 + (i * Math.PI) / 5;
+    const rad = i % 2 ? outer * 0.42 : outer;
+    ctx.lineTo(x + Math.cos(a) * rad, y + Math.sin(a) * rad);
+  }
+  ctx.closePath();
+  ctx.fillStyle = '#f59e0b';
+  ctx.fill();
+  ctx.strokeStyle = '#111';
+  ctx.lineWidth = outer >= 10 ? 1.2 : 1;
+  ctx.stroke();
+}
+
+const CLOCK_FONT = 'bold 14px system-ui, sans-serif';
+const CLOCK_INSET = 8; // px from the map's top-left corner
+
+/**
+ * The map hint's place, text and size for a map drawn with transform T on a canvas w px wide.
+ * The clock's widest text is reserved, so the label stays put while the clock counts.
+ */
+function mapHintLayout(ctx, T, w) {
+  const big = w >= 600;
+  const h = big ? 26 : 22;
+  const font = `600 ${big ? 14 : 13}px system-ui, sans-serif`;
+  const star = Math.round(h * 0.3);   // the star's outer radius
+  const padL = 9;
+  const lead = padL + 2 * star + 6;     // star and padding before the text
+  ctx.save();
+  ctx.font = CLOCK_FONT;
+  const clockW = Math.max(ctx.measureText('88.8 s after the quake').width,
+    ctx.measureText(`${sim.t.toFixed(1)} s after the quake`).width);
+  ctx.font = font;
+  const clockLeft = T.x(0) + CLOCK_INSET;
+  const clockTop = T.y(0) + CLOCK_INSET;
+  const hint = layoutMapHint({
+    map: { left: T.x(0), right: T.x(WORLD.w) },
+    clock: { left: clockLeft, right: clockLeft + clockW, top: clockTop, bottom: clockTop + 17 },
+    choices: HINT_CHOICES,
+    measure: (t) => ctx.measureText(t).width,
+    lead,
+    pad: 11,
+    h,
+  });
+  ctx.restore();
+  return { ...hint, font, star, padL, lead };
+}
+
+/**
+ * The map hint: bold (an accent pill on top of everything) until the student first moves
+ * the quake, then faint (drawn under the waves, quake and stations, so it never hides them).
+ */
+function drawMapHint(ctx, hint, col, bold) {
+  const { x, y, w, h } = hint;
+  ctx.save();
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(x, y, w, h, h / 2);
+  else ctx.rect(x, y, w, h);
+  if (bold) {
+    ctx.fillStyle = col.accent;
+    ctx.fill();
+  } else {
+    ctx.globalAlpha = 0.8;
+    ctx.fillStyle = col.land;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+    ctx.strokeStyle = col.border;
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+  ctx.globalAlpha = bold ? 1 : 0.7;
+  drawStar(ctx, x + hint.padL + hint.star, y + h / 2, hint.star);
+  ctx.globalAlpha = 1;
+  ctx.font = hint.font;
+  ctx.fillStyle = bold ? col.accentText : col.muted;
+  ctx.textAlign = 'left';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(hint.text, x + hint.lead, y + h / 2 + 0.5, w - hint.lead - 8);
+  ctx.restore();
+}
+
 function drawMap() {
   const { ctx, w, h } = fitCanvas(mapCanvas);
   const col = colors();
   const T = mapTransform(w, h);
   const t = sim.t;
+  const hint = mapHintLayout(ctx, T, w);
   ctx.fillStyle = col.bg;
   ctx.fillRect(0, 0, w, h);
   ctx.save();
@@ -137,6 +229,10 @@ function drawMap() {
   for (let km = 20; km < WORLD.h; km += 20) {
     ctx.beginPath(); ctx.moveTo(T.x(0), T.y(km)); ctx.lineTo(T.x(WORLD.w), T.y(km)); ctx.stroke();
   }
+
+  // Once the student has moved the quake, the hint is only a reminder: drawn faint,
+  // under the waves, circles, quake and stations.
+  if (sim.moved) drawMapHint(ctx, hint, col, false);
 
   const qx = T.x(sim.quake.x);
   const qy = T.y(sim.quake.y);
@@ -195,18 +291,7 @@ function drawMap() {
     ctx.fillStyle = 'rgba(245, 158, 11, 0.35)';
     ctx.beginPath(); ctx.arc(qx, qy, 10 + 30 * t, 0, 2 * Math.PI); ctx.fill();
   }
-  ctx.beginPath();
-  for (let i = 0; i < 10; i++) {
-    const a = -Math.PI / 2 + (i * Math.PI) / 5;
-    const rad = i % 2 ? 5 : 12;
-    ctx.lineTo(qx + Math.cos(a) * rad, qy + Math.sin(a) * rad);
-  }
-  ctx.closePath();
-  ctx.fillStyle = '#f59e0b';
-  ctx.fill();
-  ctx.strokeStyle = '#111';
-  ctx.lineWidth = 1.2;
-  ctx.stroke();
+  drawStar(ctx, qx, qy, 12);
 
   // stations: triangles that shake when the waves arrive
   for (const r of sim.rows) {
@@ -227,13 +312,13 @@ function drawMap() {
   }
   ctx.restore();
 
-  // clock and scale bar
-  ctx.font = 'bold 14px system-ui, sans-serif';
+  // clock (top left) and scale bar (bottom right, where no station is)
+  ctx.font = CLOCK_FONT;
   ctx.textAlign = 'left';
   ctx.textBaseline = 'top';
-  haloText(ctx, `${t.toFixed(1)} s after the quake`, T.x(0) + 8, T.y(0) + 8, col.text, col.land);
+  haloText(ctx, `${t.toFixed(1)} s after the quake`, T.x(0) + CLOCK_INSET, T.y(0) + CLOCK_INSET, col.text, col.land);
   const bar = 50 * T.s;
-  const bx = T.x(0) + 10;
+  const bx = T.x(WORLD.w) - 10 - bar;
   const by = T.y(WORLD.h) - 12;
   ctx.strokeStyle = col.text;
   ctx.lineWidth = 2;
@@ -242,6 +327,8 @@ function drawMap() {
   ctx.textAlign = 'center';
   ctx.textBaseline = 'bottom';
   haloText(ctx, '50 km', bx + bar / 2, by - 3, col.text, col.land);
+
+  if (!sim.moved) drawMapHint(ctx, hint, col, true);
 }
 
 function drawTraces() {
@@ -357,6 +444,7 @@ function draw() {
   drawMap();
   drawTraces();
   $('scrub').value = String(sim.t);
+  $('scrub').setAttribute('aria-valuetext', `${sim.t.toFixed(1)} seconds after the quake`);
   const text = logText(sim.t);
   if (text !== sim.lastLog) {
     $('log').textContent = text;
@@ -398,6 +486,7 @@ function init() {
   $('circles').addEventListener('change', (e) => { sim.circles = e.target.checked; sim.lastLog = ''; draw(); });
   $('scrub').addEventListener('input', (e) => {
     sim.t = Number(e.target.value);
+    $('scrub-hint').classList.add('learned');
     setPlaying(false);
     draw();
   });
@@ -408,6 +497,7 @@ function init() {
     const ky = T.kmY(e.clientY - rect.top);
     if (kx < 0 || kx > WORLD.w || ky < 0 || ky > WORLD.h) return;
     sim.quake = { x: kx, y: ky };
+    sim.moved = true;
     setup();
     sim.t = 0;
     draw();
