@@ -307,7 +307,7 @@ async function blastRecord() {
   // Each trace scaled to fit, with room above for its labels.
   for (const t of traces) t.amp = 1.25 * peakAbs(t.data, Math.round(1 * t.sampleRate), Math.round(90 * t.sampleRate));
   const svg = figure({
-    traces, originMs: 0, fromSec: -2, toSec: 25, trackH: 100, top: 40,
+    traces, originMs: 0, fromSec: -2, toSec: 25, trackH: 100, top: 40, axisLabel: 'seconds after the event', axisLabelWidth: 160,
     title: `A quarry blast and an earthquake of the same size, at station ${sta} (raw records)`,
   });
   write('blast-vs-quake.svg', svg);
@@ -324,11 +324,13 @@ async function problems() {
     const r16 = tr.find((t) => t.loc === '01');
     const r24 = tr.find((t) => t.loc === '02');
     const max16 = Math.max(...r16.data);
+    const min16 = Math.min(...r16.data);
     const n16 = r16.data.filter((v) => v >= 32767 || v <= -32768).length;
-    console.log(`problems: SAIU 01 max ${max16}, ${n16} samples at the limit; SAIU 02 peak ${fmtInt(peakAbs(r24.data))}`);
+    console.log(`problems: SAIU 01 range ${min16}..${max16}, ${n16} samples at the limit; SAIU 02 peak ${fmtInt(peakAbs(r24.data))}`);
     // raw counts (no mean removal), so the flat tops sit exactly at the digitizer's limit
     const d24 = filteredData(r24, RAW);
-    const t16 = { label: 'SAIU 01.EHZ: 16-bit recorder', startMs: r16.startMs, sampleRate: r16.sampleRate, data: r16.data, amp: 48000, rightLabel: 'flat tops at ±32,767 counts' };
+    const t16 = { label: 'SAIU 01.EHZ: 16-bit recorder', startMs: r16.startMs, sampleRate: r16.sampleRate, data: r16.data, amp: 48000,
+      rightLabel: `flat at +${fmtInt(max16)} and ${MINUS}${fmtInt(-min16)} counts` };
     const t24 = { label: 'SAIU 02.EHZ: 24-bit recorder', startMs: r24.startMs, sampleRate: r24.sampleRate, data: d24, amp: 1.4 * peakAbs(d24), rightLabel: `peak ${fmtInt(peakAbs(d24))} counts` };
     cards.push(figure({ traces: [t16, t24], originMs: magna.timeMs, fromSec: 4, toSec: 9, trackH: 100,
       title: 'Clipped: the Magna quake (magnitude 5.7, 2020), 14.5 km away, on two recorders at one site' }));
@@ -347,9 +349,11 @@ async function problems() {
     ], originMs: magna.timeMs, fromSec: 0, toSec: 90, trackH: 70,
     title: 'Dead: the same quake at two stations about 90 km away, 25 km apart' }));
   }
-  // (c) gaps: SGU (stands in for Gunnison Valley), October 26, 2026
+  // (c) gaps: SGU (stands in for Gunnison Valley), November 13, 2026, 9:26 am: steady noise on both
+  // sides of the gap. (EarthScope's MUSTANG metrics list the days with gaps. The window used before,
+  // October 26, had a real burst 5 s after its gap that could be taken for a quake.)
   {
-    const t0 = Date.parse('2026-10-26T16:10:00Z');
+    const t0 = Date.parse('2026-11-13T16:26:00Z');
     const [sgu] = await waveforms({ sta: 'SGU', cha: 'HHZ', startMs: t0 - 60e3, endMs: t0 + 180e3 });
     const r = rec(sgu, BP);
     const runs = [];
@@ -360,7 +364,7 @@ async function problems() {
       runs.push([(sgu.startMs + (s / sgu.sampleRate) * 1000 - t0) / 1000, (i - s) / sgu.sampleRate]);
     }
     console.log(`problems: SGU gaps ${runs.map(([a, b]) => `${a.toFixed(1)}s+${b.toFixed(1)}s`).join(', ')}`);
-    cards.push(figure({ traces: [{ ...r, label: 'SGU.HHZ, filtered 1–10 Hz', rightLabel: 'October 26, 2026, 10:10 am' }],
+    cards.push(figure({ traces: [{ ...r, label: 'SGU.HHZ, filtered 1–10 Hz', rightLabel: when(t0) }],
       originMs: t0, fromSec: 0, toSec: 120, trackH: 70, top: 58, axisLabel: 'seconds', axisLabelWidth: 60,
       title: 'Gaps: missing data at station SGU',
       bands: runs.filter(([a]) => a > 0 && a < 120).map(([a, len], k) => ({ from: a, to: a + len, fill: 'rgba(192,38,45,0.08)',
@@ -394,24 +398,32 @@ async function hidden() {
     title: `A magnitude ${ev.mag.toFixed(1)} quake ${Math.round(d)} km from station TMU (${when(ev.timeMs)})`,
     marks: picks.P ? [{ sec: (picks.P - ev.timeMs) / 1000, color: C.p, label: 'P' }, ...(picks.S ? [{ sec: (picks.S - ev.timeMs) / 1000, color: C.s, label: 'S' }] : [])] : [],
   });
-  // Spectrogram: 20.48 s windows every 0.5 s, log frequency 0.1–50 Hz, power in dB.
+  // Spectrogram: one column every 0.5 s, log frequency 0.1–50 Hz, power in dB. Below 1 Hz,
+  // 20.48 s windows (fine enough to resolve the hum); from 1 Hz up, 2.56 s windows, so the quake's
+  // color starts at P instead of half a long window before it. Both are centered on the same times.
   const sr = z.sampleRate;
-  const nfft = 2048;
   const step = Math.round(sr * 0.5);
-  const a = Math.round(((ev.timeMs + from * 1000 - z.startMs) / 1000) * sr) - nfft / 2;
-  const b = Math.round(((ev.timeMs + to * 1000 - z.startMs) / 1000) * sr) + nfft / 2;
-  const spec = spectrogram(raw.data.slice(a, b), sr, nfft, step);
+  const specFor = (nfft) => {
+    const a = Math.round(((ev.timeMs + from * 1000 - z.startMs) / 1000) * sr) - nfft / 2;
+    const b = Math.round(((ev.timeMs + to * 1000 - z.startMs) / 1000) * sr) + nfft / 2;
+    return { nfft, ...spectrogram(raw.data.slice(a, b), sr, nfft, step) };
+  };
+  const long = specFor(2048);
+  const short = specFor(256);
+  const spec = long;
+  const nfft = long.nfft;
   const fLo = 0.1;
   const fHi = 50;
   const rows = 140;
-  const cols = spec.columns.length;
+  const cols = Math.min(long.columns.length, short.columns.length);
   const db = [];
   for (let r = 0; r < rows; r++) {
     const f = fHi * (fLo / fHi) ** ((r + 0.5) / rows); // row 0 = top = highest frequency
-    const k = f * nfft / sr;
+    const s = f < 1 ? long : short;
+    const k = f * s.nfft / sr;
     const k0 = Math.floor(k);
     const fr = k - k0;
-    db.push(spec.columns.map((col) => (col ? 10 * Math.log10((1 - fr) * col[k0] + fr * col[Math.min(k0 + 1, col.length - 1)]) : NaN)));
+    db.push(s.columns.slice(0, cols).map((col) => (col ? 10 * Math.log10((1 - fr) * col[k0] + fr * col[Math.min(k0 + 1, col.length - 1)]) : NaN)));
   }
   const all = db.flat().filter(Number.isFinite).sort((x, y) => x - y);
   const lo = all[Math.floor(all.length * 0.02)];
@@ -434,7 +446,7 @@ async function hidden() {
   // the image's first column is centred nfft/2 samples after slice start = at `from` seconds
   const out = card(width, height, 'The same three minutes as a spectrogram (raw record)');
   const x0 = x(from + (spec.times[0] - nfft / 2 / sr) - step / sr / 2);
-  const x1 = x(from + (spec.times.at(-1) - nfft / 2 / sr) + step / sr / 2);
+  const x1 = x(from + (spec.times[cols - 1] - nfft / 2 / sr) + step / sr / 2);
   out.push(`<image x="${r1(x0)}" y="${top}" width="${r1(x1 - x0)}" height="${h}" preserveAspectRatio="none" href="data:image/png;base64,${img}"/>`);
   out.push(`<rect x="${padL}" y="${top}" width="${w}" height="${h}" fill="none" stroke="${C.border}"/>`);
   for (const f of [0.2, 0.5, 1, 2, 5, 10, 20]) {
@@ -445,8 +457,11 @@ async function hidden() {
   out.push(`<rect x="${padL + 1}" y="${r1(y(10))}" width="${w - 2}" height="${r1(y(1) - y(10))}" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="7 5"/>`);
   out.push(text(padL + 8, y(10) + 16, 'the band a 1–10 Hz filter keeps', { size: 13, weight: 700, fill: '#ffffff' }));
   out.push(text(padL + 8, y(0.17) + 4, 'ocean hum: always there', { size: 13, weight: 700, fill: '#ffffff' }));
-  const qx = x(picks.P ? (picks.P - ev.timeMs) / 1000 : 6);
-  out.push(text(qx + 6, y(30), 'the quake', { size: 13, weight: 700, fill: '#ffffff' }));
+  // "the quake", inside the 1–10 Hz box, after the coda has faded, with an arrow back to the quake
+  const qy = y(3);
+  out.push(`<defs><marker id="arrow-spec" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#ffffff"/></marker></defs>`);
+  out.push(`<line x1="${r1(x(62))}" y1="${r1(qy - 4)}" x2="${r1(x(34))}" y2="${r1(qy - 4)}" stroke="#ffffff" stroke-width="1.8" marker-end="url(#arrow-spec)"/>`);
+  out.push(text(x(64), qy, 'the quake', { size: 13, weight: 700, fill: '#ffffff' }));
   const step2 = 20;
   for (let t = Math.ceil(from / step2) * step2 + step2; t < to; t += step2) {
     out.push(text(x(t), top + h + 16, String(t).replace('-', MINUS), { size: 12, fill: C.muted, anchor: 'middle' }));
