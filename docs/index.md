@@ -22,8 +22,9 @@ New here? Watch [Quake Waves](theory/locating.md#watch-it-happen) first, then tr
 
 - **[The Science](theory/index.md)**
 
-    [Seismic waves](theory/waves.md) · [Distance from S minus P](theory/s-minus-p.md) ·
-    [Locating a quake](theory/locating.md) · [Our stations and data](theory/stations.md)
+    [Seismic waves](theory/waves.md) · [Reading a seismogram](theory/seismograms.md) ·
+    [Distance from S minus P](theory/s-minus-p.md) · [Locating a quake](theory/locating.md) ·
+    [Our stations and data](theory/stations.md)
 
 - **[Teachers](teachers/index.md)**
 

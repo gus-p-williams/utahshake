@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 342" width="760" height="342" role="img" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<defs><marker id="rarrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5b6472"/></marker></defs>
+<defs><pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#f3f4f6"/><line x1="0" y1="0" x2="0" y2="8" stroke="#d1d5db" stroke-width="3"/></pattern></defs>
+<rect x="0.5" y="0.5" width="759" height="341" rx="8" fill="#ffffff" stroke="#d9dde3"/>
+<text x="12" y="22" font-size="15" font-weight="600" fill="#111827">What shakes the ground at which frequency?</text>
+<rect x="350.4" y="38" width="196.8" height="186" fill="rgba(29,78,216,0.08)" stroke="#1d4ed8" stroke-dasharray="5 4"/>
+<text x="448.8" y="32" font-size="12.5" font-weight="700" text-anchor="middle" fill="#1d4ed8">kept by a 1–10 Hz filter</text>
+<rect x="684.8" y="38" width="59.2" height="186" fill="url(#hatch)"/>
+<line x1="684.8" y1="38" x2="684.8" y2="224" stroke="#111827" stroke-width="2.5"/>
+<text x="678.8" y="56" font-size="12" font-weight="600" text-anchor="end" fill="#111827" stroke="#ffffff" stroke-width="4" paint-order="stroke">50 Hz: the limit for</text>
+<text x="678.8" y="71" font-size="12" font-weight="600" text-anchor="end" fill="#111827" stroke="#ffffff" stroke-width="4" paint-order="stroke">100 samples per second</text>
+<line x1="16" y1="38" x2="16" y2="224" stroke="#e8ebef" stroke-width="1"/>
+<line x1="94.3" y1="38" x2="94.3" y2="224" stroke="#e8ebef" stroke-width="1"/>
+<line x1="153.6" y1="38" x2="153.6" y2="224" stroke="#e8ebef" stroke-width="1"/>
+<line x1="212.8" y1="38" x2="212.8" y2="224" stroke="#e8ebef" stroke-width="1"/>
+<line x1="291.1" y1="38" x2="291.1" y2="224" stroke="#e8ebef" stroke-width="1"/>
+<line x1="350.4" y1="38" x2="350.4" y2="224" stroke="#e8ebef" stroke-width="1"/>
+<line x1="409.6" y1="38" x2="409.6" y2="224" stroke="#e8ebef" stroke-width="1"/>
+<line x1="487.9" y1="38" x2="487.9" y2="224" stroke="#e8ebef" stroke-width="1"/>
+<line x1="547.2" y1="38" x2="547.2" y2="224" stroke="#e8ebef" stroke-width="1"/>
+<line x1="606.4" y1="38" x2="606.4" y2="224" stroke="#e8ebef" stroke-width="1"/>
+<line x1="684.8" y1="38" x2="684.8" y2="224" stroke="#e8ebef" stroke-width="1"/>
+<line x1="744" y1="38" x2="744" y2="224" stroke="#e8ebef" stroke-width="1"/>
+<rect x="94.3" y="52" width="153.1" height="14" rx="7" fill="#0e7490"/>
+<text x="255.5" y="64" font-size="13" font-weight="600" fill="#111827" stroke="#ffffff" stroke-width="4" paint-order="stroke">Ocean hum (storms at sea)</text>
+<rect x="16" y="86" width="393.6" height="14" rx="7" fill="#6d28d9"/>
+<text x="417.6" y="98" font-size="13" font-weight="600" fill="#111827" stroke="#ffffff" stroke-width="4" paint-order="stroke">Distant big quakes</text>
+<rect x="350.4" y="120" width="256.1" height="14" rx="7" fill="#c0262d"/>
+<text x="342.4" y="132" font-size="13" font-weight="600" text-anchor="end" fill="#111827" stroke="#ffffff" stroke-width="4" paint-order="stroke">Nearby small quakes</text>
+<rect x="291.1" y="154" width="393.6" height="14" rx="7" fill="#0f766e"/>
+<text x="283.1" y="166" font-size="13" font-weight="600" text-anchor="end" fill="#111827" stroke="#ffffff" stroke-width="4" paint-order="stroke">Wind</text>
+<rect x="350.4" y="188" width="334.4" height="14" rx="7" fill="#b45309"/>
+<text x="342.4" y="200" font-size="13" font-weight="600" text-anchor="end" fill="#111827" stroke="#ffffff" stroke-width="4" paint-order="stroke">People and machines</text>
+<line x1="16" y1="224" x2="744" y2="224" stroke="#5b6472" stroke-width="1"/>
+<text x="94.3" y="242" font-size="12" font-weight="600" text-anchor="middle" fill="#111827">0.05</text>
+<text x="153.6" y="242" font-size="12" font-weight="600" text-anchor="middle" fill="#111827">0.1</text>
+<text x="212.8" y="242" font-size="12" font-weight="600" text-anchor="middle" fill="#111827">0.2</text>
+<text x="291.1" y="242" font-size="12" font-weight="600" text-anchor="middle" fill="#111827">0.5</text>
+<text x="350.4" y="242" font-size="12" font-weight="600" text-anchor="middle" fill="#111827">1</text>
+<text x="409.6" y="242" font-size="12" font-weight="600" text-anchor="middle" fill="#111827">2</text>
+<text x="487.9" y="242" font-size="12" font-weight="600" text-anchor="middle" fill="#111827">5</text>
+<text x="547.2" y="242" font-size="12" font-weight="600" text-anchor="middle" fill="#111827">10</text>
+<text x="606.4" y="242" font-size="12" font-weight="600" text-anchor="middle" fill="#111827">20</text>
+<text x="684.8" y="242" font-size="12" font-weight="600" text-anchor="middle" fill="#111827">50</text>
+<text x="16" y="256" font-size="11.5" fill="#5b6472">frequency (vibrations per second, Hz)</text>
+<text x="94.3" y="274" font-size="12" text-anchor="middle" fill="#5b6472">20 s</text>
+<text x="153.6" y="274" font-size="12" text-anchor="middle" fill="#5b6472">10 s</text>
+<text x="212.8" y="274" font-size="12" text-anchor="middle" fill="#5b6472">5 s</text>
+<text x="291.1" y="274" font-size="12" text-anchor="middle" fill="#5b6472">2 s</text>
+<text x="350.4" y="274" font-size="12" text-anchor="middle" fill="#5b6472">1 s</text>
+<text x="409.6" y="274" font-size="12" text-anchor="middle" fill="#5b6472">0.5 s</text>
+<text x="487.9" y="274" font-size="12" text-anchor="middle" fill="#5b6472">0.2 s</text>
+<text x="547.2" y="274" font-size="12" text-anchor="middle" fill="#5b6472">0.1 s</text>
+<text x="606.4" y="274" font-size="12" text-anchor="middle" fill="#5b6472">0.05 s</text>
+<text x="684.8" y="274" font-size="12" text-anchor="middle" fill="#5b6472">0.02 s</text>
+<text x="16" y="288" font-size="11.5" fill="#5b6472">time for one wave</text>
+<text x="94.3" y="306" font-size="12" text-anchor="middle" fill="#5b6472">120 km</text>
+<text x="153.6" y="306" font-size="12" text-anchor="middle" fill="#5b6472">60 km</text>
+<text x="212.8" y="306" font-size="12" text-anchor="middle" fill="#5b6472">30 km</text>
+<text x="291.1" y="306" font-size="12" text-anchor="middle" fill="#5b6472">12 km</text>
+<text x="350.4" y="306" font-size="12" text-anchor="middle" fill="#5b6472">6 km</text>
+<text x="409.6" y="306" font-size="12" text-anchor="middle" fill="#5b6472">3 km</text>
+<text x="487.9" y="306" font-size="12" text-anchor="middle" fill="#5b6472">1.2 km</text>
+<text x="547.2" y="306" font-size="12" text-anchor="middle" fill="#5b6472">600 m</text>
+<text x="606.4" y="306" font-size="12" text-anchor="middle" fill="#5b6472">300 m</text>
+<text x="684.8" y="306" font-size="12" text-anchor="middle" fill="#5b6472">120 m</text>
+<text x="16" y="320" font-size="11.5" fill="#5b6472">length of one P wave at 6 km/s</text>
+<text x="744" y="334" font-size="12" text-anchor="end" fill="#5b6472">low notes ←   → high notes</text>
+</svg>

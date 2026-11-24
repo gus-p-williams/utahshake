@@ -24,7 +24,7 @@ standard "At a glance" box. Then the guide itself: what students do, step by ste
     - **Time:** …
     - **Works on:** any browser, including Chromebooks. No install, no accounts.
     - **The science:** [Page](../theory/page.md) · …
-    - **For teachers:** [Activity card](../teachers/<slug>-card.md) · [Standards](../teachers/standards.md#<slug>)
+    - **For teachers:** [<Activity> card](../teachers/<activity>.md) · … · [Standards](../teachers/standards.md#<slug>)
     - **Data:** [Our stations and data](../theory/stations.md)
     - **For developers:** [<App> notes](../developers/<slug>.md)
 ```
@@ -44,8 +44,12 @@ page goes under **The Science** in `nav:`.
 
 ## 5. Teachers
 
-- Write an activity card, `docs/teachers/<slug>-card.md`, and add it to `nav:` under
-  **Teachers**. Use the [Wave Race activity card](../teachers/wave-race-card.md) as the model.
+- Make sure at least one activity card uses the app. Cards are per activity, not per app: a
+  card may use several apps (the Wave Race card uses Quake Waves as its warm-up), and an app
+  may appear in several cards. Write new cards as `docs/teachers/<activity>.md`, add them to
+  `nav:` under **Teachers**, and list every card that uses the app in the hub's "For
+  teachers" line. Use the [Wave Race activity card](../teachers/wave-race-card.md) as the
+  model. Each card names the apps or tools it uses and the setup it needs.
 - Add a `## <App> { #<slug> }` heading to [standards.md](../teachers/standards.md), with one
   line linking the hub and a table of the standards the app covers.
 - Add a row to the activities table on the [Teachers](../teachers/index.md) page, and rows for

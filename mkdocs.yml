@@ -40,6 +40,8 @@ extra_javascript:
   - javascripts/mathjax.js
   - https://unpkg.com/mathjax@3.2.2/es5/tex-mml-chtml.js
 validation:
+  nav:
+    omitted_files: warn  # with --strict in CI, a page missing from nav fails the build
   links:
     anchors: warn        # with --strict in CI, a broken #anchor link fails the build
 # One hub page per app (apps/<app>.md); The Science, Teachers and Developers are shared
@@ -52,6 +54,7 @@ nav:
   - The Science:
       - theory/index.md
       - Seismic waves: theory/waves.md
+      - Reading a seismogram: theory/seismograms.md
       - Distance from S minus P: theory/s-minus-p.md
       - Locating a quake: theory/locating.md
       - Our stations and data: theory/stations.md

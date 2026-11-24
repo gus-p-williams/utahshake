@@ -140,19 +140,24 @@ export function figure({ traces, originMs, fromSec, toSec, title, top = 58, mark
     const i1 = Math.min(tr.data.length, Math.ceil(((originMs + toSec * 1000) - tr.startMs) / 1000 * sr) + 1);
     const amp = tr.amp ?? (peakAbs(tr.data, i0, i1) || 1);
     const scale = (trackH / 2 - 4) / amp;
+    // Missing data (NaN) breaks the line, so a gap shows as a gap.
     let d = '';
+    let pen = false;
     if ((i1 - i0) / w > 2) {
       const cols = Math.floor(w);
       const { min, max } = minMaxColumns(tr.data, i0, i1, cols);
       for (let c = 0; c < cols; c++) {
-        if (Number.isNaN(min[c])) continue;
+        if (Number.isNaN(min[c])) { pen = false; continue; }
         const cx = r1(padL + c + 0.5);
-        d += `${c ? 'L' : 'M'}${cx} ${r1(y0 - max[c] * scale)}L${cx} ${r1(y0 - min[c] * scale)}`;
+        d += `${pen ? 'L' : 'M'}${cx} ${r1(y0 - max[c] * scale)}L${cx} ${r1(y0 - min[c] * scale)}`;
+        pen = true;
       }
     } else {
       for (let i = i0; i < i1; i++) {
+        if (Number.isNaN(tr.data[i])) { pen = false; continue; }
         const sec = (tr.startMs + (i * 1000) / sr - originMs) / 1000;
-        d += `${i === i0 ? 'M' : 'L'}${r1(x(sec))} ${r1(y0 - tr.data[i] * scale)}`;
+        d += `${pen ? 'L' : 'M'}${r1(x(sec))} ${r1(y0 - tr.data[i] * scale)}`;
+        pen = true;
       }
     }
     out.push(`<path d="${d}" fill="none" stroke="${tr.color || C.trace}" stroke-width="1" stroke-linejoin="round"/>`);

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 356" width="760" height="356" role="img" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<rect x="0.5" y="0.5" width="759" height="355" rx="8" fill="#ffffff" stroke="#d9dde3"/>
+<text x="12" y="22" font-size="15" font-weight="600" fill="#111827">What time of day? Utah events, 2015 to November 2026</text>
+<text x="46" y="50" font-size="13" font-weight="600" fill="#111827">Blasts: 301 events the catalog marks as blasts or explosions</text>
+<line x1="46" y1="150" x2="746" y2="150" stroke="#e8ebef"/>
+<text x="40" y="154" font-size="12" text-anchor="end" fill="#5b6472">0%</text>
+<line x1="46" y1="126" x2="746" y2="126" stroke="#e8ebef"/>
+<text x="40" y="130" font-size="12" text-anchor="end" fill="#5b6472">5%</text>
+<line x1="46" y1="102" x2="746" y2="102" stroke="#e8ebef"/>
+<text x="40" y="106" font-size="12" text-anchor="end" fill="#5b6472">10%</text>
+<line x1="46" y1="78" x2="746" y2="78" stroke="#e8ebef"/>
+<text x="40" y="82" font-size="12" text-anchor="end" fill="#5b6472">15%</text>
+<line x1="46" y1="54" x2="746" y2="54" stroke="#e8ebef"/>
+<text x="40" y="58" font-size="12" text-anchor="end" fill="#5b6472">20%</text>
+<path d="M251.2 150V149.2Q251.2 148.4 252 148.4H277.5Q278.3 148.4 278.3 149.2V150Z" fill="#b45309"/>
+<path d="M280.3 150V149.2Q280.3 148.4 281.1 148.4H306.7Q307.5 148.4 307.5 149.2V150Z" fill="#b45309"/>
+<path d="M309.5 150V145Q309.5 142 312.5 142H333.7Q336.7 142 336.7 145V150Z" fill="#b45309"/>
+<path d="M338.7 150V124.3Q338.7 121.3 341.7 121.3H362.8Q365.8 121.3 365.8 124.3V150Z" fill="#b45309"/>
+<path d="M367.8 150V70.1Q367.8 67.1 370.8 67.1H392Q395 67.1 395 70.1V150Z" fill="#b45309"/>
+<path d="M397 150V68.5Q397 65.5 400 65.5H421.2Q424.2 65.5 424.2 68.5V150Z" fill="#b45309"/>
+<path d="M426.2 150V95.6Q426.2 92.6 429.2 92.6H450.3Q453.3 92.6 453.3 95.6V150Z" fill="#b45309"/>
+<path d="M455.3 150V66.9Q455.3 63.9 458.3 63.9H479.5Q482.5 63.9 482.5 66.9V150Z" fill="#b45309"/>
+<path d="M484.5 150V76.5Q484.5 73.5 487.5 73.5H508.7Q511.7 73.5 511.7 76.5V150Z" fill="#b45309"/>
+<path d="M513.7 150V132.3Q513.7 129.3 516.7 129.3H537.8Q540.8 129.3 540.8 132.3V150Z" fill="#b45309"/>
+<path d="M542.8 150V133.9Q542.8 130.9 545.8 130.9H567Q570 130.9 570 133.9V150Z" fill="#b45309"/>
+<path d="M572 150V147.6Q572 145.2 574.4 145.2H596.8Q599.2 145.2 599.2 147.6V150Z" fill="#b45309"/>
+<path d="M601.2 150V148.4Q601.2 146.8 602.8 146.8H626.7Q628.3 146.8 628.3 148.4V150Z" fill="#b45309"/>
+<path d="M659.5 150V147.6Q659.5 145.2 661.9 145.2H684.3Q686.7 145.2 686.7 147.6V150Z" fill="#b45309"/>
+<line x1="46" y1="150" x2="746" y2="150" stroke="#5b6472"/>
+<text x="46" y="194" font-size="13" font-weight="600" fill="#111827">Earthquakes of magnitude 1.5 and up: 8,734 events</text>
+<line x1="46" y1="294" x2="746" y2="294" stroke="#e8ebef"/>
+<text x="40" y="298" font-size="12" text-anchor="end" fill="#5b6472">0%</text>
+<line x1="46" y1="270" x2="746" y2="270" stroke="#e8ebef"/>
+<text x="40" y="274" font-size="12" text-anchor="end" fill="#5b6472">5%</text>
+<line x1="46" y1="246" x2="746" y2="246" stroke="#e8ebef"/>
+<text x="40" y="250" font-size="12" text-anchor="end" fill="#5b6472">10%</text>
+<line x1="46" y1="222" x2="746" y2="222" stroke="#e8ebef"/>
+<text x="40" y="226" font-size="12" text-anchor="end" fill="#5b6472">15%</text>
+<line x1="46" y1="198" x2="746" y2="198" stroke="#e8ebef"/>
+<text x="40" y="202" font-size="12" text-anchor="end" fill="#5b6472">20%</text>
+<path d="M47 294V276.3Q47 273.3 50 273.3H71.2Q74.2 273.3 74.2 276.3V294Z" fill="#475569"/>
+<path d="M76.2 294V279.1Q76.2 276.1 79.2 276.1H100.3Q103.3 276.1 103.3 279.1V294Z" fill="#475569"/>
+<path d="M105.3 294V279.4Q105.3 276.4 108.3 276.4H129.5Q132.5 276.4 132.5 279.4V294Z" fill="#475569"/>
+<path d="M134.5 294V282.3Q134.5 279.3 137.5 279.3H158.7Q161.7 279.3 161.7 282.3V294Z" fill="#475569"/>
+<path d="M163.7 294V282.5Q163.7 279.5 166.7 279.5H187.8Q190.8 279.5 190.8 282.5V294Z" fill="#475569"/>
+<path d="M192.8 294V280.6Q192.8 277.6 195.8 277.6H217Q220 277.6 220 280.6V294Z" fill="#475569"/>
+<path d="M222 294V280.2Q222 277.2 225 277.2H246.2Q249.2 277.2 249.2 280.2V294Z" fill="#475569"/>
+<path d="M251.2 294V279.1Q251.2 276.1 254.2 276.1H275.3Q278.3 276.1 278.3 279.1V294Z" fill="#475569"/>
+<path d="M280.3 294V276.2Q280.3 273.2 283.3 273.2H304.5Q307.5 273.2 307.5 276.2V294Z" fill="#475569"/>
+<path d="M309.5 294V272.8Q309.5 269.8 312.5 269.8H333.7Q336.7 269.8 336.7 272.8V294Z" fill="#475569"/>
+<path d="M338.7 294V271.9Q338.7 268.9 341.7 268.9H362.8Q365.8 268.9 365.8 271.9V294Z" fill="#475569"/>
+<path d="M367.8 294V276Q367.8 273 370.8 273H392Q395 273 395 276V294Z" fill="#475569"/>
+<path d="M397 294V274.1Q397 271.1 400 271.1H421.2Q424.2 271.1 424.2 274.1V294Z" fill="#475569"/>
+<path d="M426.2 294V273.8Q426.2 270.8 429.2 270.8H450.3Q453.3 270.8 453.3 273.8V294Z" fill="#475569"/>
+<path d="M455.3 294V275.3Q455.3 272.3 458.3 272.3H479.5Q482.5 272.3 482.5 275.3V294Z" fill="#475569"/>
+<path d="M484.5 294V277.1Q484.5 274.1 487.5 274.1H508.7Q511.7 274.1 511.7 277.1V294Z" fill="#475569"/>
+<path d="M513.7 294V280.3Q513.7 277.3 516.7 277.3H537.8Q540.8 277.3 540.8 280.3V294Z" fill="#475569"/>
+<path d="M542.8 294V276Q542.8 273 545.8 273H567Q570 273 570 276V294Z" fill="#475569"/>
+<path d="M572 294V276.1Q572 273.1 575 273.1H596.2Q599.2 273.1 599.2 276.1V294Z" fill="#475569"/>
+<path d="M601.2 294V275.7Q601.2 272.7 604.2 272.7H625.3Q628.3 272.7 628.3 275.7V294Z" fill="#475569"/>
+<path d="M630.3 294V275Q630.3 272 633.3 272H654.5Q657.5 272 657.5 275V294Z" fill="#475569"/>
+<path d="M659.5 294V275.8Q659.5 272.8 662.5 272.8H683.7Q686.7 272.8 686.7 275.8V294Z" fill="#475569"/>
+<path d="M688.7 294V276Q688.7 273 691.7 273H712.8Q715.8 273 715.8 276V294Z" fill="#475569"/>
+<path d="M717.8 294V276.3Q717.8 273.3 720.8 273.3H742Q745 273.3 745 276.3V294Z" fill="#475569"/>
+<line x1="46" y1="294" x2="746" y2="294" stroke="#5b6472"/>
+<text x="46" y="310" font-size="12" fill="#5b6472">midnight</text>
+<text x="133.5" y="310" font-size="12" text-anchor="middle" fill="#5b6472">3 am</text>
+<text x="221" y="310" font-size="12" text-anchor="middle" fill="#5b6472">6 am</text>
+<text x="308.5" y="310" font-size="12" text-anchor="middle" fill="#5b6472">9 am</text>
+<text x="396" y="310" font-size="12" text-anchor="middle" fill="#5b6472">noon</text>
+<text x="483.5" y="310" font-size="12" text-anchor="middle" fill="#5b6472">3 pm</text>
+<text x="571" y="310" font-size="12" text-anchor="middle" fill="#5b6472">6 pm</text>
+<text x="658.5" y="310" font-size="12" text-anchor="middle" fill="#5b6472">9 pm</text>
+<text x="746" y="310" font-size="12" text-anchor="end" fill="#5b6472">midnight</text>
+<text x="396" y="328" font-size="12" text-anchor="middle" fill="#5b6472">hour of the day (Utah time)</text>
+<text x="46" y="340" font-size="12.5" fill="#5b6472">Bars: share of each group in each hour (Utah time). Area: the University of Utah monitoring region.</text>
+</svg>

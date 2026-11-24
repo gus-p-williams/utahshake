@@ -110,11 +110,22 @@ the same bytes every time it runs.
 | `science-diagrams.mjs` | `theory/img/depth-triangle.svg`, `circles-1-2-3.svg` | Node only |
 | `science-locating.mjs` | `theory/img/residuals.svg`, `misfit-map.svg`, `station-geometry.svg` | Node only |
 | `science-maps.mjs` | `theory/img/schools-map.svg` | Node only |
+| `seismogram-figures.mjs` | the real-data figures on Reading a seismogram (`theory/img/ocean-hum.svg`, `wind-noise.svg`, `people-week.svg`, `three-quakes.svg`, `blast-*.svg`, `instrument-problems.svg`, `hidden-quake.svg`, `mystery-records.svg`) | Node only; downloads data the first time (see below) |
+| `seismogram-diagrams.mjs` | `theory/img/frequency-ruler.svg`, `seismometer-inside.svg` | Node only |
 | `screenshots.mjs` | `apps/img/wave-race-*.png` | `npm install` in `tools/figures`, Chrome, `node tools/serve.mjs` running |
 
-`svg-traces.mjs` holds the shared house style and seismogram drawing. Run a script from the
-repository root, for example `node tools/figures/science-traces.mjs`; screenshots run from
-`tools/figures` (`node screenshots.mjs`, or name shots: `node screenshots.mjs choose`).
+`svg-traces.mjs` holds the shared house style and seismogram drawing; `svg-charts.mjs` adds
+charts over time, hour-of-day bars and the spectrogram image; `spectra.mjs` is a small FFT
+(tested in `tests/spectra.test.js`). Run a script from the repository root, for example
+`node tools/figures/science-traces.mjs`; screenshots run from `tools/figures`
+(`node screenshots.mjs`, or name shots: `node screenshots.mjs choose`).
+
+`seismogram-figures.mjs` fetches waveforms from EarthScope, events and picks from USGS ComCat,
+and wind from the Iowa Environmental Mesonet (`fdsn-cache.mjs`), and keeps the downloads in
+`tools/figures/.cache/` (git-ignored, about 0.7 GB; delete it to refetch). The week-long noise
+levels it computes are kept in `tools/figures/data/*.json` (small), so those figures redraw
+without the download; `--refetch` recomputes them. Build one figure by name, for example
+`node tools/figures/seismogram-figures.mjs hum wind`.
 
 ## Design choices worth knowing
 

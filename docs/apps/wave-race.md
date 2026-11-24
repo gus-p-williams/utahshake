@@ -9,7 +9,7 @@ Find where a real Utah earthquake happened from the waves it sent to stations ar
       distances, find where the quake was, and see how close you got to the official answer.
     - **Time:** about 15 minutes as a class demo, or a full class period (45–55 minutes) in pairs.
     - **Works on:** any browser, including Chromebooks. No install, no accounts.
-    - **The science:** [Seismic waves](../theory/waves.md) · [Distance from S minus P](../theory/s-minus-p.md) · [Locating a quake](../theory/locating.md)
+    - **The science:** [Seismic waves](../theory/waves.md) · [Reading a seismogram](../theory/seismograms.md) · [Distance from S minus P](../theory/s-minus-p.md) · [Locating a quake](../theory/locating.md)
     - **For teachers:** [Activity card](../teachers/wave-race-card.md) · [Standards](../teachers/standards.md#wave-race)
     - **Data:** [Our stations and data](../theory/stations.md)
     - **For developers:** [Wave Race notes](../developers/wave-race.md)
@@ -115,8 +115,9 @@ Here S − P = 11.99 − 6.92 = **5.07 s**, which the app turns into **38.8 km**
 | Move a pick | Press **Pick P** (or **Pick S**) and click again |
 | Turn picking off | Esc |
 
-The **Filter** menu changes which vibrations you see. **1–10 Hz** (the default) hides slow
-drifts and fast hum, so quake waves stand out. **2–8 Hz** is even cleaner for small quakes.
+The **Filter** menu changes which vibrations you see. **1–10 Hz** (the default) hides the slow
+ocean hum and fast machine noise, so quake waves stand out
+([why](../theory/seismograms.md#filters-and-spectrograms)). **2–8 Hz** is even cleaner for small quakes.
 **Raw** shows everything.
 
 !!! tip "You don't have to pick every station"

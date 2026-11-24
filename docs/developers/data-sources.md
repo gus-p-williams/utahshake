@@ -13,6 +13,7 @@ plain language.
 | Station list | EarthScope [FDSN station service](https://service.earthscope.org/fdsnws/station/1/) (text) | Stations near each quake |
 | Waveforms | EarthScope [FDSN dataselect](https://service.earthscope.org/fdsnws/dataselect/1/) (miniSEED, POST) | Seismograms |
 | Map tiles | [OpenStreetMap](https://www.openstreetmap.org/copyright) | Base map |
+| Wind speed (figures only, not the apps) | [Iowa Environmental Mesonet](https://mesonet.agron.iastate.edu/) (ASOS, Milford airport MLF) | The wind figure on Reading a seismogram (`tools/figures/seismogram-figures.mjs`) |
 
 All of these allow requests from any web page (CORS `Access-Control-Allow-Origin: *`,
 checked 2026-11-23), so the apps need no server of our own.

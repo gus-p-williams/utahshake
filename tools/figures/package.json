@@ -6,6 +6,7 @@
   "scripts": {
     "traces": "node trace-figures.mjs",
     "science": "node science-traces.mjs",
+    "seismograms": "node seismogram-figures.mjs && node seismogram-diagrams.mjs",
     "screenshots": "node screenshots.mjs"
   },
   "devDependencies": {

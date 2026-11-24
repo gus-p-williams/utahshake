@@ -4,6 +4,35 @@ Newest first. Each entry: date, decision, why, consequences.
 
 ## 2026-11-24 (Stage 1 additions)
 
+Numbering: an entry takes the next free number when it lands on `main`. Branches and parallel
+sessions don't reserve numbers.
+
+**D20. New science page "Reading a seismogram" (signals and noise), built from real records.**
+`docs/theory/seismograms.md`, between Seismic waves and Distance from S minus P. Students see
+what else a seismometer records, so they can tell a quake from everything else: the instrument
+and counts, a quake record, ocean hum, wind, people and machines, near/regional/distant quakes,
+blasts, instrument problems, filters and a spectrogram, and four mystery records. Seismic waves
+keeps the wave physics; its sections on reading a seismogram, filters and the instrument moved
+here. Every example is a real, dated record from UU stations (EarthScope) or ComCat, checked
+before it was written up: ocean hum 0.16–0.25 Hz at TMU (2–4× stronger in winter); wind noise
+typically about 4× (up to 10× in gusts) on windy nights at FOR8 near Milford, against the airport's wind; a working week
+at HEB near Heber City (weekdays 8×, Sunday 2× the night level); 97% of the 301 blasts ComCat
+marks in Utah since 2015 were between 8 am and 6 pm; clipping (SAIU, 16-bit vs 24-bit) and a
+dead channel (SUU) in the 2020 Magna quake. Wind data come from an airport weather station via
+the Iowa Environmental Mesonet, because no UU station has its own. No real spike was found
+(EarthScope's daily checks found none at UU in Sep–Oct 2026), so spikes are described, not
+shown. The seismometer diagram is a generic geophone; the UHSN Shake's model and hardware are
+still to be confirmed. Scripts: `tools/figures/seismogram-figures.mjs` (downloads cached,
+git-ignored; week-long noise levels kept as small JSON) and `seismogram-diagrams.mjs`.
+
+**D19. Teacher materials are organized by activity; activities and apps are many-to-many.**
+Gus, 2026-11-24. An activity card is one lesson: driving question, timing, setup, standards,
+answer key. A card may use several apps (the Wave Race card already uses Quake Waves as its
+warm-up) or none (campus experiments, phone activities), and an app may appear in several
+cards (Quake Explorer: one per investigation). Every app has at least one card. Each card
+states the apps or tools and the setup it needs; each app hub lists the cards that use it; the
+Teachers page lists every card. Plan: roadmap.md, "Across all stages: teacher activity cards".
+
 **D18. The animation is renamed Quake Waves (was Watch the Waves).**
 Gus's choice. "Quake Explorer" stays reserved for the Stage 3 multi-view app. The docs use the
 new name now; the app folder (`app/wave-animation/`) and the page title are renamed with the

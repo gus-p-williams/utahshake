@@ -64,5 +64,7 @@ apps do:
 - Earthquake locations and analyst picks: U.S. Geological Survey ComCat / University of Utah
   Seismograph Stations.
 - Map data © OpenStreetMap contributors.
+- Wind speeds (the wind figure on [Reading a seismogram](seismograms.md)): Milford Municipal
+  Airport weather station, via the Iowa Environmental Mesonet.
 
 Licensing and technical detail are in [Data sources and licensing](../developers/data-sources.md).
