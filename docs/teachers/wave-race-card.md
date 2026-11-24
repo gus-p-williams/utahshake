@@ -45,6 +45,10 @@ No accounts or logins. Student names are never entered or stored.
 4. **Reveal (3 min).** Reveal the official answer. How far off were we? Which station's circle
    missed the most? Why?
 
+To make step 3 a contest, let two or three groups place the pin in turn and write down "Your
+circles miss it by … km"; the smallest number wins (round 1 of the
+[group competition](#group-competition)).
+
 ## Full-period version (45–55 min, pairs)
 
 | Phase | Time | What happens |
@@ -54,6 +58,26 @@ No accounts or logins. Student names are never entered or stored.
 | Explain | 10 min | Class discussion with the [S-minus-P page](../theory/s-minus-p.md): derive \(d = \Delta t \cdot V_P V_S/(V_P - V_S)\) from \(t = d/v\). |
 | Elaborate | 10 min | Pairs first place their own epicenter by eye (**Place my own epicenter**; the app shows how well it fits as they drag the pin), then press **Find the best epicenter** and compare. Then experiment: textbook speeds (6.0 and 3.5) and depth 2 km versus 15 km. Pairs with four or more stations also drop one and see how far the best epicenter moves. Record what changes. |
 | Evaluate | 5–10 min | Reveal the answer. Exit ticket (below). Optional: download the CSV and plot S − P against true distance. |
+
+### Group competition { #group-competition }
+
+Optional: run it in Elaborate, before the experiments with speeds and depth.
+
+- **Same start for every group.** Send everyone the same `?event=` link
+  ([Before class](index.md#before-class)), keep the speeds and depth at the app's defaults, and
+  name the stations every group picks (fewer circles are easier to fit). With the offline
+  sample: MTPU, TCRU, WCU and SGU. Groups are Group A, Group B and so on, never names.
+- **Round 1, before the reveal: the best fit.** Each group places its pin with **Place my own
+  epicenter** and reads "Your circles miss it by … km". Every group writes its number down
+  before anyone presses **Reveal the official answer**. The smallest number wins.
+- **Round 2, after the reveal: the closest pin.** The app now says how far the pin was from the
+  official epicenter. The smallest distance wins.
+- **Discuss:** why can the two winners differ? A low miss distance means the circles agree with
+  each other, not that they are right: one wrong S pick, or a far station such as TMU, can pull
+  the answer away from the true spot (see the [answer key](#answer-key-offline-sample-quake)).
+- **Collecting results (optional):** **Download my picks (CSV)** records the group's pin, its
+  miss distance (RMS), and the speeds and depth it used, so you can check that every group kept
+  the defaults.
 
 ## Exit ticket
 
