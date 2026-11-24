@@ -4,6 +4,22 @@ Newest first. Each entry: date, decision, why, consequences.
 
 ## 2026-11-24 (Quake Explorer; planning documents)
 
+**D28. The two documents for Dale and Cleat: activities by setup, one set of status words, a
+small pilot, no prices.** Gus, 2026-11-24. The questions document ("UHSN classroom activities
+by setup", `planning/activities.md`) opens with the questions, then 46 activities grouped by
+setup with IDs E (external data), S (the school's installed Shake), R (a roaming Shake), P
+(phones), each with one readiness label (available now / needs data or a tool / proposed /
+needs a trial). The overview ("Utah High School Seismic Network: Student Apps and
+Activities", `planning/evaluation.md`) gives status and concepts and points to the questions
+document for every ask. Both use the same words: "planned" means on the roadmap, anything
+else is "proposed" (How Big Was It?, Build a Detector and Weather Ears are proposed). The
+suggested pilot, worded the same in both: E2 Quake Waves → E1 Wave Race → S1 Meet our Shake
+now, then S3 School Pulse once the school data and its tool are ready (Stage 4); Quake
+Explorer is the next step for classes that want more. No prices anywhere in either document;
+US spelling. Word copies: "UHSN overview - student apps and activities.docx" and "UHSN
+questions - classroom activities by setup.docx". Outside sources behind figures go in a
+source log in `planning/` (e.g. `planning/plots-sources.md`), not on student or teacher pages.
+
 **D27. `planning/evaluation.md` is the canonical project overview; two Word documents go to
 Dale and Cleat.** Gus, 2026-11-24. The repo copy replaces the living claude.ai planning doc,
 which is deleted once the rewrite lands. The overview is being rewritten around current
