@@ -20,7 +20,7 @@ Short on time? Sections 1 to 3 and 9 take about five minutes.
 | 3. What comes next | The build plan (roadmap) in the order it is happening |
 | 4. Data rules | Raspberry Shake's license; their own viewers; student privacy; the path to school data |
 | 5. How the material fits together | Activity cards; one table from topic to science page, activities and apps; Utah standards |
-| 6. The apps today | Wave Race, Quake Explorer and Quake Waves: what students do in each |
+| 6. The apps today | Quake Locator, Quake Explorer and Quake Waves: what students do in each |
 | 7. The science, topic by topic | One line per topic: on the website or planned |
 | 8. Plots students learn to read | The 12 plots and the status of each |
 | 9. Decisions we need from you | What we ask, in brief; the questions are in the companion document |
@@ -84,14 +84,14 @@ Status on 24 November 2026. Website: <https://gus-p-williams.github.io/utahshake
 
 | What | Status | Links |
 | ------------------------------ | -------- | ---------------------------------------------- |
-| **Wave Race** (app): pick P and S, find the quake | Live | [Open](https://gus-p-williams.github.io/utahshake/app/wave-race/) · [Guide](https://gus-p-williams.github.io/utahshake/apps/wave-race/) · [Card](https://gus-p-williams.github.io/utahshake/teachers/wave-race-card/) |
+| **Quake Locator** (app): pick P and S, find the quake | Live | [Open](https://gus-p-williams.github.io/utahshake/app/wave-race/) · [Guide](https://gus-p-williams.github.io/utahshake/apps/wave-race/) · [Card](https://gus-p-williams.github.io/utahshake/teachers/wave-race-card/) |
 | **Quake Explorer** (app): four investigations | Live | [Open](https://gus-p-williams.github.io/utahshake/app/quake-explorer/) · [Guide](https://gus-p-williams.github.io/utahshake/apps/quake-explorer/) |
 | **Quake Waves** and two more animations | Live | [All apps](https://gus-p-williams.github.io/utahshake/apps/) |
 | **Science pages**: eight | Live | [The Science](https://gus-p-williams.github.io/utahshake/theory/) |
-| **Activity cards**: six (One quake, two waves; Wave Race; one per Quake Explorer investigation), each opening with an "At a glance" box, listed in a catalog by setup | Live | [Teachers](https://gus-p-williams.github.io/utahshake/teachers/) |
+| **Activity cards**: six (One quake, two waves; Quake Locator; one per Quake Explorer investigation), each opening with an "At a glance" box, listed in a catalog by setup | Live | [Teachers](https://gus-p-williams.github.io/utahshake/teachers/) |
 | **Utah standards**: a summary table and a crosswalk | Live | [At a glance](https://gus-p-williams.github.io/utahshake/teachers/#utah-standards) · [Crosswalk](https://gus-p-williams.github.io/utahshake/teachers/standards/) |
 | **Before-class checklist**: network, offline samples, shared links, privacy | Live | [Before class](https://gus-p-williams.github.io/utahshake/teachers/#before-class) |
-| **Offline samples**: one quake for Wave Race, six for Quake Explorer | Live | Stored with the website |
+| **Offline samples**: one quake for Quake Locator, six for Quake Explorer | Live | Stored with the website |
 
 **Not done yet:**
 
@@ -101,7 +101,7 @@ Status on 24 November 2026. Website: <https://gus-p-williams.github.io/utahshake
   Raspberry Shake's own viewers, where the school's Shake shares its data.
 - **No classroom trial.** The timings on the cards (15 minutes, or a full period) are
   estimates. So far only the developer has checked the apps. For example, clicking the UU
-  analysts' P and S times in Wave Race put the offline sample's quake within 6 km of the
+  analysts' P and S times in Quake Locator put the offline sample's quake within 6 km of the
   official location from 3 stations.
 - **No teacher review of the standards.** Section 5.3 shows what each activity contributes
   to, as a draft.
@@ -119,7 +119,7 @@ stage numbers are kept below, but Quake Explorer (Stage 3) was built before Scho
 | Order | Stage and work | Status |
 | --------- | ---------------------------------------------------- | ------------------------ |
 | 1 | **Stage 0.** Website, code repository, automatic build and publishing | Done. A license file (MIT or BSD) is still for DRI to choose |
-| 2 | **Stage 1.** Wave Race, with Quake Waves as its warm-up | Done. Classroom trial to do |
+| 2 | **Stage 1.** Quake Locator, with Quake Waves as its warm-up | Done. Classroom trial to do |
 | 3 | **Stage 3.** Quake Explorer: four investigations, guide, three science pages, four cards | Built. Classroom trial to do |
 | 4 | **Plots.** Helicorder, noise spectra over a month (PPSD), seismic carpet, event stack, H/V, cross-correlation (section 8) | Being built |
 | 5 | **Stage 2.** School Pulse: hourly noise levels for the stand-in stations, computed by a scheduled job, shown as a "seismic carpet" (hour of day against date) | Next |
@@ -127,7 +127,7 @@ stage numbers are kept below, but Quake Explorer (Stage 3) was built before Scho
 | 7 | **Stage 4.** School data: a DRI server, a UHSN data source in the apps, live views inside the schools, campus apps | Needs DRI decisions and resources (section 4.4) |
 | Later | Python notebooks for local analysis and the research track | Planned |
 
-**Trials come first.** The pilot we suggest (section 9): E2 Quake Waves → E1 Wave Race → S1
+**Trials come first.** The pilot we suggest (section 9): E2 Quake Waves → E1 Quake Locator → S1
 Meet our Shake now, then S3 School Pulse once the school data and its tool are ready (Stage 4).
 Quake Explorer's investigations are the next step for classes that want more. The trials set
 the timings and the reading level for everything after.
@@ -226,13 +226,13 @@ Utah standards. Then come a 15-minute version, a full-period version, an exit ti
 key, common difficulties and extensions. The Teachers page lists the cards in a catalog by
 setup.
 
-**Cards and apps are many-to-many.** A card may use several apps: the Wave Race card opens
+**Cards and apps are many-to-many.** A card may use several apps: the Quake Locator card opens
 with Quake Waves. A card may use no app at all: campus experiments and phone activities. One
 app may serve several cards: Quake Explorer has one card per investigation. Every app has at
 least one card. Each card lists its apps, and each app's page lists its cards.
 
 **So teachers can build a lesson plan from cards.** For example, for a waves unit: "One
-quake, two waves" (10 minutes), then Wave Race (a period), then "How fast is the rock?" and
+quake, two waves" (10 minutes), then Quake Locator (a period), then "How fast is the rock?" and
 "Which way did the ground move?" (a period that chains the two).
 
 **Setups and IDs.** The companion document sorts activities by the setup they need, and gives
@@ -256,9 +256,9 @@ How the parts link. Activities are given by their IDs in the companion document.
 | Topic | Science page | Activities | Apps and tools |
 | ---------------------- | ---------------------- | -------------- | ---------------------------- |
 | P and S waves; how they move rock | [Seismic waves](https://gus-p-williams.github.io/utahshake/theory/waves/) | E1, E2 | Quake Waves; the P and S motion animation |
-| What a seismogram shows: quakes, ocean hum, wind, people, blasts, instrument problems | [Reading a seismogram](https://gus-p-williams.github.io/utahshake/theory/seismograms/) | E3, E4, E5, E6, S1, S5, S6 | Wave Race; Quake Explorer B; Raspberry Shake's viewers (S1) |
-| Distance from the S − P time | [Distance from S minus P](https://gus-p-williams.github.io/utahshake/theory/s-minus-p/) | E1, E2, E8, S2 | Wave Race; Quake Waves; Quake Explorer D |
-| Locating a quake | [Locating a quake](https://gus-p-williams.github.io/utahshake/theory/locating/) | E1, E10, E13, S2, P3 | Wave Race; Quake Explorer C; *Felt Map Locator*; *Hit Locator* |
+| What a seismogram shows: quakes, ocean hum, wind, people, blasts, instrument problems | [Reading a seismogram](https://gus-p-williams.github.io/utahshake/theory/seismograms/) | E3, E4, E5, E6, S1, S5, S6 | Quake Locator; Quake Explorer B; Raspberry Shake's viewers (S1) |
+| Distance from the S − P time | [Distance from S minus P](https://gus-p-williams.github.io/utahshake/theory/s-minus-p/) | E1, E2, E8, S2 | Quake Locator; Quake Waves; Quake Explorer D |
+| Locating a quake | [Locating a quake](https://gus-p-williams.github.io/utahshake/theory/locating/) | E1, E10, E13, S2, P3 | Quake Locator; Quake Explorer C; *Felt Map Locator*; *Hit Locator* |
 | Wave speeds and Earth's layers | [Travel times and Earth's layers](https://gus-p-williams.github.io/utahshake/theory/travel-times/) | E8, E9, R1, R2, R3 | Quake Explorer A and D; *viewer for the school Shakes* |
 | Frequencies, fading and sound | [Frequencies, fading and sound](https://gus-p-williams.github.io/utahshake/theory/frequencies/) | E5, E7, S10, S12, S15, S16 | Quake Explorer B; Build a Wiggle |
 | Which way the ground moves | [Which way the ground moves](https://gus-p-williams.github.io/utahshake/theory/ground-motion/) | E10 | Quake Explorer C |
@@ -285,7 +285,7 @@ whole standard. **These marks are pending teacher review.**
 
 | Activity (live card) | PHYS 4.1 | PHYS 2.1 | ESS 2.2 | ESS 2.3 | ESS 4.1 | GEOL 3 | CS DA.3 | CS DA.1 |
 | ------------------------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- |
-| E1 Wave Race | ● | | ● | ● | ● | ● | ● | ● |
+| E1 Quake Locator | ● | | ● | ● | ● | ● | ● | ● |
 | E2 One quake, two waves (Quake Waves) | ● | | ● | | | | | |
 | E9 How fast is the rock? (Quake Explorer A) | ● | | ● | | | ● | | ● |
 | E7 What notes is the ground playing? (B) | ● | ● | | | ● | | ● | |
@@ -329,14 +329,14 @@ All apps share a top bar with links to their guide and to the data credits, and 
 browser with no accounts. The two data apps also offer offline samples, and let a teacher send
 the whole class to the same quake with one web address.
 
-### Wave Race (activity E1)
+### Quake Locator (activity E1)
 
 *How far away was that quake, and where did it happen?*
 [Open](https://gus-p-williams.github.io/utahshake/app/wave-race/) ·
 [Guide](https://gus-p-williams.github.io/utahshake/apps/wave-race/) ·
 [Activity card](https://gus-p-williams.github.io/utahshake/teachers/wave-race-card/)
 
-![Figure 1. Wave Race, step 3, "Locate the quake": each station's distance is a circle. The green pin is the student's own guess; the purple star is the best fit from their picks.](img/overview-wave-race.png)
+![Figure 1. Quake Locator, step 3, "Locate the quake": each station's distance is a circle. The green pin is the student's own guess; the purple star is the best fit from their picks.](img/overview-wave-race.png)
 
 1. **Choose a quake.** Utah quakes of magnitude 2 and up from the last 90 days. The location
    is hidden: finding it is the students' job.
@@ -372,7 +372,7 @@ quakes far away (magnitude 6.5 and up, last 2 years) for B to D; six offline sam
 four. Where analysts made no picks, the computer's picks fill in and are labeled as such.
 
 **Time:** each investigation about 15 minutes as a class demo, or a full period in pairs. Do
-Wave Race first.
+Quake Locator first.
 
 ![Figure 2. Quake Explorer A, the 2020 Magna earthquake after "Reveal": 30 stations from 12 to 397 km. Past about 143 km the first arrivals follow a faster line (7.67 km/s): waves that traveled along the top of the mantle.](img/overview-quake-explorer.png)
 
@@ -382,9 +382,9 @@ Wave Race first.
 [Guide](https://gus-p-williams.github.io/utahshake/apps/quake-waves/)
 
 - **Quake Waves** is a cartoon of P and S waves racing from a quake to four stations. The
-  seismograms are made up, but the arrival times are exact (the Wave Race speeds), so the
+  seismograms are made up, but the arrival times are exact (the Quake Locator speeds), so the
   distance circles cross at the quake. One run takes about 10 seconds; with the guide's
-  questions, 5 to 10 minutes. It is the Wave Race warm-up, and it has its own card,
+  questions, 5 to 10 minutes. It is the Quake Locator warm-up, and it has its own card,
   [One quake, two waves](https://gus-p-williams.github.io/utahshake/teachers/one-quake-two-waves/).
 - **[How P and S waves move rock](https://gus-p-williams.github.io/utahshake/app/wave-motion/)**:
   P squeezes and stretches a block of rock; S shakes it.
@@ -432,7 +432,7 @@ The website's science pages are short and built from real records. One line per 
 
 | Plot | What it shows | Status | Where |
 | -------------------- | ---------------------------------------------- | ---------------- | ------------------------ |
-| Waveform (trace) | Ground motion against time, raw or filtered | Live | Wave Race; all of Quake Explorer; science pages |
+| Waveform (trace) | Ground motion against time, raw or filtered | Live | Quake Locator; all of Quake Explorer; science pages |
 | Spectrogram | Frequency against time; color shows strength | Live | Quake Explorer B and D; Reading a seismogram |
 | Record section | One quake at many stations, stacked by distance | Live | Quake Explorer A; Distance from S minus P |
 | Particle motion | The path the ground traced, from three sensors | Live (Quake Explorer) | Quake Explorer C |
@@ -461,7 +461,7 @@ you to:
 - tell us whether a roaming Shake kit is budgeted, and whether phone activities are worth
   pursuing.
 
-**The pilot we suggest:** E2 Quake Waves → E1 Wave Race → S1 Meet our Shake now, then S3
+**The pilot we suggest:** E2 Quake Waves → E1 Quake Locator → S1 Meet our Shake now, then S3
 School Pulse once the school data and its tool are ready (Stage 4). Quake Explorer's
 investigations are the next step for classes that want more.
 
@@ -590,7 +590,7 @@ Apps and tools not built yet, with the activities in the companion document that
 | **School Pulse** | Can the ground tell when class changes? | E4, S3 | Stand-in stations first, then school Shakes | Planned, next (Stage 2) |
 | **How Big Was It?** | Can we estimate magnitude from our records? | E11 | UU and USGS | Proposed |
 | **Build a Detector** | Can you code your own quake alarm? | E12 | UU, then school Shakes | Proposed |
-| **Utah Quake Locator with our schools** | Can our schools locate a quake as well as UUSS? | S2 | School Shakes (Wave Race on school data) | Planned (Stage 4) |
+| **Quake Locator with our schools** | Can our schools locate a quake as well as UUSS? | S2 | School Shakes (Quake Locator on school data) | Planned (Stage 4) |
 | **Viewer for the school Shakes** | Live and recent records, spectrogram, an experiment mode for drops and jumps | S and R cards | School Shakes | Planned (Stage 4) |
 | **Game Night Quake** | Whose crowd shook harder, and is that fair? | S7 | All school Shakes | Planned (Stage 4) |
 | **Bus Detective** | Can we hear the buses arrive? | S4 | School Shake | Planned (Stage 4) |
@@ -669,8 +669,8 @@ The companion document shows which setup (E, S, R, P) each part of these project
   analysts' picks for three 2026 quakes; 8.4 made distances about 10% too long. Students can
   still change the speeds, and the science page explains both.
 - **What gets built first.** The old summary named School Pulse, Game Night Quake and Wave
-  Race. Wave Race and Quake Explorer are built; School Pulse is next; Game Night Quake needs
-  school data (Stage 4).
+  Race (now Quake Locator). Quake Locator and Quake Explorer are built; School Pulse is next;
+  Game Night Quake needs school data (Stage 4).
 - **Quake Explorer** (roadmap Stage 3; not in the 23 November version) is now built.
 - **Audience.** The old document said "technically strong students". The program now aims at
   any high-school science class, with extensions and a separate research track.

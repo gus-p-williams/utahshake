@@ -79,7 +79,7 @@ function logText(t) {
   }
   if (!last) return t > 0 ? 'The quake starts: P and S waves leave it at the same moment.' : 'Press Play to start the quake.';
   const allCircles = sim.circles && sim.rows.every((r) => t >= r.s + 2.5);
-  return allCircles ? 'All four circles cross at one point: the quake. That is how Wave Race locates quakes.' : last.text;
+  return allCircles ? 'All four circles cross at one point: the quake. That is how Quake Locator locates quakes.' : last.text;
 }
 
 // ---------------------------------------------------------------------------

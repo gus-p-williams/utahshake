@@ -30,7 +30,7 @@ const HALO = `stroke="${C.bg}" stroke-width="4" paint-order="stroke"`;
 
 /**
  * Load an offline sample: event, analyst picks (by "NET.STA") and every trace in the
- * Wave Race window (WAVE_RACE.preOriginSec before to postOriginSec after the origin).
+ * Quake Locator window (WAVE_RACE.preOriginSec before to postOriginSec after the origin).
  */
 export function loadSample(id = 'uu80162166') {
   const dir = new URL(`../../docs/app/data/samples/${id}/`, import.meta.url);

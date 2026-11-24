@@ -4,6 +4,16 @@ Newest first. Each entry: date, decision, why, consequences.
 
 ## 2026-11-24 (Quake Explorer; planning documents; teacher cards)
 
+**D30. Wave Race is renamed Quake Locator; names only.** Gus, 2026-11-24, so the name says
+what the app does (it also matches Quake Waves and Quake Explorer). Its activity card is
+"Activity card: Quake Locator"; the race between P and S stays in the lesson text as the
+idea. Only names change: the addresses (`app/wave-race/`, `apps/wave-race.md`,
+`teachers/wave-race-card.md`), code names (`js/wave-race/`, `WAVE_RACE`, `uhsn.waveRace.*`)
+and test file names stay, and renamed headings keep their old anchors, so no link breaks. The
+CSV download is `quake-locator-<id>.csv`. `tests/old-app-name.test.js` keeps the old name off
+the site; one developer note says where the old name survives. Decisions above and earlier
+status notes keep the old name as history.
+
 **D29. Every activity card opens with the same "At a glance" box, and a test keeps cards and
 apps linked.** Gus, 2026-11-24 (session D1-cards). The box has seven lines: driving question,
 time, setup, apps and tools, before this, materials, Utah standards (linked to the

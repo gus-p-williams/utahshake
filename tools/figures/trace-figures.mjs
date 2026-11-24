@@ -1,4 +1,4 @@
-// Make the seismogram figures for the Wave Race student guide (docs/apps/img/).
+// Make the seismogram figures for the Quake Locator student guide (docs/apps/img/).
 //
 //   node tools/figures/trace-figures.mjs
 //

@@ -9,7 +9,7 @@
 // Schools and their stand-ins come from docs/app/js/config.js, the station
 // coordinates from the offline sample (docs/app/data/samples/uu80162166/stations.json,
 // University of Utah station metadata via EarthScope) and the distances from the
-// app's own geo.js, so the figure matches what Wave Race uses.
+// app's own geo.js, so the figure matches what Quake Locator uses.
 // Projection: equirectangular, x scaled by cos(39.5°) so Utah is not stretched.
 // Output: plain SVG with a white background (readable in light and dark docs themes).
 import fs from 'node:fs';

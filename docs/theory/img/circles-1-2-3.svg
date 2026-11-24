@@ -67,5 +67,5 @@
 </g>
 <rect x="509.3" y="56" width="238.7" height="339.6" rx="4" fill="none" stroke="#d9dde3"/>
 <text x="14" y="417.6" font-size="12" fill="#5b6472">Real data: M3.3 quake near Junction, Utah, uu80162166; University of Utah analyst picks (network UU).</text>
-<text x="14" y="434.6" font-size="12" fill="#5b6472">Circle radius: map distance from S − P, with P 5.8 km/s, S 3.3 km/s, depth 8 km (Wave Race defaults). Star: best fit.</text>
+<text x="14" y="434.6" font-size="12" fill="#5b6472">Circle radius: map distance from S − P, with P 5.8 km/s, S 3.3 km/s, depth 8 km (Quake Locator defaults). Star: best fit.</text>
 </svg>

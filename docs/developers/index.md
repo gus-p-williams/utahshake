@@ -13,7 +13,7 @@ Students and teachers who only want to use the apps can skip this section: start
 | [Data sources and licensing](data-sources.md) | Which services the apps use, credits, licenses, offline samples, adding a data source |
 | [Adding an app](adding-an-app.md) | A checklist so a new app fits the site: hub page, All apps card, top bar, shared page helpers, renaming an app |
 | [Adding an activity card](adding-a-card.md) | The card template ("At a glance" box and sections) and the checklist that links a new card into the hubs, the Teachers catalog and the standards |
-| App notes: [Wave Race](wave-race.md) · [Quake Explorer](quake-explorer.md) | How one app works inside, for apps with internals worth explaining |
+| App notes: [Quake Locator](wave-race.md) · [Quake Explorer](quake-explorer.md) | How one app works inside, for apps with internals worth explaining |
 
 ## Preview locally
 

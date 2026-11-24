@@ -1,5 +1,6 @@
-// Wave Race: pick P and S on real seismograms, turn S-minus-P times into
-// distances, and locate a Utah quake. See docs/apps/wave-race.md.
+// Quake Locator: pick P and S on real seismograms, turn S-minus-P times into
+// distances, and locate a Utah quake. See docs/apps/wave-race.md. Its folder, pages,
+// storage keys and WAVE_RACE config keep the old name (docs/developers/wave-race.md).
 import { REGION, SCHOOLS, WAVE_RACE as W, FILTERS, PRESET_EVENTS, ATTRIBUTION } from '../config.js';
 import { sourceFromUrl } from '../data/datasource.js';
 import { filteredData } from '../data/filters.js';
@@ -557,7 +558,7 @@ function downloadPicks() {
   }
   if (state.solution) lines.push(`# best fit from your picks,${state.solution.lat.toFixed(4)},${state.solution.lon.toFixed(4)},rms km,${state.solution.rmsKm.toFixed(2)}`);
   lines.push(`# ${ATTRIBUTION.waveforms}`);
-  downloadCsv(`wave-race-${e.id}.csv`, lines);
+  downloadCsv(`quake-locator-${e.id}.csv`, lines);
 }
 
 // ---------------------------------------------------------------------------

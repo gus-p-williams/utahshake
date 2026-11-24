@@ -16,7 +16,7 @@ import { amplitudeSpectrum } from '../lib/spectral.js';
 import { setupEmbed, followDocsTheme } from '../ui/page.js';
 
 const $ = (id) => document.getElementById(id);
-const BAND = [1, 10];          // the filter keeps 1–10 Hz, like Wave Race's default
+const BAND = [1, 10];          // the filter keeps 1–10 Hz, like Quake Locator's default
 const F_SHOW = 25;             // spectrum shown up to 25 Hz (as Quake Explorer's spectrogram)
 const NOISE = noiseWaves();    // ~400 tiny waves, 0.5–25 Hz; the same every time
 const N = 3;

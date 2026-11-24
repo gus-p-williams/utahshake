@@ -29,3 +29,14 @@ python -I tools/planning-docx/md_to_docx.py planning/evaluation.md "planning/UHS
 
 Pandoc sizes table columns by the length of the `---` runs in each column's separator line, so
 widen a run to widen its column. Images must be PNG (or JPEG) to show in Word.
+
+## Overview images
+
+Two of the overview's figures are made in headless Chrome by `overview-images.mjs`: the data
+diagram (`overview-architecture.png`, drawn in `overview-architecture.html`) and the Quake Waves
+screenshot (`overview-quake-waves.png`, needs `node tools/serve.mjs` running). It uses
+puppeteer-core from `tools/figures` (`npm install` there once).
+
+```bash
+node tools/planning-docx/overview-images.mjs        # both, or name one: arch or qw
+```

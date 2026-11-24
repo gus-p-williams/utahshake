@@ -4,7 +4,7 @@
 // and redirect stubs: old addresses kept so links keep working, marked in their <head> with
 //   <meta name="uhsn-redirect" content="<new address>">
 // "On the list" means a Markdown link whose address contains ../app/<name>/
-// (for example [Open Wave Race](../app/wave-race/index.html)).
+// (for example [Open Quake Locator](../app/wave-race/index.html)).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -66,7 +66,7 @@ test('folder scan: app pages only (no shared folders, redirect stubs or folders 
 
 test('list check: a Markdown link containing ../app/<name>/ counts; comments, code and look-alikes do not', () => {
   const md = [
-    '[Open Wave Race](../app/wave-race/index.html){ .md-button }',
+    '[Open Quake Locator](../app/wave-race/index.html){ .md-button }',
     '[ref]: ../app/ref-app/',
     '<!-- [Hidden](../app/hidden/index.html) -->',
     '```', '[In code](../app/in-code/)', '```',
@@ -84,7 +84,7 @@ test('list check: a Markdown link containing ../app/<name>/ counts; comments, co
 test('every app page in docs/app/ is linked from docs/apps/index.md', (t) => {
   const folders = appFolders(APP_DIR);
   t.diagnostic(`app pages: ${folders.join(', ')}`);
-  assert.ok(folders.includes('wave-race'), 'the folder scan found no Wave Race: is APP_DIR right?');
+  assert.ok(folders.includes('wave-race'), 'the folder scan found no wave-race folder: is APP_DIR right?');
   const missing = unlisted(folders, markdownLinks(fs.readFileSync(APP_LIST, 'utf8')));
   assert.deepEqual(missing, [], missing.map((name) => `docs/app/${name}/ is not on docs/apps/index.md: add a card ` +
     `with a link to ../app/${name}/index.html (or, if the folder only forwards to a new address, mark its page ` +

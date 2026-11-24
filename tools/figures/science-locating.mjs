@@ -3,13 +3,13 @@
 //   node tools/figures/science-locating.mjs
 //
 // residuals.svg         L2: residuals, how far each circle misses a trial point
-// misfit-map.svg        L3: the misfit (RMS) map that Wave Race's grid search explores
+// misfit-map.svg        L3: the misfit (RMS) map that Quake Locator's grid search explores
 // station-geometry.svg  L4: stations on one side vs all around (simulated picks)
 //
 // L2 and L3 use the offline sample (docs/app/data/samples/uu80162166) with the
 // University of Utah analysts' S - P times at MTPU, TCRU and WCU. L4 simulates
 // S - P times from the official epicenter. All three use the app's own locate/geo
-// code and the Wave Race defaults, so the numbers are the ones Wave Race reports.
+// code and the Quake Locator defaults, so the numbers are the ones Quake Locator reports.
 // Style: same constants and helpers as science-diagrams.mjs (copied, not imported).
 // Output is deterministic: no clock, no Math.random (a seeded generator for L4).
 import fs from 'node:fs';
@@ -75,7 +75,7 @@ function triangle(x, y, color, size = 10) {
   return `<polygon points="${r1(x)},${r1(yTop)} ${r1(x - size)},${r1(yBot)} ${r1(x + size)},${r1(yBot)}" fill="${color}" stroke="#ffffff" stroke-width="1.2" stroke-linejoin="round"/>`;
 }
 
-/** Wave Race's "your guess" pin (docs/app/js/ui/map-view.js), tip at (x, y). */
+/** Quake Locator's "your guess" pin (docs/app/js/ui/map-view.js), tip at (x, y). */
 function pin(x, y, s = 1) {
   return `<g transform="translate(${r1(x - 13 * s)} ${r1(y - 33 * s)}) scale(${s})">` +
     `<path d="M13 1C6.6 1 1.5 6 1.5 12.3 1.5 20.6 13 33 13 33s11.5-12.4 11.5-20.7C24.5 6 19.4 1 13 1z" fill="${C.pin}" stroke="${C.pinEdge}" stroke-width="1.2"/>` +
@@ -118,7 +118,7 @@ function scaleBar(x, y, km, k, halo = null) {
 }
 
 // ---------------------------------------------------------------------------
-// Data: the offline sample and the Wave Race defaults
+// Data: the offline sample and the Quake Locator defaults
 // ---------------------------------------------------------------------------
 
 const ID = 'uu80162166';
@@ -135,7 +135,7 @@ const stationAt = (sta) => {
   return s;
 };
 
-// Analyst S - P at the three stations Wave Race uses for the sample (first P, first S).
+// Analyst S - P at the three stations Quake Locator uses for the sample (first P, first S).
 const firstPick = (sta, ph) => Math.min(...picksRaw.filter((p) => p.sta === sta && p.phase.toUpperCase().startsWith(ph)).map((p) => p.timeMs));
 const STAS = ['MTPU', 'TCRU', 'WCU'];               // r1, r2, r3
 const obs = STAS.map((sta) => {
@@ -651,7 +651,7 @@ function residualsFigure() {
   }
   y += 8;
   const more = [
-    'The table, like Wave Race, measures to',
+    'The table, like Quake Locator, measures to',
     `the quake at ${depthKm} km depth. The circles show`,
     'distance along the ground, so a gap on the',
     `map differs from its residual by up to ${maxDiff.toFixed(1)} km.`,
@@ -668,10 +668,10 @@ function residualsFigure() {
   body.push(text(left + 2, fy,
     `RMS = √((${it('r')}₁² + ${it('r')}₂² + ${it('r')}₃²) / 3) = √((${rr.map(sq).join(' + ')}) / 3) = √(${sumSq.toFixed(1)} / 3) = <tspan font-weight="700">${m.rmsKm.toFixed(1)} km</tspan>`,
     { size: 15, weight: 600 }));
-  body.push(text(left + 2, fy + 22, `Wave Race shows this as “Your circles miss it by ${m.rmsKm.toFixed(1)} km on average.” At the best fit (purple star) the RMS is ${fit.rmsKm.toFixed(1)} km.`,
+  body.push(text(left + 2, fy + 22, `Quake Locator shows this as “Your circles miss it by ${m.rmsKm.toFixed(1)} km on average.” At the best fit (purple star) the RMS is ${fit.rmsKm.toFixed(1)} km.`,
     { size: 12, fill: C.text }));
   body.push(text(left + 2, fy + 44, `Real data: M${event.mag.toFixed(1)} quake ${esc(event.place.replace(/^\d+ km \w+ of /, 'near '))}, ${event.id}; University of Utah analyst picks (network UU).`, { size: 12, fill: C.muted }));
-  body.push(text(left + 2, fy + 61, `Circle radius: map distance from S − P, with P ${vp} km/s, S ${vs} km/s, depth ${depthKm} km (Wave Race defaults).`, { size: 12, fill: C.muted }));
+  body.push(text(left + 2, fy + 61, `Circle radius: map distance from S − P, with P ${vp} km/s, S ${vs} km/s, depth ${depthKm} km (Quake Locator defaults).`, { size: 12, fill: C.muted }));
   const H = fy + 75;
   const out = card(W, H, 'Residuals: how far each circle misses',
     `A trial epicenter (green pin) ${TRIAL_KM} km from the best fit. Each station's distance circle misses it; the residuals are ${st.map((s) => `${s.sta} ${signed(s.r)} km`).join(', ')}, and their RMS is ${m.rmsKm.toFixed(1)} km.`);
@@ -847,9 +847,9 @@ function misfitMapFigure() {
 
   const fy = top + mapH + 22;
   body.push(text(left + 2, fy, `Real data: M${event.mag.toFixed(1)} quake ${esc(event.place.replace(/^\d+ km \w+ of /, 'near '))}, ${event.id}; University of Utah analyst picks (network UU) at MTPU, TCRU and WCU.`, { size: 12, fill: C.muted }));
-  body.push(text(left + 2, fy + 17, `The RMS of the three residuals at every point, with P ${vp} km/s, S ${vs} km/s, depth ${depthKm} km (Wave Race defaults). Best fit: RMS ${fit.rmsKm.toFixed(1)} km.`, { size: 12, fill: C.muted }));
+  body.push(text(left + 2, fy + 17, `The RMS of the three residuals at every point, with P ${vp} km/s, S ${vs} km/s, depth ${depthKm} km (Quake Locator defaults). Best fit: RMS ${fit.rmsKm.toFixed(1)} km.`, { size: 12, fill: C.muted }));
   const H = fy + 30;
-  const out = card(W, H, 'The misfit map: Wave Race’s grid search',
+  const out = card(W, H, 'The misfit map: Quake Locator’s grid search',
     'Map of the RMS misfit for every possible epicenter, light where the circles fit well and dark where they fit badly. A long light valley holds the best fit; the rough-uncertainty contour encloses the points within 1.5 km of the best RMS.');
   out.splice(3, 0, `<defs>${defs.join('')}</defs>`);
   return { svg: [...out, ...body, '</svg>'].join('\n'), size, level, off, steps };

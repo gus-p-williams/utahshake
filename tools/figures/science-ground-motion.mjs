@@ -813,7 +813,7 @@ if (want('one')) {
   const far = 140;
   const wedge = [-15, 15].map((d) => destination(m.st.lat, m.st.lon, est.bazDeg + d, far));
   out.push(`<polygon points="${r1(sx)},${r1(sy)} ${r1(X(wedge[0]))},${r1(Y(wedge[0]))} ${r1(X(wedge[1]))},${r1(Y(wedge[1]))}" fill="rgba(124,58,237,0.10)"/>`);
-  // the S − P circle (dashed), as in Wave Race
+  // the S − P circle (dashed), as in Quake Locator
   out.push(`<circle cx="${r1(sx)}" cy="${r1(sy)}" r="${r1(epi * S)}" fill="none" stroke="${C.muted}" stroke-width="1.5" stroke-dasharray="6 5"/>`);
   const end = destination(m.st.lat, m.st.lon, est.bazDeg, far);
   out.push(line(sx, sy, X(end), Y(end), K.computer, 2.4, 'stroke-dasharray="8 5"'));

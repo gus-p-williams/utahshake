@@ -15,7 +15,7 @@ are **Browser only** (records from University of Utah stations near the schools,
 no Shake needed). Cards that use your school's Shake will be marked **School Shake**.
 
 Students follow the app guides, which walk them through each app step by step:
-[Wave Race](../apps/wave-race.md), [Quake Explorer](../apps/quake-explorer.md) (each card links
+[Quake Locator](../apps/wave-race.md), [Quake Explorer](../apps/quake-explorer.md) (each card links
 to its investigation's section) and [Quake Waves](../apps/quake-waves.md). The animations also
 sit on the science pages, next to the ideas they show.
 
@@ -29,7 +29,7 @@ In teaching order. Times are for the whole-class version, then the full period i
 | Activity | Apps and tools | Setup | Time | Standards |
 | --- | --- | --- | --- | --- |
 | [One quake, two waves](one-quake-two-waves.md) | [Quake Waves](../apps/quake-waves.md) · [How P and S waves move rock](../app/wave-motion/index.html) | Browser only: cartoons, no data | 10 min | PHYS.4.1 · ESS.2.2 |
-| [Wave Race](wave-race-card.md) | [Wave Race](../apps/wave-race.md), with [Quake Waves](../apps/quake-waves.md) as the warm-up | Browser only: live data or the offline sample | 15 or 45–55 min | PHYS.4.1 · ESS.2.2 · ESS.2.3 · ESS.4.1 · GEOL.3.x · CS&nbsp;9/10.DA.3 · CS&nbsp;11/12.DA.1 |
+| [Quake Locator](wave-race-card.md) | [Quake Locator](../apps/wave-race.md), with [Quake Waves](../apps/quake-waves.md) as the warm-up | Browser only: live data or the offline sample | 15 or 45–55 min | PHYS.4.1 · ESS.2.2 · ESS.2.3 · ESS.4.1 · GEOL.3.x · CS&nbsp;9/10.DA.3 · CS&nbsp;11/12.DA.1 |
 | [How fast is the rock?](how-fast-is-the-rock.md) | [Quake Explorer](../apps/quake-explorer.md) A | Browser only: live data or the offline samples | 15 or 45–55 min | PHYS.4.1 · ESS.2.2 · GEOL.3.x · CS&nbsp;11/12.DA.1 |
 | [What notes is the ground playing?](notes-of-a-quake.md) | [Quake Explorer](../apps/quake-explorer.md) B, with [Build a Wiggle](../app/build-a-wiggle/index.html) as the warm-up | Browser only: live data or the offline samples | 15 or 45–55 min | PHYS.4.1 · PHYS.2.1 · ESS.4.1 · CS&nbsp;9/10.DA.3 |
 | [Which way did the ground move?](which-way-did-it-move.md) | [Quake Explorer](../apps/quake-explorer.md) C (and A in the full period), with [How P and S waves move rock](../app/wave-motion/index.html) as the warm-up | Browser only: live data or the offline samples | 15 min (C) or 45–55 min (A then C) | PHYS.4.1 · ESS.2.2 · CS&nbsp;9/10.DA.3 |
@@ -42,7 +42,7 @@ the table; the [standards crosswalk](standards.md) shows where each one comes up
 
 | Activity or topic | What it is | Utah standards |
 | --- | --- | --- |
-| [Wave Race](wave-race-card.md) | App and activity card | PHYS.4.1 · ESS.2.2 · ESS.2.3 · ESS.4.1 · GEOL.3.x · CS&nbsp;9/10.DA.3 · CS&nbsp;11/12.DA.1 |
+| [Quake Locator](wave-race-card.md) | App and activity card | PHYS.4.1 · ESS.2.2 · ESS.2.3 · ESS.4.1 · GEOL.3.x · CS&nbsp;9/10.DA.3 · CS&nbsp;11/12.DA.1 |
 | [Quake Waves](../apps/quake-waves.md) | Animation | PHYS.4.1 · ESS.2.2 |
 | [One quake, two waves](one-quake-two-waves.md) | Activity card (Quake Waves and How P and S waves move rock) | PHYS.4.1 · ESS.2.2 |
 | [Seismic waves](../theory/waves.md) | Science page | PHYS.4.1 · ESS.2.2 |
@@ -81,7 +81,7 @@ before using them in official materials):
 - **[CS&nbsp;11/12.DA.1](https://Schools.Utah.gov/cte/_cte/computer/612ComputerScienceStandards.pdf)**
   (Computer Science): refine or create computational models from data.
 
-Wave Race also builds the SEEd science and engineering practices: analyzing and interpreting
+Quake Locator also builds the SEEd science and engineering practices: analyzing and interpreting
 data, using mathematics and computational thinking, and constructing explanations.
 
 ## Before class { #before-class }
@@ -94,9 +94,9 @@ Open the app from a student device on the school network. The apps download data
 University of Utah's stations (through EarthScope) and from the USGS. If the quake list
 doesn't load, the network is blocking them. You have two options:
 
-- **Use the offline sample.** Press **Use the offline sample** (top right in Wave Race). It
+- **Use the offline sample.** Press **Use the offline sample** (top right in Quake Locator). It
   loads a magnitude 3.3 quake from October 2026 that is stored with the site, so it works
-  without those services. The [Wave Race card](wave-race-card.md#answer-key-offline-sample-quake)
+  without those services. The [Quake Locator card](wave-race-card.md#answer-key-offline-sample-quake)
   has its answer key. Quake Explorer's **Use the offline samples** loads six stored quakes,
   enough for all four of its investigations; each of its cards has the answer key for them.
 - **Ask IT to allow the data services.** The apps need:

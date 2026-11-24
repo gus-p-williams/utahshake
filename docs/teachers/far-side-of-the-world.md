@@ -11,7 +11,7 @@ they see, step by step) and use [Quake Explorer](../app/quake-explorer/index.htm
       needs them, because Sand Point is the only distant quake stored offline.
     - **Apps and tools:** [Quake Explorer](../apps/quake-explorer.md), investigation D (distant
       quakes; B and C work for the same quake) · a spreadsheet for the class chart
-    - **Before this:** [Wave Race](wave-race-card.md) (distance from S − P)
+    - **Before this:** [Quake Locator](wave-race-card.md) (distance from S − P)
     - **Materials:** Student devices with a browser (Chromebooks are fine), a projector, speakers
       or headphones (optional, for **▶ Listen**), and graph paper if you don't use a spreadsheet.
     - **Utah standards:** PHYS.4.1 · ESS.2.2 · CS&nbsp;9/10.DA.3

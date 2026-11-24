@@ -12,7 +12,7 @@ they see, step by step) and use [Quake Explorer](../app/quake-explorer/index.htm
     - **Apps and tools:** [Quake Explorer](../apps/quake-explorer.md), investigation B
       (spectrogram, filter and sound) · [Build a Wiggle](../app/build-a-wiggle/index.html) (the
       warm-up animation, also on [Frequencies, fading and sound](../theory/frequencies.md))
-    - **Before this:** Nothing required. Students who have done [Wave Race](wave-race-card.md)
+    - **Before this:** Nothing required. Students who have done [Quake Locator](wave-race-card.md)
       already know P and S.
     - **Materials:** Student devices with a browser (Chromebooks are fine), a projector with
       speakers, and headphones or earbuds for pairs if you can.

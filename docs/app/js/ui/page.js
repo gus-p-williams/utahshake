@@ -1,6 +1,6 @@
 // Page helpers shared by every UHSN app page (docs/app/<slug>/index.html): credits,
 // data-source badge, HTML escaping, CSV download, embed mode and the docs' light/dark switch.
-// Wave Race, Quake Waves and the P/S motion cartoon use it; Quake Explorer will too.
+// Quake Locator, Quake Waves and the P/S motion cartoon use it; Quake Explorer will too.
 //
 // The top bar is NOT built here: its links are plain href attributes in each page's HTML,
 // so tests/doc-links.test.js checks them (this comment avoids quoted hrefs for the same
@@ -9,7 +9,7 @@
 //
 //   header.topbar
 //     div.brand          a.home "UHSN · All apps" -> ../../apps/ (same tab), then the h1
-//     nav.topbar-right   app-specific controls first (Wave Race: source badge and switch), then
+//     nav.topbar-right   app-specific controls first (Quake Locator: source badge and switch), then
 //                        "Guide ↗"          -> ../../apps/<slug>/ (new tab)
 //                        "About the data ↗" -> ../../theory/stations/ (new tab)
 //                        each new-tab link ends in span.visually-hidden " (opens in a new tab)"
