@@ -137,6 +137,22 @@ sequences the work and integrates it.
   `teacher-cards`, `-plots` on `plots`). A session told not to commit hands its files to the master
   session.
 - Decision numbers: the next free number when the entry lands on `main`; none are reserved.
+- **Session IDs** (Gus, 2026-11-24): every session has an ID `<letter><number>-<name>`, and its
+  prompt's first line is "You are session <ID>." Sessions start their reports with their ID.
+  Letters: **M** master (plans, reviews, integrates), **P** planning documents (`planning/`
+  only), **D** development on its own branch and worktree (site, apps, figures), **R** a
+  read-only review. Numbers are never reused. Register (master keeps it current):
+
+  | ID | Job | Where | Status |
+  | --- | --- | --- | --- |
+  | M1-master | Plans, writes prompts, reviews, integrates, commits | main | active |
+  | P1-activities | Questions document for Dale and Cleat (`planning/activities.md` + Word) | main folder, `planning/` | active, uncommitted |
+  | P2-overview | Project overview (`planning/evaluation.md` + Word) | main folder, `planning/` | active, uncommitted |
+  | D1-cards | "At a glance" boxes, Teachers catalog, Quake Waves card, QE follow-ups | `-cards`, branch `teacher-cards` | active |
+  | D2-plots | Six missing plots, three figure fixes | `-plots`, branch `plots` | active |
+  | D3-spelling | US spelling across the site | `-spelling`, branch `us-spelling` | after D1 and D2 merge |
+
+  Retired before IDs: the figures sessions, the Quake Explorer session (merged, D22–D25).
 
 **Whenever the master session takes in another session's work** (a commit, a merge or a
 finished task), it also updates everything that points at that work, so nothing live is left
@@ -293,9 +309,10 @@ out of the menus:
 2. **Open questions for Gus / DRI:**
    a. Which Raspberry Shake model is at each school (they may differ)? The seismometer figure
       on Reading a seismogram is a generic geophone.
-   b. Spelling: the site's prose is British (kilometre, colour, grey, labelled), its
-      seismology terms US (epicenter, hypocenter, toward). The audience is Utah schools, so
-      US spelling throughout is the natural rule; Gus to decide, then one cleanup pass.
+   b. Spelling: **US spelling everywhere** (Gus, 2026-11-24). All new writing uses it now
+      (kilometer, color, gray, labeled, center, meter). Existing pages are converted in one
+      cleanup pass after the teacher-cards and plots branches merge (to avoid conflicts);
+      log the decision when that pass lands.
    c. DRI: choose a license (MIT or BSD) and add LICENSE; the public repo has none yet.
    d. `tools/figures/.cache/` holds about 715 MB (git-ignored). Gus keeps it for now.
 3. **Trials:** Wave Race, Quake Waves and each Quake Explorer investigation's 15-minute
