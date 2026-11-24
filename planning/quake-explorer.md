@@ -400,6 +400,49 @@ discussions):**
 3. Reduced time as an optional advanced toggle.
 4. The true-amplitude toggle only for Junction.
 
+## 10. Notes for building the app page (after navigation Phase 2)
+
+Built and committed on the branch: all logic modules, `quake-explorer/config.js` and `data.js`
+(`loadRecordSection`, `loadStation`), and four views: `record-section-view.js`,
+`spectrogram-view.js` (with `followTraceView`), `motion-view.js` and `audio.js`. What the page
+must do:
+
+- **Data.** Use `new SampleSource(undefined, { list: 'explorer' })` offline. Always pass `atMs`
+  to `getStations`, so only that quake's sample is used. Computer picks come from
+  `getComputerPicks` offline, or `data.js computerPicks()` live. Compute distance and direction
+  from the event and station, as `data.js` does: a station's `distKm`/`bazDeg` in a
+  `stations.json` belong to that sample's own quake.
+- **Filters.**
+
+  | View | Filter |
+  |---|---|
+  | Record section | 1–10 Hz |
+  | Particle motion | 1–5 Hz, with P window from P − 0.05 s to P + 0.5 s |
+  | Spectrogram | raw or 1–10 Hz |
+  | Distant quakes | downsample to 20 samples/s first |
+
+- **Record section.**
+  - Canvas: give it a CSS height with `touch-action: none` (class `trace-canvas`), under 75vh
+    on phones.
+  - `onRuler` fires with `final: false` during a drag and `final: true` at the end. Save
+    answers only on `final`. `set*` calls fire no callbacks.
+  - Offer true amplitude for Junction only.
+  - Add a `--school` colour token to `app.css` (it falls back to `--warn`).
+- **Spectrogram + TraceView.**
+  - TraceView has no view-change callback, no play cursor and no theme redraw.
+    `followTraceView` keeps the two in step without changing TraceView. For a cursor on the
+    waveform, use an overlay canvas or add `onView`/`setCursor` to TraceView in a later
+    shared-UI change.
+  - Call `tv.draw()` when the theme changes.
+- **Particle motion.**
+  - Reveal flow: `setShow({computer: true})`, then `setShow({truth: true, lockGuess: true})`.
+  - Use `setMode('NE'|'RT')` for the Z N E / Z R T switch.
+  - Use `onEstimate` to draw the direction line on the map (`geo.destination`).
+- **Sound.** `QuakeAudio.play()` must be called from a click (Chromebook autoplay rules).
+- **Known data oddities to label or discuss:** SGU's 2020 short-period channel in the Magna
+  sample is a smooth wave about 100 times too small (not flagged as clipped). The 10 clipped
+  Magna stations are labelled.
+
 ## Appendix: candidate presets (checked 2026-11-24)
 
 | Use | Event | USGS id | Notes |
