@@ -77,6 +77,20 @@ tools/                  vendor/ (esbuild bundles), samples/, figures/ (guide ima
                         planning-docx/, serve.mjs
 ```
 
+## Setting up on a new machine (check this first)
+
+Git does not carry installed packages (`node_modules/` is ignored), so after cloning:
+
+| What | Needed for | Setup, once per machine |
+| --- | --- | --- |
+| Node 22+ | `npm test`, `node tools/serve.mjs`, `node tools/figures/trace-figures.mjs` | nothing to install: these use no packages |
+| MkDocs Material | `mkdocs serve` / `mkdocs build --strict` | `pip install -r requirements-docs.txt` (conda env) |
+| puppeteer-core | `tools/figures/screenshots.mjs` (guide screenshots) | `cd tools/figures && npm install`, plus Google Chrome installed (or set `CHROME=` to its path) |
+| esbuild, seisplotjs, Leaflet | only when changing vendored library versions | `cd tools/vendor && npm install` |
+
+If `tools/figures/node_modules/` is missing and screenshots need regenerating, run the
+`npm install` above first; it downloads no browser and touches nothing outside that folder.
+
 ## Environment notes
 
 - Gus's machine: Windows 11, Anaconda installed. MkDocs via `pip install -r
