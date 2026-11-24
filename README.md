@@ -23,6 +23,7 @@ mkdocs serve          # http://127.0.0.1:8000  (app at /app/)
 
 ## Where to look
 
+- Live site: https://gus-p-williams.github.io/utahshake/ (apps at `/app/`)
 - `CLAUDE.md` — project context, constraints, status (read first)
 - `docs/planning/roadmap.md` — staged plan
 - `docs/planning/decisions.md` — decision log

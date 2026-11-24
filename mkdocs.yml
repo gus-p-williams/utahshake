@@ -1,7 +1,9 @@
 site_name: UHSN Student Seismology
 site_description: Apps and docs for the Utah High School Seismic Network
-# site_url: https://<org>.github.io/<repo>/      # set after the GitHub remote exists
-# repo_url: https://github.com/<org>/<repo>
+site_url: https://gus-p-williams.github.io/utahshake/
+repo_url: https://github.com/gus-p-williams/utahshake
+repo_name: gus-p-williams/utahshake
+edit_uri: edit/main/docs/
 theme:
   name: material
   features:

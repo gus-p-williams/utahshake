@@ -81,19 +81,27 @@ tools/                  vendoring and data-sample scripts
   or test real data in a browser / on the deployed Pages site.
 - Claude's file-commit tool refuses `mkdocs.yml` and `.github/workflows/*.yml`
   (protected types); Gus places or approves those files himself.
-- Local repo path: G:\GIT_Repo\2026_11_Shake (Windows). No GitHub token for Claude.
+- Local repo path: G:\GIT_Repo\2026_11_Shake (Windows).
+- GitHub: https://github.com/gus-p-williams/utahshake (public). Site:
+  https://gus-p-williams.github.io/utahshake/ (Pages source = GitHub Actions).
+- On Gus's machine (Claude Code in VS Code): Git for Windows at
+  `C:\Program Files\Git\cmd\git.exe` (Git Credential Manager), GitHub CLI at
+  `C:\Program Files\GitHub CLI\gh.exe`, signed in as gus-p-williams (scopes repo,
+  workflow). gh is not set as git's credential helper; push with
+  `git -c credential.helper= -c "credential.helper=!'C:/Program Files/GitHub CLI/gh.exe' auth git-credential" push`
+  or let Git Credential Manager prompt. Python/conda via Anaconda.
 
 ## Status
 
 - 2026-11-23: Planning complete (evaluation doc). Repo context files created.
-  Stage 0 skeleton drafted (mkdocs.yml, Pages workflow, placeholder app);
-  `mkdocs build --strict` passes. Not yet pushed. Then Stage 1 (Wave Race + Locator).
+  Stage 0 skeleton (mkdocs.yml, Pages workflow, placeholder app) committed and
+  pushed to gus-p-williams/utahshake; Pages enabled (Actions). site_url/repo_url set.
 - MkDocs Material reaches end of life 2027-05-05; plan a Zensical migration test
   before then (see decisions D4).
 
 ## Next steps
 
-1. Gus: create local repo + GitHub remote; connect the folder to Claude.
-2. Stage 0: skeleton, MkDocs site building locally, Pages workflow.
-3. Check from Gus's machine that EarthScope + USGS FDSN are reachable (and CORS OK).
-4. Stage 1 build (see roadmap).
+1. Check from Gus's machine that EarthScope + USGS FDSN are reachable (and CORS OK).
+2. Stage 1 build (Wave Race + Locator; see roadmap).
+3. Optional: move the repo to a DRI GitHub org if one exists (GitHub redirects old
+   links; update site_url/repo_url).
