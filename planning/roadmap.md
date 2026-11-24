@@ -76,13 +76,21 @@ teacher trial for the 15-minute target.
 **Done when:** students can find weekends, holidays and the DST shift in a stand-in
 station's carpet without help.
 
-## Stage 3 — Multi-view explorer
+## Stage 3 — Multi-view explorer (Quake Explorer)
 
-- [ ] Waveform + spectrogram, with band-pass controls.
-- [ ] Record section (waterfall) for a chosen quake across many UU stations.
-- [ ] Particle motion (3-component stations).
-- [ ] Audification (WebAudio, 100–400× speed-up).
-- [ ] Docs for each view.
+Built on the `quake-explorer` branch (plan, Phase 0 results and decisions: `planning/quake-explorer.md`).
+Four investigations, each Predict · Explore · Why? · Check:
+
+- [x] A. Record section across many UU stations: P/S rulers, analyst + computer picks, fitted
+      lines, the Pg → Pn bend and crust thickness (Magna), reduced time, true ground speed.
+- [x] B. Waveform + spectrogram with a drag-a-band filter; audification (WebAudio, 50–400×);
+      near vs far; quarry blast vs quake.
+- [x] C. Particle motion (3-component stations): own guess, computer and true direction, map,
+      one-station location, Z R T rotation.
+- [x] D. Distant quakes: P/S picks, S − P → distance from an iasp91 table, travel-time chart.
+- [x] Offline samples for all four (2.4 MB, `explorer` list).
+- [x] Docs: hub/guide, three science pages, four activity cards, standards, developer notes.
+- [ ] A classroom trial with a teacher (each investigation's 15-minute version).
 
 ## Stage 4 — Switch to UHSN data
 
@@ -113,7 +121,7 @@ cards. Every app gets at least one card.
     revisit the layout if the sidebar passes about 35 entries).
 - [ ] Quake Waves: a short card of its own (proposed: a 10-minute predict-and-watch demo for a
       physics waves unit), besides its role as the Wave Race warm-up.
-- [ ] Quake Explorer: one card per investigation (A–D) and a full-period lesson chaining A and
+- [x] Quake Explorer: one card per investigation (A–D) and a full-period lesson chaining A and
       C (`planning/quake-explorer.md` §5).
 - [ ] School Pulse: card(s) with Stage 2.
 - [ ] Activities with no app (campus experiments, phone activities): cards for the starter set

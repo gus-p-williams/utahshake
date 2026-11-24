@@ -1,6 +1,6 @@
 # Seismic waves
 
-**Used in:** [Wave Race](../apps/wave-race.md) · [Quake Waves](../apps/quake-waves.md)
+**Used in:** [Wave Race](../apps/wave-race.md) · [Quake Explorer](../apps/quake-explorer.md) · [Quake Waves](../apps/quake-waves.md)
 
 An earthquake is a sudden slip on a fault. The slip shakes the rock around it, and that
 shaking travels outward as **seismic waves**, the same way a pebble's splash spreads across

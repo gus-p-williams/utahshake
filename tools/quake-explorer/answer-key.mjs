@@ -92,16 +92,17 @@ const hfAt = (d, sta) => {
   const by = { ...picksByStation(s.picks)[`${st.net}.${sta}`] };
   by.P ??= s.computer.find((p) => p.sta === sta && p.phase === 'P')?.timeMs;
   by.S ??= s.computer.find((p) => p.sta === sta && p.phase === 'S')?.timeMs;
-  const i = (ms) => Math.round(((ms - tr.startMs) / 1000) * tr.sampleRate);
-  const sp = amplitudeSpectrum(y.subarray(i(by.P - 500), i(by.P + 25000)), tr.sampleRate);
-  const band = (a, b) => { let sum = 0; let n = 0; sp.freqs.forEach((f, k) => { if (f >= a && f <= b) { sum += sp.amp[k]; n++; } }); return sum / n; };
+  const i = (ms) => Math.max(0, Math.min(y.length, Math.round(((ms - tr.startMs) / 1000) * tr.sampleRate)));
   const sMs = by.S ?? (by.P + (st.distKm / 3.45 - st.distKm / 6.1) * 1000);
+  // The whole quake: from just before P to 15 s after S (as the app's notesAt in inv-b.js).
+  const sp = amplitudeSpectrum(y.subarray(i(by.P - 500), i(sMs + 15000)), tr.sampleRate);
+  const band = (a, b) => { let sum = 0; let n = 0; sp.freqs.forEach((f, k) => { if (f >= a && f <= b) { sum += sp.amp[k]; n++; } }); return sum / n; };
   const ps = peakAbs(y, i(by.P), i(by.P + 2000)) / peakAbs(y, i(sMs), i(sMs + 4000));
   return { d, sta, km: st.distKm.toFixed(0), 'HF 8-20/1-5 Hz': (band(8, 20) / band(1, 5)).toFixed(3), 'P/S': ps.toFixed(2), type: s.sample.eventType ?? s.event.eventType };
 };
 console.log(table([hfAt('qe-leamington-blast', 'SUU'), hfAt('qe-leamington-quake', 'SUU'),
   hfAt('qe-leamington-blast', 'LEVU'), hfAt('qe-leamington-quake', 'LEVU'),
-  hfAt('qe-junction', 'MTPU'), hfAt('qe-junction', 'SGU'), hfAt('qe-junction', 'LIUT')],
+  hfAt('qe-junction', 'MTPU'), hfAt('qe-junction', 'SGU'), hfAt('qe-junction', 'LIUT'), hfAt('qe-junction', 'BGU')],
 ['d', 'type', 'sta', 'km', 'HF 8-20/1-5 Hz', 'P/S']));
 
 console.log('\n== C. Which way did the ground move? (1–5 Hz, P window from the analyst pick)');

@@ -154,9 +154,11 @@ test('Leamington blast vs quake of the same size at SUU: the blast has fewer hig
     const st = s.stations.find((x) => x.sta === 'SUU');
     const tr = s.traces.find((t) => t.sta === 'SUU' && t.cha === st.channels[0].cha);
     const y = filteredData(tr, { lo: 1, hi: 20 });
-    const pMs = picksByStation(s.picks)['UU.SUU'].P;
-    const i0 = Math.round(((pMs - tr.startMs) / 1000 - 0.5) * tr.sampleRate);
-    const sp = amplitudeSpectrum(y.subarray(i0, i0 + 25 * tr.sampleRate), tr.sampleRate);
+    // The whole quake, from just before P to 15 s after S (as the app's notesAt).
+    const p = picksByStation(s.picks)['UU.SUU'];
+    const sMs = p.S ?? p.P + (st.distKm / 3.45 - st.distKm / 6.1) * 1000;
+    const idx = (ms) => Math.round(((ms - tr.startMs) / 1000) * tr.sampleRate);
+    const sp = amplitudeSpectrum(y.subarray(idx(p.P - 500), idx(sMs + 15000)), tr.sampleRate);
     const band = (a, b) => {
       let sum = 0; let n = 0;
       sp.freqs.forEach((f, k) => { if (f >= a && f <= b) { sum += sp.amp[k]; n++; } });
@@ -167,4 +169,5 @@ test('Leamington blast vs quake of the same size at SUU: the blast has fewer hig
   const blast = hf('qe-leamington-blast');
   const quake = hf('qe-leamington-quake');
   assert.ok(blast < quake, `blast ${blast.toFixed(3)} vs quake ${quake.toFixed(3)}`);
+  assert.ok(Math.abs(blast - 1.89) < 0.01 && Math.abs(quake - 3.04) < 0.01, 'the numbers in the cards and on the page');
 });

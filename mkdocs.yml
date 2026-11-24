@@ -53,6 +53,7 @@ nav:
   - Apps:
       - apps/index.md
       - Wave Race: apps/wave-race.md
+      - Quake Explorer: apps/quake-explorer.md
       - Quake Waves: apps/quake-waves.md
   - The Science:
       - theory/index.md
@@ -60,10 +61,19 @@ nav:
       - Reading a seismogram: theory/seismograms.md
       - Distance from S minus P: theory/s-minus-p.md
       - Locating a quake: theory/locating.md
+      - Travel times and Earth's layers: theory/travel-times.md
+      - Frequencies, fading and sound: theory/frequencies.md
+      - Which way the ground moves: theory/ground-motion.md
       - Our stations and data: theory/stations.md
   - Teachers:
       - teachers/index.md
-      - Wave Race activity card: teachers/wave-race-card.md
+      # Grouped once there were five cards (roadmap: "Across all stages: teacher activity cards").
+      - Activity cards:
+          - Wave Race: teachers/wave-race-card.md
+          - How fast is the rock?: teachers/how-fast-is-the-rock.md
+          - What notes is the ground playing?: teachers/notes-of-a-quake.md
+          - Which way did the ground move?: teachers/which-way-did-it-move.md
+          - A message from far away: teachers/far-side-of-the-world.md
       - Standards crosswalk: teachers/standards.md
   - Developers:
       - developers/index.md
@@ -72,3 +82,4 @@ nav:
       - Adding an app: developers/adding-an-app.md
       - App notes:
           - Wave Race: developers/wave-race.md
+          - Quake Explorer: developers/quake-explorer.md

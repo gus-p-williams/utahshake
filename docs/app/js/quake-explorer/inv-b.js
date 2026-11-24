@@ -32,17 +32,18 @@ function bandMean(spec, f0, f1) {
 }
 
 /**
- * "How many high notes": average strength 8–20 Hz ÷ 1–5 Hz over the quake (P to P + 25 s),
- * and the P/S ratio (peak in 2 s after P ÷ peak in 4 s after S), both on the 1–20 Hz record.
- * The same instrument gives both parts of each ratio, so units cancel.
+ * "How many high notes": average strength 8–20 Hz ÷ 1–5 Hz over the whole quake (from just
+ * before P to 15 s after S, so a far station's S wave is included too), and the P/S ratio
+ * (peak in 2 s after P ÷ peak in 4 s after S), both on the 1–20 Hz record. The same
+ * instrument gives both parts of each ratio, so units cancel.
  */
 export function notesAt(st, pSec, sSec) {
   const sr = st.sampleRate;
   const start = (st.startMs - st.refMs) / 1000;
   const y = filteredData({ data: st.z, sampleRate: sr }, { lo: 1, hi: Math.min(20, 0.45 * sr) });
   const i = (t) => Math.max(0, Math.min(y.length, Math.round((t - start) * sr)));
-  const spec = amplitudeSpectrum(y.subarray(i(pSec - 0.5), i(pSec + 25)), sr);
   const s = sSec ?? pSec + (st.distKm / 3.45 - st.distKm / 6.1);
+  const spec = amplitudeSpectrum(y.subarray(i(pSec - 0.5), i(s + 15)), sr);
   return {
     hf: bandMean(spec, 8, 20) / bandMean(spec, 1, 5),
     ps: peakAbs(y, i(pSec), i(pSec + 2)) / peakAbs(y, i(s), i(s + 4)),

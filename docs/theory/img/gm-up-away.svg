@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" width="760" height="400" role="img" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<title>Why &#34;up&#34; goes with &#34;away&#34;</title>
+<desc>Cross-section: a P wave travels from a quake, bends upward and reaches a station from below. A push moves the ground up and away from the quake; a pull moves it down and toward the quake.</desc>
+<rect x="0.5" y="0.5" width="759" height="399" rx="8" fill="#ffffff" stroke="#d9dde3"/>
+<text x="12" y="22" font-size="15" font-weight="600" fill="#111827">Why &#34;up&#34; goes with &#34;away&#34;</text>
+<path d="M1 226H759V391Q759 399 751 399H9Q1 399 1 391Z" fill="#f3efe4"/>
+<line x1="1" y1="226" x2="759" y2="226" stroke="#c9bfa6" stroke-width="2"/>
+<path d="M640 358Q222 392 150 228" fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+<polygon points="378,355.8 390.7,351.4 389.2,363.3" fill="#1d4ed8"/>
+<polygon points="217.4,303.3 230.8,304.6 224.4,314.7" fill="#1d4ed8"/>
+<polygon points="640,346 642.9,354 651.4,354.3 644.8,359.5 647.1,367.7 640,363 632.9,367.7 635.2,359.5 628.6,354.3 637.1,354" fill="#f59e0b" stroke="#b45309" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="656" y="363" font-size="13" font-weight="700" fill="#b45309">quake</text>
+<text x="420" y="326" font-size="12" font-weight="600" fill="#1d4ed8">the P wave’s path: it bends upward,</text>
+<text x="420" y="342" font-size="12" font-weight="600" fill="#1d4ed8">because deeper rock is faster</text>
+<polygon points="150,212.1 141,226.5 159,226.5" fill="#374151" stroke="#ffffff" stroke-width="1.2" stroke-linejoin="round"/>
+<text x="150" y="204" font-size="13" font-weight="700" text-anchor="middle" fill="#111827">station</text>
+<text x="14" y="248" font-size="12" fill="#5b6472">← away from the quake</text>
+<text x="746" y="248" font-size="12" text-anchor="end" fill="#5b6472">toward the quake →</text>
+<line x1="158" y1="214" x2="295.2" y2="137.6" stroke="#5b6472" stroke-width="1" stroke-dasharray="3 3"/>
+<circle cx="340" cy="104" r="56" fill="#ffffff"/>
+<path d="M284 104A56 56 0 0 0 396 104Z" fill="#f3efe4"/>
+<line x1="284" y1="104" x2="396" y2="104" stroke="#c9bfa6" stroke-width="1.5"/>
+<circle cx="340" cy="104" r="56" fill="none" stroke="#5b6472" stroke-width="1.2"/>
+<line x1="361.4" y1="149.2" x2="318.6" y2="58.8" stroke="#1d4ed8" stroke-width="1.2" stroke-dasharray="4 3"/>
+<line x1="340" y1="104" x2="325.6" y2="73.6" stroke="#0f766e" stroke-width="4" stroke-linecap="round"/><polygon points="321.2,64.2 333.1,73 320.4,79" fill="#0f766e"/>
+<circle cx="340" cy="104" r="4.5" fill="#1f2937" stroke="#ffffff" stroke-width="1"/>
+<text x="340" y="178" font-size="13" font-weight="700" text-anchor="middle" fill="#0f766e">A push (compression):</text>
+<text x="340" y="194" font-size="13" font-weight="700" text-anchor="middle" fill="#0f766e">up and away</text>
+<circle cx="590" cy="104" r="56" fill="#ffffff"/>
+<path d="M534 104A56 56 0 0 0 646 104Z" fill="#f3efe4"/>
+<line x1="534" y1="104" x2="646" y2="104" stroke="#c9bfa6" stroke-width="1.5"/>
+<circle cx="590" cy="104" r="56" fill="none" stroke="#5b6472" stroke-width="1.2"/>
+<line x1="611.4" y1="149.2" x2="568.6" y2="58.8" stroke="#1d4ed8" stroke-width="1.2" stroke-dasharray="4 3"/>
+<line x1="590" y1="104" x2="604.4" y2="134.4" stroke="#c0262d" stroke-width="4" stroke-linecap="round"/><polygon points="608.8,143.8 596.9,135 609.6,129" fill="#c0262d"/>
+<circle cx="590" cy="104" r="4.5" fill="#1f2937" stroke="#ffffff" stroke-width="1"/>
+<text x="590" y="178" font-size="13" font-weight="700" text-anchor="middle" fill="#c0262d">A pull (dilatation):</text>
+<text x="590" y="194" font-size="13" font-weight="700" text-anchor="middle" fill="#c0262d">down and toward</text>
+<text x="465" y="110" font-size="14" font-weight="700" text-anchor="middle" fill="#5b6472">or</text>
+<text x="14" y="52" font-size="12" fill="#5b6472">The ground at the station,</text>
+<text x="14" y="68" font-size="12" fill="#5b6472">zoomed in →</text>
+<text x="14" y="96" font-size="12" fill="#1d4ed8">dashed blue line:</text>
+<text x="14" y="112" font-size="12" fill="#1d4ed8">the direction the</text>
+<text x="14" y="128" font-size="12" fill="#1d4ed8">wave travels</text>
+<text x="380" y="388" font-size="13" font-weight="600" text-anchor="middle" fill="#111827">Either way the ground moves along the wave’s path, and up goes with away.</text>
+</svg>

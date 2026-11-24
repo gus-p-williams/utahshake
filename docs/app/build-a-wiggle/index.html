@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Build a Wiggle</title>
+  <meta name="description" content="Cartoon: add up to three sine waves with sliders and watch their sum and its spectrum. Any wiggle, including a seismogram, is a sum of sine waves.">
+  <link rel="stylesheet" href="../css/app.css">
+  <style>
+    /* The three waves: the first three colours of a colour-blind-checked palette, each a step
+       darker for the light theme and its own step for the dark one. Every wave is also labelled. */
+    :root { --w1: #2a78d6; --w2: #eb6834; --w3: #1baf7a; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) { --w1: #3987e5; --w2: #d95926; --w3: #199e70; }
+    }
+    :root[data-theme="dark"] { --w1: #3987e5; --w2: #d95926; --w3: #199e70; }
+
+    .bw { max-width: 980px; }
+    .bw .hint { margin: 0; }
+    .bw-box { position: relative; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--trace-bg); }
+    .bw-box canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+    #waves-box { height: 250px; }
+    #spec-box { height: 170px; }
+    .bw-waves { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+    @media (max-width: 640px) { .bw-waves { grid-template-columns: minmax(0, 1fr); } }
+    .bw-wave { border: 1px solid var(--border); border-left: 5px solid var(--c); border-radius: 8px; padding: 5px 8px 6px;
+      background: var(--card); display: grid; grid-template-columns: auto minmax(0, 1fr) 3.4rem; gap: 2px 8px; align-items: center; }
+    .bw-wave h2 { grid-column: 1 / -1; font-size: .92rem; margin: 0; display: block; }
+    .bw-wave h2 .note { font-weight: 400; color: var(--muted); }
+    .bw-wave label { font-size: .85rem; color: var(--muted); }
+    .bw-wave input[type=range] { width: 100%; margin: 0; padding: 0; border: 0; background: none; accent-color: var(--c); }
+    .bw-wave output { font-size: .88rem; font-variant-numeric: tabular-nums; text-align: right; }
+    .bw-wave.off output, .bw-wave.cut output { color: var(--muted); }
+    .bw-options { display: flex; flex-wrap: wrap; gap: .4rem .9rem; align-items: center; }
+    .bw-options label { display: inline-flex; align-items: center; gap: .35rem; font-size: .9rem; }
+    .bw-options .spacer { flex: 1; }
+    .presets .lead { font-size: .9rem; color: var(--muted); align-self: center; }
+    #log { min-height: 1.4em; margin: 0; font-size: .9rem; }
+
+    /* Embedded in a docs page (body.embed; app.css hides the top bar and credits): fill the frame. */
+    body.embed { height: 100vh; }
+    body.embed main.bw { height: 100vh; max-width: none; padding: 6px 8px; gap: 6px; overflow-y: auto; }
+    body.embed #waves-box { height: auto; flex: 1 1 0; min-height: 170px; }
+    body.embed #spec-box { height: 130px; flex: none; }
+    body.embed #log { font-size: .86rem; }
+  </style>
+  <script type="module" src="../js/build-a-wiggle/app.js"></script>
+</head>
+<body>
+  <!-- Standard top bar (docs/developers/adding-an-app.md). This cartoon is a figure on the
+       Frequencies page, so its guide link points there instead of an app hub. -->
+  <header class="topbar">
+    <div class="brand">
+      <a href="../../apps/" class="home">UHSN · All apps</a>
+      <h1>Build a Wiggle <span class="sub">any wiggle is a sum of sine waves</span></h1>
+    </div>
+    <nav class="topbar-right" aria-label="Guide and data">
+      <a href="../../theory/frequencies/" target="_blank" rel="noopener">Frequencies, fading and sound ↗<span class="visually-hidden"> (opens in a new tab)</span></a>
+      <a href="../../theory/stations/" target="_blank" rel="noopener">About the data ↗<span class="visually-hidden"> (opens in a new tab)</span></a>
+    </nav>
+  </header>
+
+  <main class="bw">
+    <p class="hint standalone-only">A cartoon, not real data. Move the sliders: the thin lines are three
+      sine waves, the bold line is their sum, and the spectrum below finds the waves again.</p>
+    <div id="waves-box" class="bw-box">
+      <canvas id="waves" role="img" aria-label="The three waves, each drawn thin, and their sum drawn bold."></canvas>
+    </div>
+    <div id="spec-box" class="bw-box">
+      <canvas id="spec" role="img" aria-label="Spectrum of the sum: a bar at each frequency, as tall as that wave's size."></canvas>
+    </div>
+    <div class="bw-waves">
+      <div class="bw-wave" id="wave-0" role="group" aria-labelledby="wave-0-name" style="--c: var(--w1)">
+        <h2 id="wave-0-name">Wave 1</h2>
+        <label for="f0">Frequency</label><input id="f0" type="range" min="0.5" max="20" step="0.5"><output for="f0" id="f0-out"></output>
+        <label for="a0">Size</label><input id="a0" type="range" min="0" max="1" step="0.05"><output for="a0" id="a0-out"></output>
+      </div>
+      <div class="bw-wave" id="wave-1" role="group" aria-labelledby="wave-1-name" style="--c: var(--w2)">
+        <h2 id="wave-1-name">Wave 2</h2>
+        <label for="f1">Frequency</label><input id="f1" type="range" min="0.5" max="20" step="0.5"><output for="f1" id="f1-out"></output>
+        <label for="a1">Size</label><input id="a1" type="range" min="0" max="1" step="0.05"><output for="a1" id="a1-out"></output>
+      </div>
+      <div class="bw-wave" id="wave-2" role="group" aria-labelledby="wave-2-name" style="--c: var(--w3)">
+        <h2 id="wave-2-name">Wave 3</h2>
+        <label for="f2">Frequency</label><input id="f2" type="range" min="0.5" max="20" step="0.5"><output for="f2" id="f2-out"></output>
+        <label for="a2">Size</label><input id="a2" type="range" min="0" max="1" step="0.05"><output for="a2" id="a2-out"></output>
+      </div>
+    </div>
+    <div class="bw-options">
+      <label><input type="checkbox" id="noise"> Add noise</label>
+      <label><input type="checkbox" id="filter"> Filter: keep only 1–10 Hz</label>
+      <span class="spacer"></span>
+      <a class="embed-only" href="./" target="_blank" rel="noopener">Open full screen ↗<span class="visually-hidden"> (opens in a new tab)</span></a>
+    </div>
+    <div class="presets" id="presets" role="group" aria-label="Examples">
+      <span class="lead">Try:</span>
+    </div>
+    <p id="log" role="status"></p>
+  </main>
+  <footer class="credits">A cartoon for teaching: the waves are made up, not real data. The spectrum is
+    computed with the same FFT code as Quake Explorer. For real seismograms, try
+    <a href="../wave-race/">Wave Race</a>.</footer>
+</body>
+</html>

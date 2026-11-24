@@ -12,10 +12,12 @@ for example [Wave Race notes](wave-race.md).
 docs/app/
   index.html               redirect stub: the old /app/ launcher, forwards to All apps (../apps/)
   wave-race/index.html     Wave Race page
+  quake-explorer/index.html  Quake Explorer page (four investigations)
   quake-waves/index.html   Quake Waves (cartoon; ?embed=1 inside Locating a quake)
   wave-animation/index.html  redirect stub: Quake Waves' old address, forwards to ../quake-waves/
   wave-motion/index.html   How P and S waves move rock (cartoon embedded in Seismic waves)
   css/app.css              shared styles (light and dark, top bar, embed mode)
+  css/quake-explorer.css   Quake Explorer's layout, on top of app.css
   js/
     config.js              schools, stand-in stations, defaults, presets, credits
     lib/                   pure logic, no browser APIs; tested with node --test
@@ -23,9 +25,17 @@ docs/app/
       locate.js            S-P distance, grid-search epicenter, misfit, uncertainty
       fdsn.js              parsers for USGS GeoJSON, FDSN station text, QuakeML picks
       stations.js          which stations to show for a quake
-      signal.js            gaps, tapers, min/max per pixel, dead-channel check
+      signal.js            gaps, tapers, min/max per pixel, dead-channel and clipping checks, decimation
       wave-sim.js          cartoon arrivals and seismograms for Quake Waves
       wave-motion.js       pulse shape and rock displacement for the P/S motion cartoon
+      spectral.js          FFT, amplitude spectrum, spectrogram
+      traveltime.js        direct and head-wave times, crossover, crust from the intercept
+      linefit.js           speeds from arrivals, two-line (Pg/Pn) fit
+      motion.js            sensor rotations, direction to the quake from P motion
+      units.js             counts -> m/s from the station's sensitivity
+      picker.js            AIC computer picks
+      teleseism.js         Earth-model (iasp91) travel times for distant quakes
+      audify.js, record-section.js, hodogram.js   helpers for Quake Explorer's views
     data/
       datasource.js        the DataSource interface; picks a source from the URL
       earthscope-usgs.js   live source: USGS events + EarthScope stations/waveforms
@@ -37,16 +47,20 @@ docs/app/
       trace-view.js        canvas seismogram with zoom, pan, picks
       map-view.js          Leaflet map: stations, circles, epicenters, the student's pin
     wave-race/app.js       the Wave Race page controller
+    quake-explorer/        Quake Explorer: controller, one module per investigation, its views
     quake-waves/app.js     the Quake Waves animation (canvas)
     wave-motion/app.js     the P/S rock-motion animation (canvas)
   vendor/                  seisplotjs + Leaflet bundles (generated; see below)
   data/samples/<event>/    offline sample: event, stations, picks, waveforms.mseed
+  data/samples/qe-*/       Quake Explorer's offline samples (the "explorer" list in index.json)
+  data/traveltimes-iasp91.json  Earth-model travel times for distant quakes
 tests/                     node --test, including real-data checks on the sample
   doc-links.test.js        links in the app pages and raw HTML reach real pages of the site
   app-list.test.js         every app folder is listed on the All apps page (docs/apps/index.md)
 tools/
   vendor/                  esbuild script that regenerates docs/app/vendor/
   samples/fetch-sample.mjs bundles a quake for offline use
+  quake-explorer/          Quake Explorer's science checks, answer key, samples, travel-time table
   figures/                 figures for the guides and The Science (see below)
   serve.mjs                tiny local server for docs/ (apps only, no MkDocs build)
 ```
@@ -139,7 +153,11 @@ the same bytes every time it runs.
 | `science-maps.mjs` | `theory/img/schools-map.svg` | Node only |
 | `seismogram-figures.mjs` | the real-data figures on Reading a seismogram (`theory/img/ocean-hum.svg`, `wind-noise.svg`, `people-week.svg`, `three-quakes.svg`, `blast-*.svg`, `instrument-problems.svg`, `hidden-quake.svg`, `mystery-records.svg`) | Node only; downloads data the first time (see below) |
 | `seismogram-diagrams.mjs` | `theory/img/frequency-ruler.svg`, `seismometer-inside.svg` | Node only |
+| `science-travel-times.mjs` | `theory/img/tt-*.svg` (Travel times and Earth's layers) | Node only |
+| `science-frequencies.mjs` | `theory/img/freq-*.svg` (Frequencies, fading and sound) | Node only |
+| `science-ground-motion.mjs` | `theory/img/gm-*.svg` (Which way the ground moves) | Node only |
 | `screenshots.mjs` | `apps/img/wave-race-*.png` | `npm install` in `tools/figures`, Chrome, `node tools/serve.mjs` running |
+| `quake-explorer-screens.mjs` | `apps/img/qe-*.png` (Quake Explorer guide) | as `screenshots.mjs` |
 
 `svg-traces.mjs` holds the shared house style and seismogram drawing; `svg-charts.mjs` adds
 charts over time, hour-of-day bars and the spectrogram image; `spectra.mjs` is a small FFT

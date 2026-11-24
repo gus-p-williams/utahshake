@@ -234,6 +234,14 @@ out of the menus:
   `tools/site-check.mjs`. Math no longer makes phone pages scroll sideways
   (`docs/stylesheets/extra.css`). `npm test` = 51. This was the last work of the first
   master session; a new master session takes over (see "Parallel sessions").
+- 2026-11-24 (night, branch `quake-explorer`): **Quake Explorer built (Stage 3)**, ready for
+  review and merge with Gus's OK. App `app/quake-explorer/` (four tabs: A record section,
+  B spectrogram + sound, C particle motion, D distant quakes; each Predict · Explore · Why? ·
+  Check), hub `apps/quake-explorer.md` (#a–#d), science pages `theory/travel-times.md`,
+  `frequencies.md` (with the Build a wiggle animation), `ground-motion.md`, four activity
+  cards under Teachers › Activity cards, standards rows, developer notes. Six offline samples
+  (2.4 MB, `explorer` list) and an iasp91 table. Phase 0 science, approvals and draft
+  decisions (D22 on) in `planning/quake-explorer.md` sections 9–11.
 
 ## Next steps
 

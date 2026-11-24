@@ -58,7 +58,7 @@ const WHO = {
  * @property {string} key        e.g. "UU.SUU" (picks and onSelect use it)
  * @property {string} label      shown at the left of the trace, e.g. "SUU (Juab)"
  * @property {string} [short]    shorter label for narrow screens (default: the label's first word)
- * @property {number} distKm     distance from the quake's epicentre, km
+ * @property {number} distKm     distance from the quake's epicenter, km
  * @property {string} [role]     'school' (a school stand-in, drawn in an accent colour) or 'section'
  * @property {Float32Array} data filtered record (any units: it is stretched to fit)
  * @property {number} sampleRate samples per second

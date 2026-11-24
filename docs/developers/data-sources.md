@@ -70,6 +70,16 @@ that the analysts' S − P times locate the quake within a few km. Add the ID to
 in `config.js` if it should appear as a classic quake. `npm test` runs real-data checks on
 every sample.
 
+**Quake Explorer's samples** live beside them in `docs/app/data/samples/qe-*/` and are listed
+under `"explorer"` in `samples/index.json` (Wave Race reads only the `"samples"` list). They
+have more stations and longer windows (a record section out to 300 or 400 km; half an hour for
+a distant quake), full channel metadata (direction, sensitivity, units, clipping), and two
+extra files: `computer-picks.json` (AIC picks, labelled as computer picks, where the analysts
+made none) and `sample.json` (`"kind": "explorer"` and the command that made it). Make one
+with `node tools/quake-explorer/make-sample.mjs`; see
+[Quake Explorer notes](quake-explorer.md#rebuilding-the-samples-and-the-answer-key).
+`tests/explorer-sample.test.js` checks them.
+
 ## Adding a data source (e.g. the UHSN server)
 
 Write a class with the methods listed in `js/data/datasource.js`:

@@ -53,6 +53,15 @@ Short cartoons of the ideas behind the apps. They use no real data.
     [Open the animation](../app/wave-motion/index.html){ .md-button .md-button--primary }
     [Watch it on Seismic waves](../theory/waves.md#two-body-waves)
 
+- **Build a Wiggle**
+
+    Add up to three sine waves with sliders and watch their sum, the wiggle a seismometer
+    would record, and its spectrum, which finds every wave again. Add noise, filter out notes,
+    and see why a far quake sounds lower than a near one.
+
+    [Open the animation](../app/build-a-wiggle/index.html){ .md-button .md-button--primary }
+    [Use it on Frequencies, fading and sound](../theory/frequencies.md#any-wiggle-is-a-sum-of-sine-waves)
+
 </div>
 
 *Data: University of Utah seismic stations and the USGS earthquake catalog. See

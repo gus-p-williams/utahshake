@@ -326,19 +326,21 @@ that depends on these results waits for Gus's OK.**
 
 **B. Frequencies: supported.**
 
-- **Near vs far.** High/low ratio (8–20 Hz / 1–5 Hz) for Junction: MTPU (29 km) 0.22, SGU
-  (114 km) 0.14, LIUT (212 km) 0.14.
+- **Near vs far.** High/low ratio (8–20 Hz / 1–5 Hz, measured over the whole quake, from just
+  before P to 15 s after S) for Junction: MTPU (29 km) 0.22, SGU (114 km) 0.13, LIUT
+  (212 km) 0.055, BGU (299 km) 0.08. (A first version stopped 25 s after P, which cut off S
+  at far stations and gave 0.14 at both SGU and LIUT; corrected while writing the docs.)
 - **Blast vs quake of the same size.** Leamington quarry blast uu80161881 (M2.11, 17:33 MDT)
   against earthquake uu80120191 (M2.11, 13 km away, 20:30 MDT):
   - At 13 stations, the blast has fewer high notes at all 13 (median 0.27 vs 0.61) and a larger
     P/S amplitude ratio at 9 of 13 (median 0.67 vs 0.34).
-  - At SUU (Juab stand-in): high/low 2.05 vs 3.25; P/S 2.44 vs 0.66.
+  - At SUU (Juab stand-in): high/low 1.89 vs 3.04; P/S 2.44 vs 0.66.
   - A second quake (uu80160971) agrees: 0.35 vs 0.97, with P/S larger at 6 of 8 stations.
   - This supports "evidence, not proof".
 
 **C. Particle motion: supported for stations within about 100 km.**
 
-- 271 station-quake pairs from 14 quakes. With 1–5 Hz filtering and a 0.3–0.5 s window from
+- 271 station-quake pairs from 13 quakes (Junction was listed twice, so not 14). With 1–5 Hz filtering and a 0.3–0.5 s window from
   the P pick:
   - median error 12–14°, about 70% within 30°, 6–7% pointing to the wrong end;
   - with clear motion only (linearity > 0.8, up/away > 0.5): median 10°, 85% within 30°.
@@ -442,6 +444,39 @@ must do:
 - **Known data oddities to label or discuss:** SGU's 2020 short-period channel in the Magna
   sample is a smooth wave about 100 times too small (not flagged as clipped). The 10 clipped
   Magna stations are labelled.
+
+## 11. Decisions to log at merge (D22 on, in this order)
+
+Draft text for `planning/decisions.md`. Numbers are given when the branch lands on `main`.
+
+**Quake Explorer: four investigations, each Predict · Explore · Why? · Check.**
+A record section (measure P and S speeds with rulers; the Pg → Pn bend and the crust's
+thickness), B spectrogram and sound (drag-a-band filter; near vs far; quarry blast vs quake),
+C particle motion (own guess, then the computer's and the true direction; one-station
+location), D distant quakes (P and S picks; S − P → distance from an Earth model; travel-time
+chart). Check stays off until a prediction is chosen; predictions stay in `localStorage`.
+Built now, before School Pulse (Gus, 2026-11-24), in the order A → B → C → D.
+
+**What the data support, and how the app shows it (Phase 0, section 9; approved by Gus).**
+Pn/Moho is taught with Magna 2020 (6.1 → 7.8 km/s, crust ≈ 37 km); the bend is shown only
+when clear (F > 12, ≥ 8 far stations, Pn within 0.3 km/s), so Junction gets a hint.
+Computer (AIC) picks fill in beyond the analysts' ~180 km and are labelled as such;
+differences from analyst picks are discussion material, not errors (Gus). Particle motion:
+1–5 Hz, window P − 0.05 s to P + 0.5 s, "usually within about 15° for stations within about
+100 km". "True ground speed" only when no station clipped (16-bit clipping is detected by flat
+tops, `flatTopInfo`). Reduced time is an optional advanced toggle. Magnitude stays in the
+future "How Big Was It?" app; Quake Explorer only converts counts to m/s.
+
+**Quake Explorer's offline samples and travel times.** Six samples (2.4 MB) in their own
+`explorer` list in `samples/index.json`, so Wave Race's sample and test are unchanged;
+`SampleSource` offers only the requested quake's stations. Each sample keeps full channel
+metadata, labelled computer picks and the command that made it. Distant-quake travel times
+come from a precomputed iasp91 table (37 KB, ObsPy TauP), because the EarthScope/IRIS
+travel-time service has been retired.
+
+**Teacher cards for Quake Explorer: one per investigation.** The full-period lesson that
+chains A and C (speeds, then locating a quake from one station) is the full-period version of
+the C card. With five cards, the Teachers sidebar groups them under "Activity cards".
 
 ## Appendix: candidate presets (checked 2026-11-24)
 

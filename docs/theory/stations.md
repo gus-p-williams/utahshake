@@ -1,6 +1,6 @@
 # Our stations and data
 
-**Used in:** [Wave Race](../apps/wave-race.md)
+**Used in:** [Wave Race](../apps/wave-race.md) · [Quake Explorer](../apps/quake-explorer.md)
 
 The apps show real data from real seismometers. This page tells you where the data come from
 and how to credit them in your own work.
