@@ -66,9 +66,14 @@ export class EarthScopeUSGSSource {
     return parseUsgsGeoJson(json)[0];
   }
 
-  async getStations({ lat, lon, maxKm, atMs }) {
+  /**
+   * @param {object} q
+   * @param {string} [q.channels] FDSN channel pattern; default velocity sensors only.
+   *   Quake Explorer adds accelerometers ("HH?,EH?,BH?,HN?,EN?") for big nearby quakes.
+   */
+  async getStations({ lat, lon, maxKm, atMs, channels = 'HH?,EH?,BH?' }) {
     const q = new URLSearchParams({
-      net: this.network, cha: 'HH?,EH?,BH?', level: 'channel', format: 'text',
+      net: this.network, cha: channels, level: 'channel', format: 'text',
       latitude: lat.toFixed(4), longitude: lon.toFixed(4),
       maxradius: (maxKm / KM_PER_DEG).toFixed(3),
       startbefore: fdsnTime(atMs), endafter: fdsnTime(atMs),

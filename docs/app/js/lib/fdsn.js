@@ -16,13 +16,26 @@
  */
 
 /**
+ * @typedef {Object} Channel
+ * @property {string} loc
+ * @property {string} cha
+ * @property {number} sampleRate
+ * @property {number} [azimuth]      degrees clockwise from north that a positive count moves
+ * @property {number} [dip]          degrees down from horizontal (-90 = vertical, up is positive)
+ * @property {number} [sensitivity]  counts per unit of ground motion (see units), at sensitivityFreq
+ * @property {number} [sensitivityFreq] Hz
+ * @property {string} [units]        "M/S" (velocity), "M" (displacement) or "M/S**2" (acceleration)
+ * @property {string} [sensor]       instrument description
+ */
+
+/**
  * @typedef {Object} Station
  * @property {string} net
  * @property {string} sta
  * @property {number} lat
  * @property {number} lon
  * @property {number} elevM
- * @property {Array<{loc:string, cha:string, sampleRate:number}>} channels
+ * @property {Channel[]} channels
  */
 
 /** ISO time without the trailing "Z", as FDSN services expect. */
@@ -52,9 +65,19 @@ export function parseUsgsGeoJson(json) {
   });
 }
 
-/** FDSN station service, format=text, level=channel -> Station[] */
+/**
+ * FDSN station service, format=text, level=channel -> Station[]
+ *
+ * Columns: Network | Station | Location | Channel | Latitude | Longitude |
+ * Elevation | Depth | Azimuth | Dip | SensorDescription | Scale | ScaleFreq |
+ * ScaleUnits | SampleRate | StartTime | EndTime. "Scale" is the overall
+ * sensitivity: how many counts the digitizer records per m/s (or m, or m/s²)
+ * of ground motion at ScaleFreq. Azimuth and Dip say which way the sensor
+ * points, which particle motion needs.
+ */
 export function parseStationText(text) {
   const byKey = new Map();
+  const num = (s) => (s === undefined || s.trim() === '' ? undefined : Number(s));
   for (const line of text.split(/\r?\n/)) {
     if (!line.trim() || line.startsWith('#')) continue;
     const f = line.split('|');
@@ -65,23 +88,33 @@ export function parseStationText(text) {
       byKey.set(key, { net, sta, lat: Number(lat), lon: Number(lon), elevM: Number(elev),
         channels: [] });
     }
-    byKey.get(key).channels.push({ loc, cha, sampleRate: Number(f[14]) });
+    byKey.get(key).channels.push({
+      loc, cha, sampleRate: Number(f[14]),
+      azimuth: num(f[8]), dip: num(f[9]), sensor: f[10]?.trim() || undefined,
+      sensitivity: num(f[11]), sensitivityFreq: num(f[12]),
+      units: f[13]?.trim().toUpperCase() || undefined,
+    });
   }
   return [...byKey.values()];
 }
 
 const BAND_PREFERENCE = ['HH', 'EH', 'BH', 'SH'];
+/** Accelerometers ("strong motion"): they don't clip in big nearby quakes. */
+export const ACCEL_BANDS = ['HN', 'EN'];
 const COMPONENTS = { Z: ['Z'], N: ['N', '1'], E: ['E', '2'] };
 
 /**
  * Pick the best channel set for picking arrivals: a velocity sensor (HH before
  * EH before BH...), three components if available.
  * @param {Station} station
+ * @param {{bands?:string[]}} [opt] band codes to try, best first (default:
+ *   velocity sensors HH, EH, BH, SH; pass ACCEL_BANDS for accelerometers)
  * @returns {{loc:string, band:string, channels:string[]}|null} channels in Z, N, E order
+ *   (a "1"/"2" horizontal takes the N/E slot; see channelInfo for its real direction)
  */
-export function chooseChannels(station) {
+export function chooseChannels(station, { bands = BAND_PREFERENCE } = {}) {
   let best = null;
-  for (const band of BAND_PREFERENCE) {
+  for (const band of bands) {
     const locs = new Set(station.channels.filter((c) => c.cha.startsWith(band)).map((c) => c.loc));
     for (const loc of locs) {
       const have = station.channels.filter((c) => c.loc === loc && c.cha.startsWith(band))
@@ -99,6 +132,19 @@ export function chooseChannels(station) {
     if (best) return best;
   }
   return best;
+}
+
+/**
+ * Full metadata (direction, sensitivity, units) of the channels chooseChannels
+ * picked, in the same order. Missing fields stay undefined (older sample files
+ * keep only loc, cha and sampleRate).
+ * @param {Station} station
+ * @param {{loc:string, channels:string[]}} choice
+ * @returns {Channel[]}
+ */
+export function channelInfo(station, choice) {
+  return choice.channels.map((cha) =>
+    station.channels.find((c) => c.loc === choice.loc && c.cha === cha) ?? { loc: choice.loc, cha });
 }
 
 /**
