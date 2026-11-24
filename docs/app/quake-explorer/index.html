@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Quake Explorer: Measure the Earth with One Quake</title>
+  <meta name="description" content="Four investigations with real seismograms: measure how fast the rock is, hear the notes of a quake, find which way the ground moved, and read a message from the far side of the world.">
+  <link rel="stylesheet" href="../vendor/leaflet.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="../css/quake-explorer.css">
+  <script type="module" src="../js/quake-explorer/app.js"></script>
+</head>
+<body>
+  <!-- Standard top bar (docs/developers/adding-an-app.md); app-specific controls first. -->
+  <header class="topbar">
+    <div class="brand">
+      <a href="../../apps/" class="home">UHSN · All apps</a>
+      <h1>Quake Explorer <span class="sub">Measure the Earth with one quake</span></h1>
+    </div>
+    <nav class="topbar-right" aria-label="Data source, guide and data">
+      <span id="source-badge" class="badge"></span>
+      <a id="source-switch" href="#"></a>
+      <a href="../../apps/quake-explorer/" target="_blank" rel="noopener">Guide ↗<span class="visually-hidden"> (opens in a new tab)</span></a>
+      <a href="../../theory/stations/" target="_blank" rel="noopener">About the data ↗<span class="visually-hidden"> (opens in a new tab)</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="step-quake" class="card">
+      <div class="card-head">
+        <h2><span class="step">1</span> Choose a quake</h2>
+        <button id="change-quake" type="button" class="link" hidden>Choose a different quake</button>
+      </div>
+      <div id="quake-chooser">
+        <div class="presets" id="presets"></div>
+        <div id="event-status" class="status" role="status"></div>
+        <div class="qe-lists">
+          <div>
+            <h3>Utah quakes and blasts</h3>
+            <p class="hint">For investigations A, B and C. Magnitude 2.5 and up, last 12 months.</p>
+            <div class="table-wrap">
+              <table id="local-table" class="events">
+                <thead><tr><th>Date (Utah time)</th><th>Time</th><th>Magnitude</th><th>What</th><th></th></tr></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+          <div>
+            <h3>Big quakes far away</h3>
+            <p class="hint">For investigation D (and B and C). Magnitude 6.5 and up, last 2 years.</p>
+            <div class="table-wrap">
+              <table id="distant-table" class="events">
+                <thead><tr><th>Date (UTC)</th><th>Magnitude</th><th>Where</th><th>Distance</th><th></th></tr></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="quake-summary" hidden></div>
+    </section>
+
+    <div id="workspace" hidden>
+      <nav class="qe-tabs" role="tablist" aria-label="Investigations">
+        <button type="button" role="tab" id="tab-A" aria-controls="inv-A" data-inv="A"><span class="qe-letter">A</span> How fast is the rock?</button>
+        <button type="button" role="tab" id="tab-B" aria-controls="inv-B" data-inv="B"><span class="qe-letter">B</span> What notes is the ground playing?</button>
+        <button type="button" role="tab" id="tab-C" aria-controls="inv-C" data-inv="C"><span class="qe-letter">C</span> Which way did the ground move?</button>
+        <button type="button" role="tab" id="tab-D" aria-controls="inv-D" data-inv="D"><span class="qe-letter">D</span> A message from far away</button>
+      </nav>
+
+      <!-- A. Record section -->
+      <section id="inv-A" class="card qe-inv" role="tabpanel" aria-labelledby="tab-A" hidden>
+        <div class="qe-main">
+          <div class="toolbar" role="toolbar" aria-label="Record section tools">
+            <button id="a-ruler-p" type="button" class="pick-p">P ruler</button>
+            <button id="a-ruler-s" type="button" class="pick-s">S ruler</button>
+            <button id="a-clear" type="button">Clear rulers</button>
+            <span class="spacer"></span>
+            <label class="inline">Wiggles
+              <select id="a-amp">
+                <option value="trace">each stretched to fit</option>
+                <option value="true">true ground speed</option>
+              </select>
+            </label>
+            <label class="inline qe-advanced"><input id="a-reduce" type="checkbox"> Reduced time (advanced)</label>
+            <button id="a-zoom-in" type="button" title="Zoom in (+)">＋</button>
+            <button id="a-zoom-out" type="button" title="Zoom out (−)">－</button>
+            <button id="a-zoom-reset" type="button" title="Show the whole record (0)">Whole record</button>
+          </div>
+          <canvas id="a-canvas" class="trace-canvas qe-section" aria-label="Record section"></canvas>
+          <p id="a-note" class="hint"></p>
+        </div>
+        <aside class="qe-side" id="a-steps"></aside>
+      </section>
+
+      <!-- B. Frequencies and sound -->
+      <section id="inv-B" class="card qe-inv" role="tabpanel" aria-labelledby="tab-B" hidden>
+        <div class="qe-main">
+          <div class="toolbar" role="toolbar" aria-label="Station and sound">
+            <label class="inline">Station <select id="b-station"></select></label>
+            <button id="b-near" type="button">Nearest</button>
+            <button id="b-far" type="button">Farthest</button>
+            <span class="spacer"></span>
+            <label class="inline">Speed-up <select id="b-speed"></select></label>
+            <button id="b-play" type="button" class="primary">▶ Listen</button>
+          </div>
+          <div id="b-title" class="picker-title"></div>
+          <canvas id="b-trace" class="trace-canvas qe-trace" aria-label="Seismogram, filtered to the band chosen on the spectrogram"></canvas>
+          <canvas id="b-spec" class="trace-canvas qe-spec" aria-label="Spectrogram"></canvas>
+          <p id="b-note" class="hint"></p>
+        </div>
+        <aside class="qe-side" id="b-steps"></aside>
+      </section>
+
+      <!-- C. Particle motion -->
+      <section id="inv-C" class="card qe-inv" role="tabpanel" aria-labelledby="tab-C" hidden>
+        <div class="qe-main">
+          <div class="toolbar" role="toolbar" aria-label="Station">
+            <label class="inline">Station <select id="c-station"></select></label>
+            <span class="spacer"></span>
+            <button id="c-mode" type="button" aria-pressed="false">Turn to Z R T</button>
+          </div>
+          <div id="c-motion"></div>
+          <div id="c-map" class="map qe-map" role="region" aria-label="Map of the station and the directions"></div>
+        </div>
+        <aside class="qe-side" id="c-steps"></aside>
+      </section>
+
+      <!-- D. Distant quakes -->
+      <section id="inv-D" class="card qe-inv" role="tabpanel" aria-labelledby="tab-D" hidden>
+        <div class="qe-main">
+          <div class="toolbar" role="toolbar" aria-label="Picking tools">
+            <label class="inline">Station <select id="d-station"></select></label>
+            <label class="inline">Notes
+              <select id="d-filter">
+                <option value="body">P and S (0.05–2 Hz)</option>
+                <option value="surface">surface waves (0.02–0.1 Hz)</option>
+                <option value="raw">all</option>
+              </select>
+            </label>
+            <button id="d-arm-p" type="button" class="pick-p" aria-pressed="false">Pick P</button>
+            <button id="d-arm-s" type="button" class="pick-s" aria-pressed="false">Pick S</button>
+            <button id="d-clear" type="button">Clear picks</button>
+            <span class="spacer"></span>
+            <label class="inline">Speed-up <select id="d-speed"></select></label>
+            <button id="d-play" type="button" class="primary">▶ Listen</button>
+            <button id="d-zoom-reset" type="button" title="Show the whole record (0)">Whole record</button>
+          </div>
+          <div id="d-title" class="picker-title"></div>
+          <canvas id="d-trace" class="trace-canvas qe-trace-3" aria-label="Three components of a distant quake, minutes after the origin time. Click to place a pick when Pick P or Pick S is on."></canvas>
+          <canvas id="d-spec" class="trace-canvas qe-spec" aria-label="Spectrogram of the vertical component"></canvas>
+          <canvas id="d-chart" class="trace-canvas qe-chart" aria-label="Travel-time chart: arrival time against distance"></canvas>
+          <p id="d-note" class="hint"></p>
+        </div>
+        <aside class="qe-side" id="d-steps"></aside>
+      </section>
+
+      <div class="actions qe-actions">
+        <button id="download" type="button">Download my answers (CSV)</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="credits" id="credits"></footer>
+</body>
+</html>

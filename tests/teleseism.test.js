@@ -42,6 +42,17 @@ test('the core shadow: beyond ~100° the first P is bent round or through the co
   assert.ok(inPShadow(120) && !inPShadow(60));
 });
 
+test('distance from S − P inverts the table (and is NaN beyond 100°)', async () => {
+  const { distanceFromSP } = await import('../docs/app/js/lib/teleseism.js');
+  for (const deg of [5, 36, 75]) {
+    const t = bodyWaveTimes(table, deg, 33);
+    near(distanceFromSP(table, t.S - t.P, 33), deg, 0.05, `${deg}°`);
+  }
+  assert.ok(Number.isNaN(distanceFromSP(table, 1e5, 33)));
+  // Sand Point at SGU: S − P picked 346–348 s on the horizontals (planning §9) -> about 37°.
+  near(distanceFromSP(table, 347, 38), 37, 1.5, 'Sand Point');
+});
+
 test('Sand Point, Alaska (36°): P at about minute 7, surface waves around minutes 15–20', () => {
   // Observed at SGU on 2025-07-16 (planning/quake-explorer.md, section 3).
   const t = bodyWaveTimes(table, 35.7, 20);

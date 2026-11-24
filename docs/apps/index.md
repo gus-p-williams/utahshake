@@ -18,9 +18,14 @@ Every app runs in any browser, including Chromebooks. No install, no accounts.
 
     See the daily rhythm of a school in its seismic noise: class changes, weekends, holidays.
 
-- **Quake Explorer** (planned)
+- **Quake Explorer**
 
-    Spectrograms, record sections, particle motion and sound from the same quakes.
+    Four investigations with real seismograms: measure how fast the rock is, find the notes
+    in the shaking and hear them, see which way the ground moved, and read the message from
+    a big quake on the far side of the world.
+
+    [Open Quake Explorer](../app/quake-explorer/index.html){ .md-button .md-button--primary }
+    [Quake Explorer guide](quake-explorer.md)
 
 </div>
 

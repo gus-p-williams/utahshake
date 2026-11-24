@@ -111,6 +111,19 @@ export function computerPicks(event, traces, analystPicks) {
 }
 
 /**
+ * Cut a loadStation() result where its vertical record ends: an offline sample can be
+ * shorter than the window asked for, and the rest would be empty (NaN).
+ */
+export function trimToData(st) {
+  let i = st.z.length - 1;
+  while (i > 0 && Number.isNaN(st.z[i])) i--;
+  const n = i + 1;
+  if (n === st.z.length) return st;
+  const cut = (a) => (a ? a.subarray(0, n) : a);
+  return { ...st, z: cut(st.z), n: cut(st.n), e: cut(st.e) };
+}
+
+/**
  * One station's three components, turned to up / north / east (raw counts,
  * mean not removed: filter per view with filteredData). Horizontal sensors
  * installed off-north ("1"/"2" channels) are rotated using their azimuths.

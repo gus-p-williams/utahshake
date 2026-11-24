@@ -1,0 +1,64 @@
+/* Quake Explorer: layout on top of app.css (theme colours and controls come from there). */
+
+/* app.css lays #workspace out for Wave Race (two columns); here: tabs, then one investigation. */
+#workspace { display: flex; flex-direction: column; gap: 12px; }
+#workspace[hidden] { display: none; }
+
+.qe-lists { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; margin-top: .4rem; }
+.qe-lists h3 { font-size: 1rem; margin: .2rem 0 0; }
+.qe-lists .table-wrap { max-height: 260px; }
+@media (max-width: 900px) { .qe-lists { grid-template-columns: minmax(0, 1fr); } }
+.presets .note { color: var(--muted); font-size: .82rem; }
+table.events td.blast { color: var(--warn); }
+
+/* Tabs: one per investigation. */
+.qe-tabs { display: flex; flex-wrap: wrap; gap: .4rem; }
+.qe-tabs button { display: inline-flex; align-items: center; gap: .45rem; border-radius: 999px; padding: .35rem .85rem .35rem .35rem; }
+.qe-tabs button[aria-selected=true] { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+.qe-tabs button:disabled { opacity: .45; }
+.qe-letter {
+  display: inline-grid; place-items: center; width: 1.45rem; height: 1.45rem; border-radius: 50%;
+  background: var(--accent); color: var(--accent-text); font-weight: 700; font-size: .82rem;
+}
+.qe-tabs button[aria-selected=true] .qe-letter { background: var(--accent-text); color: var(--accent); }
+
+/* One investigation: the view, and the steps beside it (below it on narrow screens). */
+.qe-inv { display: grid; grid-template-columns: minmax(0, 1fr) minmax(16rem, 22rem); gap: 14px; align-items: start; }
+.qe-inv[hidden] { display: none; }
+@media (max-width: 980px) { .qe-inv { grid-template-columns: minmax(0, 1fr); } }
+.qe-main { min-width: 0; }
+
+.trace-canvas.qe-section { height: min(72vh, 680px); min-height: 360px; cursor: grab; }
+.trace-canvas.qe-trace { height: 190px; cursor: grab; }
+.trace-canvas.qe-trace-3 { height: 300px; cursor: grab; }
+.trace-canvas.qe-trace-3.armed, .trace-canvas.qe-trace.armed { cursor: crosshair; }
+.trace-canvas.qe-spec { height: 280px; margin-top: 6px; cursor: ns-resize; }
+.trace-canvas.qe-chart { height: 300px; margin-top: 6px; }
+@media (max-width: 560px) {
+  .trace-canvas.qe-section { height: 70vh; }
+  .trace-canvas.qe-spec { height: 230px; }
+}
+.qe-map { height: 340px; margin-top: 10px; }
+.qe-actions { justify-content: flex-end; }
+.qe-advanced { font-style: italic; }
+
+/* The investigation steps (Question, Predict, Explore, Why?, Check). */
+.qe-side { font-size: .93rem; }
+.qe-side h3 { font-size: 1.05rem; margin: 0 0 .5rem; }
+.qe-steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .7rem; }
+.qe-steps > li { border-left: 3px solid var(--border); padding: .1rem 0 .1rem .7rem; }
+.qe-steps > li.done { border-left-color: var(--ok); }
+.qe-steps > li > b { display: block; font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin-bottom: .2rem; }
+.qe-steps p { margin: .25rem 0; }
+.qe-choices { display: flex; flex-direction: column; gap: .25rem; margin: .3rem 0; }
+.qe-choices label { display: flex; gap: .45rem; align-items: flex-start; cursor: pointer; }
+.qe-choices input { margin-top: .2rem; }
+.qe-readout { font-variant-numeric: tabular-nums; margin: .3rem 0; }
+.qe-readout div { display: flex; justify-content: space-between; gap: .6rem; border-bottom: 1px dashed var(--border); padding: .12rem 0; }
+.qe-readout b { font-weight: 600; }
+.qe-why summary { cursor: pointer; color: var(--accent); }
+.qe-why[open] summary { margin-bottom: .3rem; }
+.qe-result { padding: .5rem .65rem; border: 1px solid var(--border); border-radius: 8px; margin-top: .4rem; }
+.qe-result .big { font-size: 1.05rem; font-weight: 600; }
+.qe-side .actions { margin-top: .3rem; }
+.qe-side a { color: var(--accent); }

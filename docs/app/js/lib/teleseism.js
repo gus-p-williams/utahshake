@@ -62,6 +62,24 @@ export function surfaceWaveWindow(distDeg) {
   return { startSec: km / 4.2, peakSec: km / 3.7, endSec: km / 3.0 };
 }
 
+/**
+ * How far away a quake is, from the time between its first P and S waves: the distance
+ * (degrees) at which the table's S − P equals the measured one. S − P grows steadily
+ * with distance out to about 100°, so a simple bisection finds it.
+ * @returns {number} degrees, or NaN if spSec is outside what 0–100° can give
+ */
+export function distanceFromSP(table, spSec, depthKm) {
+  const sp = (deg) => { const t = bodyWaveTimes(table, deg, depthKm); return t.S - t.P; };
+  let lo = 0.5;
+  let hi = 100;
+  if (!(spSec >= sp(lo) && spSec <= sp(hi))) return NaN;
+  for (let i = 0; i < 50; i++) {
+    const mid = (lo + hi) / 2;
+    if (sp(mid) < spSec) lo = mid; else hi = mid;
+  }
+  return (lo + hi) / 2;
+}
+
 /** True where the core blocks the direct P wave (about 103° to 142°). */
 export function inPShadow(distDeg) {
   return distDeg >= 103 && distDeg <= 142;
