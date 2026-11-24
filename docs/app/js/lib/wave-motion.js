@@ -13,7 +13,7 @@
 //
 // Pure functions: no browser APIs, so they run in node tests too.
 
-export const VP = 5.8;   // km/s, the Wave Race speeds (docs/theory/s-minus-p.md)
+export const VP = 5.8;   // km/s, the Quake Locator speeds (docs/theory/s-minus-p.md)
 export const VS = 3.3;   // km/s
 export const REACH = 4;  // the pulse is zero more than REACH widths from its peak
 

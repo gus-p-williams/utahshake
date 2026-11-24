@@ -1,6 +1,6 @@
 # Our stations and data
 
-**Used in:** [Wave Race](../apps/wave-race.md) · [Quake Explorer](../apps/quake-explorer.md)
+**Used in:** [Quake Locator](../apps/wave-race.md) · [Quake Explorer](../apps/quake-explorer.md)
 
 The apps show real data from real seismometers. This page tells you where the data come from
 and how to credit them in your own work.
@@ -12,7 +12,7 @@ UHSN, the apps use stations of the **University of Utah Regional Seismic Network
 code **UU**) instead. These are professional stations, and their data are open to everyone.
 
 For each school, one University of Utah station **stands in** for the school's own sensor. It
-is the nearest active University of Utah station to the school. Wave Race marks it as
+is the nearest active University of Utah station to the school. Quake Locator marks it as
 "stands in for …".
 
 | School | Town | Stand-in station |
@@ -30,7 +30,7 @@ is the nearest active University of Utah station to the school. Wave Race marks 
   Stations (network UU, doi:10.7914/SN/UU) via EarthScope.</figcaption>
 </figure>
 
-The five schools sit in a north–south line in central Utah, so Wave Race also adds **helper**
+The five schools sit in a north–south line in central Utah, so Quake Locator also adds **helper**
 stations around each quake. That way you can surround it (see
 [Why the stations' positions matter](locating.md#why-the-stations-positions-matter)).
 
@@ -46,14 +46,14 @@ The seismograms reach the apps through **EarthScope Data Services**.
 
 The list of quakes and their official locations come from the **USGS earthquake catalog**,
 called **ComCat**. For many Utah quakes, ComCat also holds the P and S picks made by
-University of Utah analysts. Wave Race and Quake Explorer show those picks after you reveal the
+University of Utah analysts. Quake Locator and Quake Explorer show those picks after you reveal the
 answer; Quake Explorer also shows its own computer picks, marked as such, where analysts made
 none.
 
 ## If the school network blocks the data
 
 Some school networks block the data services. For that, some quakes are stored with the site.
-In Wave Race, **Use the offline sample** loads the magnitude 3.3 quake near Junction, Utah, on
+In Quake Locator, **Use the offline sample** loads the magnitude 3.3 quake near Junction, Utah, on
 October 31, 2026 (UTC). In Quake Explorer, **Use the offline samples** loads six quakes and
 blasts, enough for all four investigations.
 

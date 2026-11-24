@@ -29,7 +29,7 @@ test('every preset has an explorer sample', async () => {
     const ev = await src.getEvent(p.id);
     assert.equal(ev.id, p.id);
   }
-  // Wave Race's list is unchanged.
+  // Quake Locator's list is unchanged.
   const wr = await new SampleSource(base, { fetch: fileFetch }).getEvents();
   assert.deepEqual(wr.map((e) => e.id), ['uu80162166']);
 });

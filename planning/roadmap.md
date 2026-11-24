@@ -1,6 +1,6 @@
 # Roadmap: staged build plan
 
-Stages follow the order agreed on 2026-11-23: Wave Race + Locator first, then the
+Stages follow the order agreed on 2026-11-23: Quake Locator (then called Wave Race + Locator) first, then the
 seismic carpet (School Pulse), then the multi-view explorer, then the switch to live
 UHSN data. Each stage ends with working app + docs deployed to GitHub Pages. Stage 3 (Quake
 Explorer) was built before Stage 2 (Gus, 2026-11-24; D22).
@@ -24,7 +24,7 @@ needs the DRI ingest server and a UHSN data source (Stage 4).
 
 **Done when:** the empty site is live on GitHub Pages and builds on every push.
 
-## Stage 1 — Wave Race + Utah Quake Locator
+## Stage 1 — Quake Locator (called Wave Race until November 2026)
 
 Student flow: pick a recent Utah quake → see records from the stand-in stations →
 pick P and S on each → app converts S−P to distance → circles on a map → best-fit
@@ -122,7 +122,7 @@ Teachers work from activities, not apps (D19). An activity card is one lesson. A
 apps are many-to-many: a card may use several apps or none, and an app may appear in several
 cards. Every app gets at least one card.
 
-- [x] Wave Race activity card (uses Quake Waves as the warm-up).
+- [x] Quake Locator activity card (uses Quake Waves as the warm-up).
 - [x] Card format and site structure (done 2026-11-24, D29; template in
       `docs/developers/adding-a-card.md`):
   - One file per activity in `docs/teachers/`, named after the activity
@@ -130,7 +130,7 @@ cards. Every app gets at least one card.
   - An "At a glance" box on every card: Time · Setup (the tier from `planning/activities.md`:
     external data, the school's Shake, a roaming Shake, phones) · Apps and tools used ·
     Materials · Utah standards.
-  - Then the sections of the Wave Race card: short version, full-period version, exit ticket,
+  - Then the sections of the Quake Locator card: short version, full-period version, exit ticket,
     answer key, common difficulties, extensions.
   - The Teachers page's activities table becomes the catalog (Activity · Apps used · Setup ·
     Time · Standards). Each card gets a row in "Utah standards at a glance".
@@ -138,7 +138,7 @@ cards. Every app gets at least one card.
   - [x] Past about five cards, group them in the sidebar under Teachers › Activity cards (done
     with Quake Explorer, D25; D17: revisit the layout if the sidebar passes about 35 entries).
 - [x] Quake Waves: a short card of its own, "One quake, two waves" (proposed: a 10-minute predict-and-watch demo for a
-      physics waves unit), besides its role as the Wave Race warm-up.
+      physics waves unit), besides its role as the Quake Locator warm-up.
 - [x] Quake Explorer: one card per investigation (A–D) and a full-period lesson chaining A and
       C (`planning/quake-explorer.md` §5).
 - [ ] School Pulse: card(s) with Stage 2.

@@ -32,7 +32,7 @@ export const SCHOOLS = [
     lat: 38.969, lon: -112.343, standIn: { net: 'UU', sta: 'WCU' } },
 ];
 
-/** Defaults for the Wave Race / Quake Locator app. */
+/** Defaults for the Quake Locator app (WAVE_RACE: its name in code). */
 export const WAVE_RACE = {
   recentDays: 90,
   minMagnitude: 2.0,

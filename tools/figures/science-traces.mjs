@@ -15,7 +15,7 @@ fs.mkdirSync(outDir, { recursive: true });
 
 const sample = loadSample('uu80162166');
 const originMs = sample.event.timeMs;
-const KM_PER_S = 7.66; // km of distance per second of S − P (Wave Race default, decision D9)
+const KM_PER_S = 7.66; // km of distance per second of S − P (Quake Locator default, decision D9)
 const f2 = (v) => v.toFixed(2);
 const MINUS = '−';
 const TIMES = '×';

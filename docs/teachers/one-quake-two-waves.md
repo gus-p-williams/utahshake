@@ -1,7 +1,7 @@
 # Activity card: One quake, two waves
 
 A 10-minute predict-and-watch demo on the projector, for a physics waves unit or as the first
-lesson before [Wave Race](wave-race-card.md). The class predicts, then watches two cartoons:
+lesson before [Quake Locator](wave-race-card.md). The class predicts, then watches two cartoons:
 [How P and S waves move rock](../app/wave-motion/index.html) and
 [Quake Waves](../app/quake-waves/index.html) (students can read the
 [Quake Waves guide](../apps/quake-waves.md) afterwards).
@@ -16,7 +16,7 @@ lesson before [Wave Race](wave-race-card.md). The class predicts, then watches t
       [How P and S waves move rock](../app/wave-motion/index.html) (also on
       [Seismic waves](../theory/waves.md#two-body-waves))
     - **Before this:** Nothing. This is a first look at P and S waves;
-      [Wave Race](wave-race-card.md) comes next.
+      [Quake Locator](wave-race-card.md) comes next.
     - **Materials:** A projector. Student devices only for the extension.
     - **Utah standards:** PHYS.4.1 · ESS.2.2 ([crosswalk](standards.md#quake-waves))
 
@@ -34,7 +34,7 @@ No accounts or logins, and nothing is entered or stored.
 !!! tip "Before class"
     Open both animations on the classroom computer and press **▶ Play** once in each: neither
     starts by itself. Quake Waves starts at **4× faster**, so one run takes about 10 seconds;
-    leave it there. Both use Wave Race's speeds (P 5.8 km/s, S 3.3 km/s). They are cartoons:
+    leave it there. Both use Quake Locator's speeds (P 5.8 km/s, S 3.3 km/s). They are cartoons:
     the quake is at the surface, all the rock is the same and the motion is exaggerated.
 
 ## 10-minute version (whole class, on the projector)
@@ -62,7 +62,7 @@ No accounts or logins, and nothing is entered or stored.
    a little off, the crossing smears out:
    [why the stations' positions matter](../theory/locating.md#why-the-stations-positions-matter).)
 
-Close with the rule students take to Wave Race: the gap between P and S is a distance, about
+Close with the rule students take to Quake Locator: the gap between P and S is a distance, about
 7.7 km for every second of S − P at these speeds.
 
 ## Exit ticket
@@ -117,7 +117,7 @@ In the P and S animation the block is 60 km long: P crosses it in about 10.3 s a
   the formula on [Distance from S minus P](../theory/s-minus-p.md).
 - **Speeds from the cartoon.** Drag the slider in How P and S waves move rock and read the time
   (top left) when each pulse reaches the 60 km mark. Speed = distance ÷ time.
-- **Next lesson:** [Wave Race](wave-race-card.md) uses the same rule on real Utah records, where
+- **Next lesson:** [Quake Locator](wave-race-card.md) uses the same rule on real Utah records, where
   picking S is hard and the circles never quite meet.
 - **Earth's interior (ESS.2.2):** a liquid does not spring back when it is sheared, so S waves
   cannot cross one. That is how seismologists found that Earth's outer core is liquid

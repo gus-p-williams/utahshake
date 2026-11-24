@@ -1,6 +1,6 @@
 # Locating a quake
 
-**Used in:** [Wave Race](../apps/wave-race.md) · [Quake Waves](../apps/quake-waves.md)
+**Used in:** [Quake Locator](../apps/wave-race.md) · [Quake Waves](../apps/quake-waves.md)
 
 One station tells you **how far** away a quake was (from its
 [S-minus-P time](s-minus-p.md)), but not **in which direction**. The quake
@@ -54,20 +54,20 @@ $$
 <figure markdown="span">
   ![A green pin, your guess, 8 km from where three coloured distance circles meet near a purple best-fit star. A thick line from the pin to each circle is labelled r1 = minus 7.2 km for MTPU, r2 = plus 6.8 km for TCRU and r3 = plus 3.3 km for WCU. A table lists each station's distance from S minus P and from the pin, and the RMS is worked out below as the square root of 109.0 divided by 3, which is 6.0 km.](img/residuals.svg){ loading=lazy }
   <figcaption>Figure 2. Residuals for a trial epicenter (the green pin). Their RMS, 6.0 km, is
-  the number Wave Race shows as "your circles miss it by 6.0 km on average"; at the best fit
+  the number Quake Locator shows as "your circles miss it by 6.0 km on average"; at the best fit
   it is 0.3 km. Data: University of Utah Seismograph Stations (network UU,
   doi:10.7914/SN/UU); picks via USGS ComCat.</figcaption>
 </figure>
 
 The best epicenter is the point with the smallest RMS.
 
-In [Wave Race](../apps/wave-race.md#3-locate-the-quake) you can search for it yourself: **Place my own epicenter** puts a pin on the map,
+In [Quake Locator](../apps/wave-race.md#3-locate-the-quake) you can search for it yourself: **Place my own epicenter** puts a pin on the map,
 and the app shows the RMS for that point as you drag it. Then **Find the best epicenter** lets
 the computer search.
 
-## How Wave Race searches: a grid
+## How Quake Locator searches: a grid { #how-wave-race-searches-a-grid }
 
-Wave Race does it by brute force. It lays a grid of points 2 km apart over a 600 km by
+Quake Locator does it by brute force. It lays a grid of points 2 km apart over a 600 km by
 600 km square, computes the misfit at every point (about 90,000 of them), and keeps the best
 one. Then it repeats the search on finer grids (0.25 km, then 0.05 km) around that point.
 A computer does this in a fraction of a second. You can do a coarse version by hand on a map
@@ -80,7 +80,7 @@ off by 0.2 s.
 <figure markdown="span">
   ![A blue map, light where the circles fit and dark where they miss badly, around stations WCU, TCRU and MTPU. A light oval valley holds the purple best-fit star and the orange official epicenter, inside a black outline labelled rough uncertainty. An inset zooms in on the valley: open circles mark the 2 km grid, a fine mesh marks the 0.25 km grid around the best coarse point, and a small square marks the 0.05 km grid around the best fit.](img/misfit-map.svg){ loading=lazy }
   <figcaption>Figure 3. The misfit map for the offline sample quake: the average miss (RMS) at
-  every point. Wave Race keeps the lowest point; the black outline is its rough uncertainty,
+  every point. Quake Locator keeps the lowest point; the black outline is its rough uncertainty,
   and the official epicenter falls inside it. Data: University of Utah Seismograph Stations
   (network UU, doi:10.7914/SN/UU); picks via USGS ComCat.</figcaption>
 </figure>
@@ -99,14 +99,14 @@ many points fit almost equally well. The location then smears out along a line. 
   Station positions: University of Utah Seismograph Stations (network UU).</figcaption>
 </figure>
 
-That is why Wave Race adds **helper** stations around each quake. The
+That is why Quake Locator adds **helper** stations around each quake. The
 [five UHSN schools](stations.md) sit in a north–south line in central Utah. For a quake far to the south or north, the schools
 alone cannot surround it.
 
 !!! example "The offline sample quake"
     The magnitude 3.3 quake near Junction, Utah (Oct 31, 2026, UTC) is south of every UHSN
     school. Using the University of Utah analysts' picks at three helper stations around it
-    (MTPU, TCRU and WCU), Wave Race lands **5.5 km** from the official location.
+    (MTPU, TCRU and WCU), Quake Locator lands **5.5 km** from the official location.
 
 ## How professionals do it
 
@@ -123,7 +123,7 @@ of stations across the state. Their method goes beyond S − P:
   constrain well.
 
 For a well-recorded Utah quake, the official epicenter is usually good to a few kilometres or
-better. In our tests with careful picks and stations around the quake, Wave Race landed
+better. In our tests with careful picks and stations around the quake, Quake Locator landed
 3–6 km from the official location. That is close enough to tell
 which valley, mine or fault zone the quake came from.
 

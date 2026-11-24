@@ -6,12 +6,12 @@ change the code. MkDocs builds the guides, copies `docs/app/` unchanged, and Git
 publishes both to GitHub Pages.
 
 This page covers what all the apps share. How a single app works inside is under App notes,
-for example [Wave Race notes](wave-race.md).
+for example [Quake Locator notes](wave-race.md).
 
 ```
 docs/app/
   index.html               redirect stub: the old /app/ launcher, forwards to All apps (../apps/)
-  wave-race/index.html     Wave Race page
+  wave-race/index.html     Quake Locator page
   quake-explorer/index.html  Quake Explorer page (four investigations)
   quake-waves/index.html   Quake Waves (cartoon; ?embed=1 inside Locating a quake)
   wave-animation/index.html  redirect stub: Quake Waves' old address, forwards to ../quake-waves/
@@ -48,7 +48,7 @@ docs/app/
       page.js              shared page helpers: credits, source badge, esc, CSV, embed mode, docs theme
       trace-view.js        canvas seismogram with zoom, pan, picks
       map-view.js          Leaflet map: stations, circles, epicenters, the student's pin
-    wave-race/app.js       the Wave Race page controller
+    wave-race/app.js       the Quake Locator page controller
     quake-explorer/        Quake Explorer: controller, one module per investigation, its views
     quake-waves/app.js     the Quake Waves animation (canvas)
     wave-motion/app.js     the P/S rock-motion animation (canvas)
@@ -81,7 +81,7 @@ About the data) and imports its credits, data-source badge, CSV download and emb
 All data goes through a **DataSource** object (`js/data/datasource.js`), never straight to a web
 service. Swapping in the UHSN school Shakes later means writing a `UHSNSource` with the same
 methods and changing `SCHOOLS[].standIn` in `config.js`. See [Data sources](data-sources.md).
-For one app's calls in order, see [Data flow in Wave Race](wave-race.md#data-flow-in-wave-race).
+For one app's calls in order, see [Data flow in Quake Locator](wave-race.md#data-flow-in-wave-race).
 
 ## Running locally
 
@@ -97,8 +97,8 @@ from Markdown do not exist there. Start at an app's own address, such as `/app/w
 `mkdocs serve` and the published site have, so it gives "not found" here; so do the top-bar
 links (All apps, Guide, About the data).
 
-Each app may take options in its page address; Wave Race's are in
-[Wave Race notes](wave-race.md#page-address-options).
+Each app may take options in its page address; Quake Locator's are in
+[Quake Locator notes](wave-race.md#page-address-options).
 
 ## Vendored libraries
 
@@ -152,7 +152,7 @@ the same bytes every time it runs.
 
 | Script | Makes | Needs |
 | --- | --- | --- |
-| `trace-figures.mjs` | `apps/img/picking-*.svg` (Wave Race guide) | Node only |
+| `trace-figures.mjs` | `apps/img/picking-*.svg` (Quake Locator guide) | Node only |
 | `science-traces.mjs` | `theory/img/seismogram-anatomy.svg`, `s-minus-p-worked-example.svg` | Node only |
 | `science-record-section.mjs` | `theory/img/record-section.svg` | Node only |
 | `science-diagrams.mjs` | `theory/img/depth-triangle.svg`, `circles-1-2-3.svg` | Node only |
@@ -188,7 +188,7 @@ without the download; `--refetch` recomputes them. Build one figure by name, for
   before an arrival, which would bias P picks early.
 - **Dead channels** (a flat line of a few counts) are dropped, because auto-scaling would make
   digitizer noise look like a quake.
-- Choices that belong to one app, such as Wave Race's hidden location and velocity defaults,
+- Choices that belong to one app, such as Quake Locator's hidden location and velocity defaults,
   are in its [app notes](wave-race.md#choices-specific-to-wave-race).
 
 The reasons behind these choices are in the decision log,

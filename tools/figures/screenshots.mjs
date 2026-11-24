@@ -1,4 +1,4 @@
-// Screenshots of Wave Race for the student guide (docs/apps/img/wave-race-*.png).
+// Screenshots of Quake Locator for the student guide (docs/apps/img/wave-race-*.png).
 //
 //   cd tools/figures && npm install          (once: puppeteer-core, no browser download)
 //   node ../serve.mjs                        (in another terminal: serves docs/ on :8001)

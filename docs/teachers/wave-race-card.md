@@ -1,14 +1,14 @@
-# Activity card: Wave Race
+# Activity card: Quake Locator
 
-Students follow the [Wave Race guide](../apps/wave-race.md) (what they see, step by step) and
-use the [Wave Race app](../app/wave-race/index.html).
+Students follow the [Quake Locator guide](../apps/wave-race.md) (what they see, step by step) and
+use the [Quake Locator app](../app/wave-race/index.html).
 
 !!! abstract "At a glance"
     - **Driving question:** How far away was that earthquake, and where did it happen?
     - **Time:** 15 min (whole class, on the projector) or 45–55 min (pairs).
     - **Setup:** Browser only. Live records from University of Utah stations, or the offline
       sample if the school network blocks them.
-    - **Apps and tools:** [Wave Race](../apps/wave-race.md) · [Quake Waves](../apps/quake-waves.md)
+    - **Apps and tools:** [Quake Locator](../apps/wave-race.md) · [Quake Waves](../apps/quake-waves.md)
       (the warm-up animation)
     - **Before this:** Nothing. [One quake, two waves](one-quake-two-waves.md) (10 min) makes a
       good first lesson.

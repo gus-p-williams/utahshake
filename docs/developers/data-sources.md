@@ -27,7 +27,7 @@ skipped because they are too noisy for small quakes.
 
 Every page that shows data cites its source in a credits footer. The texts are `ATTRIBUTION`
 in `js/config.js`; `showCredits(el, keys)` in `js/ui/page.js` writes the entries a page names
-(Wave Race: waveforms, events and map; Quake Explorer adds travel times) and adds an "About the data ↗" link to
+(Quake Locator: waveforms, events and map; Quake Explorer adds travel times) and adds an "About the data ↗" link to
 [Our stations and data](../theory/stations.md). The map also shows the OpenStreetMap credit
 in its corner (`ui/map-view.js`).
 
@@ -74,7 +74,7 @@ in `config.js` if it should appear as a classic quake. `npm test` runs real-data
 every sample.
 
 **Quake Explorer's samples** live beside them in `docs/app/data/samples/qe-*/` and are listed
-under `"explorer"` in `samples/index.json` (Wave Race reads only the `"samples"` list). They
+under `"explorer"` in `samples/index.json` (Quake Locator reads only the `"samples"` list). They
 have more stations and longer windows (a record section out to 300 or 400 km; half an hour for
 a distant quake), full channel metadata (direction, sensitivity, units, clipping), and two
 extra files: `computer-picks.json` (AIC picks, labelled as computer picks, where the analysts

@@ -11,7 +11,7 @@ they see, step by step) and use [Quake Explorer](../app/quake-explorer/index.htm
       samples if the school network blocks them.
     - **Apps and tools:** [Quake Explorer](../apps/quake-explorer.md), investigation A (the record
       section)
-    - **Before this:** [Wave Race](wave-race-card.md) (this lesson answers "where did 5.8 and
+    - **Before this:** [Quake Locator](wave-race-card.md) (this lesson answers "where did 5.8 and
       3.3 km/s come from?")
     - **Materials:** Student devices with a browser (Chromebooks are fine) and a projector.
     - **Utah standards:** PHYS.4.1 · ESS.2.2 · GEOL.3.x · CS&nbsp;11/12.DA.1
@@ -57,13 +57,13 @@ No accounts or logins. Student names are never entered or stored.
    The steeper the line, the faster the wave.
 5. **Check (3 min).** Press **Reveal the professionals' picks**. P is about 6.1 km/s and S about
    3.7 km/s, and P reaches 300 km about 49 s after the quake. Who chose "About 50 s"? Compare
-   with Wave Race's 5.8 and 3.3 km/s.
+   with Quake Locator's 5.8 and 3.3 km/s.
 
 ## Full-period version (45–55 min, pairs)
 
 | Phase | Time | What happens |
 | --- | --- | --- |
-| Engage | 5 min | Hook as above. "In Wave Race the app gave us 5.8 and 3.3 km/s. How could we measure speeds like that ourselves?" Pairs choose their prediction in the panel and write one sentence saying why. |
+| Engage | 5 min | Hook as above. "In Quake Locator the app gave us 5.8 and 3.3 km/s. How could we measure speeds like that ourselves?" Pairs choose their prediction in the panel and write one sentence saying why. |
 | Explore | 15 min | Pairs lay both rulers on the Junction record section and record P, S and P ÷ S. Then they lay the P ruler on stations within 100 km only, and on stations beyond 200 km only, and record both speeds. Last, they switch **Wiggles** to **true ground speed** and describe what happens to the far stations. |
 | Explain | 10 min | Press **Reveal the professionals' picks** and discuss with [Travel times and Earth's layers](../theory/travel-times.md). Why the slope is the speed: distance runs down the page and time across, like a distance–time graph. Why P is faster than S: P squeezes the rock and S shears it, and rock resists squeezing more than shearing. Why far stations looked as big as near ones: each trace was stretched to fit; on one true scale, a station 300 km away moves about 50 times less than one 30 km away. |
 | Elaborate | 10–15 min | Load the 2020 Magna earthquake (stations out to 400 km). Pairs lay the P ruler on the first arrivals within about 120 km and write down its speed, then move it onto the first arrivals beyond about 180 km. Faster? Reveal: beyond about 143 km the first arrivals follow a 7.7 km/s line. That wave dived to the top of the mantle (the Moho), raced along it in faster rock and came back up: Pn. Far enough away, the longer path in faster rock wins, like a detour on the freeway beating the side streets. Where the two lines cross tells how thick the crust is: about 36 km here. Strong students can tick **Reduced time (advanced)**. |
@@ -93,7 +93,7 @@ up for the longer path.
 
 Magnitude 3.3 quake, 8 km NW of Junction, Utah, October 31, 2026 04:44:15.58 UTC (October 30,
 10:44 pm MDT), depth 4.0 km (USGS event `uu80162166`; the same quake as the
-[Wave Race answer key](wave-race-card.md#answer-key-offline-sample-quake)). The record section
+[Quake Locator answer key](wave-race-card.md#answer-key-offline-sample-quake)). The record section
 has 23 stations, from MTPU (29 km) to BGU (299 km). The school stand-ins, in orange, are WCU
 (Millard, 77 km), SGU (Gunnison Valley, 114 km), TMU (Wasatch Academy, 146 km), ELU (North
 Sanpete, 177 km) and SUU (Juab, 183 km).
@@ -185,10 +185,10 @@ weaker than its neighbors'; no clear quake (Figure 3 on
 
 ## Extension ideas
 
-- **Your speeds in Wave Race.** Turn the measured speeds into kilometres of distance per second
+- **Your speeds in Quake Locator.** Turn the measured speeds into kilometres of distance per second
   of S − P: \(k = V_P V_S/(V_P - V_S)\). With 6.14 and 3.41 km/s, \(k\) is 7.7 km per second,
-  the same as Wave Race's default 5.8 and 3.3 km/s (7.66). With 3.68 km/s for S it is 9.2.
-  Enter both pairs in Wave Race's speed settings for the Junction quake: which locates it
+  the same as Quake Locator's default 5.8 and 3.3 km/s (7.66). With 3.68 km/s for S it is 9.2.
+  Enter both pairs in Quake Locator's speed settings for the Junction quake: which locates it
   better? Why can two different pairs of speeds give the same \(k\)?
 - **Reduced time (advanced).** Tick it: each wiggle moves left by its distance ÷ 8 km/s. An
   8 km/s wave now runs straight down the page and slower waves lean to the right. On Magna,

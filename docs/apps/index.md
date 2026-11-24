@@ -4,16 +4,16 @@ Every app runs in any browser, including Chromebooks. No install, no accounts.
 
 <div class="grid cards" markdown>
 
-- **Wave Race**
+- **Quake Locator**
 
     Pick the P and S waves of a real Utah earthquake at several stations, turn the time
     between them into distances, and find where the quake happened. Then compare with the
     University of Utah's answer. New to P and S waves? Watch [Quake Waves](quake-waves.md)
     first.
 
-    [Open Wave Race](../app/wave-race/index.html){ .md-button .md-button--primary }
+    [Open Quake Locator](../app/wave-race/index.html){ .md-button .md-button--primary }
 
-    [Wave Race guide](wave-race.md)
+    [Quake Locator guide](wave-race.md)
 
 - **Quake Explorer**
 
@@ -40,7 +40,7 @@ Short cartoons of the ideas behind the apps. They use no real data.
 - **Quake Waves**
 
     P and S waves race out from a quake to four stations. See the seismograms appear, and
-    watch the S − P distances cross at the quake. A good warm-up for Wave Race.
+    watch the S − P distances cross at the quake. A good warm-up for Quake Locator.
 
     [Open Quake Waves](../app/quake-waves/index.html){ .md-button .md-button--primary }
 

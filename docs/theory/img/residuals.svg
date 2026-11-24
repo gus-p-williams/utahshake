@@ -67,12 +67,12 @@
 <text x="487" y="230" font-size="12" fill="#5b6472">(too far from the station)</text>
 <text x="472" y="254" font-size="12" font-weight="600" fill="#111827">+  the pin is inside the circle</text>
 <text x="487" y="270" font-size="12" fill="#5b6472">(too close to the station)</text>
-<text x="472" y="302" font-size="12" fill="#5b6472">The table, like Wave Race, measures to</text>
+<text x="472" y="302" font-size="12" fill="#5b6472">The table, like Quake Locator, measures to</text>
 <text x="472" y="318" font-size="12" fill="#5b6472">the quake at 8 km depth. The circles show</text>
 <text x="472" y="334" font-size="12" fill="#5b6472">distance along the ground, so a gap on the</text>
 <text x="472" y="350" font-size="12" fill="#5b6472">map differs from its residual by up to 0.2 km.</text>
 <text x="14" y="518" font-size="15" font-weight="600" fill="#111827">RMS = √((<tspan font-style="italic">r</tspan>₁² + <tspan font-style="italic">r</tspan>₂² + <tspan font-style="italic">r</tspan>₃²) / 3) = √(((−7.2)² + 6.8² + 3.3²) / 3) = √(109.0 / 3) = <tspan font-weight="700">6.0 km</tspan></text>
-<text x="14" y="540" font-size="12" fill="#111827">Wave Race shows this as “Your circles miss it by 6.0 km on average.” At the best fit (purple star) the RMS is 0.3 km.</text>
+<text x="14" y="540" font-size="12" fill="#111827">Quake Locator shows this as “Your circles miss it by 6.0 km on average.” At the best fit (purple star) the RMS is 0.3 km.</text>
 <text x="14" y="562" font-size="12" fill="#5b6472">Real data: M3.3 quake near Junction, Utah, uu80162166; University of Utah analyst picks (network UU).</text>
-<text x="14" y="579" font-size="12" fill="#5b6472">Circle radius: map distance from S − P, with P 5.8 km/s, S 3.3 km/s, depth 8 km (Wave Race defaults).</text>
+<text x="14" y="579" font-size="12" fill="#5b6472">Circle radius: map distance from S − P, with P 5.8 km/s, S 3.3 km/s, depth 8 km (Quake Locator defaults).</text>
 </svg>

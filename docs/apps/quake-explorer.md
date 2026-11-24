@@ -18,7 +18,7 @@ way it shakes the ground, and what a quake on the far side of the world can tell
     - **Data:** [Our stations and data](../theory/stations.md)
     - **For developers:** [Quake Explorer notes](../developers/quake-explorer.md)
 
-In [Wave Race](wave-race.md) you were *given* two numbers: P waves travel 5.8 km/s and S waves
+In [Quake Locator](wave-race.md) you were *given* two numbers: P waves travel 5.8 km/s and S waves
 3.3 km/s. Where do numbers like that come from? In Quake Explorer you measure them yourself,
 and more: how thick the crust under Utah is, why far-away quakes sound like a low rumble,
 which way the ground moved, and how long a wave takes to cross the planet. Every answer
@@ -30,8 +30,8 @@ comes from real seismograms, and you can check it against the professionals'.
     "TMU (Wasatch Academy)", and they are drawn in orange in the record section.
     [Our stations and data](../theory/stations.md) lists the stand-in for each school.
 
-!!! tip "Do Wave Race first"
-    Quake Explorer builds on [Wave Race](wave-race.md): picking P and S, and turning the time
+!!! tip "Do Quake Locator first"
+    Quake Explorer builds on [Quake Locator](wave-race.md): picking P and S, and turning the time
     between them into a distance. If P and S waves are new to you, start there.
 
 ## How every investigation works
@@ -154,7 +154,7 @@ above** (like a map) and **seen from the side**.
    ground moved along and uses "up goes with away" to pick its end.
 4. Press **Show the true direction**. The map then shows the epicenter, and the panel shows
    how one station alone can locate the quake: its direction from the P motion, its distance
-   from S − P, as in Wave Race.
+   from S − P, as in Quake Locator.
 5. Press **S window**, then **Turn to Z R T**: R is along the path to the quake, T is sideways.
    Which one carries the S wave?
 

@@ -7,7 +7,7 @@
 //
 // The circles figure uses the offline sample (docs/app/data/samples/uu80162166),
 // the University of Utah analysts' picks and the app's own locate/geo code with
-// the Wave Race defaults, so the circles are the ones Wave Race draws.
+// the Quake Locator defaults, so the circles are the ones Quake Locator draws.
 // Output: plain SVG with a white background (readable in light and dark docs themes).
 import fs from 'node:fs';
 
@@ -308,7 +308,7 @@ function circles123() {
 
   const fy = top + ph + 22;
   body.push(text(pad + 2, fy, `Real data: M${event.mag.toFixed(1)} quake ${esc(event.place.replace(/^\d+ km \w+ of /, 'near '))}, ${event.id}; University of Utah analyst picks (network UU).`, { size: 12, fill: C.muted }));
-  body.push(text(pad + 2, fy + 17, `Circle radius: map distance from S − P, with P ${vp} km/s, S ${vs} km/s, depth ${depthKm} km (Wave Race defaults). Star: best fit.`, { size: 12, fill: C.muted }));
+  body.push(text(pad + 2, fy + 17, `Circle radius: map distance from S − P, with P ${vp} km/s, S ${vs} km/s, depth ${depthKm} km (Quake Locator defaults). Star: best fit.`, { size: 12, fill: C.muted }));
   const H = fy + 30;
   const out = card(W, H, 'Distance circles: one, two, three stations',
     'Distance circles from S minus P times at stations TCRU, MTPU and WCU: one circle, then two crossing points, then one meeting point.');
