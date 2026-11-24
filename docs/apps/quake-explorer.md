@@ -113,14 +113,17 @@ One station's record (top) sits above its **spectrogram** (bottom): time across,
 introduces spectrograms.
 
 <figure markdown="span">
-  ![Investigation B for the Junction quake at station MTPU, 29 km away. Top: the seismogram filtered 1 to 10 Hz, flat until P at 5 seconds, then a burst that fades by 40 seconds. Below: the spectrogram, dark before 5 seconds, then green and yellow from about 1 to 20 Hz. A bright band from 1 to 10 Hz is marked by two lines; outside it the picture is dimmed. The panel lists Band 1.0 to 10 Hz, how many times the quake is stronger than the noise in that band, and what a 1 Hz wave sounds like at 100 times speed.](img/qe-b-spectrogram.png){ loading=lazy }
+  ![Investigation B for the Junction quake at station MTPU, 29 km away. Top: the seismogram filtered 1 to 10 Hz, flat until P at 5 seconds, then a burst that fades by 40 seconds. Below: the spectrogram, dark before 5 seconds, then green and yellow from about 1 to 20 Hz. A bright band from 1 to 10 Hz is marked by two lines, each with a white handle in the middle; outside it the picture is dimmed. A blue label at the top of the spectrogram says "Drag up or down to choose a band of notes". The panel lists Band 1.0 to 10 Hz, how many times the quake is stronger than the noise in that band, and what a 1 Hz wave sounds like at 100 times speed.](img/qe-b-spectrogram.png){ loading=lazy }
   <figcaption>Figure 3. The Junction quake at station MTPU, 29 km away. The band marked on the
   spectrogram is the filter: the record above keeps only those notes.</figcaption>
 </figure>
 
-- **Choose the notes.** Drag up or down on the spectrogram to mark a band. The record above
-  keeps only those frequencies, and the panel says how many times stronger the quake is than
-  the background noise in that band. Find the band where it stands out most.
+- **Choose the notes.** Drag up or down on the spectrogram to mark a band (the blue label on
+  it says so until you do). The record above keeps only those frequencies, and the panel says
+  how many times stronger the quake is than the background noise in that band. Drag the
+  handle on the band's top or bottom edge to change it; double-click to keep all notes again.
+  Find the band where the quake stands out most. With a keyboard: click the spectrogram, then
+  ↑ ↓ move the top edge, Shift + ↑ ↓ the bottom edge, and Esc keeps all notes.
 - **Listen.** Choose a **Speed-up** and press **▶ Listen**. The part of the record on screen
   plays sped up, so its notes become high enough to hear; a cursor moves across the
   spectrogram. Headphones help in class.
