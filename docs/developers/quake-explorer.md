@@ -17,7 +17,7 @@ data services and their licenses are in [Data sources and licensing](data-source
 | `docs/app/js/quake-explorer/data.js` | Loading a record section (`loadRecordSection`) or one station's three components (`loadStation`) from any DataSource |
 | `docs/app/js/quake-explorer/config.js` | Presets (each with an offline sample), per-investigation settings |
 | `docs/app/js/quake-explorer/record-section-view.js` | Canvas record section: traces by distance, rulers, picks, fitted lines, model curves, reduced time |
-| `docs/app/js/quake-explorer/spectrogram-view.js` | Canvas spectrogram with a draggable band (the filter) and a play cursor; `followTraceView` keeps it in step with a TraceView |
+| `docs/app/js/quake-explorer/spectrogram-view.js` | Canvas spectrogram with a draggable band (the filter) and a play cursor; `followTraceView` keeps it in step with a TraceView. In B an on-plot hint ("↕ Drag up or down…") shows until the band is first changed, then the band readout; edges have grips (grabbed from 16 px by touch, 7 px by mouse); double-click or Esc keeps all notes. In D the spectrogram is look-only (no band, no tab stop). Edge logic tested in `tests/spectrogram-band.test.js` |
 | `docs/app/js/quake-explorer/motion-view.js` | Particle motion: three-component strip, paths from above and from the side, guess / computer / true arrows, trust meter |
 | `docs/app/js/quake-explorer/audio.js` | Sped-up playback with Web Audio |
 | `docs/app/js/quake-explorer/travel-time-chart.js` | Travel-time chart for distant quakes |

@@ -155,7 +155,7 @@ sequences the work and integrates it.
   | D2-plots | Six missing plots, three figure fixes | `-plots`, branch `plots` | active |
   | D3-rename | Wave Race → Quake Locator (names only; addresses unchanged), incl. both documents | `-rename`, branch `rename` | merged 2026-11-24 (D30) |
   | D4-spelling | US spelling across the site | `-spelling`, branch `us-spelling` | after D2, D3 and D5 merge |
-  | D5-band-hint | Quake Explorer B: show on the spectrogram that dragging chooses a band | `-band`, branch `band-hint` | active |
+  | D5-band-hint | Quake Explorer B: show on the spectrogram that dragging chooses a band | `-band`, branch `band-hint` | merged 2026-11-24 |
 
   Retired before IDs: the figures sessions, the Quake Explorer session (merged, D22–D25).
 
@@ -303,6 +303,11 @@ out of the menus:
   Both documents and their Word copies use the new name; the overview's diagram is now made
   by `tools/planning-docx/overview-images.mjs`. `npm test` = 168. History (decisions, the
   Quake Explorer plan, older status entries here) keeps the old name.
+- 2026-11-24 (night): **Quake Explorer B shows that the band is dragged** (session
+  D5-band-hint, merged): on-plot hint, edge grips, touch support, step text leads with the
+  action; fixed an error on Esc or double-click (all notes); D's spectrogram is look-only.
+  `npm test` = 177. Left for later: for distant quakes B's bottom edge reads 0.039 Hz while
+  the panel says 0.020 Hz (the filter used).
 
 ## Next steps
 
