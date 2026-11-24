@@ -292,6 +292,96 @@ Phase 2 has landed on `main` (shared top bar and credits module in `docs/app/js/
 `adding-an-app.md`). Teaching material that depends on Phase 0 results (the Moho/Pn idea,
 particle-motion accuracy) waits for Gus's OK on those results.
 
+## 9. Phase 0 results (2026-11-24)
+
+Science checks with real UU data and the app's own modules (`tools/quake-explorer/`:
+`pn-check.mjs`, `motion-check.mjs`, `blast-check.mjs`, `answer-key.mjs`). The answer-key numbers
+are recomputed from the bundled samples by `tests/explorer-sample.test.js`. **Teaching material
+that depends on these results waits for Gus's OK.**
+
+**A. Record section: supported. The Moho/Pn idea works with Magna; Junction only hints at it.**
+
+| | Junction M3.3 (2026) | Magna M5.7 (2020) |
+|---|---|---|
+| P speed near the quake (analyst picks within 100 km) | 6.13 ± 0.12 km/s | 6.07 ± 0.09 km/s |
+| S speed | 3.41 km/s from the 3 analyst S picks (within 77 km); 3.67 km/s with computer picks to 240 km (scatter 0.75 s) | 3.6 ± 0.2 km/s (few, noisy picks) |
+| Analyst P picks reach | 178 km | 182 km |
+| Pg -> Pn bend (analyst + clear computer picks) | hint only: beyond ~200 km, far line 8.4 ± 1.0 km/s from 4–6 stations | clear: 6.17 -> 7.78 ± 0.10 km/s, F = 60 (clear above 12), lines cross ~150 km |
+| Crust thickness (intercept method) | 40–47 km, unreliable | ~37 km |
+
+- In reduced time (t − d/8), Pn arrivals run straight down: the bend is obvious. In plain time
+  it shows with two rulers. Suggest reduced time as an optional "advanced" toggle.
+- The Pn evidence beyond ~180 km rests on computer (AIC) picks, because the analysts stopped
+  there. Those picks are labelled as computer picks in the samples.
+- **True ground speed:** Junction is clean. Its peaks fall as distance^−1.7, with about ×2
+  scatter. Magna (2020) is messy:
+  - 10 of 31 stations clipped: 9 older 16-bit short-period stations at ±32 768 counts, plus NOQ
+    at the 24-bit limit.
+  - Others are off by up to ×100; SGU's 2020 short-period channel is one of them.
+  - So use Junction for the true-amplitude toggle. Show Magna stretched, with clipped traces
+    labelled as a teaching moment.
+- Crust thickness of 37 km (Magna) and 40+ km (Junction, paths to the east) look plausible for
+  central and northern Utah. Check them against a published crustal-thickness map before the
+  theory page is written.
+
+**B. Frequencies: supported.**
+
+- **Near vs far.** High/low ratio (8–20 Hz / 1–5 Hz) for Junction: MTPU (29 km) 0.22, SGU
+  (114 km) 0.14, LIUT (212 km) 0.14.
+- **Blast vs quake of the same size.** Leamington quarry blast uu80161881 (M2.11, 17:33 MDT)
+  against earthquake uu80120191 (M2.11, 13 km away, 20:30 MDT):
+  - At 13 stations, the blast has fewer high notes at all 13 (median 0.27 vs 0.61) and a larger
+    P/S amplitude ratio at 9 of 13 (median 0.67 vs 0.34).
+  - At SUU (Juab stand-in): high/low 2.05 vs 3.25; P/S 2.44 vs 0.66.
+  - A second quake (uu80160971) agrees: 0.35 vs 0.97, with P/S larger at 6 of 8 stations.
+  - This supports "evidence, not proof".
+
+**C. Particle motion: supported for stations within about 100 km.**
+
+- 271 station-quake pairs from 14 quakes. With 1–5 Hz filtering and a 0.3–0.5 s window from
+  the P pick:
+  - median error 12–14°, about 70% within 30°, 6–7% pointing to the wrong end;
+  - with clear motion only (linearity > 0.8, up/away > 0.5): median 10°, 85% within 30°.
+- At 130–150 km it becomes unreliable, which is where SGU and TMU sit for most recent quakes
+  near FORGE.
+- Sample answers (0.5 s window):
+
+| Sample | Stations and errors |
+|---|---|
+| Kenilworth M2.7 | TMU (Wasatch Academy stand-in, 68 km) −3°; MPU 3°; CVRU −2°; BSUT 14° |
+| Junction | MTPU 16°; TCRU 14°; FOR1 2° |
+| Magna | SPU −5°; BGU 1° |
+
+**D. Distant quakes:** only the feasibility checks in section 3. Its sample (about 1 MB) will be
+built when Phase D starts.
+
+**Offline samples** (`docs/app/data/samples/`, `"explorer"` list), 1.6 MB in total:
+
+| Sample | Contents | Size |
+|---|---|---|
+| qe-junction | 24 stations, 300 km | 650 KB |
+| qe-magna | 31 stations, 400 km | 700 KB |
+| qe-leamington-blast | 5 stations | 72 KB |
+| qe-leamington-quake | 5 stations | 82 KB |
+| qe-kenilworth | 4 stations | 85 KB |
+
+**Discussion material (Gus: differences from analyst picks are fine, and make good short
+discussions):**
+- Computer S picks scatter by ±0.75 s around the analysts' S line. Why is S harder to pick
+  than P?
+- The Pn bend is only visible beyond where the analysts stopped picking.
+- Clipped Magna records: the instrument maxed out. Why does a dead or clipped station look
+  quiet in "true" mode?
+- Particle-motion directions are off by 10–15° on average. Rocks are not uniform, and waves
+  bend.
+
+**Needs Gus's OK before teaching material is written:**
+1. Pn/Moho taught with Magna as the main example and Junction as a hint.
+2. Particle motion framed as "usually within about 15°, for stations within about 100 km".
+   The one-station location challenge would use Kenilworth/TMU and Junction's near stations.
+3. Reduced time as an optional advanced toggle.
+4. The true-amplitude toggle only for Junction.
+
 ## Appendix: candidate presets (checked 2026-11-24)
 
 | Use | Event | USGS id | Notes |
