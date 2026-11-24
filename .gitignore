@@ -1,0 +1,11 @@
+site/
+node_modules/
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+*.pyc
+.DS_Store
+Thumbs.db
+
+# Copies the Claude desktop app saves when files are sent in chat
+Claude outputs/

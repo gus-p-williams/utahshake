@@ -1,0 +1,39 @@
+site_name: UHSN Student Seismology
+site_description: Apps and docs for the Utah High School Seismic Network
+# site_url: https://<org>.github.io/<repo>/      # set after the GitHub remote exists
+# repo_url: https://github.com/<org>/<repo>
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - content.code.copy
+  palette:
+    - scheme: default
+      toggle: {icon: material/brightness-7, name: Dark mode}
+    - scheme: slate
+      toggle: {icon: material/brightness-4, name: Light mode}
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc: {permalink: true}
+  - pymdownx.details
+  - pymdownx.arithmatex: {generic: true}
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+extra_javascript:
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+nav:
+  - Home: index.md
+  - Apps:
+      - Open the apps: app/index.html
+  - Planning:
+      - Evaluation (snapshot): planning/evaluation.md
+      - Roadmap: planning/roadmap.md
+      - Decisions: planning/decisions.md
