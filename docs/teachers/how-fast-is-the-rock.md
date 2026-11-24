@@ -3,13 +3,19 @@
 Students follow [investigation A in the Quake Explorer guide](../apps/quake-explorer.md#a) (what
 they see, step by step) and use [Quake Explorer](../app/quake-explorer/index.html?event=uu80162166&inv=A).
 
-**Apps used:** [Quake Explorer](../apps/quake-explorer.md), investigation A (the record section)
-
-**Before this:** [Wave Race](../apps/wave-race.md) (this lesson answers "where did 5.8 and 3.3 km/s
-come from?")
-
-**Driving question:** How fast do waves travel through the rock under Utah, and how deep does
-the crust go?
+!!! abstract "At a glance"
+    - **Driving question:** How fast do waves travel through the rock under Utah, and how deep
+      does the crust go?
+    - **Time:** 15 min (whole class, on the projector) or 45–55 min (pairs).
+    - **Setup:** Browser only. Live records from University of Utah stations, or the offline
+      samples if the school network blocks them.
+    - **Apps and tools:** [Quake Explorer](../apps/quake-explorer.md), investigation A (the record
+      section)
+    - **Before this:** [Wave Race](wave-race-card.md) (this lesson answers "where did 5.8 and
+      3.3 km/s come from?")
+    - **Materials:** Student devices with a browser (Chromebooks are fine) and a projector.
+    - **Utah standards:** PHYS.4.1 · ESS.2.2 · GEOL.3.x · CS&nbsp;11/12.DA.1
+      ([crosswalk](standards.md#quake-explorer))
 
 **Students will:** read a record section (many seismograms stacked by distance); measure the
 speeds of P and S waves from the slope of their arrivals; explain why the slope is the speed;
@@ -17,11 +23,7 @@ compare their measurement with University of Utah analysts' picks; find the bend
 wave along the top of the mantle overtakes the direct wave, and use it to estimate how thick
 the crust is.
 
-**Standards:** PHYS.4.1, ESS.2.2, GEOL.3.x, CS 11/12.DA.1 (see the
-[standards crosswalk](standards.md#quake-explorer)).
-
-**You need:** student devices with a browser (Chromebooks are fine), a projector, and two quakes
-in Quake Explorer. Each link opens investigation A:
+**Quakes to load.** Two quakes in Quake Explorer; each link opens investigation A:
 
 | Quake | Use it for | Live data | Offline sample |
 | --- | --- | --- | --- |

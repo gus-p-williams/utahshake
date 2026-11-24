@@ -284,7 +284,7 @@ function downloadAnswers() {
 // Start
 
 function init() {
-  showCredits($('credits'), ['waveforms', 'events', 'map']);
+  showCredits($('credits'), ['waveforms', 'events', 'map', 'traveltimes']);
   showSourceBadge($('source-badge'), source);
   const sw = $('source-switch');
   sw.href = switchUrl(source.live);

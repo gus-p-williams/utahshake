@@ -3,12 +3,21 @@
 Students follow [investigation B in the Quake Explorer guide](../apps/quake-explorer.md#b) (what
 they see, step by step) and use [Quake Explorer](../app/quake-explorer/index.html?event=uu80162166&inv=B).
 
-**Apps used:** [Quake Explorer](../apps/quake-explorer.md), investigation B (spectrogram, filter
-and sound) · [Build a Wiggle](../app/build-a-wiggle/index.html) (the warm-up cartoon, also shown
-on [Frequencies, fading and sound](../theory/frequencies.md))
-
-**Driving question:** What notes (frequencies) does a quake play, and why does a faraway quake
-sound like a low rumble?
+!!! abstract "At a glance"
+    - **Driving question:** What notes (frequencies) does a quake play, and why does a faraway
+      quake sound like a low rumble?
+    - **Time:** 15 min (whole class, on the projector) or 45–55 min (pairs).
+    - **Setup:** Browser only. Live records from University of Utah stations, or the offline
+      samples if the school network blocks them.
+    - **Apps and tools:** [Quake Explorer](../apps/quake-explorer.md), investigation B
+      (spectrogram, filter and sound) · [Build a Wiggle](../app/build-a-wiggle/index.html) (the
+      warm-up animation, also on [Frequencies, fading and sound](../theory/frequencies.md))
+    - **Before this:** Nothing required. Students who have done [Wave Race](wave-race-card.md)
+      already know P and S.
+    - **Materials:** Student devices with a browser (Chromebooks are fine), a projector with
+      speakers, and headphones or earbuds for pairs if you can.
+    - **Utah standards:** PHYS.4.1 · PHYS.2.1 · ESS.4.1 · CS&nbsp;9/10.DA.3
+      ([crosswalk](standards.md#quake-explorer))
 
 **Students will:** read a spectrogram (time across, frequency up, colour for strength); choose a
 band of frequencies as a filter and find where the quake stands out from the noise; turn
@@ -16,11 +25,7 @@ shaking into sound by speeding it up, and explain why that raises every note; co
 notes at a near and a far station and explain why high notes fade first; weigh the evidence in
 "quarry blast or earthquake?".
 
-**Standards:** PHYS.4.1, PHYS.2.1, ESS.4.1, CS 9/10.DA.3 (see the
-[standards crosswalk](standards.md#quake-explorer)).
-
-**You need:** student devices with a browser (Chromebooks are fine), a projector **with
-speakers**, and headphones or earbuds for pairs if you can. Each link opens investigation B:
+**Quakes to load.** Each link opens investigation B:
 
 | Quake | Use it for | Live data | Offline sample |
 | --- | --- | --- | --- |

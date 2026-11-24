@@ -12,7 +12,7 @@ finds the quake.
       questions below.
     - **Works on:** any browser, including Chromebooks. No install, no accounts.
     - **The science:** [Seismic waves](../theory/waves.md) · [Distance from S minus P](../theory/s-minus-p.md) · [Locating a quake](../theory/locating.md)
-    - **For teachers:** [Wave Race activity card](../teachers/wave-race-card.md) (as the warm-up) · [Standards](../teachers/standards.md#quake-waves)
+    - **For teachers:** [One quake, two waves](../teachers/one-quake-two-waves.md) (a 10-minute demo) · [Wave Race activity card](../teachers/wave-race-card.md) (as the warm-up) · [Standards](../teachers/standards.md#quake-waves)
     - **Data:** none. A cartoon: the seismograms are made up, but the arrival times are exact
       (P 5.8 km/s, S 3.3 km/s, as in Wave Race).
 
@@ -52,5 +52,6 @@ real seismograms, try [Wave Race](wave-race.md).
 
 ## Where else it appears
 
-On [Locating a quake](../theory/locating.md#watch-it-happen), next to the science, and as the
-warm-up in the [Wave Race activity card](../teachers/wave-race-card.md).
+On [Locating a quake](../theory/locating.md#watch-it-happen), next to the science; in the
+10-minute demo [One quake, two waves](../teachers/one-quake-two-waves.md); and as the warm-up in
+the [Wave Race activity card](../teachers/wave-race-card.md).

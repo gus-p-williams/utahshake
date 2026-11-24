@@ -5,14 +5,21 @@ they see, step by step) and use [Quake Explorer](../app/quake-explorer/index.htm
 The full-period version adds [investigation A](../apps/quake-explorer.md#a): students measure
 how fast the rock carries waves, then locate a quake from a single station.
 
-**Apps used:** [Quake Explorer](../apps/quake-explorer.md), investigation C (particle motion),
-plus A in the full period · [How P and S waves move rock](../theory/waves.md#two-body-waves) (the
-warm-up animation)
-
-**Before this:** [Wave Race](../apps/wave-race.md) (distance from S − P)
-
-**Driving question:** Which way did the ground move when the waves arrived, and can one station
-tell us where the quake was?
+!!! abstract "At a glance"
+    - **Driving question:** Which way did the ground move when the waves arrived, and can one
+      station tell us where the quake was?
+    - **Time:** 15 min (investigation C, whole class, on the projector) or 45–55 min (A then C,
+      pairs).
+    - **Setup:** Browser only. Live records from University of Utah stations, or the offline
+      samples if the school network blocks them.
+    - **Apps and tools:** [Quake Explorer](../apps/quake-explorer.md), investigation C (particle
+      motion), plus A in the full period · [How P and S waves move rock](../app/wave-motion/index.html)
+      (the warm-up animation, also on [Seismic waves](../theory/waves.md#two-body-waves))
+    - **Before this:** [Wave Race](wave-race-card.md) (distance from S − P)
+    - **Materials:** Student devices with a browser (Chromebooks are fine) and a projector. Keep
+      this card off the projector until the reveal: its answer key names the quake's place.
+    - **Utah standards:** PHYS.4.1 · ESS.2.2 · CS&nbsp;9/10.DA.3
+      ([crosswalk](standards.md#quake-explorer))
 
 **Students will:** combine three sensors (up, north, east) into the path the ground traced; show
 from real data that P waves push and pull along their path and S waves shake across it; find
@@ -20,11 +27,7 @@ the direction to a quake from the first half second of P; locate a quake from on
 direction plus S − P distance, using wave speeds they measured; judge how far to trust the
 answer.
 
-**Standards:** PHYS.4.1, ESS.2.2, CS 9/10.DA.3 (see the
-[standards crosswalk](standards.md#quake-explorer)).
-
-**You need:** student devices with a browser (Chromebooks are fine), a projector, and these
-quakes in Quake Explorer:
+**Quakes to load** in Quake Explorer:
 
 | Quake | Use it for | Live data | Offline sample |
 | --- | --- | --- | --- |

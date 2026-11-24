@@ -78,4 +78,5 @@ export const ATTRIBUTION = {
   events: 'Earthquake locations and analyst picks: U.S. Geological Survey ' +
     'ComCat / University of Utah Seismograph Stations.',
   map: 'Map data © OpenStreetMap contributors.',
+  traveltimes: 'Travel times: iasp91 Earth model, Kennett and Engdahl 1991, via ObsPy TauP.',
 };

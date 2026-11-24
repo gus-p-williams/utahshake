@@ -3,24 +3,26 @@
 Students follow [investigation D in the Quake Explorer guide](../apps/quake-explorer.md#d) (what
 they see, step by step) and use [Quake Explorer](../app/quake-explorer/index.html?event=us7000qd1y&inv=D).
 
-**Apps used:** [Quake Explorer](../apps/quake-explorer.md), investigation D (distant quakes;
-B and C work for the same quake) · a spreadsheet or graph paper for the class chart
-
-**Before this:** [Wave Race](../apps/wave-race.md) (distance from S − P)
-
-**Driving question:** A big quake thousands of kilometres away shakes Utah's seismometers, though
-nobody here feels it. What can its waves tell us about the inside of the Earth?
+!!! abstract "At a glance"
+    - **Driving question:** A big quake thousands of kilometers away shakes Utah's seismometers,
+      though nobody here feels it. What can its waves tell us about the inside of the Earth?
+    - **Time:** 15 min (whole class, on the projector) or 45–55 min (pairs).
+    - **Setup:** Browser only. Live records from University of Utah stations; the class chart
+      needs them, because Sand Point is the only distant quake stored offline.
+    - **Apps and tools:** [Quake Explorer](../apps/quake-explorer.md), investigation D (distant
+      quakes; B and C work for the same quake) · a spreadsheet for the class chart
+    - **Before this:** [Wave Race](wave-race-card.md) (distance from S − P)
+    - **Materials:** Student devices with a browser (Chromebooks are fine), a projector, speakers
+      or headphones (optional, for **▶ Listen**), and graph paper if you don't use a spreadsheet.
+    - **Utah standards:** PHYS.4.1 · ESS.2.2 · CS&nbsp;9/10.DA.3
+      ([crosswalk](standards.md#quake-explorer))
 
 **Students will:** recognise P, S and surface waves on half an hour of record from a distant
 quake; pick P and S and turn S − P into a distance with a model of the whole Earth; explain why
 surface waves arrive last but are the biggest; explain why S shows best on the horizontal
 sensors; build a class travel-time chart from several quakes and explain why it curves.
 
-**Standards:** ESS.2.2, PHYS.4.1, CS 9/10.DA.3 (see the
-[standards crosswalk](standards.md#quake-explorer)).
-
-**You need:** student devices with a browser (Chromebooks are fine), a projector, speakers or
-headphones (optional, for **▶ Listen**), and Quake Explorer:
+**Quakes to load** in Quake Explorer:
 
 | Quake | Use it for | Live data | Offline sample |
 | --- | --- | --- | --- |
