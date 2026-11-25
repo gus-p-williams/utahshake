@@ -170,8 +170,8 @@ yet.
   student can't be required to use a personal device for coursework. A set of school phones
   avoids the question.
 - **The district approves the app.** Since 2026, each district must approve an instructional
-  technology before its schools use it in class (Utah Code 53G-7-228). DRI and the schools are
-  handling that with the districts; ask before using phyphox in a class.
+  technology before its schools use it in class (Utah Code 53G-7-228). That is for DRI and the
+  schools to arrange with the districts; ask before using phyphox in a class.
 - **Privacy.** phyphox has no accounts and keeps its recordings on the phone. Label phones and
   files by number or group, never by a student's name, as everywhere on this site.
 - **Leave Remote access off at school.** phyphox can show a running experiment in a browser on
