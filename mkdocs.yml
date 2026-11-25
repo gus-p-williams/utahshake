@@ -31,6 +31,9 @@ markdown_extensions:
   - toc: {permalink: true}
   - pymdownx.details
   - pymdownx.arithmatex: {generic: true}
+  # Site graphics (tools/figures/site-graphics.mjs) are included inline, so they follow the
+  # light/dark switch: --8<-- "img/graphics/<name>.svg". check_paths: a missing file fails the build.
+  - pymdownx.snippets: {base_path: [docs], check_paths: true}
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid

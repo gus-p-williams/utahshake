@@ -20,3 +20,73 @@
     vertical-align: middle;
   }
 }
+
+/* Site graphics: small inline SVGs made by tools/figures/site-graphics.mjs (D16) and included
+   with pymdownx.snippets, so they follow the light/dark switch. Each mark carries a short class;
+   the colors are the apps' own (docs/app/css/app.css). */
+.uhsn-g {
+  --g-panel: #f6f7f9; --g-trace: #1f2937; --g-alt: #1d4ed8; --g-grid: #d9dde3; --g-muted: #8a929d;
+  --g-p: #1d4ed8; --g-s: #c0262d; --g-land: #f3efe4; --g-edge: #c9c1ad; --g-school: #fbbf24;
+  --g-text: #374151;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+[data-md-color-scheme="slate"] .uhsn-g {
+  --g-panel: #14171d; --g-trace: #d6dbe1; --g-alt: #6b9cff; --g-grid: #2c333c; --g-muted: #6b7380;
+  --g-p: #6b9cff; --g-s: #ff6b6b; --g-land: #232831; --g-edge: #4a525c; --g-school: #fbbf24;
+  --g-text: #c9ced6;
+}
+.uhsn-g .pa { fill: var(--g-panel); }
+.uhsn-g .la { fill: var(--g-land); }
+.uhsn-g polygon.la { stroke: var(--g-edge); }
+.uhsn-g .tf { fill: var(--g-trace); }
+.uhsn-g .pf { fill: var(--g-p); }
+.uhsn-g .sf { fill: var(--g-s); }
+.uhsn-g .mf { fill: var(--g-muted); }
+.uhsn-g .sc { fill: var(--g-school); stroke: var(--g-trace); }
+.uhsn-g .tr { stroke: var(--g-trace); }
+.uhsn-g .al { stroke: var(--g-alt); }
+.uhsn-g .gr { stroke: var(--g-grid); }
+.uhsn-g .mu { stroke: var(--g-muted); }
+.uhsn-g .ed { stroke: var(--g-edge); }
+.uhsn-g .p { stroke: var(--g-p); }
+.uhsn-g .s { stroke: var(--g-s); }
+.uhsn-g .e-pa { stroke: var(--g-panel); }
+.uhsn-g .e-la { stroke: var(--g-land); }
+.uhsn-g text.tx { fill: var(--g-text); stroke: var(--g-land); }
+
+/* Where the site graphics sit. App pictures: full card width, under the card's title. */
+.md-typeset svg.uhsn-thumb {
+  max-width: 18rem;   /* the same size on every card, even a card alone on its row */
+  border-radius: .3rem;
+}
+/* Small square pictures: beside a paragraph (home page app list) ... */
+.md-typeset p > svg.uhsn-icon {
+  float: left;
+  width: 2.6rem;
+  height: 2.6rem;
+  margin: .15rem .7rem .2rem 0;
+}
+.md-typeset p:has(> svg.uhsn-icon) { display: flow-root; }
+/* ... or at the right of a list item (The Science index). */
+.md-typeset ol > li:has(> svg.uhsn-icon) {
+  position: relative;
+  min-height: 2.9rem;
+  padding-right: 3.6rem;
+}
+.md-typeset ol > li > svg.uhsn-icon {
+  position: absolute;
+  top: .15rem;
+  right: 0;
+  width: 2.8rem;
+  height: 2.8rem;
+}
+/* The home page graphic and its caption. */
+.md-typeset svg.uhsn-banner { margin: 1.4em 0 0; }
+.md-typeset p.uhsn-caption {
+  margin-top: .4em;
+  font-size: .68rem;
+  line-height: 1.5;
+  color: var(--md-default-fg-color--light);
+}
