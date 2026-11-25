@@ -1,8 +1,38 @@
 # UHSN data specification: what the website needs from DRI's server
 
-*Draft 0.2, 2026-11-25, from the UHSN website team (Gus Williams) for DRI IT. It goes with
-the brief "UHSN school seismometer data: a brief for DRI IT". It replaces draft 0.1 after
-two independent critiques. Nothing here is decided until DRI IT agrees. US spelling.*
+*Version 1.1, 2026-11-25, from the UHSN website team (Gus Williams) for DRI IT. It goes with
+the brief "UHSN school seismometer data: a brief for DRI IT". It replaces draft 0.2 (version
+1.0) after the first reader was built against it. Nothing here is decided until DRI IT
+agrees. US spelling.*
+
+**Changes in version 1.1.** The first reader (the School Shake Viewer's `UHSNSource`,
+`docs/app/js/data/uhsn.js`) and its test-tree generator (`tools/uhsn-test/make-tree.mjs`)
+found nine gaps:
+
+1. **The cutoff.** A record is public when it ends *at or before* the cutoff (≤). This is
+   now the rule everywhere, and "a record's end" is defined (sections 2, 5.2, 5.4, 7.5, 10).
+2. **The day of a record.** A record goes in the day file of the UTC day in which its first
+   sample falls, so a day's last record can run past 00:00 UTC. Readers also read the
+   previous day's file (7.7).
+3. **The seek table.** The case of a mark left out of the table is now covered, steps are
+   in `recordLength` bytes, and every record in a file has the same length (7.7).
+4. **Overlaps and gaps.** An overlap now has a tolerance of half a sample interval; gaps at
+   the edges of a day and across midnight are defined (7.3).
+5. **Availability status.** The values are now `filling`, `closed` and `withdrawn`;
+   whether a day is full is told by `coverage`. A closed day that began at noon reads 0.5
+   (7.6).
+6. **The index's status** is measured against `publicUntil`, not "now", so a delayed
+   station can be `current`. A stalled publish step shows in `generated` (7.5).
+7. **A day file newer than the index.** The write order stays as it was, and readers get
+   explicit rules for this case (7.3).
+8. **Units:** `M` (displacement) is added (7.4).
+9. **Test files built from EarthScope** must drop the first and last record of each answer
+   (6.4).
+
+Change 5 renames values, which section 7.3's version rule would not allow once data are
+published. No server has published version 1 yet, so it is made now. **Follow-ups in our
+code:** `make-tree.mjs` writes the old status names and measures the index's status against
+"now"; both change to match. The reader already behaves as 1.1 says.
 
 ## 1. Purpose and status
 
@@ -48,7 +78,8 @@ decides how to build and run it:** hardware, software, hosting, backups and moni
 | **Public tree** | The folder of files served over HTTPS (section 7) |
 | **Delivered** | Arrived in the intake |
 | **Published** | Copied into the public tree by the publish step (section 5) |
-| **Cutoff** | The time before which data may be public at a station: now minus the station's approved delay |
+| **A record's end** | Its first sample's time plus its number of samples ÷ its sample rate: the end of its last sample's interval. Every "ends" in this spec means this |
+| **Cutoff** | The time up to which data may be public at a station: now minus the station's approved delay. A record is public only if it ends at or before the cutoff |
 | **Sidecar** | A small JSON file beside each published day file, describing it (section 7.7) |
 | **Sharing station** | A school Shake that shares its data with Raspberry Shake's network |
 
@@ -114,10 +145,13 @@ DRI runs a publish step every 10 minutes (or at least hourly). For each station:
 
 1. **Find the cutoff:** cutoff = now − the station's approved delay. It is 0 for sharing
    stations. For an unapproved station, nothing is published.
-2. **Copy whole records only.** Take only those whose last sample ends before the cutoff.
-   Records are copied byte for byte, and headers are never rewritten.
+2. **Copy whole records only.** Take only those that end at or before the cutoff (≤). A
+   record that ends exactly at the cutoff holds nothing after it. Records are copied byte for
+   byte, and headers are never rewritten.
 3. **Sort and clean.** In the public day file, records must be in time order with no
-   duplicates (same NSLC and start time). Merging hourly pieces or backfills must keep this.
+   duplicates (same NSLC and start time, to 0.0001 s). Merging hourly pieces or backfills
+   must keep this. Each record goes in the file of the UTC day in which its first sample
+   falls (7.7).
 4. **Replace atomically.** Write the new public day file under a temporary name, then rename
    it into place, so readers never see half a file.
 5. **Update the descriptions,** in this order: the sidecar (7.7), then the station-year
@@ -147,8 +181,8 @@ Our checker (section 12):
 
 - reads `publicUntil` for each station;
 - fetches the latest public day file and its sidecar;
-- confirms that no record ends after `publicUntil`, and that no product holds a value for a
-  time after it;
+- confirms that every record ends at or before `publicUntil`, and that no product holds a
+  value for a step that ends after it;
 - for each not-sharing or unconfirmed station, confirms that nothing is published at all.
 
 DRI runs it before going live and after any change to the publish step.
@@ -209,6 +243,11 @@ same files become our test fixtures. For each, we record:
 - **If the folder or file names differ** (from the Shake or `slarchive`), the bridge renames
   into this spec's layout without touching file contents.
 - **Our reader must parse every fixture.**
+- **Test files built from EarthScope** (as ours are, until school data exist): EarthScope's
+  `dataselect` trims the first and last record of each answer to the time window asked for,
+  so those two records are not the station's originals. Ask for a window padded by a few
+  minutes and drop the first and last record of each answer, as
+  `tools/uhsn-test/make-tree.mjs` does.
 
 ## 7. Design (a): plain files on an HTTPS web server
 
@@ -298,12 +337,32 @@ No error body is required.
 
 **Gaps, overlaps and coverage:**
 
-- *A gap* is more than 1.5 sample intervals between the end of one record's last sample
-  and the next record's first sample (more than 15 ms at 100 samples/s). It is reported as
-  `[gapStart, gapEnd)`.
-- *Overlaps* (the next record starts before the previous one ends) are listed separately.
-- *Coverage* is samples present ÷ samples expected in `[day start, min(day end,
-  publicUntil))`, from 0 to 1, to 4 decimals.
+*A gap* is more than 1.5 sample intervals between the end of the data so far and the next
+record's first sample (more than 15 ms at 100 samples/s). It is reported as
+`[gapStart, gapEnd)`.
+
+- **Gaps are listed between the records of one day file only.**
+- **The edges of a day are not listed as gaps.** That covers time missing at the start of
+  the day, before `firstSample`, and at its end, after `lastSampleEnd` (up to the day's end
+  or `publicUntil`). Readers see it in those two fields, and it lowers `coverage`.
+- **Across midnight,** a reader joining day D and day D+1 compares D's `lastSampleEnd`
+  with D+1's `firstSample`. If they are more than 1.5 intervals apart, that is a gap.
+  Normally D+1's first record starts a few seconds after 00:00, where D's last record ends
+  (7.7). That is no gap.
+
+*An overlap* is listed when a record starts **more than half a sample interval** before the
+end of the data so far. Clocks jitter by microseconds, so smaller differences are not
+overlaps. It is reported as `[start of that record, end of the doubled stretch)`.
+
+*Coverage* = samples present ÷ samples expected in `[day start, min(day end,
+publicUntil))`, from 0 to 1, to 4 decimals.
+
+- **What counts:** only samples of this file's records that fall inside that span, each
+  instant once. A sample within half an interval of one already counted is the same instant.
+- **A full day can read just below 1.** The first seconds of a day are held by the
+  previous day's last record (7.7), so the day's coverage can fall short of 1 by up to one
+  record (about 0.0001).
+- **Coverage, not status, says how full a day is** (7.6).
 
 **Missing values and field order:**
 
@@ -318,7 +377,19 @@ No error body is required.
 - A breaking change gets a new path (`v2`) beside `v1` during a changeover.
 
 **Write order:** day file renamed into place, then its sidecar, then the station-year
-availability file, then `index.json`.
+availability file, then `index.json`. The index never announces data that aren't there yet.
+
+**Readers must expect files newer than the index.** Between those writes, a reader can see a
+day file or sidecar that is newer than the `index.json` it read. The embargo is still safe,
+because the publish step only ever writes public records. Readers must:
+
+1. **Drop every record that ends after the `publicUntil`** they read in `index.json`. The
+   next index will announce those records.
+2. **Find records by their header times,** and use the sidecar's offsets only as a guide.
+   After a refill, offsets can shift until the sidecar is read again. A reader may then miss
+   a few records for a moment, but never shows wrong ones.
+3. **On a 416 answer** (the file is shorter than its sidecar says, because it was just
+   replaced), read the sidecar again or read the whole file.
 
 **Size limits:**
 
@@ -362,7 +433,7 @@ with a new `start`.
 | `..cha` | string | yes | e.g. `EHZ` |
 | `..sampleRate` | number | yes | Samples per second |
 | `..azimuth`, `..dip` | number | yes | Degrees; dip −90 means vertical |
-| `..units` | string | yes | `M/S`, `M/S**2` or `PA` |
+| `..units` | string | yes | `M/S` (velocity; a Shake's geophone), `M/S**2` (acceleration), `PA` (air pressure) or `M` (displacement; some older analog stations, e.g. University of Utah's HEB in our test tree) |
 | `..sensitivity` | number or null | yes | Counts per unit at `sensitivityFreq`, from the StationXML; null until known |
 | `..sensitivityFreq` | number or null | yes | Hz |
 | `..sensor` | string | no | e.g. "4.5 Hz geophone" |
@@ -394,12 +465,16 @@ The values are examples. Our apps treat `null` as "not known".
 | `version` | integer | yes | 1 |
 | `generated` | time | yes | |
 | `stations` | object | yes | Key: `NET.STA` (published stations only) |
-| `.publicUntil` | time | yes | The cutoff at the last publish run. No public data or product is later |
+| `.publicUntil` | time | yes | The cutoff at the last publish run. Every public record and product step ends at or before it |
 | `.channels` | object | yes | Key: `LOC.CHA` |
 | `..firstDay` | date | yes | First day with public data |
-| `..lastSample` | time | yes | End of the last public sample (≤ `publicUntil`) |
+| `..lastSample` | time | yes | End of the last public record (as `lastSampleEnd` in the sidecar); ≤ `publicUntil` |
 | `..updated` | time | yes | Last time this channel's public data changed |
-| `..status` | string | yes | `current` (new data within 2 hours for hourly stations, 36 hours for daily ones), `late`, or `stopped` (nothing for 7 days) |
+| `..status` | string | yes | Measured by the lag = `publicUntil` − `lastSample`, not against "now", so a station with an approved delay can be current. `current`: lag ≤ 2 hours for hourly stations, ≤ 36 hours for daily ones. `stopped`: lag ≥ 7 days. Otherwise `late` |
+
+**Is the publish step itself running?** `generated` says when it last ran. If a reader finds
+`generated` more than an hour old (it runs every 10 minutes), the server's publish step has
+stalled. That is shown to the user as "data paused", whatever each channel's status says.
 
 ```json
 { "version": 1, "generated": "2026-11-25T15:10:00.000Z",
@@ -417,7 +492,7 @@ its first run after 00:00 UTC on January 1.
 | ----- | ---- | -------- | ----- |
 | `version`, `net`, `sta`, `year`, `generated` | | yes | |
 | `channels` | object | yes | Key: `LOC.CHA`; value: an object keyed by date |
-| `.<date>.status` | string | yes | `complete` (the day has ended and passed the cutoff), `partial` (still filling or before the cutoff), `withdrawn` |
+| `.<date>.status` | string | yes | Says whether the day can still grow, not whether it is full. `filling`: the day does not yet end at or before `publicUntil`. `closed`: the whole day ends at or before `publicUntil`, and it now changes only by a refill or a withdrawal. `withdrawn`. How full the day is, is `coverage`: a closed day whose data began at noon reads 0.5 |
 | `.<date>.coverage` | number | yes | 7.3 |
 | `.<date>.gapCount`, `.gapSeconds` | number | yes | Totals; the list is in the sidecar |
 | `.<date>.bytes` | integer | yes | Size of the public day file (0 if withdrawn) |
@@ -427,9 +502,9 @@ its first run after 00:00 UTC on January 1.
 ```json
 { "version": 1, "net": "AM", "sta": "R1234", "year": 2026, "generated": "2026-11-25T15:10:00.000Z",
   "channels": { "00.EHZ": {
-    "2026-11-24": { "status": "complete", "coverage": 0.9987, "gapCount": 1, "gapSeconds": 112.0,
+    "2026-11-24": { "status": "closed", "coverage": 0.9987, "gapCount": 1, "gapSeconds": 112.0,
                     "bytes": 9243648, "updated": "2026-11-25T01:10:00.000Z" },
-    "2026-11-25": { "status": "partial", "coverage": 1.0, "gapCount": 0, "gapSeconds": 0,
+    "2026-11-25": { "status": "filling", "coverage": 1.0, "gapCount": 0, "gapSeconds": 0,
                     "bytes": 5361664, "updated": "2026-11-25T15:10:00.000Z" } } } }
 ```
 
@@ -441,21 +516,48 @@ its first run after 00:00 UTC on January 1.
 | `id` | string | yes | NSLC, e.g. `AM.R1234.00.EHZ` |
 | `day` | date | yes | |
 | `records` | integer | yes | Number of records |
-| `recordLength` | integer | yes | 512 |
+| `recordLength` | integer | yes | Bytes per record; 512 on a Shake. Every record in a day file must have this length |
 | `encoding` | string | yes | `STEIM2` (or as found) |
 | `sampleRate` | number | yes | |
 | `firstSample` | time | yes | Time of the first sample |
-| `lastSampleEnd` | time | yes | End of the last sample (time of the last sample + one interval) |
+| `lastSampleEnd` | time | yes | The latest record end in the file (time of the last sample + one interval). It can be after the day's end (see below) |
 | `coverage` | number | yes | 7.3 |
 | `gaps` | array | yes | `[start, end)` pairs |
 | `overlaps` | array | yes | `[start, end)` pairs |
-| `seek` | array | yes | `[time, byteOffset]` for each 10-minute mark of the day: the offset of the first record starting at or after that mark. Marks after the last record are left out |
+| `seek` | array | yes | `[time, byteOffset]` for each 10-minute mark of the day from 00:00 UTC: the offset of the first record starting at or after that mark. Marks after the last record's start have no such record and are left out, so the table can end before 23:50 |
 | `updated` | time | yes | |
 
-**How the reader uses `seek`:** to read `[t0, t1)` it takes the entry for the last mark at or
-before `t0` and steps back one record (512 bytes), because a record starting before the mark
-can hold samples after it. It reads up to the offset of the first mark after `t1`, or to the
-end of the file. It then decodes only the records whose header times overlap `[t0, t1)`.
+**Which day file holds a record.**
+
+- A record goes in the file of the UTC day in which **its first sample** falls, as
+  `slarchive` files records.
+- So the last record of day D can run a few seconds past 00:00 UTC into D+1, and D's
+  `lastSampleEnd` can be after D's end.
+- **A reader whose window `[t0, t1)` starts on day D must therefore also check day D−1.** If
+  D−1's `lastSampleEnd` is later than `t0`, its last records are needed. In practice only a
+  window starting within one record (a few seconds) of 00:00 needs them.
+
+**How the reader uses `seek`.** File size = `records` × `recordLength`, unless the server
+says otherwise.
+
+1. **Start:**
+   - *If `t0` is before 00:00 UTC of this day* (the window began the day before): start at
+     byte 0.
+   - *Otherwise:* take the last mark at or before `t0`.
+     - *If that mark is in the table,* start one record earlier: its offset minus
+       `recordLength` (not below 0). A record that starts just before the mark can hold
+       samples after it.
+     - *If that mark was left out* (no record starts at or after it), only the file's last
+       record can reach `t0`: start there, at file size minus `recordLength`.
+2. **End:** stop at the offset of the first mark later than `t1`, or at the end of the file.
+   Ask for those bytes with a range request. A server answering 200 with the whole file also
+   works, only more slowly.
+3. **Keep:** decode only the records whose header times overlap `[t0, t1)` and that end at
+   or before `publicUntil` (7.3). The range always starts on a record boundary, because all
+   records are the same length.
+
+Our reference implementation of these rules is `byteRange` and `describeDay` in
+`docs/app/js/lib/mseed-index.js`.
 
 ```json
 { "version": 1, "id": "AM.R1234.00.EHZ", "day": "2026-11-24", "records": 18054,
@@ -583,7 +685,7 @@ algorithm version.
 | `stepSec`, `windowSec` | integer | yes | 900, 60 |
 | `statistic` | string | yes | "median of 60-s RMS" |
 | `algorithm` | object | yes | `{ "name": "uhsn-noise", "version": "1.0" }` |
-| `generated`, `publicUntil` | time | yes | No value after `publicUntil` |
+| `generated`, `publicUntil` | time | yes | A step `[t, t + 900 s)` has a value only if it ends at or before `publicUntil`; later steps are null |
 | `bands` | object | yes | Key: e.g. `5-20 Hz`; value: `{ lo, hi, units, values[] }`. Units are `counts` (later `nm/s`). `values` has one number or null per step, 96 a day |
 
 A month is about 20 KB per band.
@@ -606,7 +708,7 @@ The method is `docs/app/js/lib/clear-s.js`:
 
 | Field | Type | Required | Rules |
 | ----- | ---- | -------- | ----- |
-| `version`, `generated`, `publicUntil` | | yes | |
+| `version`, `generated`, `publicUntil` | | yes | Computed only from records that end at or before `publicUntil` |
 | `algorithm` | object | yes | `{ "name": "uhsn-clear-s", "version": "1.0" }` |
 | `ratioThreshold` | number | yes | 3 |
 | `events` | object | yes | Key: USGS event id |
@@ -622,6 +724,8 @@ For each second of a channel-day: the lowest and highest count.
 - **Values:** count ÷ `scale`, rounded, with −32768 meaning missing.
 - **A JSON file beside it** holds `version`, `id`, `day`, `start`, `scale`, `missing`,
   `algorithm` and `publicUntil`.
+- **A second has values** only if it ends at or before `publicUntil`. Later seconds are
+  missing (−32768).
 
 It cuts a whole-day view from 6–15 MB to about 0.35 MB per channel per device.
 
@@ -696,6 +800,19 @@ in the review, not here. Teachers and school IT spend no time on the server.
 
 **For design (b):** UHSNSource is mostly a new base address for our existing FDSN code
 (**S**).
+
+**Already built (2026-11-25, decision D39), for design (a):**
+
+- a first `UHSNSource` (`docs/app/js/data/uhsn.js`), used by the School Shake Viewer
+  prototype;
+- the header, sidecar and seek functions it shares with the publish side
+  (`docs/app/js/lib/mseed-index.js`);
+- a test-tree generator that does the publish step's work on University of Utah data
+  (`tools/uhsn-test/make-tree.mjs`), with a small test tree in
+  `docs/app/data/uhsn-demo/v1/`.
+
+DRI may use the generator as a starting point for its publish and index scripts. The sizes
+above are for finishing these and adding the checker and products.
 
 ## 13. Security and privacy
 
