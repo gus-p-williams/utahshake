@@ -4,6 +4,22 @@ Newest first. Each entry: date, decision, why, consequences.
 
 ## 2026-11-25 (apps and on-plot hints)
 
+**D36. "In development: please test" for prototypes; phone readings are rounded, and we say
+so.** Gus, 2026-11-25 (session D10-phone-bench). Prototypes for adult testers (Gus, Dale and
+Cleat, the site's only users for now) get a guide, a card in an "In development: please test"
+section of All apps, an Apps › In development menu group and a purple "Prototype" badge in
+their top bar, but no activity card until Gus graduates them to the main list (rules in
+`adding-an-app.md#in-development`; enforced by `tests/app-list.test.js` and
+`tests/teacher-cards.test.js`). The site collects nothing; testers send results to Gus. The
+first is Phone Bench (`app/phone-bench/`), the instrument for trial T1: it measures a phone's
+real reading rate, jitter, rounding step, noise and flicker, and the permission prompt, with
+results shown on screen and downloadable, nothing uploaded, and a notice that classroom phone
+use needs the district's policy (SB 69). Because browsers round motion readings (0.1 m/s² in
+Chrome; iPhones not confirmed), the bench guide explains it, Reading a seismogram has "How
+small a shake can it see?" (phone vs Raspberry Shake vs broadband: step size, self-noise,
+frequency range), and every future phone activity card must remind teachers of it
+(`adding-a-card.md`). Sources: `planning/bench-sources.md`.
+
 **D35. Show how to use a plot on the plot itself.** Sessions D5-band-hint and D8-waves-hint,
 from Gus's notes that students missed "drag on the spectrogram" and "click the map": an
 instruction placed under or beside a plot goes unseen. Each interactive plot carries its own

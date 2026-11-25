@@ -169,7 +169,8 @@ sequences the work and integrates it.
   | P4-phone-review | Feasibility and effort review: a phone vibration recorder (`planning/review-phone-recorder.md`) | main folder, `planning/` | done; awaiting critiques |
   | R1-app-critique | Independent critique of P3 (review, brief, spec) and P4, in Claude (`planning/critique-r1-claude.md`) | read-only except its file | active |
   | R2-app-critique | The same critique, independently, in Codex (`planning/critique-r2-codex.md`) | read-only except its file | active |
-  | D10-phone-bench | An "In development: please test" category (All apps, Apps menu, Prototype badge, tests); the phone bench recorder for trial T1; rounding explained in its guide; a "How small a shake can it see?" section on Reading a seismogram (phone vs Shake vs broadband: step size, self-noise, frequency range) | `-bench`, branch `phone-bench` | active |
+  | D10-phone-bench | An "In development: please test" category (All apps, Apps menu, Prototype badge, tests); the phone bench recorder for trial T1; rounding explained in its guide; a "How small a shake can it see?" section on Reading a seismogram (phone vs Shake vs broadband: step size, self-noise, frequency range) | `-bench`, branch `phone-bench` | merged 2026-11-25 (D36) |
+  | D11-viewer-proto | A file-first School Shake viewer prototype under "In development" (day files, UU stand-in days, spec-layout test files; helicorder, spectrogram, noise, annotations) | `-viewer`, branch `viewer-proto` | active |
 
   Review process for planning studies (Gus, 2026-11-25): authors (P) write; two independent
   critics (R, one in Claude and one in Codex) review without seeing each other's critique;
@@ -366,6 +367,14 @@ out of the menus:
   `lib/spectral.js`); the overview's Quake Waves picture retaken and its Word copy rebuilt.
   `npm test` = 256. Left as optional: D's spectrogram also starts at 0.039 Hz (no band edge
   is shown there, so nothing disagrees; the fix would mean retaking `qe-d-distant.png`).
+- 2026-11-25: **"In development: please test" and Phone Bench** (D36, session D10-phone-bench):
+  prototypes get a guide, an All apps card in that section, an Apps › In development menu
+  group and a Prototype badge, but no activity card until Gus graduates them. Phone Bench
+  (`app/phone-bench/`, `js/lib/bench.js`, `tools/phone-bench-check.mjs`) measures a phone's
+  reading rate, jitter, rounding step, noise and flicker for trial T1; nothing leaves the
+  device. Reading a seismogram gains "How small a shake can it see?" (phone vs Shake vs
+  broadband) with a stepped-wave figure; sources in `planning/bench-sources.md`. Shared
+  `downloadCsv` keeps its link for 60 s (Safari). `npm test` = 279; site check 39 pages.
 
 ## Next steps
 
@@ -380,10 +389,15 @@ out of the menus:
       included; only `main` is left. The empty folder `G:\GIT_Repo\2026_11_Shake-qexp`
       stays until the process holding it closes. GitHub has only `main` (the merged
       `quake-explorer` branch was deleted on 2026-11-25, Gus).
-   d. Running: P3-viewer-review and P4-phone-review (feasibility studies), then the two
-      critics R1 (Claude) and R2 (Codex), then P3 and P4 refine; M1 commits the set. After
-      Gus picks a data path, a later session writes the polished "connect your school's
-      Shake" guide (P3 drafts its steps).
+   d. Planning set: P3 refined (round 3 done); P4 refining after the critiques R1 and R2.
+      When P4 reports, M1 commits the set (reviews, brief, spec, critiques, source logs, Word
+      copies), records Gus's privacy rule as a decision and fixes the overview's rsudp
+      mention (section 4.4); then Cleat takes the brief and spec to DRI IT. After Gus picks a
+      data path, a later session writes the polished "connect your school's Shake" guide.
+   e. D11-viewer-proto (branch `viewer-proto`): a file-first School Shake viewer under
+      "In development". D10 (D36) is merged; D11 must merge main to get the category.
+   f. Testers (Gus, Dale, Cleat): run Phone Bench on your own phones (iPhone and Android)
+      and send Gus the results; this is trial T1.
 2. **Open questions for Gus / DRI:**
    a. Which Raspberry Shake model is at each school (they may differ)? The seismometer figure
       on Reading a seismogram is a generic geophone.

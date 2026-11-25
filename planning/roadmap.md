@@ -158,7 +158,8 @@ From the questions document (`planning/activities.md`, "UHSN classroom activitie
 D28). None is scheduled until Dale and Cleat choose activities.
 
 - Phone track, only if phone activities are chosen and after bench trials T1 to T3: the Phone
-  Recorder page, then a locator for "Find the hit" (P3).
+  Recorder page, then a locator for "Find the hit" (P3). The T1 instrument is built: Phone
+  Bench, under "In development" (D36); Gus, Dale and Cleat test it on their own phones.
 - Felt Map Locator (E13): a small add-on (USGS "Did You Feel It?" squares).
 - Own-Shake file loader: a bridge before Stage 4 (day files from the school Shake's own page).
 - In Stage 4: the viewer's experiment mode (S10–S18, R cards), a source log for experiments at
