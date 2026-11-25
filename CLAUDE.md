@@ -164,7 +164,7 @@ sequences the work and integrates it.
   | D6-clear-s | Point students to quakes with a clear S − P (Quake Explorer and Quake Locator) | `-band`, branch `clear-s` | merged 2026-11-24 (D33) |
   | D7-wiggle-app | Build a Wiggle becomes a full app (guide, Apps menu); All apps lists every app with a guide | `-wiggle`, branch `wiggle-app` | merged 2026-11-25 (D34) |
   | D8-waves-hint | Quake Waves: an on-map hint that clicking moves the quake (standalone and embedded) | `-band`, branch `waves-hint` | merged 2026-11-25 (D35) |
-  | D9-small-fixes | Quake Waves keyboard control; Quake Explorer B's low-edge label; overview Figure 3 | `-fixes`, branch `small-fixes` | to start |
+  | D9-small-fixes | Quake Waves keyboard control; Quake Explorer B's low-edge label; overview Figure 3 | `-fixes`, branch `small-fixes` | active |
 
   Retired before IDs: the figures sessions, the Quake Explorer session (merged, D22–D25).
 
@@ -359,8 +359,8 @@ out of the menus:
       (D31), D4-spelling (D32), D6-clear-s (D33), D7-wiggle-app (D34), D8-waves-hint (D35).
       Their worktrees and local branches were removed on 2026-11-25 (Gus), figure caches
       included; only `main` is left. The empty folder `G:\GIT_Repo\2026_11_Shake-qexp`
-      stays until the process holding it closes. The branch `quake-explorer` is still on
-      GitHub (fully merged; delete it only with Gus's OK).
+      stays until the process holding it closes. GitHub has only `main` (the merged
+      `quake-explorer` branch was deleted on 2026-11-25, Gus).
    d. Small follow-ups from the sessions: Quake Waves can't move the quake by keyboard (D35);
       the overview's Figure 3 (`planning/img/overview-quake-waves.png`) predates the map
       labels, so rerun `tools/planning-docx/overview-images.mjs qw` if the overview is
