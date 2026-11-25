@@ -11,7 +11,10 @@ short label in a blue pill ("↕ Drag up or down to choose a band of notes", "Cl
 move the quake", "↔ Drag to step through time"; "Tap" on touch screens), bold until the
 student first uses it, then faint, never covering data or labels; the same text goes to
 screen readers. Draggable edges get visible grips and a matching cursor. New apps follow
-this pattern. Open gap: moving Quake Waves' quake by keyboard.
+this pattern. Keyboard too (closed 2026-11-25, session D9-small-fixes): Tab reaches Quake
+Waves' map, the arrow keys move the quake (Shift for bigger steps), the label then reads
+"Arrow keys move the quake · Shift: bigger steps", and a hidden status line tells screen
+readers where the quake is.
 
 **D34. Build a Wiggle is a full app; All apps lists every app with a guide.** Gus,
 2026-11-24 (session D7-wiggle-app). Build a Wiggle is interactive, so it has a guide

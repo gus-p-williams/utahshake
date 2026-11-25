@@ -164,7 +164,7 @@ sequences the work and integrates it.
   | D6-clear-s | Point students to quakes with a clear S − P (Quake Explorer and Quake Locator) | `-band`, branch `clear-s` | merged 2026-11-24 (D33) |
   | D7-wiggle-app | Build a Wiggle becomes a full app (guide, Apps menu); All apps lists every app with a guide | `-wiggle`, branch `wiggle-app` | merged 2026-11-25 (D34) |
   | D8-waves-hint | Quake Waves: an on-map hint that clicking moves the quake (standalone and embedded) | `-band`, branch `waves-hint` | merged 2026-11-25 (D35) |
-  | D9-small-fixes | Quake Waves keyboard control; Quake Explorer B's low-edge label; overview Figure 3 | `-fixes`, branch `small-fixes` | active |
+  | D9-small-fixes | Quake Waves keyboard control; Quake Explorer B's low-edge label; overview Figure 3 | `-fixes`, branch `small-fixes` | merged 2026-11-25 |
   | P3-viewer-review | Feasibility and effort review: a school-Shake viewer (`planning/review-shake-viewer.md`) | main folder, `planning/` | active |
   | P4-phone-review | Feasibility and effort review: a phone vibration recorder (`planning/review-phone-recorder.md`) | main folder, `planning/` | active |
   | R1-app-critique | Independent critique of P3 and P4's reviews, in Claude (`planning/critique-r1-claude.md`) | read-only except its file | after P3 and P4 |
@@ -357,6 +357,14 @@ out of the menus:
   "Click the map to move the quake" and "↔ Drag to step through time" labels, bold until
   first use; logic in `js/quake-waves/map-hint.js`, tests in `tests/quake-waves-hint.test.js`;
   scale bar moved. `npm test` = 238; site check 36 pages at 3 widths.
+- 2026-11-25: **Small fixes merged** (session D9-small-fixes): Quake Waves by keyboard (Tab
+  to the map, arrow keys move the quake, Shift for bigger steps, screen-reader status;
+  `js/quake-waves/map-keys.js`, `tests/quake-waves-keys.test.js`; closes D35's gap; also
+  fixed a double animation loop on click); Quake Explorer B's distant-quake band now reads
+  0.020 Hz on both the plot and the panel (`fMinReaching` and `bandOnPlot` in
+  `lib/spectral.js`); the overview's Quake Waves picture retaken and its Word copy rebuilt.
+  `npm test` = 256. Left as optional: D's spectrogram also starts at 0.039 Hz (no band edge
+  is shown there, so nothing disagrees; the fix would mean retaking `qe-d-distant.png`).
 
 ## Next steps
 
@@ -371,11 +379,10 @@ out of the menus:
       included; only `main` is left. The empty folder `G:\GIT_Repo\2026_11_Shake-qexp`
       stays until the process holding it closes. GitHub has only `main` (the merged
       `quake-explorer` branch was deleted on 2026-11-25, Gus).
-   d. Small follow-ups from the sessions: Quake Waves can't move the quake by keyboard (D35);
-      the overview's Figure 3 (`planning/img/overview-quake-waves.png`) predates the map
-      labels, so rerun `tools/planning-docx/overview-images.mjs qw` if the overview is
-      re-sent; Quake Explorer B's distant-quake bottom edge reads 0.039 Hz while the panel
-      says 0.020 Hz.
+   d. Running: P3-viewer-review and P4-phone-review (feasibility studies), then the two
+      critics R1 (Claude) and R2 (Codex), then P3 and P4 refine; M1 commits the set. After
+      Gus picks a data path, a later session writes the polished "connect your school's
+      Shake" guide (P3 drafts its steps).
 2. **Open questions for Gus / DRI:**
    a. Which Raspberry Shake model is at each school (they may differ)? The seismometer figure
       on Reading a seismogram is a generic geophone.
