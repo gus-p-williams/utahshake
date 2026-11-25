@@ -35,7 +35,6 @@ const { arrivals } = await import(new URL('docs/app/js/lib/wave-sim.js', root));
 const { sampleWiggle } = await import(new URL('docs/app/js/lib/wiggle.js', root));
 const { displacement, VP, VS } = await import(new URL('docs/app/js/lib/wave-motion.js', root));
 const { makeTake } = await import(new URL('docs/app/js/lib/bench.js', root));
-const { windowIndices, motionScale } = await import(new URL('docs/app/js/lib/hodogram.js', root));
 
 const outDir = new URL('docs/img/graphics/', root);
 fs.mkdirSync(outDir, { recursive: true });
@@ -372,8 +371,8 @@ function phoneBench(w, h) {
 function waveMotion(w, h) {
   const lengthKm = 60;
   const tSec = 7.2;
-  const cols = w < 100 ? 16 : 34;
-  const rowsN = w < 100 ? 5 : 6;
+  const cols = 34;
+  const rowsN = 6;
   const pad = 8;
   const X = (km) => pad + (km / lengthKm) * (w - 2 * pad);
   const gap = (h - 2 * pad) / (rowsN - 1);
@@ -385,7 +384,7 @@ function waveMotion(w, h) {
     const dyS = displacement(km, tSec, VS) * 2.2;                    // across it
     const cls = Math.abs(dxP) > 0.05 ? 'pf' : Math.abs(dyS) > 0.05 ? 'sf' : 'tf';
     for (let j = 0; j < rowsN; j++) {
-      b.push(dot(X(km) + dxP * pxPerKm, pad + j * gap - dyS * pxPerKm, w < 100 ? 1.8 : 1.5, cls));
+      b.push(dot(X(km) + dxP * pxPerKm, pad + j * gap - dyS * pxPerKm, 1.5, cls));
     }
   }
   return b.join('');
@@ -413,8 +412,8 @@ function schoolPulse(w, h) {
 }
 
 // ---------------------------------------------------------------------------------------
-// Home page, option 1: a strip of one real seismogram (the Junction M3.3 at WCU, the
-// Millard stand-in, 77 km away): P (blue) then S (red).
+// The seismogram in the home banner: the Junction M3.3 at WCU, the Millard stand-in, 77 km
+// away, 1–10 Hz (the apps' filter), with the analysts' P (blue) and S (red) picks.
 function homeSeismogram(w, h, { sta = 'WCU' } = {}) {
   const s = readSample('uu80162166', { fromSec: -WAVE_RACE.preOriginSec, toSec: WAVE_RACE.postOriginSec });
   const t = s.records.find((r) => r.sta === sta && r.cha.endsWith('Z'));
@@ -430,16 +429,14 @@ function homeSeismogram(w, h, { sta = 'WCU' } = {}) {
   const pk = s.picks[`UU.${sta}`];
   const b = [];
   b.push(columns(min, max, 0, w / nCols, h / 2, (h / 2 - 3) / peak, 'tr', 1));
-  const xs = {};
   for (const [ph, cls] of [['P', 'p'], ['S', 's']]) {
     const x = T(sec(pk[ph], s.event));
-    xs[ph] = x;
-    b.push(line([[x, 2], [x, h - 2]], cls, w < 100 ? 1.4 : 2, 'stroke-linecap="round"'));
+    b.push(line([[x, 2], [x, h - 2]], cls, 2, 'stroke-linecap="round"'));
   }
-  return { body: b.join(''), sta, mag: s.event.mag, place: s.event.place, pX: xs.P, sX: xs.S };
+  return { body: b.join('') };
 }
 
-// Home page, option 2: Utah with the five schools (yellow) and the Junction M3.3 (star), its P
+// The home banner: Utah with the five schools (yellow) and the Junction M3.3 (star), its P
 // and S fronts twenty seconds after it began (Quake Locator's speeds, 5.8 and 3.3 km/s), and,
 // joined to station WCU (Millard's stand-in), the seismogram it recorded there.
 // Utah's border: the same outline as tools/figures/science-maps.mjs.
@@ -481,107 +478,34 @@ function homeBanner(w, h, { tSec = 20, sta = 'WCU' } = {}) {
   b.push(triangle(sx, sy, 4, 'tf', 'la'));
   const g = homeSeismogram(w - x0, traceH, { sta });
   b.push(`<g transform="translate(${r1(x0)} ${r1(h / 2 - traceH / 2)})">${g.body}</g>`);
-  return { body: b.join(''), ev, tSec, sta };
+  return { body: b.join('') };
 }
 
 // ---------------------------------------------------------------------------------------
-// Icons for The Science index: one per page, each from that page's own kind of figure.
-
-/** Reading a seismogram: the WCU record of the Junction M3.3, P then S. */
-function seismogramIcon(w, h, { bracket = false } = {}) {
-  const g = homeSeismogram(w - 8, h * 0.62);
-  const b = [rect(0, 0, w, h, 'pa'), `<g transform="translate(4 ${r1(h * 0.16)})">${g.body}</g>`];
-  if (bracket) {
-    // S minus P: the gap between the two lines
-    const y = h * 0.88;
-    b.push(line([[4 + g.pX, y - 3], [4 + g.pX, y], [4 + g.sX, y], [4 + g.sX, y - 3]], 'mu', 1.4));
-  }
-  return b.join('');
-}
-
-/** Which way the ground moves: MTPU's horizontal motion (seen from above) during P and during S. */
-function groundMotion(w, h) {
-  const sm = readSample('qe-junction', { fromSec: -2, toSec: 40 });
-  const get = (c) => sm.records.find((r) => r.sta === 'MTPU' && r.cha.endsWith(c));
-  const n = get('N');
-  const e = get('E');
-  const nd = filteredData(n, BP);
-  const ed = filteredData(e, BP);
-  const pk = sm.picks['UU.MTPU'];
-  const win = (tMs, from, to) => windowIndices({ startMs: n.startMs, refMs: tMs, sampleRate: n.sampleRate, length: nd.length }, from, to);
-  const P = win(pk.P, 0, 0.45);
-  const S = win(pk.S, 0, 0.7);
-  const m = Math.max(motionScale(null, nd, ed, P.i0, P.i1), motionScale(null, nd, ed, S.i0, S.i1)) || 1;
-  const r = Math.min(w, h) / 2 - 6;
-  const cx = w / 2;
-  const cy = h / 2;
-  const path = ({ i0, i1 }, k) => { const p = []; for (let i = i0; i < i1; i++) p.push([cx + (ed[i] / m) * r * k, cy - (nd[i] / m) * r * k]); return p; };
-  const b = [rect(0, 0, w, h, 'pa')];
-  b.push(line([[cx - r, cy], [cx + r, cy]], 'gr', 0.8), line([[cx, cy - r], [cx, cy + r]], 'gr', 0.8));
-  const pScale = m / Math.max(motionScale(null, nd, ed, P.i0, P.i1), 1e-9);  // P is weaker: show it at full size too
-  b.push(line(path(S, 1), 's', 1.2, 'stroke-linejoin="round"'));
-  b.push(line(path(P, pScale), 'p', 1.4, 'stroke-linejoin="round"'));
-  return b.join('');
-}
-
-/** Our stations and data: Utah, the five schools (yellow) and their stand-in stations. */
-function stationsMap(w, h) {
-  const dir = new URL('docs/app/data/samples/uu80162166/', root);
-  const stations = JSON.parse(fs.readFileSync(new URL('stations.json', dir)));
-  const proj = localProjection(39.5, -111.55);
-  const ut = UTAH.map(([lon, lat]) => proj.toXY(lat, lon));
-  const minX = Math.min(...ut.map((p) => p.x));
-  const maxX = Math.max(...ut.map((p) => p.x));
-  const minY = Math.min(...ut.map((p) => p.y));
-  const maxY = Math.max(...ut.map((p) => p.y));
-  const kmPerPx = Math.max((maxY - minY) / (h - 8), (maxX - minX) / (w - 8));
-  const ox = (w - (maxX - minX) / kmPerPx) / 2;
-  const oy = (h - (maxY - minY) / kmPerPx) / 2;
-  const X = (lat, lon) => ox + (proj.toXY(lat, lon).x - minX) / kmPerPx;
-  const Y = (lat, lon) => oy + (maxY - proj.toXY(lat, lon).y) / kmPerPx;
-  const b = [rect(0, 0, w, h, 'pa')];
-  b.push(`<polygon class="la" points="${pts(UTAH.map(([lon, lat]) => [X(lat, lon), Y(lat, lon)]))}" fill="${F.la}" stroke="${F.ed}" stroke-width="1" stroke-linejoin="round"/>`);
-  for (const sc of SCHOOLS) {
-    const st = stations.find((x) => x.sta === sc.standIn.sta);
-    if (st) b.push(triangle(X(st.lat, st.lon), Y(st.lat, st.lon), 2.6, 'tf', 'la'));
-  }
-  for (const sc of SCHOOLS) b.push(`<circle class="sc" cx="${r1(X(sc.lat, sc.lon))}" cy="${r1(Y(sc.lat, sc.lon))}" r="2.4" fill="${F.sc}" stroke="${F.tr}" stroke-width="0.7"/>`);
-  return b.join('');
-}
-
-// ---------------------------------------------------------------------------------------
-const THUMB = { w: 300, h: 96 };
-const ICON = { w: 64, h: 64 };
+const THUMB = { w: 300, h: 96 };   // a picture on each All apps card
+const ICON = { w: 64, h: 64 };     // small square ones beside the apps on the home page
+const BANNER = { w: 760, h: 132 }; // under the home page's first paragraph
+// [file name, draw, also an icon for the home page?]
 const apps = [
-  ['quake-locator', quakeLocator],
-  ['quake-explorer', (w, h) => quakeExplorer(w, h, w < 100 ? { traces: 7, toSec: 50 } : {})],
-  ['quake-waves', quakeWaves],
-  ['build-a-wiggle', (w, h) => buildAWiggle(w, h, { spectrum: w > 100 })],
-  ['school-pulse', schoolPulse],
-  ['phone-bench', phoneBench],
-  ['shake-viewer', (w, h) => shakeViewer(w, h, w < 100 ? { rows: 8 } : {})],
-  ['wave-motion', waveMotion],
+  ['quake-locator', quakeLocator, true],
+  ['quake-explorer', (w, h) => quakeExplorer(w, h, w < 100 ? { traces: 7, toSec: 50 } : {}), true],
+  ['quake-waves', quakeWaves, true],
+  ['build-a-wiggle', (w, h) => buildAWiggle(w, h, { spectrum: w > 100 }), true],
+  ['school-pulse', schoolPulse, false],
+  ['phone-bench', phoneBench, false],
+  ['shake-viewer', shakeViewer, false],
+  ['wave-motion', waveMotion, false],
 ];
-for (const [name, draw] of [['seismogram', seismogramIcon], ['s-minus-p', (w, h) => seismogramIcon(w, h, { bracket: true })],
-  ['ground-motion', groundMotion], ['stations', stationsMap]]) {
-  write(`icon-${name}.svg`, svg(ICON.w, ICON.h, draw(ICON.w, ICON.h), { kind: 'icon' }));
-}
-for (const [name, draw] of apps) {
+for (const [name, draw, icon] of apps) {
   write(`thumb-${name}.svg`, svg(THUMB.w, THUMB.h, draw(THUMB.w, THUMB.h), { kind: 'thumb' }));
-  write(`icon-${name}.svg`, svg(ICON.w, ICON.h, draw(ICON.w, ICON.h), { kind: 'icon' }));
+  if (icon) write(`icon-${name}.svg`, svg(ICON.w, ICON.h, draw(ICON.w, ICON.h), { kind: 'icon' }));
 }
+write('home-banner.svg', svg(BANNER.w, BANNER.h, homeBanner(BANNER.w, BANNER.h).body, { kind: 'banner', clip: false }));
 
-{
-  const w = 760;
-  const h = 64;
-  const g = homeSeismogram(w, h);
-  write('home-seismogram.svg', svg(w, h, g.body, { kind: 'banner', clip: false }));
-}
-{
-  const w = 760;
-  const h = 132;
-  const g = homeBanner(w, h);
-  write('home-banner.svg', svg(w, h, g.body, { kind: 'banner', clip: false }));
+// remove pictures this script no longer makes
+const made = new Set(written.map((w) => w.split(' ')[0].split('/').pop()));
+for (const old of fs.readdirSync(outDir)) {
+  if (old.endsWith('.svg') && !made.has(old)) { fs.rmSync(new URL(old, outDir)); written.push(`removed docs/img/graphics/${old}`); }
 }
 
 console.log(written.join('\n'));

@@ -85,6 +85,8 @@ tests/                     node --test, including real-data checks on the sample
   bench.test.js            Phone Bench arithmetic on made-up takes
   day-view.test.js         School Shake Viewer logic; the example notes against their times
   mseed-index.test.js, uhsn-source.test.js, uhsn-demo-tree.test.js   the UHSN data layout and its reader
+  site-graphics.test.js    the small site graphics: every snippet points to a file, no orphans, one line, aria-hidden;
+                           every All apps card has a thumb; the home banner has its credit
   teacher-cards.test.js    activity cards and app hubs link both ways (D19); the Teachers catalog
                            and standards tables match each card's "At a glance" box
   clear-s.test.js          the "clear S at N of M stations" notes match the offline samples
@@ -94,6 +96,7 @@ tools/
   samples/fetch-sample.mjs bundles a quake for offline use
   quake-explorer/          Quake Explorer's science checks, answer key, samples, travel-time table
   figures/                 figures for the guides and The Science (see below)
+                           site-graphics.mjs: the small card, icon and banner graphics (docs/img/graphics/)
   uhsn-test/make-tree.mjs  a test folder in the UHSN data layout from University of Utah data
   serve.mjs                tiny local server for docs/ (apps only, no MkDocs build; Range and CORS)
   site-check.mjs           every page of the built site in headless Chrome at three widths
@@ -197,12 +200,19 @@ the same bytes every time it runs.
 | `plots-time.mjs` | `theory/img/plots-helicorder.svg`, `plots-carpet.svg` (Beyond one seismogram) | Node only; downloads data the first time; the carpet's levels are kept in `tools/figures/data/carpet-heb-2026.json` |
 | `plots-noise.mjs` | `theory/img/plots-ppsd.svg`, `plots-ppsd-compare.svg` | Node only; downloads four station-months the first time; the PPSD histograms are kept in `tools/figures/data/ppsd-*.json` |
 | `plots-hv.mjs` | `theory/img/plots-hv.svg` | Node only; curves kept in `tools/figures/data/hv-curves.json` |
+| `site-graphics.mjs` | `docs/img/graphics/` (`thumb-*.svg` for each card on All apps, `icon-*.svg` for the home page's Apps card, `home-banner.svg`) | Node only; drawn with the apps' own `lib/` code and the records stored with the site |
 | `plots-repeats.mjs` | `theory/img/plots-stack.svg`, `plots-xcorr.svg` | Node only; the event list (with its provenance) is `tools/figures/data/uttr-explosions.json` |
 | `screenshots.mjs` | `apps/img/wave-race-*.png` | `npm install` in `tools/figures`, Chrome, `node tools/serve.mjs` running |
 | `quake-explorer-screens.mjs` | `apps/img/qe-*.png` (Quake Explorer guide) | as `screenshots.mjs` |
 | `build-a-wiggle-screens.mjs` | `apps/img/bw-*.png` (Build a Wiggle guide) | as `screenshots.mjs` |
 | `phone-bench-screens.mjs` | `apps/img/pb-*.png` (Phone Bench guide; the made-up phone) | as `screenshots.mjs` |
 | `shake-viewer-screens.mjs` | `apps/img/sv-*.png` (School Shake Viewer guide; HEB, Nov 17, 2026) | as `screenshots.mjs` |
+
+The site graphics are inline SVG, included in a page with pymdownx.snippets (`--8<-- "img/graphics/<name>.svg"`),
+not as `<img>`, so their colors follow the light/dark switch (`.uhsn-g` in `extra.css`). Each file is one line
+with **no trailing newline**: a newline ends the paragraph after the include and a small picture then drops out
+of the text beside it. They are decorative, so each has `aria-hidden="true"` and no `<text>`. Add a graphic for
+every new app ([Adding an app](adding-an-app.md#app-list)); `tests/site-graphics.test.js` checks all of this.
 
 `svg-traces.mjs` holds the shared house style and seismogram drawing; `svg-charts.mjs` adds
 charts over time, hour-of-day bars and the spectrogram image; `spectra.mjs` is a small FFT

@@ -9,6 +9,8 @@ waves that show one idea clearly. Apps that are still being tested are further d
 
 - **Quake Locator**
 
+    --8<-- "img/graphics/thumb-quake-locator.svg"
+
     *Real data: seismograms from Utah stations.*
 
     Pick the P and S waves of a real Utah earthquake at several stations, turn the time
@@ -22,6 +24,8 @@ waves that show one idea clearly. Apps that are still being tested are further d
 
 - **Quake Explorer**
 
+    --8<-- "img/graphics/thumb-quake-explorer.svg"
+
     *Real data: seismograms from Utah stations.*
 
     Four investigations with real seismograms: measure how fast the rock is, find the notes
@@ -34,6 +38,8 @@ waves that show one idea clearly. Apps that are still being tested are further d
 
 - **Quake Waves**
 
+    --8<-- "img/graphics/thumb-quake-waves.svg"
+
     *No real data: a cartoon.*
 
     P and S waves race out from a quake to four stations. See the seismograms appear, and
@@ -45,6 +51,8 @@ waves that show one idea clearly. Apps that are still being tested are further d
     [Watch it on Locating a quake](../theory/locating.md#watch-it-happen)
 
 - **Build a Wiggle**
+
+    --8<-- "img/graphics/thumb-build-a-wiggle.svg"
 
     *No real data: you make the waves.*
 
@@ -59,6 +67,8 @@ waves that show one idea clearly. Apps that are still being tested are further d
     [Use it on Frequencies, fading and sound](../theory/frequencies.md#any-wiggle-is-a-sum-of-sine-waves)
 
 - **School Pulse** (coming soon)
+
+    --8<-- "img/graphics/thumb-school-pulse.svg"
 
     *Real data: noise records from stations near the schools.*
 
@@ -75,6 +85,8 @@ collects nothing: your results stay on your device until you send them.
 <div class="grid cards" markdown>
 
 - **Phone Bench**
+
+    --8<-- "img/graphics/thumb-phone-bench.svg"
 
     *Prototype, being tested. No station data: it reads this device's own sensors.*
 
@@ -97,6 +109,8 @@ collects nothing: your results stay on your device until you send them.
     [Phone Bench guide](phone-bench.md)
 
 - **School Shake Viewer**
+
+    --8<-- "img/graphics/thumb-shake-viewer.svg"
 
     *Prototype, for adult testers. Real data: University of Utah stations, a Shake's day file,
     or a test folder in the UHSN data layout.*
@@ -126,6 +140,8 @@ own and uses no real data.
 <div class="grid cards" markdown>
 
 - **How P and S waves move rock**
+
+    --8<-- "img/graphics/thumb-wave-motion.svg"
 
     A P wave and an S wave cross a block of rock. P squeezes and stretches the rock along its
     path; the slower S shakes it up and down. The wave travels on, but the rock comes back to

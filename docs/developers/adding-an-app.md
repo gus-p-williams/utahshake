@@ -42,11 +42,17 @@ app has no notes page.
 - Add a card for it on [apps/index.md](../apps/index.md), the All apps page and the one list
   of apps, with a link to the app itself (`../app/<slug>/index.html`).
 - One rule sorts that page: **every app with a hub goes in the top grid, except
-  prototypes**, in the same order as the Apps menu, even if it uses no real data. The card
-  opens with a line in italics that says whether it does (*Real data: seismograms from Utah
+  prototypes**, in the same order as the Apps menu, even if it uses no real data. Under the
+  card's title and its picture (next point) comes a line in italics that says whether it does (*Real data: seismograms from Utah
   stations.* or *No real data: a cartoon.*), then a short description, the **Open** button,
   and the guide link on its own line under the button. Only an animation with no hub (the
   P/S motion cartoon) goes under **Animations**.
+- **Every card gets a picture**, prototypes included. Add a draw function for the app to
+  `tools/figures/site-graphics.mjs` (drawn from what the app shows, with its own `lib/` code;
+  real data only from records stored with the site, never from Raspberry Shake servers), run
+  `node tools/figures/site-graphics.mjs`, and put `--8<-- "img/graphics/thumb-<slug>.svg"` on its
+  own paragraph right under the card's bold title. A home-page `icon-<slug>.svg` is needed only
+  for apps listed on the home page's Apps card. Keep each file one line with no trailing newline.
 - An app that is still being tested by adults goes under **In development: please test**
   instead. See [Prototypes](#in-development) for what it needs and how it moves up.
 - **Every app folder must be on that page.** Each folder in `docs/app/` that holds an
@@ -163,7 +169,7 @@ More in [Animations in a docs page](architecture.md#animations-in-a-docs-page).
 From the repository root, both must pass:
 
 ```bash
-npm test                      # unit tests, sample checks, links from the apps into the docs, the app list
+npm test                      # unit tests, sample checks, links from the apps into the docs, the app list, card pictures
 mkdocs build --strict         # the site, including links and #anchors between pages
 ```
 
@@ -228,6 +234,8 @@ the next `## ` heading; the parser is `tests/helpers/prototypes.js`).
   no other app shows it; every prototype hub is in `mkdocs.yml` under **Apps › In
   development**, and no other hub is there. Like every app, a prototype must be on the All
   apps page.
+- `tests/site-graphics.test.js`: every card on All apps, prototypes too, has a `thumb-*.svg`
+  right under its title; every graphic in `docs/img/graphics/` is used and is one line.
 - `tests/teacher-cards.test.js`: prototypes need no activity card. Their hubs still need the
   "At a glance" box with a "For teachers" line, and any card that line lists must name the
   app.

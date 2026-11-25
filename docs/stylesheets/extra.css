@@ -61,7 +61,7 @@
   max-width: 18rem;   /* the same size on every card, even a card alone on its row */
   border-radius: .3rem;
 }
-/* Small square pictures: beside a paragraph (home page app list) ... */
+/* Small square pictures beside the apps in the home page's Apps card. */
 .md-typeset p > svg.uhsn-icon {
   float: left;
   width: 2.6rem;
@@ -69,19 +69,6 @@
   margin: .15rem .7rem .2rem 0;
 }
 .md-typeset p:has(> svg.uhsn-icon) { display: flow-root; }
-/* ... or at the right of a list item (The Science index). */
-.md-typeset ol > li:has(> svg.uhsn-icon) {
-  position: relative;
-  min-height: 2.9rem;
-  padding-right: 3.6rem;
-}
-.md-typeset ol > li > svg.uhsn-icon {
-  position: absolute;
-  top: .15rem;
-  right: 0;
-  width: 2.8rem;
-  height: 2.8rem;
-}
 /* The home page graphic and its caption. */
 .md-typeset svg.uhsn-banner { margin: 1.4em 0 0; }
 .md-typeset p.uhsn-caption {

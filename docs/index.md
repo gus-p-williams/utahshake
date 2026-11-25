@@ -5,6 +5,14 @@ Network (UHSN)**, run by the Desert Research Institute. Use real seismograms fro
 find earthquakes yourself. Everything runs in a browser, including Chromebooks: no install,
 no accounts.
 
+--8<-- "img/graphics/home-banner.svg"
+
+A magnitude 3.3 quake near Junction, Utah (star), October 2026, and the five UHSN schools
+(yellow dots). The circles show how far its P and S waves (blue, red) had spread 20 seconds after
+it began. Right: the seismogram it made at station WCU, the stand-in for Millard High School.
+Data: University of Utah Seismograph Stations and the USGS earthquake catalog.
+{: .uhsn-caption }
+
 New here? Watch [Quake Waves](apps/quake-waves.md) first, then try
 [Quake Locator](apps/wave-race.md), then [Quake Explorer](apps/quake-explorer.md).
 
@@ -12,15 +20,19 @@ New here? Watch [Quake Waves](apps/quake-waves.md) first, then try
 
 - **[Apps](apps/index.md)**
 
+    --8<-- "img/graphics/icon-quake-locator.svg"
     [Quake Locator](apps/wave-race.md): pick P and S waves on real Utah seismograms, turn them
     into distances, and locate the quake.
 
+    --8<-- "img/graphics/icon-quake-explorer.svg"
     [Quake Explorer](apps/quake-explorer.md): measure how fast the rock is, hear the notes of
     a quake, find which way the ground moved, and read a quake from the far side of the world.
 
+    --8<-- "img/graphics/icon-quake-waves.svg"
     [Quake Waves](apps/quake-waves.md): watch P and S waves race out from a
     quake to four stations. A good warm-up for Quake Locator.
 
+    --8<-- "img/graphics/icon-build-a-wiggle.svg"
     [Build a Wiggle](apps/build-a-wiggle.md): add sine waves with sliders and watch their sum
     and its spectrum. A good warm-up for the notes in Quake Explorer.
 
