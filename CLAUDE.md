@@ -163,6 +163,7 @@ sequences the work and integrates it.
   | D5-band-hint | Quake Explorer B: show on the spectrogram that dragging chooses a band | `-band`, branch `band-hint` | merged 2026-11-24 |
   | D6-clear-s | Point students to quakes with a clear S − P (Quake Explorer and Quake Locator) | `-band`, branch `clear-s` | merged 2026-11-24 (D33) |
   | D7-wiggle-app | Build a Wiggle becomes a full app (guide, Apps menu); All apps lists every app with a guide | `-wiggle`, branch `wiggle-app` | active |
+  | D8-waves-hint | Quake Waves: an on-map hint that clicking moves the quake (standalone and embedded) | `-band`, branch `waves-hint` | active |
 
   Retired before IDs: the figures sessions, the Quake Explorer session (merged, D22–D25).
 
