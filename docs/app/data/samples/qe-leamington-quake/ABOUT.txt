@@ -6,6 +6,10 @@ Quake Explorer offline sample: 17 km E of Leamington, Utah, M2.11 (earthquake)
 - picks.json: UUSS analyst picks. computer-picks.json: AIC picks made by
   tools/quake-explorer/make-sample.mjs where the analysts made none (P: SNR >= 3,
   S: SNR >= 2); they can differ from what an analyst would pick.
+- uuss-magnitudes.json: UUSS's own magnitudes for this quake (ML, Md, Mw), every channel's
+  Wood-Anderson amplitude (AML: the full peak-to-peak swing, in meters) with its station ML and
+  weight, and every coda duration (END) with its station Md, from the event's phase-data QuakeML in
+  USGS ComCat. Made with `node tools/quake-explorer/sample-amplitudes.mjs` on 2026-11-25.
 - Made with `node tools/quake-explorer/make-sample.mjs uu80120191 --dir qe-leamington-quake --stations SUU,LEVU,FLU,NLU,WCU --pre 10 --post 50 --views frequencies` on 2026-11-24
 
 Waveforms: University of Utah Seismograph Stations, network UU (doi:10.7914/SN/UU), via EarthScope Data Services.

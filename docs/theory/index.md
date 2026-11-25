@@ -28,10 +28,14 @@ and build on each other, so read them in order the first time.
 7. **[Frequencies, fading and sound](frequencies.md):** how any wiggle is a mix of notes, why
    the high notes fade first, how waves weaken with distance, and how to hear a quake.<br>
    *Used in: [Quake Explorer](../apps/quake-explorer.md), [Build a Wiggle](../apps/build-a-wiggle.md).*
-8. **[Which way the ground moves](ground-motion.md):** the path the ground traces, proof that
+8. **[How big was it?](magnitude.md):** what a magnitude measures (and how it differs from
+   shaking), why each step is 10 times the swing, how seismologists measure it from the biggest
+   swing and the distance or from how long it shakes, and why stations and methods disagree.<br>
+   *Used in: Quake Explorer, investigation E (coming soon).*
+9. **[Which way the ground moves](ground-motion.md):** the path the ground traces, proof that
    P pushes along its path and S shakes across it, and finding a quake's direction from one
    station.<br>
    *Used in: [Quake Explorer](../apps/quake-explorer.md).*
-9. **[Our stations and data](stations.md):** which seismometers the apps use, who runs them,
+10. **[Our stations and data](stations.md):** which seismometers the apps use, who runs them,
    and how to credit the data in your own work.<br>
    *Used in: [Quake Locator](../apps/wave-race.md), [Quake Explorer](../apps/quake-explorer.md).*

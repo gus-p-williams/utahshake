@@ -178,9 +178,9 @@ sequences the work and integrates it.
   | D11-viewer-proto | A file-first School Shake viewer prototype under "In development" (day files, UU stand-in days, spec-layout test files; helicorder, spectrogram, noise, annotations) | `-viewer`, branch `viewer-proto` | merged 2026-11-25 (D39) |
   | D12-phyphox | Teacher page on phyphox for clubs, research and old classroom phones (why it is better, how to install, why not the default; an Open-in-phyphox link if it works) | `-phyphox`, branch `phyphox` | merged 2026-11-25 (D38); page mothballed (D40) |
   | P5-magnitude-review | Feasibility review for magnitude (Cleat's request): what students learn, Utah's magnitude methods, a check on real data, where it belongs (Quake Locator, Quake Explorer, or its own app) (`planning/review-magnitude.md`) | main folder, `planning/` | v2 done, committed; critiques R3 (Claude, `critique-r3-claude.md`) and R4 (Codex, `critique-r4-codex.md`) committed |
-  | D13-magnitude | (The P5 session, new job; D41) Phase 1: Wood-Anderson module and science page "How big was it?"; phase 2: investigation E as a prototype tab in Quake Explorer | `-magpage` on `magnitude-page`, then `-qemag` on `qe-magnitude` | active |
-  | D14-spec-sync | Bring the demo-tree generator and comments in line with data spec 1.1; a conformance checker for DRI's server (`tools/uhsn-test/check-tree.mjs`) | `-specsync`, branch `spec-sync` | prompt given |
-  | D15-web-design | A little visual interest without losing the minimal design: options first (app-card thumbnails, a home graphic, index icons), then build what Gus picks | `-design`, branch `web-design` | prompt given |
+  | D13-magnitude | (The P5 session, new job; D41) Phase 1: Wood-Anderson module and science page "How big was it?"; phase 2: investigation E as a prototype tab in Quake Explorer | `-magpage` on `magnitude-page`, then `-qemag` on `qe-magnitude` | phase 1 merged 2026-11-25; phase 2 active |
+  | D14-spec-sync | Bring the demo-tree generator and comments in line with data spec 1.1; a conformance checker for DRI's server (`tools/uhsn-test/check-tree.mjs`) | `-specsync`, branch `spec-sync` | merged 2026-11-25 |
+  | D15-web-design | A little visual interest without losing the minimal design: options first (app-card thumbnails, a home graphic, index icons), then build what Gus picks | `-design`, branch `web-design` | active (Phase 0: options for Gus) |
 
   Review process for planning studies (Gus, 2026-11-25): authors (P) write; two independent
   critics (R, one in Claude and one in Codex) review without seeing each other's critique;
@@ -414,6 +414,22 @@ out of the menus:
   README with how it returns). It comes back with the first app that opens a phyphox
   recording, with plain steps and no "Open in phyphox" button. Links removed from the
   Teachers page, home page, Phone Bench guide and Reading a seismogram; menu entry removed.
+- 2026-11-25: **Data spec 1.1 and a conformance checker** (P3, then session D14-spec-sync):
+  the spec fixes the nine gaps the first reader found; the demo folder and the shared rules
+  in `lib/mseed-index.js` follow it (status filling/closed; current/late/stopped measured
+  against publicUntil; "data paused" when the index is over an hour old, shown by the viewer
+  for `?uhsn=` servers). `node tools/uhsn-test/check-tree.mjs <folder or https://host/uhsn/v1/>`
+  tests a folder or DRI's server against the spec (FAIL / warn / note, `--json`); the demo
+  passes. `tools/serve.mjs` sends `.xml` as application/xml. `npm test` = 377.
+- 2026-11-25: **"How big was it? Magnitude" merged** (D41, session D13-magnitude, phase 1): a
+  science page after Frequencies, fading and sound, with seven real-data figures, a
+  plot-and-fit task from a CSV ("Make it"), accuracy in words; `lib/magnitude.js` (simulated
+  Wood-Anderson, magnification 2,800, damping 0.8, Richter's full 1958 table; a gate keeps
+  stations whose quake swing is at least twice the pre-P noise) reproduces UUSS's stored
+  amplitudes on the offline samples (median ratio 1.00 over 28 channels; UUSS's values saved
+  as `uuss-magnitudes.json` beside each sample); `tools/quake-explorer/magnitude-check.mjs`.
+  Standards PHYS.2.1 · ESS.4.1 · CS 9/10.DA.3 · CS 11/12.DA.1 (crosswalk `#magnitude`).
+  Quake Explorer's SGU note now covers Dec 2023–May 2024. `npm test` = 390; site check 43.
 
 ## Next steps
 
@@ -448,8 +464,15 @@ out of the menus:
    i. Magnitude (P5 v2, critiques R3 and R4, all committed): recommended as a fifth Quake
       Explorer investigation, "E. How big was it?", plus a science page "How big was it?"
       after Frequencies. Students using UUSS's own recipe land within about 0.3 of the
-      official ML (out-of-sample, 5 stations: about 88%). Gus decides on E (it changes D23)
-      and on the page's open choices; the page can be built either way.
+      official ML (out-of-sample, 5 stations: about 88%). Decided as D41; session
+      D13-magnitude builds it in two phases.
+   j. Data spec 1.2, when next revised: say whether a filling day's sidecar is rewritten
+      when no new data arrive (its coverage depends on publicUntil, which moves every run),
+      and that the publish step switches a day to "closed" once publicUntil passes its end
+      even with no new data (found by D14; the checker accepts either for now). Also the
+      checker's JSON Schema files and fixtures (spec section 12) and product checks.
+      Cleat can send DRI IT the brief and the spec (1.1); the spec's section 12 tells DRI
+      how to run the checker.
    h. From P4 (section 6.4): **Gus owns Phone Bench and trial T1 for now** (may change for
       later tests); T2 and T3 get a DRI lead only if Dale and Cleat want phone activities.
       The P6 bounce timer (Chromebook microphone) **waits for Dale and Cleat's answer**

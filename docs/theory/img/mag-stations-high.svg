@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 562" width="760" height="562" role="img" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<rect x="0.5" y="0.5" width="759" height="561" rx="8" fill="#ffffff" stroke="#d9dde3"/>
+<text x="12" y="22" font-size="15" font-weight="600" fill="#111827">Stations that read high: SGU and TMU against the University of Utah's magnitude</text>
+<circle cx="18" cy="46" r="6" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<text x="30" y="50" font-size="14" fill="#111827">horizontal sensors (mean of the two)</text>
+<rect x="294.5" y="40.5" width="11" height="11" rx="1.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<text x="312" y="50" font-size="14" fill="#111827">up-down sensor</text>
+<line x1="452" y1="39" x2="452" y2="53" stroke="#1f2937" stroke-width="2"/>
+<text x="460" y="50" font-size="14" fill="#111827">0 = the University of Utah's value</text>
+<text x="196" y="84" font-size="16" font-weight="700" fill="#111827">SGU</text>
+<text x="242" y="84" font-size="13" fill="#5b6472">stand-in for Gunnison Valley</text>
+<line x1="196" y1="112" x2="196" y2="458" stroke="#e8ebef" stroke-width="1"/>
+<text x="196" y="106" font-size="13" text-anchor="middle" fill="#5b6472">−0.4</text>
+<line x1="236.8" y1="112" x2="236.8" y2="458" stroke="#e8ebef" stroke-width="1"/>
+<line x1="277.7" y1="112" x2="277.7" y2="458" stroke="#1f2937" stroke-width="2"/>
+<text x="277.7" y="106" font-size="13" text-anchor="middle" fill="#5b6472">0</text>
+<line x1="318.5" y1="112" x2="318.5" y2="458" stroke="#e8ebef" stroke-width="1"/>
+<line x1="359.3" y1="112" x2="359.3" y2="458" stroke="#e8ebef" stroke-width="1"/>
+<text x="359.3" y="106" font-size="13" text-anchor="middle" fill="#5b6472">+0.4</text>
+<line x1="400.2" y1="112" x2="400.2" y2="458" stroke="#e8ebef" stroke-width="1"/>
+<line x1="441" y1="112" x2="441" y2="458" stroke="#e8ebef" stroke-width="1"/>
+<text x="441" y="106" font-size="13" text-anchor="middle" fill="#5b6472">+0.8</text>
+<text x="318.5" y="479" font-size="13" text-anchor="middle" fill="#5b6472">station's value minus Utah's</text>
+<text x="487" y="84" font-size="16" font-weight="700" fill="#111827">TMU</text>
+<text x="533" y="84" font-size="13" fill="#5b6472">stand-in for Wasatch Academy</text>
+<line x1="487" y1="112" x2="487" y2="458" stroke="#e8ebef" stroke-width="1"/>
+<text x="487" y="106" font-size="13" text-anchor="middle" fill="#5b6472">−0.4</text>
+<line x1="527.8" y1="112" x2="527.8" y2="458" stroke="#e8ebef" stroke-width="1"/>
+<line x1="568.7" y1="112" x2="568.7" y2="458" stroke="#1f2937" stroke-width="2"/>
+<text x="568.7" y="106" font-size="13" text-anchor="middle" fill="#5b6472">0</text>
+<line x1="609.5" y1="112" x2="609.5" y2="458" stroke="#e8ebef" stroke-width="1"/>
+<line x1="650.3" y1="112" x2="650.3" y2="458" stroke="#e8ebef" stroke-width="1"/>
+<text x="650.3" y="106" font-size="13" text-anchor="middle" fill="#5b6472">+0.4</text>
+<line x1="691.2" y1="112" x2="691.2" y2="458" stroke="#e8ebef" stroke-width="1"/>
+<line x1="732" y1="112" x2="732" y2="458" stroke="#e8ebef" stroke-width="1"/>
+<text x="732" y="106" font-size="13" text-anchor="middle" fill="#5b6472">+0.8</text>
+<text x="609.5" y="479" font-size="13" text-anchor="middle" fill="#5b6472">station's value minus Utah's</text>
+<rect x="6" y="120" width="748" height="30" fill="#f6f7f9"/>
+<text x="12" y="140" font-size="14.5" font-weight="600" fill="#111827">Kanosh</text>
+<text x="184" y="140" font-size="13" text-anchor="end" fill="#5b6472">8 quakes</text>
+<line x1="292.3" y1="135" x2="403.1" y2="135" stroke="#d9dde3" stroke-width="3"/>
+<rect x="286.8" y="129.5" width="11" height="11" rx="1.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="403.1" cy="135" r="6" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<line x1="602.8" y1="135" x2="679.9" y2="135" stroke="#d9dde3" stroke-width="3"/>
+<rect x="597.3" y="129.5" width="11" height="11" rx="1.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="679.9" cy="135" r="6" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<text x="12" y="170" font-size="14.5" font-weight="600" fill="#111827">Junction</text>
+<text x="184" y="170" font-size="13" text-anchor="end" fill="#5b6472">2 quakes</text>
+<line x1="299.2" y1="165" x2="410.3" y2="165" stroke="#d9dde3" stroke-width="3"/>
+<rect x="293.7" y="159.5" width="11" height="11" rx="1.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="410.3" cy="165" r="6" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<line x1="563.9" y1="165" x2="664.5" y2="165" stroke="#d9dde3" stroke-width="3"/>
+<rect x="558.4" y="159.5" width="11" height="11" rx="1.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="664.5" cy="165" r="6" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<rect x="6" y="180" width="748" height="30" fill="#f6f7f9"/>
+<text x="12" y="200" font-size="14.5" font-weight="600" fill="#111827">Milford</text>
+<text x="184" y="200" font-size="13" text-anchor="end" fill="#5b6472">4 quakes</text>
+<line x1="240.8" y1="195" x2="339.8" y2="195" stroke="#d9dde3" stroke-width="3"/>
+<rect x="235.3" y="189.5" width="11" height="11" rx="1.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="339.8" cy="195" r="6" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<line x1="517.2" y1="195" x2="567.6" y2="195" stroke="#d9dde3" stroke-width="3"/>
+<rect x="511.7" y="189.5" width="11" height="11" rx="1.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="567.6" cy="195" r="6" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<text x="12" y="230" font-size="14.5" font-weight="600" fill="#111827">Kenilworth</text>
+<text x="184" y="230" font-size="13" text-anchor="end" fill="#5b6472">1 quake</text>
+<line x1="226.2" y1="225" x2="292.6" y2="225" stroke="#d9dde3" stroke-width="3"/>
+<rect x="220.7" y="219.5" width="11" height="11" rx="1.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="292.6" cy="225" r="6" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<line x1="619.7" y1="225" x2="666.1" y2="225" stroke="#d9dde3" stroke-width="3"/>
+<rect x="614.2" y="219.5" width="11" height="11" rx="1.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="666.1" cy="225" r="6" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<rect x="6" y="240" width="748" height="30" fill="#f6f7f9"/>
+<text x="12" y="260" font-size="14.5" font-weight="600" fill="#111827">Mount Pleasant</text>
+<text x="184" y="260" font-size="13" text-anchor="end" fill="#5b6472">1 quake</text>
+<line x1="340.8" y1="255" x2="411.8" y2="255" stroke="#d9dde3" stroke-width="3"/>
+<rect x="335.3" y="249.5" width="11" height="11" rx="1.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="411.8" cy="255" r="6" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<line x1="568.7" y1="255" x2="642.8" y2="255" stroke="#d9dde3" stroke-width="3"/>
+<rect x="563.2" y="249.5" width="11" height="11" rx="1.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="642.8" cy="255" r="6" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<text x="12" y="290" font-size="14.5" font-weight="600" fill="#111827">Leamington</text>
+<text x="184" y="290" font-size="13" text-anchor="end" fill="#5b6472">2 quakes</text>
+<line x1="301.1" y1="285" x2="367.1" y2="285" stroke="#d9dde3" stroke-width="3"/>
+<rect x="295.6" y="279.5" width="11" height="11" rx="1.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="367.1" cy="285" r="6" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<line x1="587" y1="285" x2="655.6" y2="285" stroke="#d9dde3" stroke-width="3"/>
+<rect x="581.5" y="279.5" width="11" height="11" rx="1.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="655.6" cy="285" r="6" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<rect x="6" y="300" width="748" height="30" fill="#f6f7f9"/>
+<text x="12" y="320" font-size="14.5" font-weight="600" fill="#111827">Panguitch</text>
+<text x="184" y="320" font-size="13" text-anchor="end" fill="#5b6472">1 quake</text>
+<line x1="243.6" y1="315" x2="361.4" y2="315" stroke="#d9dde3" stroke-width="3"/>
+<rect x="238.1" y="309.5" width="11" height="11" rx="1.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="361.4" cy="315" r="6" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<line x1="532.7" y1="315" x2="565" y2="315" stroke="#d9dde3" stroke-width="3"/>
+<rect x="527.2" y="309.5" width="11" height="11" rx="1.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="565" cy="315" r="6" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<text x="12" y="350" font-size="14.5" font-weight="600" fill="#111827">Torrey</text>
+<text x="184" y="350" font-size="13" text-anchor="end" fill="#5b6472">1 quake</text>
+<text x="289.9" y="350" font-size="13" fill="#5b6472" stroke="#ffffff" stroke-width="4" paint-order="stroke">no usable record</text>
+<line x1="550.1" y1="345" x2="607.9" y2="345" stroke="#d9dde3" stroke-width="3"/>
+<rect x="544.6" y="339.5" width="11" height="11" rx="1.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="607.9" cy="345" r="6" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<rect x="6" y="360" width="748" height="30" fill="#f6f7f9"/>
+<text x="12" y="380" font-size="14.5" font-weight="600" fill="#111827">West Valley City</text>
+<text x="184" y="380" font-size="13" text-anchor="end" fill="#5b6472">1 quake</text>
+<text x="289.9" y="380" font-size="13" fill="#5b6472" stroke="#ffffff" stroke-width="4" paint-order="stroke">no usable record</text>
+<line x1="515.8" y1="375" x2="567" y2="375" stroke="#d9dde3" stroke-width="3"/>
+<rect x="510.3" y="369.5" width="11" height="11" rx="1.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="567" cy="375" r="6" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<text x="12" y="410" font-size="14.5" font-weight="600" fill="#111827">Fayette</text>
+<text x="184" y="410" font-size="13" text-anchor="end" fill="#5b6472">1 quake</text>
+<text x="289.9" y="410" font-size="13" fill="#5b6472" stroke="#ffffff" stroke-width="4" paint-order="stroke">no usable record</text>
+<line x1="567.6" y1="405" x2="642.8" y2="405" stroke="#d9dde3" stroke-width="3"/>
+<rect x="562.1" y="399.5" width="11" height="11" rx="1.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="642.8" cy="405" r="6" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<line x1="277.7" y1="112" x2="277.7" y2="458" stroke="#1f2937" stroke-width="2"/>
+<line x1="568.7" y1="112" x2="568.7" y2="458" stroke="#1f2937" stroke-width="2"/>
+<line x1="6" y1="427" x2="754" y2="427" stroke="#d9dde3" stroke-width="1"/>
+<text x="12" y="448" font-size="14.5" font-weight="600" fill="#111827">All these quakes</text>
+<line x1="279.6" y1="443" x2="379.2" y2="443" stroke="#d9dde3" stroke-width="3"/>
+<rect x="274.1" y="437.5" width="11" height="11" rx="1.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="379.2" cy="443" r="6" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<line x1="570.3" y1="443" x2="638.2" y2="443" stroke="#d9dde3" stroke-width="3"/>
+<rect x="564.8" y="437.5" width="11" height="11" rx="1.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="638.2" cy="443" r="6" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<text x="267.5" y="448" font-size="13" text-anchor="end" fill="#5b6472" stroke="#ffffff" stroke-width="4" paint-order="stroke">19 quakes</text>
+<text x="558.5" y="448" font-size="13" text-anchor="end" fill="#5b6472" stroke="#ffffff" stroke-width="4" paint-order="stroke">22 quakes</text>
+<text x="12" y="510" font-size="13" fill="#5b6472">Each mark: the station's magnitude minus the University of Utah's, averaged over the</text>
+<text x="12" y="530" font-size="13" fill="#5b6472">training quakes from that area (2025–2026). No station corrections.</text>
+</svg>

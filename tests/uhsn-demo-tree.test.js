@@ -1,7 +1,8 @@
 // A small checker for the demo public tree the School Shake viewer ships
 // (docs/app/data/uhsn-demo/v1/, made by tools/uhsn-test/make-tree.mjs --demo): is it laid
-// out and described as the UHSN data specification says (draft 0.2, sections 5.4, 7.1 and
-// 7.3 to 7.7)? The same checks are the seed of the checker DRI will run against its server.
+// out and described as the UHSN data specification says (version 1.1, sections 5.4, 7.1 and
+// 7.3 to 7.7)? DRI runs tools/uhsn-test/check-tree.mjs; these checks, written apart from it,
+// read the same folder a second way (tests/uhsn-check-tree.test.js runs the checker on it).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -164,7 +165,7 @@ test('demo tree: index, availability and sidecars agree with the day files (spec
     assert.equal(line.bytes, bytes.length);
     assert.equal(line.coverage, side.coverage);
     assert.deepEqual({ gapCount: line.gapCount, gapSeconds: line.gapSeconds }, gapTotals(side.gaps));
-    assert.equal(line.status, p.dayMs + DAY <= publicUntilMs ? 'complete' : 'partial');
+    assert.equal(line.status, p.dayMs + DAY <= publicUntilMs ? 'closed' : 'filling');
     assert.ok(isTime(line.updated));
 
     const key = `${p.net}.${p.sta}|${p.loc}.${p.cha}`;

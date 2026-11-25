@@ -1,0 +1,46 @@
+{
+ "about": "The quakes tools/quake-explorer/magnitude-check.mjs measures: local magnitude (ML) from the stations Quake Explorer loads, against UUSS's own ML (planning/review-magnitude.md 3.1, 3.3-3.5; decision D41).",
+ "source": "USGS ComCat (https://earthquake.usgs.gov/fdsnws/event/1/): event details, and the University of Utah Seismograph Stations (UUSS) \"phase-data\" QuakeML product for each event. ml = UUSS's network magnitude of type Ml in that QuakeML (the reference), which is ComCat's preferred magnitude except where \"catalog\" says otherwise. place, date (UTC) from ComCat.",
+ "selection": {
+   "training": "In-sample. The 23 quakes the magnitude review measured first (planning/review-magnitude.md, section 0): the 2020 Magna earthquake, 11 central-Utah events of ML 2.1-4.0 including one quarry blast (uu80161881), and 11 more from the same places; 14 of the 23 come from three clusters (Kanosh 8, Milford 4, Junction 2). The recipe was developed, and the vertical correction fitted, on these. Magna (ML 5.61) is reported on its own and used only in the vertical-correction fit, so the training statistics cover the 22 quakes below M5. cluster = the source area, used for the leave-one-cluster-out check.",
+   "holdout": "Out-of-sample: used for accuracy only, nothing in the recipe was tuned on it. The rule, quoted from the selection notes (written by the review's helper script, oos/holdout-events.md), was fixed and the list chosen from the catalog alone before any holdout waveform was read, on 2026-11-25: \"Pool: ComCat, 2022-01-01 to 2026-11-25, 36.75-42.5 N, 114.25-108.75 W (the app's Utah region), M 2.5-4.9, network uu, preferred magnitude type ml, event type earthquake, with a phase-data product, and more than 30 km from every one of the 23 training quakes. Catalog list: 288 events; pool: 171. Six areas (latitude/longitude boxes below). In each: (1) the largest quake (ties: the most recent); (2) the quake closest to M 3.0 that is more than 10 km from the first (ties: the most recent). If none of those is M 4.0-4.9, add the largest M 4.0-4.9 quake in the pool. The holdout is used for accuracy only: nothing in the recipe is tuned on it. Boxes [lat min, lat max, lon min, lon max]: A Northern Wasatch Front / Cache Valley: [41,41.9,-112.6,-111.3]; B Uinta Basin: [39.9,40.8,-110.6,-109]; C Southwest Utah (St. George, Cedar City, Hurricane): [36.9,37.9,-113.7,-112.9]; D Book Cliffs / Price / Wasatch Plateau coal district: [39.2,39.9,-111.3,-110]; E Eastern Utah (Moab, Paradox, San Rafael): [37,39.2,-110.3,-108.75]; F Utah-Idaho and Utah-Nevada borders: lat >= 41.9 or lon <= -113.7. Areas are filled in order A to F; a quake is used once.\" Result: 10 quakes, not 12 (areas B and E had one qualifying quake each); two are M4-5 (Thatcher 4.37, Maeser 4.13), so the M4 rule added none."
+ },
+ "made": "2026-11-25",
+ "training": [
+  {"id":"uu60363602","date":"2020-03-18","place":"5 km NNE of Magna, Utah","cluster":"Magna","ml":5.61,"catalog":"Mw 5.7 (ComCat's preferred)"},
+  {"id":"uu80131546","date":"2026-03-10","place":"29 km ENE of Torrey, Utah","cluster":"Torrey","ml":3.96},
+  {"id":"uu80137106","date":"2026-04-19","place":"8 km SSW of Kanosh, Utah","cluster":"Kanosh","ml":3.63},
+  {"id":"uu80129556","date":"2026-02-14","place":"4 km NNW of West Valley City, Utah","cluster":"West Valley City","ml":3.52},
+  {"id":"uu80162166","date":"2026-10-31","place":"8 km NW of Junction, Utah","cluster":"Junction","ml":3.3},
+  {"id":"uu80156586","date":"2026-09-12","place":"16 km NE of Milford, Utah","cluster":"Milford","ml":3.13},
+  {"id":"uu80138736","date":"2026-05-04","place":"20 km ENE of Panguitch, Utah","cluster":"Panguitch","ml":3.05},
+  {"id":"uu80158051","date":"2026-09-27","place":"15 km E of Kenilworth, Utah","cluster":"Kenilworth","ml":2.69},
+  {"id":"uu80114836","date":"2025-08-27","place":"7 km ENE of Mount Pleasant, Utah","cluster":"Mount Pleasant","ml":2.46},
+  {"id":"uu80130416","date":"2026-02-21","place":"15 km NW of Fayette, Utah","cluster":"Fayette","ml":2.52,"catalog":"Md 2.43 (ComCat's preferred)"},
+  {"id":"uu80120191","date":"2025-10-25","place":"17 km E of Leamington, Utah","cluster":"Leamington","ml":2.11},
+  {"id":"uu80161881","date":"2026-10-26","place":"4 km ENE of Leamington, Utah","cluster":"Leamington","ml":2.11,"type":"quarry blast"},
+  {"id":"uu80137056","date":"2026-04-19","place":"8 km SSW of Kanosh, Utah","cluster":"Kanosh","ml":3.26},
+  {"id":"uu80137836","date":"2026-04-22","place":"8 km SSW of Kanosh, Utah","cluster":"Kanosh","ml":3.22},
+  {"id":"uu80136966","date":"2026-04-19","place":"7 km SSW of Kanosh, Utah","cluster":"Kanosh","ml":3.2},
+  {"id":"uu80136971","date":"2026-04-19","place":"9 km SSW of Kanosh, Utah","cluster":"Kanosh","ml":2.59},
+  {"id":"uu80137331","date":"2026-04-20","place":"10 km SSW of Kanosh, Utah","cluster":"Kanosh","ml":2.58},
+  {"id":"uu80137126","date":"2026-04-19","place":"10 km SSW of Kanosh, Utah","cluster":"Kanosh","ml":2.52},
+  {"id":"uu80137201","date":"2026-04-19","place":"9 km SSW of Kanosh, Utah","cluster":"Kanosh","ml":2.5},
+  {"id":"uu80163521","date":"2026-11-07","place":"13 km NE of Milford, Utah","cluster":"Milford","ml":3.12},
+  {"id":"uu80165416","date":"2026-11-19","place":"15 km NNE of Milford, Utah","cluster":"Milford","ml":2.78},
+  {"id":"uu80163431","date":"2026-11-07","place":"14 km NE of Milford, Utah","cluster":"Milford","ml":2.71},
+  {"id":"uu80162171","date":"2026-10-31","place":"8 km NW of Junction, Utah","cluster":"Junction","ml":2.97}
+ ],
+ "holdout": [
+  {"id":"uu80068651","date":"2024-05-05","place":"16 km SW of Thatcher, Utah","area":"A","areaName":"Northern Wasatch Front / Cache Valley","ml":4.37,"why":"largest in region","kmToTraining":96},
+  {"id":"uu80127041","date":"2026-01-07","place":"17 km WSW of Garden, Utah","area":"A","areaName":"Northern Wasatch Front / Cache Valley","ml":2.94,"why":"closest to M3.0, more than 10 km from the largest","kmToTraining":127},
+  {"id":"uu80117176","date":"2025-09-10","place":"10 km W of Maeser, Utah","area":"B","areaName":"Uinta Basin","ml":4.13,"why":"largest in region","kmToTraining":116},
+  {"id":"uu60555582","date":"2023-12-01","place":"13 km SSE of Kanarraville, Utah","area":"C","areaName":"Southwest Utah (St. George, Cedar City, Hurricane)","ml":3.86,"why":"largest in region","kmToTraining":95},
+  {"id":"uu80136961","date":"2026-04-19","place":"1 km W of Kanarraville, Utah","area":"C","areaName":"Southwest Utah (St. George, Cedar City, Hurricane)","ml":2.99,"why":"closest to M3.0, more than 10 km from the largest","kmToTraining":96},
+  {"id":"uu80059666","date":"2024-03-04","place":"23 km SE of Elmo, Utah","area":"D","areaName":"Book Cliffs / Price / Wasatch Plateau coal district","ml":2.7,"why":"largest in region","kmToTraining":50},
+  {"id":"uu60490147","date":"2022-04-11","place":"15 km SSE of Sunnyside, Utah","area":"D","areaName":"Book Cliffs / Price / Wasatch Plateau coal district","ml":2.69,"why":"closest to M3.0, more than 10 km from the largest","kmToTraining":42},
+  {"id":"uu60500212","date":"2022-05-31","place":"37 km ENE of Thompson Springs, Utah","area":"E","areaName":"Eastern Utah (Moab, Paradox, San Rafael)","ml":3.76,"why":"largest in region","kmToTraining":135},
+  {"id":"uu80140161","date":"2026-05-15","place":"8 km W of Bennington, Idaho","area":"F","areaName":"Utah-Idaho and Utah-Nevada borders","ml":3.81,"why":"largest in region","kmToTraining":190},
+  {"id":"uu60525337","date":"2022-11-16","place":"17 km NNW of Taylor, Wyoming","area":"F","areaName":"Utah-Idaho and Utah-Nevada borders","ml":2.97,"why":"closest to M3.0, more than 10 km from the largest","kmToTraining":182}
+ ]
+}

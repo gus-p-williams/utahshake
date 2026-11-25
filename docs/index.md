@@ -44,6 +44,7 @@ New here? Watch [Quake Waves](apps/quake-waves.md) first, then try
     [Distance from S minus P](theory/s-minus-p.md) · [Locating a quake](theory/locating.md) ·
     [Travel times and Earth's layers](theory/travel-times.md) ·
     [Frequencies, fading and sound](theory/frequencies.md) ·
+    [How big was it?](theory/magnitude.md) ·
     [Which way the ground moves](theory/ground-motion.md) ·
     [Our stations and data](theory/stations.md)
 

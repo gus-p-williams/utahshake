@@ -51,6 +51,8 @@ docs/app/
       bench.js             Phone Bench: rate, jitter, rounding step, noise, taps; a made-up phone
       day-view.js          School Shake Viewer: local days, helicorder geometry, notes files, arrivals, CSV
       mseed-index.js       miniSEED headers only: record times, gaps, coverage, seek tables, byte ranges
+      magnitude.js         local magnitude as UUSS computes it: Wood-Anderson (2,800, damping 0.8),
+                           Richter's 1958 table, half peak-to-peak, the station rule, UUSS's QuakeML numbers
     data/
       datasource.js        the DataSource interface; picks a source from the URL
       earthscope-usgs.js   live source: USGS events + EarthScope stations/waveforms
@@ -87,6 +89,7 @@ tests/                     node --test, including real-data checks on the sample
   mseed-index.test.js, uhsn-source.test.js, uhsn-demo-tree.test.js   the UHSN data layout and its reader
   site-graphics.test.js    the small site graphics: every snippet points to a file, no orphans, one line, aria-hidden;
                            every All apps card has a thumb; the home banner has its credit
+  uhsn-check.test.js, uhsn-check-tree.test.js   the checker for DRI's server
   teacher-cards.test.js    activity cards and app hubs link both ways (D19); the Teachers catalog
                            and standards tables match each card's "At a glance" box
   clear-s.test.js          the "clear S at N of M stations" notes match the offline samples
@@ -98,6 +101,7 @@ tools/
   figures/                 figures for the guides and The Science (see below)
                            site-graphics.mjs: the small card, icon and banner graphics (docs/img/graphics/)
   uhsn-test/make-tree.mjs  a test folder in the UHSN data layout from University of Utah data
+  uhsn-test/check-tree.mjs the checker DRI runs on its server (data spec 1.1); pure checks in check-lib.mjs
   serve.mjs                tiny local server for docs/ (apps only, no MkDocs build; Range and CORS)
   site-check.mjs           every page of the built site in headless Chrome at three widths
   phone-bench-check.mjs    Phone Bench in headless Chrome: made-up phone, emulated sensors, fake microphone
@@ -197,6 +201,8 @@ the same bytes every time it runs.
 | `science-travel-times.mjs` | `theory/img/tt-*.svg` (Travel times and Earth's layers) | Node only |
 | `science-frequencies.mjs` | `theory/img/freq-*.svg` (Frequencies, fading and sound) | Node only |
 | `science-ground-motion.mjs` | `theory/img/gm-*.svg` (Which way the ground moves) | Node only |
+| `magnitude-figures.mjs` | `theory/img/mag-two-sizes.svg`, `mag-wood-anderson.svg`, `mag-junction-stations.svg`, `mag-duration.svg`, `mag-several-numbers.svg`, and `theory/data/junction-swings.csv` (How big was it?) | Node only; downloads data the first time |
+| `magnitude-check-figures.mjs` | `theory/img/mag-how-many.svg`, `mag-stations-high.svg` (How big was it?) | Node only; reads `tools/figures/data/magnitude-check.json`, written by `tools/quake-explorer/magnitude-check.mjs` |
 | `plots-time.mjs` | `theory/img/plots-helicorder.svg`, `plots-carpet.svg` (Beyond one seismogram) | Node only; downloads data the first time; the carpet's levels are kept in `tools/figures/data/carpet-heb-2026.json` |
 | `plots-noise.mjs` | `theory/img/plots-ppsd.svg`, `plots-ppsd-compare.svg` | Node only; downloads four station-months the first time; the PPSD histograms are kept in `tools/figures/data/ppsd-*.json` |
 | `plots-hv.mjs` | `theory/img/plots-hv.svg` | Node only; curves kept in `tools/figures/data/hv-curves.json` |

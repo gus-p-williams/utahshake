@@ -403,3 +403,52 @@ version 2 say so.
   project in Cornwall, United Kingdom, *The Seismic Record* 1(1), 27–34,
   doi:10.1785/0320210010. Read: abstract. Supports: Shake MLs "similar" to the British
   Geological Survey's (no number in the abstract).
+
+## Built for the science page and the module (session D13-magnitude, phase 1, D41)
+
+Sources behind `docs/app/js/lib/magnitude.js`, the page `docs/theory/magnitude.md` ("How big was
+it?") and its figures. Accessed 2026-11-25. The page itself carries only the short credit line;
+the details are here (D28, constraint 5).
+
+- **The module's constants and table.** Wood-Anderson magnification 2,800, period 0.8 s,
+  damping 0.8 (Richter 1935; Uhrhammer and Collins 1990, p. 702; established for UUSS from its
+  own amplitudes, review 3.2). Richter's 1958 table, all 70 rows, from Uhrhammer et al. (1996,
+  Table 4), checked against Bormann (2012, NMSOP-2 DS 3.1, Table 1) (entries above). The
+  coda equation and the 0.01724 µm/s line: the UUSS magnitude summary (above).
+- **UUSS's numbers beside each offline sample** (`docs/app/data/samples/qe-*/uuss-magnitudes.json`,
+  made by `tools/quake-explorer/sample-amplitudes.mjs`): each event's UUSS phase-data QuakeML in
+  USGS ComCat; the file records its URL and the product's update time. Used by
+  `tests/magnitude.test.js`, which checks our Wood-Anderson against UUSS's stored amplitudes on
+  the samples' own horizontal records (median ratio 1.00; 27 of 28 channels within 8%; the odd
+  one, Kenilworth's CVRU HHE, reads half UUSS's value while its HHN matches).
+- **Figure 1 (two Kanosh quakes):** uu80137106 and uu80137126 (ComCat: 2026-04-19 14:43:47 and
+  14:53:47 UTC, depths 4.1 and 8.1 km; version 2 of the review had them the wrong way round, now fixed in 3.7) at UU.MMU,
+  HHE, via EarthScope; ratio 13.5 (UUSS's own HHE amplitudes give 13.6).
+- **Figure 2 (Richter's instrument):** Junction uu80162166 at UU.FOR1 HHE via EarthScope; the
+  swing, 2.39 mm, matches UUSS's `AML` ÷ 2 for that channel (2.390 mm) to 0.1%. The
+  instrument schematic follows Richter (1935) and the Berkeley history page (entries above).
+- **Figure 3 and `docs/theory/data/junction-swings.csv`:** UUSS's `AML` amplitudes for the 30
+  stations it measured 10–300 km from the Junction quake (phase-data QuakeML, as in
+  `qe-junction/uuss-magnitudes.json`), station coordinates from EarthScope's station service,
+  the event location from ComCat.
+- **Figure 4 (durations):** Junction at UU.CCUT and UU.EKU (HHZ, 60 s before to 420 s after the
+  origin) via EarthScope; UUSS's END durations (139.05 s and 325.91 s) and station Md (3.01 and
+  3.89) from the phase-data QuakeML; the catalog's Md 3.28 from 29 stations.
+- **Figure 5 and Figure 6:** `tools/figures/data/magnitude-check.json`, written by
+  `tools/quake-explorer/magnitude-check.mjs` from the event list
+  `tools/quake-explorer/data/magnitude-events.json` (22 training quakes plus Magna, and the
+  10-quake holdout chosen by rule before any holdout waveform was read; review 3.4).
+- **Figure 7 (several numbers):** `tools/figures/data/magnitude-several-numbers.json`: UUSS's
+  network magnitudes from each event's phase-data QuakeML (URLs and product update times in the
+  file).
+- **"Did You Feel It?" counts** on the page (West Valley City 4,122; Junction 5; Magna 26,376):
+  USGS ComCat event service, `dyfi` products (`num-responses`), read 2026-11-24
+  (`planning/activities.md` B3) and again 2026-11-25 by R3's rerun (`t5.out`).
+- **Intensity wording** (Roman numerals; reports and instruments; ShakeMap combines both): the
+  USGS magnitude, energy and intensity page and the ComCat products and ShakeMap pages (entries
+  above).
+- **The page's Make it answer** (slope −1.86, scatter 0.43 in log10): my fit to
+  `junction-swings.csv`; Richter's table between 30 and 300 km falls 1.9 in log over one decade.
+  Frequencies' −1.7 is that page's own fit to peak ground speed for the same quake.
+- **Times:** the Junction quake is October 31, 2026, 04:44 UTC (October 30, 10:44 pm in Utah);
+  the page gives the UTC date, as Locating a quake and Our stations and data do.

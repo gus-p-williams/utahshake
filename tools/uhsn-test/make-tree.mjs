@@ -1,7 +1,8 @@
-// Make a test copy of the UHSN public tree (spec draft 0.2, design (a): plain files) from
-// University of Utah data, so the School Shake viewer and UHSNSource can be built and tested
-// before any school Shake sends data. It is also a first reference for DRI's publish and
-// index scripts: it does the publish step's work (spec 5.2) in the same order.
+// Make a test copy of the UHSN public tree (data spec version 1.1, design (a): plain files)
+// from University of Utah data, so the School Shake viewer and UHSNSource can be built and
+// tested before any school Shake sends data. It is also a first reference for DRI's publish
+// and index scripts: it does the publish step's work (spec 5.2) in the same order.
+// tools/uhsn-test/check-tree.mjs checks what it writes.
 //
 //   node tools/uhsn-test/make-tree.mjs --demo
 //   node tools/uhsn-test/make-tree.mjs --station UU.HEB.01.EHZ \
@@ -13,8 +14,8 @@
 //   --from <ISO>          the span the "bridge" delivered: whole records that start at or
 //   --until <ISO>         after --from and before --until
 //   --public-until <ISO>  the cutoff: only records that end by it are published (default --until)
-//   --now <ISO>           the time of this "publish run": generated/updated times and the
-//                         index's status (default --public-until + 10 minutes)
+//   --now <ISO>           the time of this "publish run": the generated and updated times
+//                         (default --public-until + 10 minutes)
 //   --demo                the small tree the app ships, into docs/app/data/uhsn-demo/v1/
 //
 // Data: University of Utah Seismograph Stations (network UU, doi:10.7914/SN/UU) through
@@ -24,21 +25,26 @@
 // Records are copied byte for byte; headers are never rewritten (spec 6.1). EarthScope's
 // dataselect trims the first and last record of an answer to the window asked for, so each
 // download is padded by 5 minutes and its first and last record are thrown away: what is
-// left are the station's original records.
+// left are the station's original records (spec 6.4).
+//
+// Status words (spec 1.1): a day in the availability file is "filling" until the whole day
+// ends at or before publicUntil, then "closed" (7.6); a channel in index.json is "current",
+// "late" or "stopped" by its lag, publicUntil − lastSample, not by the clock (7.5). Whether
+// the publish step itself has stalled ("data paused") is for readers to judge from
+// index.json's "generated" (7.5); this script, like the publish step, only stamps it.
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fetchCached, DATASELECT, STATION } from '../figures/fdsn-cache.mjs';
 import {
   scanRecords, sortDedupe, cutAtCutoff, describeDay, gapTotals, sdsPath, utcDayStart, isoMs,
-  isoDay, nslc,
+  isoDay, nslc, dayStatus, channelStatus,
 } from '../../docs/app/js/lib/mseed-index.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repo = path.resolve(here, '../..');
 const DAY = 86400000;
 const PAD = 300000;
-const HOUR = 3600000;
 
 const DEMO = {
   out: path.join(repo, 'docs/app/data/uhsn-demo/v1'),
@@ -214,19 +220,18 @@ async function main() {
         if (!avail.has(year)) avail.set(year, { version: 1, net, sta, year, generated: now, channels: {} });
         const bytes = fs.statSync(file).size;
         ((avail.get(year).channels[`${ch.loc}.${ch.cha}`] ??= {}))[isoDay(dayMs)] = {
-          status: dayMs + DAY <= publicUntilMs ? 'complete' : 'partial',
+          status: dayStatus(dayMs, publicUntilMs),
           coverage: desc.coverage, ...gapTotals(desc.gaps), bytes, updated: now,
         };
         lastSample = desc.lastSampleEnd;
         listing.push([rel, bytes, `${desc.records} records, coverage ${desc.coverage}, ${desc.gaps.length} gaps`]);
       }
       if (!days.size) { console.warn(`no data for ${nslc(ch)}`); continue; }
-      // Status (7.5), for an hourly station: new data within 2 hours is current; nothing for
-      // 7 days is stopped; otherwise late. (A daily station would get 36 hours.)
-      const age = nowMs - Date.parse(lastSample);
+      // Status (7.5) by the lag publicUntil − lastSample, for an hourly station (a test tree's
+      // stations are "sharing", and sharing stations are delivered hourly).
       indexChannels[`${ch.loc}.${ch.cha}`] = {
         firstDay: isoDay(Math.min(...days.keys())), lastSample, updated: now,
-        status: age <= 2 * HOUR ? 'current' : age >= 7 * 24 * HOUR ? 'stopped' : 'late',
+        status: channelStatus(publicUntilMs, Date.parse(lastSample)),
       };
     }
     for (const [year, a] of avail) writeJson(path.join(out, `index/${key}.${year}.json`), a);
@@ -242,7 +247,7 @@ async function main() {
   fs.writeFileSync(path.join(out, 'ABOUT.txt'), `UHSN public tree, version 1: a TEST tree
 ==========================================
 
-This folder is laid out as the UHSN data specification describes (draft 0.2, section 7:
+This folder is laid out as the UHSN data specification describes (version 1.1, section 7:
 planning/spec-uhsn-data.md in the repository), but it does not hold school data. It holds
 recordings of a University of Utah station, standing in for a school's Raspberry Shake, so
 the School Shake viewer and its reader (docs/app/js/data/uhsn.js) can be tried and tested.
@@ -263,10 +268,13 @@ Where this tree differs from the specification's example values:
   UU codes (and UU's location code, e.g. "01", where a Shake has "00").
 - "model" is "test: UU station", not a Raspberry Shake model.
 - "units" are what UU's metadata give. For an old analog station such as HEB that is "M"
-  (the sensitivity is in counts per meter), which is not one of the three the spec lists.
+  (displacement: the sensitivity is in counts per meter), which spec 1.1 allows for it.
 - The StationXML is UU's own, as EarthScope serves it, not built from a Raspberry Shake
   template; its schema version is whatever EarthScope writes.
 - "clockChecked" is null: nobody checked a clock.
+
+To check a tree against the specification:
+  node tools/uhsn-test/check-tree.mjs <this folder, or its web address>
 `);
 
   for (const f of ['ABOUT.txt', 'stations.json', 'index.json']) listing.push([f, fs.statSync(path.join(out, f)).size, '']);

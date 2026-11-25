@@ -88,7 +88,7 @@ with `node tools/quake-explorer/make-sample.mjs`; see
 ## The school Shakes: UHSNSource (first version) { #uhsn }
 
 `js/data/uhsn.js` is the first **UHSNSource**: it reads files laid out as the UHSN data
-specification describes (draft 0.2, `planning/spec-uhsn-data.md` on GitHub; the planning files
+specification describes (version 1.1, `planning/spec-uhsn-data.md` on GitHub; the planning files
 are not on this site): `stations.json`, `index.json`, one availability file per station and
 year, and one miniSEED file per channel and UTC day with a JSON "sidecar" beside it. It is the
 reference client for DRI's future server, and the
@@ -107,17 +107,30 @@ reference client for DRI's future server, and the
   `publicUntilMs` so a page can say "data up to 9:00 PM" and shade the rest.
 - **No data versus blocked.** A 404 means "not published"; a network error means the server
   could not be reached (the spec asks for CORS headers on every response so the two differ).
+- **Data paused.** `publishState()` reports a server whose `index.json` was generated more
+  than an hour ago: its publish step (every 10 minutes) has stalled, and a page says "data
+  paused" (spec 7.5).
 
 The header-only miniSEED reader behind it (record times, gaps, coverage, seek tables, byte
-ranges) is `js/lib/mseed-index.js`. The test folder in `docs/app/data/uhsn-demo/v1/` is made by
+ranges, and the status words `dayStatus`, `channelStatus`, `publishPaused`) is
+`js/lib/mseed-index.js`. The test folder in `docs/app/data/uhsn-demo/v1/` is made by
 `node tools/uhsn-test/make-tree.mjs --demo` from University of Utah data (see
 `tools/uhsn-test/README.md`); `tests/uhsn-demo-tree.test.js` checks it against the spec, and
 `tests/uhsn-source.test.js` tests the reader. `node tools/serve.mjs` answers `Range` requests
 and sends CORS headers, like the server the spec describes.
 
+**The checker for DRI's server.** `tools/uhsn-test/check-tree.mjs` tests a folder or a server
+address against the spec (fields and types, the cutoff, sidecars and seek tables, status
+words, and for an address CORS on every answer, ranges, content types and caching) and prints
+a report of FAIL, warn and note lines. DRI runs it with Node.js 22 or later and nothing else
+installed: `node tools/uhsn-test/check-tree.mjs https://<host>/uhsn/v1/`, before going live and
+after any change to the publish step; exit status 0 means nothing failed. Its pure checks are
+in `check-lib.mjs` (`tests/uhsn-check.test.js`); `tests/uhsn-check-tree.test.js` runs it on the
+test folder, as a folder and served by `serve.mjs`, and on broken copies.
+
 Still to do (spec section 12): mapping the schools in `config.js` to their Shakes, a "School
 Shakes" choice in Quake Locator and Quake Explorer, computer picks for school Shakes, and the
-checker for DRI's server.
+checker's JSON Schema files and fixtures.
 
 ## Adding a data source
 

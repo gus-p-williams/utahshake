@@ -78,6 +78,20 @@ the PPSD, H/V, stacking and cross-correlation, all from real records. No activit
 | [CS 9/10.DA.3](https://Schools.Utah.gov/cte/_cte/computer/612ComputerScienceStandards.pdf) | The helicorder, the carpet and the PPSD are visualizations of days to months of data |
 | [CS 11/12.DA.1](https://Schools.Utah.gov/cte/_cte/computer/612ComputerScienceStandards.pdf) | Stacking is checked against a model: noise falling as 1/√N |
 
+## How big was it? (science page) { #magnitude }
+
+Page: [How big was it? Magnitude](../theory/magnitude.md): magnitude against intensity, why
+magnitude is a logarithm, Richter's recipe on real Utah records, why stations and methods
+disagree, and Utah's official magnitudes. No activity card yet (Quake Explorer's
+investigation E is coming as a prototype).
+
+| Standard | Where it shows up |
+| --- | --- |
+| [PHYS.2.1](https://www.uen.org/core/core.do?courseNum=3642) | How much energy a quake releases, and how its waves lose energy as they travel (the fading curve) |
+| [ESS.4.1](https://www.uen.org/core/core.do?courseNum=3601) | What the official magnitude of a Utah quake means, and how it relates to the shaking people feel (a natural hazard) |
+| [CS 9/10.DA.3](https://Schools.Utah.gov/cte/_cte/computer/612ComputerScienceStandards.pdf) | "Make it": students plot each station's swing against distance from a CSV |
+| [CS 11/12.DA.1](https://Schools.Utah.gov/cte/_cte/computer/612ComputerScienceStandards.pdf) | "Make it": students fit their own fading curve to the data and compare it with Richter's |
+
 ## Science and engineering practices
 
 Quake Locator is built around the practices that SEEd standards share:

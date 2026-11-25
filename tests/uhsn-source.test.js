@@ -1,5 +1,5 @@
 // UHSNSource (js/data/uhsn.js) reading a tiny public tree laid out as the UHSN data
-// specification describes (draft 0.2, section 7). The tree is built in a temporary folder
+// specification describes (version 1.1, section 7). The tree is built in a temporary folder
 // from real UU records of the Junction sample, with the same library functions the tree
 // script uses. Only for this test, the copies' start times are moved so they straddle a UTC
 // midnight (the real publish step never rewrites a header). No network.
@@ -16,7 +16,7 @@ const { UHSNSource } = await import('../docs/app/js/data/uhsn.js');
 const { parseMiniseed } = await import('../docs/app/js/data/mseed.js');
 const {
   scanRecords, sortDedupe, cutAtCutoff, describeDay, gapTotals, sdsPath, utcDayStart, isoMs,
-  isoDay, nslc, dayOfYear,
+  isoDay, nslc, dayOfYear, dayStatus,
 } = await import('../docs/app/js/lib/mseed-index.js');
 
 const BASE = 'https://data.test/uhsn/v1/';
@@ -78,7 +78,7 @@ function buildTree() {
     put(sdsPath(CH, dayMs), file);
     put(`${sdsPath(CH, dayMs)}.json`, { version: 1, id: nslc(CH), day: isoDay(dayMs), ...desc, updated: NOW });
     avail.channels['01.EHZ'][isoDay(dayMs)] = {
-      status: dayMs + DAY <= PUBLIC_UNTIL ? 'complete' : 'partial', coverage: desc.coverage,
+      status: dayStatus(dayMs, PUBLIC_UNTIL), coverage: desc.coverage,
       ...gapTotals(desc.gaps), bytes: file.length, updated: NOW };
     lastSample = desc.lastSampleEnd;
   }
@@ -349,6 +349,16 @@ test('index.json is kept for 5 minutes unless a fresh read is asked for', async 
   assert.equal(log.filter((l) => l.rel === 'index.json').length, 2);
   const a = await s.availability('UU', 'BCE', 2026);
   assert.equal(a.channels['01.EHZ']['2026-03-01'].gapCount, 1);
-  assert.equal(a.channels['01.EHZ']['2026-03-01'].status, 'complete');
-  assert.equal(a.channels['01.EHZ']['2026-03-02'].status, 'partial');
+  assert.equal(a.channels['01.EHZ']['2026-03-01'].status, 'closed');
+  assert.equal(a.channels['01.EHZ']['2026-03-02'].status, 'filling');
+});
+
+test('publishState: "data paused" once index.json is more than an hour old (spec 7.5)', async () => {
+  const s = source();
+  const generatedMs = Date.parse(NOW);
+  assert.deepEqual(await s.publishState({ nowMs: generatedMs + 3600000 }), { generatedMs, paused: false });
+  assert.deepEqual(await s.publishState({ nowMs: generatedMs + 3600001 }), { generatedMs, paused: true });
+  const empty = new UHSNSource({ base: BASE, fallback: noFallback,
+    fetch: async () => new Response(null, { status: 404 }) });
+  assert.equal(await empty.publishState(), null);
 });

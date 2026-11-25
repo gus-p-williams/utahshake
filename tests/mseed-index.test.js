@@ -1,5 +1,5 @@
 // miniSEED header reading and the day-file description (lib/mseed-index.js), against the
-// rules of the UHSN data specification, draft 0.2 (sections 5.2, 7.1, 7.3, 7.7).
+// rules of the UHSN data specification, version 1.1 (sections 5.2, 7.1, 7.3, 7.5 to 7.7).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
