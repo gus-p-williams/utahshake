@@ -4,6 +4,22 @@ Newest first. Each entry: date, decision, why, consequences.
 
 ## 2026-11-25 (apps and on-plot hints)
 
+**D39. The School Shake Viewer prototype, and the first reader for DRI's files.** Gus,
+2026-11-25 (session D11-viewer-proto), following D37. Under "In development":
+`app/shake-viewer/` shows one station's day as a 24-hour helicorder with zoom, a spectrogram
+whose dragged band filters the zoom, hourly noise, notes (edited in the page, kept in the
+browser, downloaded as JSON; nothing uploaded, no student names) and the day's quakes with
+their expected P and S. Data never come from Raspberry Shake's servers: a day file opened
+from the device, a day of a UU stand-in through the existing DataSource, or files laid out
+as the data spec says, read by the first UHSNSource (`data/uhsn.js`, byte-range requests
+guided by the seek table; `?uhsn=<address>` points it at DRI's test server). The 4.1 MB test
+folder (`docs/app/data/uhsn-demo/v1/`, made by `tools/uhsn-test/make-tree.mjs`) stays committed
+so the "School Shakes" option and the example work on the live site with no server (Gus).
+Nothing loads when the page opens; "Try the example" opens the bundled HEB day (Nov 17,
+2026, with two schools' bell times) without contacting EarthScope (Gus). `tools/serve.mjs`
+answers byte-range requests and sends CORS headers. Building the reader found nine gaps in
+the data spec; P3 fixes them as version 1.1.
+
 **D38. The site is public; phyphox for clubs and research.** Gus, 2026-11-25. Anyone can use
 any page of the site. Using it for instruction is each school's decision under its own rules
 (the phone law, R277-495, and district approval of instructional technology under Utah Code

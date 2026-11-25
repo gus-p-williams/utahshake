@@ -175,7 +175,7 @@ sequences the work and integrates it.
   | R1-app-critique | Independent critique of P3 (review, brief, spec) and P4, in Claude (`planning/critique-r1-claude.md`) | read-only except its file | done, committed |
   | R2-app-critique | The same critique, independently, in Codex (`planning/critique-r2-codex.md`) | read-only except its file | done, committed |
   | D10-phone-bench | An "In development: please test" category (All apps, Apps menu, Prototype badge, tests); the phone bench recorder for trial T1; rounding explained in its guide; a "How small a shake can it see?" section on Reading a seismogram (phone vs Shake vs broadband: step size, self-noise, frequency range) | `-bench`, branch `phone-bench` | merged 2026-11-25 (D36) |
-  | D11-viewer-proto | A file-first School Shake viewer prototype under "In development" (day files, UU stand-in days, spec-layout test files; helicorder, spectrogram, noise, annotations) | `-viewer`, branch `viewer-proto` | active |
+  | D11-viewer-proto | A file-first School Shake viewer prototype under "In development" (day files, UU stand-in days, spec-layout test files; helicorder, spectrogram, noise, annotations) | `-viewer`, branch `viewer-proto` | merged 2026-11-25 (D39) |
   | D12-phyphox | Teacher page on phyphox for clubs, research and old classroom phones (why it is better, how to install, why not the default; an Open-in-phyphox link if it works) | `-phyphox`, branch `phyphox` | merged 2026-11-25 (D38) |
   | P5-magnitude-review | Feasibility review for magnitude (Cleat's request): what students learn, Utah's magnitude methods, a check on real data, where it belongs (Quake Locator, Quake Explorer, or its own app) (`planning/review-magnitude.md`) | main folder, `planning/` | active; then critics R3 (Claude) and R4 (Codex) |
 
@@ -399,6 +399,13 @@ out of the menus:
   phyphox". Linked from the Teachers page, the Phone Bench guide and "How small a shake can
   it see?". Prototype pages reworded to "not ready for classrooms yet" (D38). `npm test` =
   284; site check 40 pages. Not yet tried on a phone.
+- 2026-11-25: **School Shake Viewer prototype merged** (D39, session D11-viewer-proto), under
+  "In development": `app/shake-viewer/` (helicorder with zoom, spectrogram band filter, hourly
+  noise, notes, quakes marked; CSV), reading a day file from the device, a UU stand-in day, or
+  the spec's file layout through the first UHSNSource (`data/uhsn.js`); test folder
+  `docs/app/data/uhsn-demo/v1/` (4.1 MB, HEB Nov 17, 2026, committed). Nothing loads on open;
+  "Try the example" uses only the bundled day. `tools/serve.mjs` now answers byte ranges with
+  CORS. `npm test` = 325; site check 43 pages.
 
 ## Next steps
 
@@ -417,9 +424,10 @@ out of the menus:
       logs, and for DRI IT the brief and the data spec. **Cleat can take the brief and spec to
       DRI IT.** After DRI picks the data path, a later session writes the polished "connect
       your school's Shake" guide (P3's draft steps are in the review, section 6).
-   e. D11-viewer-proto (branch `viewer-proto`): a file-first School Shake viewer under
-      "In development"; finishing the change to load nothing on open ("Try the example" opens
-      the bundled HEB day). Then M1 merges. P3: data spec version 1.1 (nine gaps D11 found).
+   e. D11-viewer-proto merged (D39); testers can try the School Shake Viewer under
+      "In development". P3: data spec version 1.1 (nine gaps D11 found); if Cleat hasn't
+      handed the spec to DRI IT, he waits for 1.1. Later, if wanted: our apps opening
+      phyphox's exported CSV (small; after T1).
       Gus: try the phyphox page's "Open in phyphox" on an iPhone and an Android phone,
       through to the CSV export. Open: a QR code for the experiment (needs the qrcode package
       as a dev dependency in tools/figures; Gus to allow).

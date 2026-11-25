@@ -121,10 +121,12 @@ motion, audification, amplitude against distance, spectra.
       (`planning/spec-uhsn-data.md`; brief for DRI IT: `planning/brief-dri-it.md`; D37).
       Delayed data (hourly for schools already sharing with Raspberry Shake); DRI computes
       the summaries in its publish step.
-- [ ] `UHSNSource` implementing `DataSource`, against the spec (a first version comes with
-      the viewer prototype, D11).
-- [ ] School Shake viewer: prototype under "In development" now (file-first: day files, UU
-      stand-in days, spec-layout test files; D11); school data when the server exists.
+- [ ] `UHSNSource` implementing `DataSource`, against the spec. A first version is built
+      (`docs/app/js/data/uhsn.js`, D39): it reads the spec's file layout with byte-range
+      requests; Quake Locator and Quake Explorer don't offer school data yet.
+- [x] School Shake viewer prototype under "In development" (D39): day files, UU stand-in
+      days, the spec-layout test folder; helicorder, spectrogram, hourly noise, notes,
+      quakes marked. School data when DRI's server exists; experiment mode later.
 - [ ] Live views: optional, later (D37: delayed data serve every planned activity).
 - [ ] Campus apps: School Pulse (real campus), Game Night Quake, Bus Detective, Campus
       Wave Speed, Signal Detective labeling.
