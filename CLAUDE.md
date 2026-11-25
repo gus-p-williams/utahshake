@@ -180,6 +180,7 @@ sequences the work and integrates it.
   | P5-magnitude-review | Feasibility review for magnitude (Cleat's request): what students learn, Utah's magnitude methods, a check on real data, where it belongs (Quake Locator, Quake Explorer, or its own app) (`planning/review-magnitude.md`) | main folder, `planning/` | v2 done, committed; critiques R3 (Claude, `critique-r3-claude.md`) and R4 (Codex, `critique-r4-codex.md`) committed |
   | D13-magnitude | (The P5 session, new job; D41) Phase 1: Wood-Anderson module and science page "How big was it?"; phase 2: investigation E as a prototype tab in Quake Explorer | `-magpage` on `magnitude-page`, then `-qemag` on `qe-magnitude` | active |
   | D14-spec-sync | Bring the demo-tree generator and comments in line with data spec 1.1; a conformance checker for DRI's server (`tools/uhsn-test/check-tree.mjs`) | `-specsync`, branch `spec-sync` | prompt given |
+  | D15-web-design | A little visual interest without losing the minimal design: options first (app-card thumbnails, a home graphic, index icons), then build what Gus picks | `-design`, branch `web-design` | prompt given |
 
   Review process for planning studies (Gus, 2026-11-25): authors (P) write; two independent
   critics (R, one in Claude and one in Codex) review without seeing each other's critique;
