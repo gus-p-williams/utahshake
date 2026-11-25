@@ -8,10 +8,15 @@
 // Two hints show what students can do: a label on the map ("Click the map to move
 // the quake", map-hint.js) and a pill beside the Time slider ("Drag to step through
 // time"). Each is bold until the student first does it, then faint.
+//
+// Keyboard: Tab reaches the map, and the arrow keys move the quake (Shift: bigger steps;
+// map-keys.js). While the map has keyboard focus its label names the keys, and a hidden
+// status line tells screen readers where the quake is after each move.
 import { arrivals, synthTrace, durationFor } from '../lib/wave-sim.js';
 import { kmPerSecond } from '../lib/locate.js';
 import { setupEmbed, followDocsTheme } from '../ui/page.js';
-import { pointerVerb, mapHintChoices, layoutMapHint } from './map-hint.js';
+import { pointerVerb, mapHintChoices, keyHintChoices, layoutMapHint } from './map-hint.js';
+import { moveQuake, describeQuake } from './map-keys.js';
 
 const $ = (id) => document.getElementById(id);
 const VP = 5.8;
@@ -26,10 +31,14 @@ const STATIONS = [
 ];
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const HINT_CHOICES = mapHintChoices(pointerVerb(matchMedia('(pointer: coarse)').matches));
+const KEY_HINT_CHOICES = keyHintChoices();
+const KEY_PLAY_DELAY_MS = 700;         // after the last arrow key, the quake plays from its new place
 
 const sim = {
   quake: { x: 85, y: 62 },
   moved: false,      // the student has moved the quake (then the map hint turns faint)
+  keyFocus: false,   // the map has keyboard focus (then the hint names the keys)
+  keyMoved: false,   // the student has moved the quake with the keys (then the key hint turns faint)
   t: 0,
   playing: false,
   speed: 4,
@@ -164,7 +173,7 @@ function mapHintLayout(ctx, T, w) {
   const hint = layoutMapHint({
     map: { left: T.x(0), right: T.x(WORLD.w) },
     clock: { left: clockLeft, right: clockLeft + clockW, top: clockTop, bottom: clockTop + 17 },
-    choices: HINT_CHOICES,
+    choices: sim.keyFocus ? KEY_HINT_CHOICES : HINT_CHOICES,
     measure: (t) => ctx.measureText(t).width,
     lead,
     pad: 11,
@@ -213,6 +222,7 @@ function drawMap() {
   const T = mapTransform(w, h);
   const t = sim.t;
   const hint = mapHintLayout(ctx, T, w);
+  const hintBold = sim.keyFocus ? !sim.keyMoved : !sim.moved;
   ctx.fillStyle = col.bg;
   ctx.fillRect(0, 0, w, h);
   ctx.save();
@@ -232,7 +242,7 @@ function drawMap() {
 
   // Once the student has moved the quake, the hint is only a reminder: drawn faint,
   // under the waves, circles, quake and stations.
-  if (sim.moved) drawMapHint(ctx, hint, col, false);
+  if (!hintBold) drawMapHint(ctx, hint, col, false);
 
   const qx = T.x(sim.quake.x);
   const qy = T.y(sim.quake.y);
@@ -328,7 +338,7 @@ function drawMap() {
   ctx.textBaseline = 'bottom';
   haloText(ctx, '50 km', bx + bar / 2, by - 3, col.text, col.land);
 
-  if (!sim.moved) drawMapHint(ctx, hint, col, true);
+  if (hintBold) drawMapHint(ctx, hint, col, true);
 }
 
 function drawTraces() {
@@ -456,6 +466,9 @@ function draw() {
 // Playing
 
 let lastFrame = 0;
+let frameId = 0;
+let keyPlayTimer = 0;  // a play waiting for the arrow keys to stop (see the map's keydown)
+
 function frame(now) {
   if (!sim.playing) return;
   const dt = lastFrame ? Math.min(0.1, (now - lastFrame) / 1000) : 0;
@@ -463,17 +476,34 @@ function frame(now) {
   sim.t = Math.min(sim.duration, sim.t + dt * sim.speed);
   draw();
   if (sim.t >= sim.duration) { setPlaying(false); return; }
-  requestAnimationFrame(frame);
+  frameId = requestAnimationFrame(frame);
 }
 
+/** Play or pause. Either one also drops a play still waiting for the arrow keys to stop. */
 function setPlaying(on) {
   sim.playing = on;
+  clearTimeout(keyPlayTimer);
+  cancelAnimationFrame(frameId); // one animation loop at a time
   $('play').textContent = on ? '❚❚ Pause' : sim.t >= sim.duration ? '▶ Play again' : '▶ Play';
   if (on) {
     if (sim.t >= sim.duration) sim.t = 0;
     lastFrame = 0;
-    requestAnimationFrame(frame);
+    frameId = requestAnimationFrame(frame);
   }
+}
+
+/**
+ * Move the quake to `quake` (km) and go back to the start, paused; the caller starts it.
+ * Screen readers hear the new place (the map's hidden status line).
+ */
+function placeQuake(quake, atEdge = false) {
+  sim.quake = quake;
+  sim.moved = true;
+  setup();
+  sim.t = 0;
+  setPlaying(false);
+  draw();
+  $('map-pos').textContent = describeQuake(quake, STATIONS, atEdge);
 }
 
 function init() {
@@ -496,13 +526,32 @@ function init() {
     const kx = T.kmX(e.clientX - rect.left);
     const ky = T.kmY(e.clientY - rect.top);
     if (kx < 0 || kx > WORLD.w || ky < 0 || ky > WORLD.h) return;
-    sim.quake = { x: kx, y: ky };
-    sim.moved = true;
-    setup();
-    sim.t = 0;
-    draw();
+    placeQuake({ x: kx, y: ky });
     setPlaying(true);
   });
+
+  // Keyboard: each arrow key moves the quake and says where it is; the quake plays from
+  // its new place once the keys stop for a moment (holding a key slides it along).
+  mapCanvas.addEventListener('keydown', (e) => {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    const m = moveQuake(sim.quake, e.key, e.shiftKey, WORLD);
+    if (!m) return;
+    e.preventDefault(); // no page scrolling
+    sim.keyMoved = true;
+    placeQuake(m.quake, m.atEdge); // pauses, which also drops the play from the last key
+    keyPlayTimer = setTimeout(() => setPlaying(true), KEY_PLAY_DELAY_MS);
+  });
+  // The label names the keys only when the map was reached by keyboard (a click doesn't count).
+  mapCanvas.addEventListener('focus', () => {
+    sim.keyFocus = mapCanvas.matches(':focus-visible');
+    if (sim.keyFocus) draw();
+  });
+  mapCanvas.addEventListener('blur', () => {
+    if (!sim.keyFocus) return;
+    sim.keyFocus = false;
+    draw();
+  });
+  $('map-pos').textContent = describeQuake(sim.quake, STATIONS);
   new ResizeObserver(() => draw()).observe(mapCanvas);
   new ResizeObserver(() => draw()).observe(traceCanvas);
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => draw());

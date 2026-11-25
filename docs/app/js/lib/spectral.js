@@ -194,6 +194,32 @@ export function suggestStft(sampleRate, durationSec) {
 }
 
 /**
+ * stft()'s window length, FFT length and frequency step (Hz) for these settings.
+ * @param {number} sampleRate
+ * @param {{nfft?: number, windowSec?: number}} [opt] as for stft()
+ */
+export function stftSize(sampleRate, opt = {}) {
+  const { windowSec = STFT_PRESETS.local.windowSec } = opt;
+  const nwin = Math.max(2, Math.round(opt.nfft ?? windowSec * sampleRate));
+  const nfft = nextPow2(nwin);
+  return { nwin, nfft, df: sampleRate / nfft };
+}
+
+/**
+ * An fMin for stft() that makes the spectrogram reach down to f Hz: the frequency step
+ * at or just below f, never 0 Hz (the record's mean). Use it when a band edge at f will be
+ * drawn on the picture: stft() keeps only steps at or above fMin, so with fMin = f the
+ * picture can stop a step above f (fMin 0.02 Hz with steps of 0.0195 Hz starts at 0.039 Hz).
+ * @param {number} f Hz
+ * @param {number} sampleRate
+ * @param {{nfft?: number, windowSec?: number}} [opt] as for stft()
+ */
+export function fMinReaching(f, sampleRate, opt = {}) {
+  const { df } = stftSize(sampleRate, opt);
+  return Math.max(1, Math.floor(f / df + 1e-9)) * df;
+}
+
+/**
  * Spectrogram (short-time FFT): the record is cut into overlapping windows;
  * each window gets its own power spectrum, one column of the picture.
  *
@@ -218,11 +244,9 @@ export function suggestStft(sampleRate, durationSec) {
  *   holds nF values, so power[t * nF + f] is time t, frequency freqs[f].
  */
 export function stft(data, sampleRate, opt = {}) {
-  const { windowSec = STFT_PRESETS.local.windowSec, overlap = 0.75 } = opt;
-  const nwin = Math.max(2, Math.round(opt.nfft ?? windowSec * sampleRate));
-  const nfft = nextPow2(nwin);
+  const { overlap = 0.75 } = opt;
+  const { nwin, nfft, df } = stftSize(sampleRate, opt);
   const hop = Math.max(1, Math.round(opt.hop ?? nwin * (1 - overlap)));
-  const df = sampleRate / nfft;
   const kMin = Math.max(0, Math.ceil((opt.fMin ?? 0) / df - 1e-9));
   const kMax = Math.min(nfft / 2, Math.floor((opt.fMax ?? sampleRate / 2) / df + 1e-9));
   const nF = Math.max(0, kMax - kMin + 1);

@@ -2,7 +2,7 @@
 // its wording for mouse and touch, and where it goes so it never covers the clock.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { pointerVerb, mapHintChoices, firstThatFits, layoutMapHint } from '../docs/app/js/quake-waves/map-hint.js';
+import { pointerVerb, mapHintChoices, keyHintChoices, firstThatFits, layoutMapHint } from '../docs/app/js/quake-waves/map-hint.js';
 
 const measure = (t) => 7 * t.length; // a fake font: 7 px per character
 const H = 24;
@@ -82,10 +82,21 @@ test('the label never covers the clock, at any map width from phone to projector
   for (let width = 200; width <= 1400; width += 10) {
     const map = { left: 6, right: 6 + width };
     const clock = clockAt(14);
-    for (const verb of ['Click', 'Tap']) {
-      const l = layoutMapHint({ ...base, map, clock, choices: mapHintChoices(verb) });
-      assert.ok(!overlaps(l, clock), `width ${width} (${verb})`);
-      assert.ok(l.x >= map.left && l.x + l.w <= map.right, `inside the map at width ${width}`);
+    for (const [name, choices] of [['Click', mapHintChoices('Click')], ['Tap', mapHintChoices('Tap')], ['keys', keyHintChoices()]]) {
+      const l = layoutMapHint({ ...base, map, clock, choices });
+      assert.ok(!overlaps(l, clock), `width ${width} (${name})`);
+      assert.ok(l.x >= map.left && l.x + l.w <= map.right, `inside the map at width ${width} (${name})`);
     }
   }
+});
+
+test('with keyboard focus, the label names the keys: arrows move the quake, Shift for bigger steps', () => {
+  const c = keyHintChoices();
+  assert.equal(c[0], 'Arrow keys move the quake · Shift: bigger steps');
+  for (let i = 1; i < c.length; i++) assert.ok(c[i].length < c[i - 1].length, c[i]);
+  for (const t of c) assert.match(t, /^Arrow keys move/);
+  // A laptop-size map has room for the whole text in the clock's row.
+  const l = layoutMapHint({ ...base, choices: c, map: { left: 70, right: 870 }, clock: clockAt(78) });
+  assert.equal(l.row, 1);
+  assert.equal(l.text, c[0]);
 });

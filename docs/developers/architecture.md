@@ -58,7 +58,8 @@ docs/app/
       map-view.js          Leaflet map: stations, circles, epicenters, the student's pin
     wave-race/app.js       the Quake Locator page controller
     quake-explorer/        Quake Explorer: controller, one module per investigation, its views
-    quake-waves/           Quake Waves: app.js (the animation, canvas), map-hint.js (its "Click the map" label)
+    quake-waves/           Quake Waves: app.js (the animation, canvas), map-hint.js (its "Click the map" label),
+                           map-keys.js (moving the quake with the arrow keys)
     wave-motion/app.js     the P/S rock-motion animation (canvas)
     build-a-wiggle/app.js  the Build a Wiggle page controller (canvas)
   vendor/                  seisplotjs + Leaflet bundles (generated; see below)

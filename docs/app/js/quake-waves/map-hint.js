@@ -8,6 +8,9 @@
 // of the map, clear of the clock in the top-left corner: centered on the map if it
 // clears the clock, else at the right end of the clock's row, else in a second row
 // under the clock.
+//
+// While the map has keyboard focus (Tab, not a click), the label names the keys instead
+// ("Arrow keys move the quake · Shift: bigger steps"; map-keys.js moves the quake).
 
 /** The verb for the device: 'Tap' when the main pointer is coarse (a finger), else 'Click'. */
 export function pointerVerb(coarse) {
@@ -17,6 +20,11 @@ export function pointerVerb(coarse) {
 /** What the label can say, longest first. */
 export function mapHintChoices(verb) {
   return [`${verb} the map to move the quake`, `${verb} to move the quake`, `${verb} to move it`];
+}
+
+/** What the label says while the map has keyboard focus, longest first. */
+export function keyHintChoices() {
+  return ['Arrow keys move the quake · Shift: bigger steps', 'Arrow keys move the quake', 'Arrow keys move it'];
 }
 
 /** The first text whose width (measure(text), px) is at most maxW; the last one if none fits. */

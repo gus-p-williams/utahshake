@@ -29,6 +29,8 @@
     .wa-box canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
     #map-box { aspect-ratio: 5 / 3; max-height: 62vh; }
     #map-box canvas { cursor: crosshair; }
+    /* Keyboard focus: the ring goes inside the box, whose rounded corners would clip it outside. */
+    #map:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; border-radius: 8px; }
     #trace-box { height: 250px; }
     #log { min-height: 1.4em; margin: .1rem 0 0; font-size: .92rem; }
     .wa .hint { margin: 0; }
@@ -78,8 +80,10 @@
       <span id="scrub-hint" class="wa-pill">↔ Drag to step through time</span>
     </div>
     <div id="map-box" class="wa-box">
-      <canvas id="map" role="img" aria-label="Map: a quake (star) and four stations A to D. Blue and red rings are the P and S waves spreading out. Click the map to move the quake."></canvas>
+      <canvas id="map" tabindex="0" role="application" aria-roledescription="map" aria-describedby="map-pos"
+        aria-label="Map, 200 km wide and 120 km tall: a quake (star) and four stations A to D. Blue and red rings are the P and S waves spreading out. Click the map to move the quake, or use the arrow keys (Shift + an arrow key for bigger steps)."></canvas>
     </div>
+    <p id="map-pos" class="visually-hidden" role="status"></p>
     <p id="log" role="status"></p>
     <div id="trace-box" class="wa-box">
       <canvas id="traces" role="img" aria-label="Seismograms at stations A to D, drawn as the waves arrive."></canvas>

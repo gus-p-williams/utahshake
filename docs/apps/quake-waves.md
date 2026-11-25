@@ -31,10 +31,13 @@ finds the quake.
 | Change the speed | **Speed**: real time, 2×, 4× (the start) or 8× faster |
 | Step through time | Drag the **Time** slider |
 | Move the quake | Click the map (tap it on a phone or tablet); it plays again by itself |
+| Move the quake with the keyboard | Press **Tab** until the map has a blue outline, then the **arrow keys** (5 km a step; hold **Shift** for 20 km). It plays again when you stop |
 | Hide the circles | Untick **Distance circles** |
 
 Two blue labels point these out: **Click the map to move the quake** on the map, and **Drag to
-step through time** beside the slider. Each one fades once you have tried it.
+step through time** beside the slider. Each one fades once you have tried it. When you reach
+the map with **Tab**, its label lists the keys instead. A screen reader says where the quake
+is and which station is nearest after each move.
 
 ## Predict, then watch
 

@@ -13,7 +13,7 @@ import { fillStationSelect } from './station-select.js';
 import { renderSteps } from './steps.js';
 import { QUAKE_EXPLORER as Q, EXPLORER_PRESETS } from './config.js';
 import { filteredData } from '../data/filters.js';
-import { stft, suggestStft, amplitudeSpectrum } from '../lib/spectral.js';
+import { stft, suggestStft, fMinReaching, amplitudeSpectrum } from '../lib/spectral.js';
 import { decimate, snr, peakAbs } from '../lib/signal.js';
 import { allowedSpeedUps, audibleRange } from '../lib/audify.js';
 import { picksByStation, chooseChannels } from '../lib/fdsn.js';
@@ -21,6 +21,8 @@ import { distanceKm } from '../lib/geo.js';
 import { esc } from '../ui/page.js';
 
 const $ = (id) => document.getElementById(id);
+/** A distant quake's starting band: 0.02 Hz keeps the 20–50 s surface waves, 1 Hz the P wave. */
+const DISTANT_BAND = Object.freeze({ lo: 0.02, hi: 1 });
 /** The band as text: "1.0–10 Hz", or "all notes" when there is none (Escape or a double-click). */
 const bandText = (b) => (b.lo && b.hi ? `${fHz(b.lo)}–${fHz(b.hi)} Hz` : 'all notes');
 
@@ -148,11 +150,17 @@ export function createB(ctx) {
     const start = (st.startMs - st.refMs) / 1000;
     const dur = st.z.length / st.sampleRate;
     const opt = suggestStft(st.sampleRate, dur);
+    // For a distant quake the picture reaches down to the band's 0.02 Hz edge. (The preset
+    // keeps steps from 0.02 Hz up; with steps of 0.0195 Hz it would start at 0.039 Hz.)
+    if (isDistant()) opt.fMin = fMinReaching(DISTANT_BAND.lo, st.sampleRate, opt);
     const spec = stft(st.z, st.sampleRate, opt);
-    if (isDistant() && band.hi > 2) band = { lo: 0.02, hi: 1 };
+    if (isDistant() && band.hi > 2) band = { ...DISTANT_BAND };
     sv.setLogFreq(isDistant());
     sv.setData(spec, { startMs: st.startMs, refMs: st.refMs, fromSec: start, toSec: start + dur });
     sv.setBand(band.lo, band.hi);
+    // The band is what the plot shows (it keeps the edges on the plot): the readouts, the
+    // record's label, the sound and the CSV use the same numbers as the edges drawn on it.
+    if (sv.band) band = { ...sv.band };
     redraw(false);
     const school = ctx.isSchool(key.split('.')[1]) ? ' A school stand-in.' : '';
     $('b-note').textContent = `${Math.round(st.distKm).toLocaleString('en-US')} km from the quake.${school}` +
@@ -301,7 +309,7 @@ export function createB(ctx) {
       tv.resize(); sv.resize();
       if (loadedFor === ctx.event.id) return;
       loadedFor = ctx.event.id;
-      if (isDistant()) band = { lo: 0.02, hi: 1 };
+      if (isDistant()) band = { ...DISTANT_BAND };
       stations = await fillStationSelect($('b-station'), ctx, { maxKm: isDistant() ? undefined : ctx.sectionKm(), limit: 40 });
       $('b-near').hidden = isDistant();
       $('b-far').hidden = isDistant();

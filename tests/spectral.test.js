@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  nextPow2, hann, fft, toDb, amplitudeSpectrum, stft, dbRange, suggestStft, STFT_PRESETS,
+  nextPow2, hann, fft, toDb, amplitudeSpectrum, stft, stftSize, fMinReaching, dbRange, suggestStft, STFT_PRESETS,
 } from '../docs/app/js/lib/spectral.js';
 
 const sine = (n, sr, f, amp = 1, phase = 0) =>
@@ -153,6 +153,46 @@ test('stft window from windowSec, zero-padded to a power of 2', () => {
   assert.equal(s.nwin, 100);
   assert.equal(s.nfft, 128);
   assert.equal(s.hop, 25);
+});
+
+test('stftSize: the window, FFT length and frequency step stft() uses', () => {
+  assert.deepEqual(stftSize(20, { windowSec: 51.2 }), { nwin: 1024, nfft: 1024, df: 20 / 1024 });
+  assert.deepEqual(stftSize(100), { nwin: 256, nfft: 256, df: 100 / 256 }); // the local preset
+  assert.deepEqual(stftSize(20, { windowSec: 5 }), { nwin: 100, nfft: 128, df: 20 / 128 });
+  const s = stft(new Float64Array(3000).map((_, i) => Math.sin(i)), 20, { windowSec: 5 });
+  assert.equal(s.df, stftSize(20, { windowSec: 5 }).df);
+});
+
+test('fMinReaching: the step at or just below f, never 0 Hz', () => {
+  const df = 20 / 1024;
+  assert.ok(Math.abs(fMinReaching(0.02, 20, { windowSec: 51.2 }) - df) < 1e-12);
+  assert.ok(Math.abs(fMinReaching(0.1, 20, { windowSec: 51.2 }) - 5 * df) < 1e-12);
+  assert.ok(Math.abs(fMinReaching(2 * df, 20, { windowSec: 51.2 }) - 2 * df) < 1e-12, 'a step exactly on f');
+  assert.ok(Math.abs(fMinReaching(0.001, 20, { windowSec: 51.2 }) - df) < 1e-12, 'never 0 Hz');
+});
+
+// Quake Explorer B, distant quakes: the band starts at 0.02 Hz (the 20-50 s surface waves).
+// Its bottom edge is drawn on the spectrogram, which must reach that low, or the edge would read
+// 0.039 Hz (the preset's first step) while the panel and the filter say 0.020 Hz.
+test('B: a distant quake\'s spectrogram reaches the 0.02 Hz band edge at every sample rate', () => {
+  const lo = 0.02;
+  for (const raw of [20, 40, 50, 100, 200, 250]) {
+    const sr = raw / Math.max(1, Math.round(raw / 20)); // B's decimation to about 20 samples/s
+    const dur = 1860;                                  // 60 s before P + 30 minutes after
+    const x = new Float64Array(Math.round(dur * sr)).map((_, i) => Math.sin(i / 7));
+    const opt = suggestStft(sr, dur);
+    assert.equal(opt.windowSec, STFT_PRESETS.distant.windowSec);
+    const s = stft(x, sr, { ...opt, fMin: fMinReaching(lo, sr, opt) });
+    assert.ok(s.freqs[0] > 0, `${raw} samples/s: not 0 Hz`);
+    assert.ok(s.freqs[0] <= lo, `${raw} samples/s: starts at ${s.freqs[0]} Hz`);
+    assert.ok(s.freqs[0] > lo - s.df, `${raw} samples/s: one step at most below the edge`);
+    assert.ok(s.freqs[s.nF - 1] <= 2 && s.freqs[s.nF - 1] > 2 - s.df, 'still up to 2 Hz');
+  }
+  // Without it, the picture starts above the edge (the old mismatch: 0.039 Hz).
+  const sr = 20;
+  const plain = stft(new Float64Array(sr * 1860).map((_, i) => Math.sin(i / 7)), sr, suggestStft(sr, 1860));
+  assert.ok(plain.freqs[0] > lo);
+  assert.equal(plain.freqs[0].toPrecision(2), '0.039');
 });
 
 test('presets and dbRange', () => {
