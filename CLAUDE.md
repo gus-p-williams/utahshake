@@ -169,7 +169,7 @@ sequences the work and integrates it.
   | P4-phone-review | Feasibility and effort review: a phone vibration recorder (`planning/review-phone-recorder.md`) | main folder, `planning/` | done; awaiting critiques |
   | R1-app-critique | Independent critique of P3 (review, brief, spec) and P4, in Claude (`planning/critique-r1-claude.md`) | read-only except its file | active |
   | R2-app-critique | The same critique, independently, in Codex (`planning/critique-r2-codex.md`) | read-only except its file | active |
-  | D10-phone-bench | An "In development: please test" category (All apps, Apps menu, Prototype badge, tests) and the phone bench recorder for trial T1 | `-bench`, branch `phone-bench` | active |
+  | D10-phone-bench | An "In development: please test" category (All apps, Apps menu, Prototype badge, tests); the phone bench recorder for trial T1; rounding explained in its guide; a "How small a shake can it see?" section on Reading a seismogram (phone vs Shake vs broadband: step size, self-noise, frequency range) | `-bench`, branch `phone-bench` | active |
 
   Review process for planning studies (Gus, 2026-11-25): authors (P) write; two independent
   critics (R, one in Claude and one in Codex) review without seeing each other's critique;
