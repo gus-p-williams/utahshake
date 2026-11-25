@@ -1,4 +1,5 @@
-// Build a Wiggle (the cartoon on the "Frequencies, fading and sound" page).
+// Build a Wiggle: an app with its own guide (apps/build-a-wiggle.md), also embedded on the
+// "Frequencies, fading and sound" page.
 //
 // Three sine waves, each with a frequency and a size slider. The page draws each wave
 // thin, their sum bold (the wiggle a seismometer would record), and the spectrum of the
@@ -271,16 +272,30 @@ function drawSpectrum(sp) {
     if (sp.amp[k] < 1e-3 || waveBins.has(k)) continue;
     ctx.fillRect(X(sp.freqs[k]) - pxPerBin / 2, Y(sp.amp[k]), Math.max(1, pxPerBin), yb - Y(sp.amp[k]));
   }
-  // The noise is hundreds of bars, each tiny: point at them.
+  // The noise is hundreds of bars, each tiny: point at them. The pointer goes where the label
+  // clears the waves' bars and their labels (at 7.5 Hz with the filter, 18 Hz without, when
+  // that is free); if every spot has a bar under the label, it is lifted above the lowest one.
   if (state.noise) {
-    const f = state.filter ? 7.5 : 18;
+    const text = 'noise: a tiny bit of every note';
+    ctx.font = '12px system-ui, sans-serif';
+    const half = ctx.measureText(text).width / 2 + 4;
+    const usual = state.filter ? 7.5 : 18;
+    const [lo, hi] = state.filter ? BAND : [1, F_SHOW];
+    const bars = [...waveBins.keys()].map((k) => ({ x: X(sp.freqs[k]), top: Y(sp.amp[k]) - 20 })); // bar and its label
+    let at = { f: usual, lx: Math.min(X(usual), x1 - half), y: yb - 25, score: -Infinity };
+    for (let f = lo + 0.25; f < hi; f += 0.25) {
+      if (bars.some((b) => Math.abs(b.x - X(f)) < 8)) continue;
+      const lx = Math.min(Math.max(X(f), x0 + half), x1 - half);
+      const y = Math.min(yb - 25, ...bars.filter((b) => Math.abs(b.x - lx) < half + 4).map((b) => b.top - 2));
+      const score = y - Math.abs(f - usual) * 0.01; // the lowest spot; ties go to the usual one
+      if (y - 14 >= top && score > at.score) at = { f, lx, y, score };
+    }
     ctx.strokeStyle = col.muted;
     ctx.lineWidth = 1;
-    ctx.beginPath(); ctx.moveTo(X(f), yb - 24); ctx.lineTo(X(f), yb - 5); ctx.stroke();
-    ctx.font = '12px system-ui, sans-serif';
+    ctx.beginPath(); ctx.moveTo(X(at.f), at.y + 1); ctx.lineTo(X(at.f), yb - 5); ctx.stroke();
     ctx.textBaseline = 'bottom';
     ctx.textAlign = 'center';
-    haloText(ctx, 'noise: a tiny bit of every note', Math.min(X(f), x1 - 95), yb - 25, col.muted, col.bg);
+    haloText(ctx, text, at.lx, at.y, col.muted, col.bg);
   }
   const labels = [];
   for (const [k, i] of [...waveBins].sort((a, b) => a[0] - b[0])) {

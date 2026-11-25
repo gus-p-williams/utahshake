@@ -2,6 +2,7 @@
 
 Students follow [investigation B in the Quake Explorer guide](../apps/quake-explorer.md#b) (what
 they see, step by step) and use [Quake Explorer](../app/quake-explorer/index.html?event=uu80162166&inv=B).
+For the warm-up, the [Build a Wiggle guide](../apps/build-a-wiggle.md) has the steps.
 
 !!! abstract "At a glance"
     - **Driving question:** What notes (frequencies) does a quake play, and why does a faraway
@@ -10,8 +11,8 @@ they see, step by step) and use [Quake Explorer](../app/quake-explorer/index.htm
     - **Setup:** Browser only. Live records from University of Utah stations, or the offline
       samples if the school network blocks them.
     - **Apps and tools:** [Quake Explorer](../apps/quake-explorer.md), investigation B
-      (spectrogram, filter and sound) · [Build a Wiggle](../app/build-a-wiggle/index.html) (the
-      warm-up animation, also on [Frequencies, fading and sound](../theory/frequencies.md))
+      (spectrogram, filter and sound) · [Build a Wiggle](../apps/build-a-wiggle.md) (the
+      warm-up, also on [Frequencies, fading and sound](../theory/frequencies.md))
     - **Before this:** Nothing required. Students who have done [Quake Locator](wave-race-card.md)
       already know P and S.
     - **Materials:** Student devices with a browser (Chromebooks are fine), a projector with

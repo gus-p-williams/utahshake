@@ -1,6 +1,6 @@
 # Reading a seismogram
 
-**Used in:** [Quake Locator](../apps/wave-race.md) · [Quake Explorer](../apps/quake-explorer.md) · School Pulse (coming soon)
+**Used in:** [Quake Locator](../apps/wave-race.md) · [Quake Explorer](../apps/quake-explorer.md) · [Build a Wiggle](../apps/build-a-wiggle.md) · School Pulse (coming soon)
 
 A seismometer never stops recording. Most of what it records is not a nearby quake: it is the
 ocean, the wind, traffic, mines, and quakes on the other side of the world. This page shows
