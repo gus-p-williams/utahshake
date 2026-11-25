@@ -122,6 +122,11 @@ What it means:
 While the shaking is small, the gray lines on the plot are 0.1 m/s² apart (the label under
 the plot says so), and rounded readings sit on them.
 
+**An app doesn't have these limits.** phyphox, a free phone app, reads the sensor directly:
+about 100 readings a second on iPhones and 100 to 500 on Android phones, with no rounding.
+This page uses the browser only so that nobody has to install anything. For clubs and
+research, see [Phones with an app: phyphox](../teachers/phyphox.md).
+
 ## What to send to Gus
 
 Press **Copy results** (or **Share…** on a phone) and paste the text into an email to Gus. Add:

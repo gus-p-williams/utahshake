@@ -36,6 +36,15 @@ In teaching order. Times are for the whole-class version, then the full period i
 | [Which way did the ground move?](which-way-did-it-move.md) | [Quake Explorer](../apps/quake-explorer.md) C (and A in the full period), with [How P and S waves move rock](../app/wave-motion/index.html) as the warm-up | Browser only: live data or the offline samples | 15 min (C) or 45–55 min (A then C) | PHYS.4.1 · ESS.2.2 · CS&nbsp;9/10.DA.3 |
 | [A message from far away](far-side-of-the-world.md) | [Quake Explorer](../apps/quake-explorer.md) D · a spreadsheet | Browser only: live data (one quake offline) | 15 or 45–55 min | PHYS.4.1 · ESS.2.2 · CS&nbsp;9/10.DA.3 |
 
+## Clubs and research: phones with an app { #phyphox }
+
+For an after-school club or a research project, a phone with the free app phyphox records
+vibrations far better than any web page: faster, and without the browser's rounding.
+[Phones with an app: phyphox](phyphox.md) explains why, how to install it on iPhones and
+Android phones (no account), how to get its recordings into a spreadsheet, and the rules that
+still apply to phones at school. It opens our ready-made vibration experiment with one tap.
+Not an activity card: classroom activities stay in the browser.
+
 ## Utah standards at a glance { #utah-standards }
 
 Which Utah standards each activity and science page supports. The codes are explained below
@@ -121,7 +130,8 @@ investigation, for example `…/app/quake-explorer/?event=uu80162166&inv=A`.
 ### Devices
 
 Any browser works, including Chromebooks and managed laptops. There is nothing to install and
-no login. For the whole-class version you also need a projector.
+no login. For the whole-class version you also need a projector. (Clubs with phones can install
+an app instead: see [Phones with an app: phyphox](phyphox.md).)
 
 ### Privacy
 

@@ -80,6 +80,8 @@ nav:
           - Which way did the ground move?: teachers/which-way-did-it-move.md
           - A message from far away: teachers/far-side-of-the-world.md
       - Standards crosswalk: teachers/standards.md
+      # Guidance for clubs and research, not an activity card (D12-phyphox).
+      - "Phones with an app: phyphox": teachers/phyphox.md
   - Developers:
       - developers/index.md
       - Architecture: developers/architecture.md
