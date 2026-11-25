@@ -30,6 +30,7 @@ const TYPES = {
   '.mjs': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8',
   '.json': 'application/json', '.png': 'image/png', '.svg': 'image/svg+xml',
   '.mseed': 'application/vnd.fdsn.mseed', '.txt': 'text/plain; charset=utf-8',
+  '.xml': 'application/xml',
   '.md': 'text/plain; charset=utf-8',
 };
 
@@ -52,7 +53,7 @@ function parseRange(header, size) {
   return start <= end && start < size ? [start, end] : null;
 }
 
-http.createServer((req, res) => {
+const server = http.createServer((req, res) => {
   if (req.method === 'OPTIONS') { res.writeHead(204, CORS).end(); return; }
   const url = new URL(req.url, 'http://localhost');
   let file = path.normalize(path.join(root, decodeURIComponent(url.pathname)));
@@ -77,5 +78,7 @@ http.createServer((req, res) => {
     res.writeHead(status, head);
     res.end(req.method === 'HEAD' ? undefined : body);
   });
-}).listen(port, '127.0.0.1', () => console.log(`Serving docs/ at http://127.0.0.1:${port}/app/wave-race/\n` +
-  '(apps only; the All apps page /apps/ and the guides need `mkdocs serve`)'));
+});
+// Port 0 picks a free port; the first line printed says which (tests read it).
+server.listen(port, '127.0.0.1', () => console.log(`Serving ${root} at http://127.0.0.1:${server.address().port}/\n` +
+  '(apps only, e.g. /app/wave-race/; the All apps page /apps/ and the guides need `mkdocs serve`)'));

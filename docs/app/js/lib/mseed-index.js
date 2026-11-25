@@ -13,24 +13,29 @@
 // asks the web server for only those bytes.
 //
 // This module reads headers (never samples) and builds or uses that description, following
-// the UHSN data specification, draft 0.2 (planning/spec-uhsn-data.md, sections 5.2, 7.1,
-// 7.3 and 7.7). Both sides use it: the script that makes a day's sidecar
-// (tools/uhsn-test/make-tree.mjs, a first reference for DRI's publish step) and the reader
-// in the browser (js/data/uhsn.js). Pure functions, no imports; works in node and browsers.
+// the UHSN data specification, version 1.1 (planning/spec-uhsn-data.md, sections 5.2, 7.1,
+// 7.3 and 7.5 to 7.7). Three programs use it: the script that makes a day's sidecar
+// (tools/uhsn-test/make-tree.mjs, a first reference for DRI's publish step), the reader in
+// the browser (js/data/uhsn.js) and the checker for DRI's server
+// (tools/uhsn-test/check-tree.mjs). Pure functions, no imports; works in node and browsers.
 //
 // Times are milliseconds since 1970 (UTC). They may carry a fraction: miniSEED keeps time to
 // 0.0001 s, or to a microsecond when blockette 1001 is present.
 //
-// Choices made where the specification leaves room (each is also noted at its function):
-//   - a record "ends" at the end of its last sample: start + samples / rate (7.7);
+// The rules of spec 1.1 this module follows (each is also noted at its function):
+//   - a record "ends" at the end of its last sample: start + samples / rate (section 2);
 //   - a record is inside a cutoff when that end is at or before the cutoff (<=), because the
-//     record then fills the half-open interval [start, end) and nothing of it is later;
+//     record then fills the half-open interval [start, end) and nothing of it is later (5.2);
+//   - a record goes in the day file of the UTC day its first sample falls in (7.7);
 //   - an overlap is listed when a record starts more than half a sample interval before the
-//     data so far end (clocks jitter by microseconds; that is not an overlap);
+//     data so far end (clocks jitter by microseconds; that is not an overlap) (7.3);
 //   - gaps are listed between records only. Time missing before the day's first record or
-//     after its last shows in `coverage`, not in `gaps`.
+//     after its last shows in `coverage`, not in `gaps` (7.3);
+//   - a day is "filling" until the whole day ends at or before publicUntil, then "closed"
+//     (7.6); a channel's status is measured by publicUntil − lastSample (7.5).
 
 const DAY_MS = 86400000;
+const HOUR_MS = 3600000;
 const MARK_MS = 600000; // the seek table has one entry per 10 minutes
 const HEADER_BYTES = 48;
 const DEFAULT_RECORD_LENGTH = 512;
@@ -243,8 +248,8 @@ export function sortDedupe(records) {
  * The publish step's cutoff (spec 5.2, step 2): keep only whole records whose last sample
  * ends at or before the cutoff. "At or before" (<=), not "before": a record covers the
  * half-open interval [startMs, endMs), so one with endMs equal to the cutoff holds nothing
- * at or after it. This also matches 7.5 (lastSample <= publicUntil) and the acceptance test
- * in 5.4 ("no record ends after publicUntil").
+ * at or after it. This is the rule of section 2, 7.5 (lastSample <= publicUntil) and the
+ * acceptance test in 5.4 ("every record ends at or before publicUntil").
  */
 export function cutAtCutoff(records, cutoffMs) {
   return records.filter((r) => r.endMs <= cutoffMs);
@@ -347,19 +352,55 @@ export function gapTotals(gaps) {
   return { gapCount: gaps.length, gapSeconds: Math.round(ms) / 1000 };
 }
 
+// --- Status words (spec 7.5 and 7.6) ------------------------------------------------------
+
+/**
+ * A day's status in the availability file (spec 7.6). It says whether the day can still grow,
+ * not whether it is full: "closed" once the whole day ends at or before publicUntil (it then
+ * changes only by a refill or a withdrawal), "filling" until then. How full the day is, is its
+ * coverage: a closed day whose data began at noon reads 0.5. The third value, "withdrawn", is
+ * set when a day is taken down, with a reason; it is never computed.
+ */
+export function dayStatus(dayStartMs, publicUntilMs) {
+  return dayStartMs + DAY_MS <= publicUntilMs ? 'closed' : 'filling';
+}
+
+/**
+ * A channel's status in index.json (spec 7.5), from its lag: publicUntil − lastSample. It is
+ * measured against publicUntil, not the clock, so a station published with an approved delay
+ * can be current. "current": a lag of at most 2 hours for a station delivered hourly, or
+ * 36 hours for one delivered daily; "stopped": 7 days or more; "late" in between.
+ * @param {number} publicUntilMs
+ * @param {number} lastSampleMs  end of the last public record
+ * @param {{daily?: boolean}} [o]  daily delivery (spec 5.1); sharing stations are hourly
+ */
+export function channelStatus(publicUntilMs, lastSampleMs, { daily = false } = {}) {
+  const lag = publicUntilMs - lastSampleMs;
+  if (lag <= (daily ? 36 : 2) * HOUR_MS) return 'current';
+  if (lag >= 7 * DAY_MS) return 'stopped';
+  return 'late';
+}
+
+/**
+ * Has the server's publish step stalled (spec 7.5)? It runs every 10 minutes and stamps
+ * index.json's "generated"; more than an hour without a run means the data are paused,
+ * whatever each channel's status says. Readers show it as "data paused".
+ */
+export function publishPaused(generatedMs, nowMs) {
+  return nowMs - generatedMs > HOUR_MS;
+}
+
 /**
  * Which bytes of a day file to ask for to read the window [t0, t1): the reader's rule in
- * spec 7.7.
+ * spec 7.7 ("How the reader uses seek"), of which this is the reference implementation.
  *
  *   start: take the seek entry for the last 10-minute mark at or before t0 and step back
  *          one record, because a record that starts just before the mark can hold samples
- *          after it;
+ *          after it. Two special cases:
+ *          - t0 is before the day's first mark (the window began the day before): byte 0;
+ *          - the mark at or before t0 was left out of the table, because no record starts
+ *            at or after it. Then only the file's last record can reach t0: start there;
  *   end:   read up to the offset of the first mark after t1, or to the end of the file.
- *
- * Two cases the rule does not spell out:
- *   - t0 is before the day's first mark (the window began the day before): start at byte 0;
- *   - the mark at or before t0 was left out of the table, because no record starts at or
- *     after it. Then only the file's last record can reach t0, so start there.
  *
  * The file's size is records × recordLength unless given. The range always starts on a
  * record boundary. It may hold records outside the window: keep only overlapping() ones.

@@ -300,7 +300,13 @@ async function uhsnStationChanged() {
   date.min = DV.localDate(Date.parse(`${first}T00:00:00Z`));
   date.max = DV.localDate(pu);
   date.value = params.get('date') && params.get('source') === 'uhsn' ? params.get('date') : date.max;
-  $('uhsn-info').textContent = `Published from ${first} (UTC) to ${fmtShortDay.format(new Date(pu))}. Sharing status: ${st.sharing}.`;
+  // A server's publish step runs every 10 minutes; an index more than an hour old means it has
+  // stalled: "data paused" (spec 7.5). The bundled test folder is a fixed snapshot, so not there.
+  const ps = params.get('uhsn') ? await uhsn.publishState() : null;
+  const paused = ps?.paused
+    ? ` Data paused: the server last published ${fmtShortDay.format(new Date(ps.generatedMs))}, more than an hour ago.`
+    : '';
+  $('uhsn-info').textContent = `Published from ${first} (UTC) to ${fmtShortDay.format(new Date(pu))}. Sharing status: ${st.sharing}.${paused}`;
 }
 
 async function loadUhsn() {

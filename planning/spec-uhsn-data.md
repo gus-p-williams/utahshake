@@ -31,8 +31,9 @@ found nine gaps:
 
 Change 5 renames values, which section 7.3's version rule would not allow once data are
 published. No server has published version 1 yet, so it is made now. **Follow-ups in our
-code:** `make-tree.mjs` writes the old status names and measures the index's status against
-"now"; both change to match. The reader already behaves as 1.1 says.
+code (done):** `make-tree.mjs` wrote the old status names and measured the index's status
+against "now"; both now follow 1.1, and the reader shows "data paused" (7.5). A checker tests a
+server against this version (section 12).
 
 ## 1. Purpose and status
 
@@ -813,6 +814,11 @@ in the review, not here. Teachers and school IT spend no time on the server.
 
 DRI may use the generator as a starting point for its publish and index scripts. The sizes
 above are for finishing these and adding the checker and products.
+
+**The checker is built** (`tools/uhsn-test/check-tree.mjs`; its JSON Schema files and fixtures
+are still to come). DRI runs `node tools/uhsn-test/check-tree.mjs https://<host>/uhsn/v1/` from
+a copy of our repository (Node.js 22 or later, nothing to install) before going live and after
+any change to the publish step; exit status 0 means nothing failed.
 
 ## 13. Security and privacy
 

@@ -87,6 +87,7 @@ tests/                     node --test, including real-data checks on the sample
   bench.test.js            Phone Bench arithmetic on made-up takes
   day-view.test.js         School Shake Viewer logic; the example notes against their times
   mseed-index.test.js, uhsn-source.test.js, uhsn-demo-tree.test.js   the UHSN data layout and its reader
+  uhsn-check.test.js, uhsn-check-tree.test.js   the checker for DRI's server
   teacher-cards.test.js    activity cards and app hubs link both ways (D19); the Teachers catalog
                            and standards tables match each card's "At a glance" box
   clear-s.test.js          the "clear S at N of M stations" notes match the offline samples
@@ -97,6 +98,7 @@ tools/
   quake-explorer/          Quake Explorer's science checks, answer key, samples, travel-time table
   figures/                 figures for the guides and The Science (see below)
   uhsn-test/make-tree.mjs  a test folder in the UHSN data layout from University of Utah data
+  uhsn-test/check-tree.mjs the checker DRI runs on its server (data spec 1.1); pure checks in check-lib.mjs
   serve.mjs                tiny local server for docs/ (apps only, no MkDocs build; Range and CORS)
   site-check.mjs           every page of the built site in headless Chrome at three widths
   phone-bench-check.mjs    Phone Bench in headless Chrome: made-up phone, emulated sensors, fake microphone

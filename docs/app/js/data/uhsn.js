@@ -1,10 +1,11 @@
 // School Shakes: data from the UHSN public tree, a folder of plain files on a web server.
 //
 // This is the first UHSNSource and the reference client for the UHSN data specification,
-// draft 0.2 (planning/spec-uhsn-data.md in the repository on GitHub; planning files are not
+// version 1.1 (planning/spec-uhsn-data.md in the repository on GitHub; planning files are not
 // on the website). DRI's server will publish each school seismometer's data as the spec's
 // section 7 describes; until then the same reader works on a test tree of University of
 // Utah records (tools/uhsn-test/make-tree.mjs; a small one ships in data/uhsn-demo/v1/).
+// tools/uhsn-test/check-tree.mjs checks a tree or a server against the same rules.
 //
 // What it reads, all under one base address (https://<host>/uhsn/v1/):
 //   stations.json                  the public station list (spec 7.4)
@@ -33,12 +34,18 @@
 // a day can run a few seconds past midnight: the day before the window is checked as well.
 //
 // Missing time is NaN in the returned trace, which always spans exactly the window asked
-// for. Nothing after the station's "public until" time is ever returned.
+// for. Nothing after the station's "public until" time is ever returned, even from a day
+// file that is newer than the index this reader read (spec 7.3, "Readers must expect files
+// newer than the index"): records are found by their header times, and a 416 answer means
+// the file was just replaced, so it is read whole.
+//
+// Is the server still publishing? publishState() says "paused" when index.json was
+// generated more than an hour ago (spec 7.5); a page shows that as "data paused".
 import { EarthScopeUSGSSource } from './earthscope-usgs.js';
 import { parseMiniseed } from './mseed.js';
 import { distanceKm } from '../lib/geo.js';
 import {
-  scanRecords, overlapping, byteRange, sdsPath, utcDayStart, isoDay, nslc,
+  scanRecords, overlapping, byteRange, sdsPath, utcDayStart, isoDay, nslc, publishPaused,
 } from '../lib/mseed-index.js';
 
 const DAY_MS = 86400000;
@@ -139,6 +146,17 @@ export class UHSNSource {
     const t = (await this.index())?.stations?.[`${net}.${sta}`]?.publicUntil;
     const ms = t ? Date.parse(t) : NaN;
     return Number.isNaN(ms) ? null : ms;
+  }
+
+  /**
+   * Is the server's publish step running (spec 7.5)? It runs every 10 minutes and stamps
+   * index.json's "generated". More than an hour old means "data paused", whatever each
+   * channel's status says. Returns {generatedMs, paused}, or null without an index.
+   */
+  async publishState({ nowMs = Date.now() } = {}) {
+    const generatedMs = Date.parse((await this.index())?.generated ?? '');
+    if (Number.isNaN(generatedMs)) return null;
+    return { generatedMs, paused: publishPaused(generatedMs, nowMs) };
   }
 
   /** A station's availability by day for one UTC year (spec 7.6), or null if there is none. */
