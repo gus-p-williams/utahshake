@@ -22,6 +22,11 @@ see, analyze and do research with seismic data from their own school and the reg
   "planning/UHSN questions - classroom activities by setup.docx". Both Word copies are built
   with `tools/planning-docx/md_to_docx.py`; images in `planning/img/`.
 - Outside review of these materials (Codex, input only): `planning/co-pi-review-2026-11-24.md`
+- For DRI IT (via Cleat): `planning/brief-dri-it.md` and the data spec
+  `planning/spec-uhsn-data.md` (Word copies "UHSN brief - DRI IT.docx" and "UHSN data spec -
+  DRI server.docx"). Feasibility reviews: `planning/review-shake-viewer.md` and
+  `planning/review-phone-recorder.md`, with their critiques (`critique-r1-claude.md`,
+  `critique-r2-codex.md`) and source logs (D37).
 - Staged build plan: `planning/roadmap.md`
 - Decision log: `planning/decisions.md`
 - `planning/` is deliberately outside `docs/`: kept in git, NOT on the website
@@ -165,11 +170,14 @@ sequences the work and integrates it.
   | D7-wiggle-app | Build a Wiggle becomes a full app (guide, Apps menu); All apps lists every app with a guide | `-wiggle`, branch `wiggle-app` | merged 2026-11-25 (D34) |
   | D8-waves-hint | Quake Waves: an on-map hint that clicking moves the quake (standalone and embedded) | `-band`, branch `waves-hint` | merged 2026-11-25 (D35) |
   | D9-small-fixes | Quake Waves keyboard control; Quake Explorer B's low-edge label; overview Figure 3 | `-fixes`, branch `small-fixes` | merged 2026-11-25 |
-  | P3-viewer-review | Feasibility and effort review: a school-Shake viewer (`planning/review-shake-viewer.md`); delayed data and automated school-to-DRI upload; a brief for Cleat to take to DRI IT (`planning/brief-dri-it.md`); the data spec for DRI's server (`planning/spec-uhsn-data.md`) | main folder, `planning/` | round 2 done; awaiting critiques |
-  | P4-phone-review | Feasibility and effort review: a phone vibration recorder (`planning/review-phone-recorder.md`) | main folder, `planning/` | done; awaiting critiques |
-  | R1-app-critique | Independent critique of P3 (review, brief, spec) and P4, in Claude (`planning/critique-r1-claude.md`) | read-only except its file | active |
-  | R2-app-critique | The same critique, independently, in Codex (`planning/critique-r2-codex.md`) | read-only except its file | active |
-  | D10-phone-bench | An "In development: please test" category (All apps, Apps menu, Prototype badge, tests); the phone bench recorder for trial T1; rounding explained in its guide; a "How small a shake can it see?" section on Reading a seismogram (phone vs Shake vs broadband: step size, self-noise, frequency range) | `-bench`, branch `phone-bench` | active |
+  | P3-viewer-review | Feasibility and effort review: a school-Shake viewer (`planning/review-shake-viewer.md`); delayed data and automated school-to-DRI upload; a brief for Cleat to take to DRI IT (`planning/brief-dri-it.md`); the data spec for DRI's server (`planning/spec-uhsn-data.md`) | main folder, `planning/` | done, committed (D37) |
+  | P4-phone-review | Feasibility and effort review: a phone vibration recorder (`planning/review-phone-recorder.md`) | main folder, `planning/` | done, committed (D37) |
+  | R1-app-critique | Independent critique of P3 (review, brief, spec) and P4, in Claude (`planning/critique-r1-claude.md`) | read-only except its file | done, committed |
+  | R2-app-critique | The same critique, independently, in Codex (`planning/critique-r2-codex.md`) | read-only except its file | done, committed |
+  | D10-phone-bench | An "In development: please test" category (All apps, Apps menu, Prototype badge, tests); the phone bench recorder for trial T1; rounding explained in its guide; a "How small a shake can it see?" section on Reading a seismogram (phone vs Shake vs broadband: step size, self-noise, frequency range) | `-bench`, branch `phone-bench` | merged 2026-11-25 (D36) |
+  | D11-viewer-proto | A file-first School Shake viewer prototype under "In development" (day files, UU stand-in days, spec-layout test files; helicorder, spectrogram, noise, annotations) | `-viewer`, branch `viewer-proto` | active |
+  | D12-phyphox | Teacher page on phyphox for clubs, research and old classroom phones (why it is better, how to install, why not the default; an Open-in-phyphox link if it works) | `-phyphox`, branch `phyphox` | active |
+  | P5-magnitude-review | Feasibility review for magnitude (Cleat's request): what students learn, Utah's magnitude methods, a check on real data, where it belongs (Quake Locator, Quake Explorer, or its own app) (`planning/review-magnitude.md`) | main folder, `planning/` | active; then critics R3 (Claude) and R4 (Codex) |
 
   Review process for planning studies (Gus, 2026-11-25): authors (P) write; two independent
   critics (R, one in Claude and one in Codex) review without seeing each other's critique;
@@ -366,6 +374,24 @@ out of the menus:
   `lib/spectral.js`); the overview's Quake Waves picture retaken and its Word copy rebuilt.
   `npm test` = 256. Left as optional: D's spectrogram also starts at 0.039 Hz (no band edge
   is shown there, so nothing disagrees; the fix would mean retaking `qe-d-distant.png`).
+- 2026-11-25: **"In development: please test" and Phone Bench** (D36, session D10-phone-bench):
+  prototypes get a guide, an All apps card in that section, an Apps › In development menu
+  group and a Prototype badge, but no activity card until Gus graduates them. Phone Bench
+  (`app/phone-bench/`, `js/lib/bench.js`, `tools/phone-bench-check.mjs`) measures a phone's
+  reading rate, jitter, rounding step, noise and flicker for trial T1; nothing leaves the
+  device. Reading a seismogram gains "How small a shake can it see?" (phone vs Shake vs
+  broadband) with a stepped-wave figure; sources in `planning/bench-sources.md`. Shared
+  `downloadCsv` keeps its link for 60 s (Safari). `npm test` = 279; site check 39 pages.
+- 2026-11-25: **App feasibility studies done** (D37, D38). Sessions P3 and P4 wrote
+  feasibility reviews of a School Shake viewer and a phone vibration recorder; R1 (Claude)
+  and R2 (Codex) critiqued them independently and agreed on the main points; the authors
+  refined with response tables. Outputs: the reviews, the critiques, source logs, and for
+  DRI IT a 2-page brief and a data spec (delayed data; a bridge per school reading SeedLink;
+  DRI's server publishing per the spec). Gus's calls: the privacy rule for schools already
+  sharing with Raspberry Shake; DRI decides license questions and computes the summaries;
+  DRI and the schools handle district approvals (53G-7-228); the site is public and schools
+  decide instructional use; phyphox for clubs and research. Overview fixed (R277-487 not
+  being amended; rsudp not a forwarder) and its Word copy rebuilt.
 
 ## Next steps
 
@@ -380,10 +406,23 @@ out of the menus:
       included; only `main` is left. The empty folder `G:\GIT_Repo\2026_11_Shake-qexp`
       stays until the process holding it closes. GitHub has only `main` (the merged
       `quake-explorer` branch was deleted on 2026-11-25, Gus).
-   d. Running: P3-viewer-review and P4-phone-review (feasibility studies), then the two
-      critics R1 (Claude) and R2 (Codex), then P3 and P4 refine; M1 commits the set. After
-      Gus picks a data path, a later session writes the polished "connect your school's
-      Shake" guide (P3 drafts its steps).
+   d. Planning set committed (D37): the two feasibility reviews, both critiques, the source
+      logs, and for DRI IT the brief and the data spec. **Cleat can take the brief and spec to
+      DRI IT.** After DRI picks the data path, a later session writes the polished "connect
+      your school's Shake" guide (P3's draft steps are in the review, section 6).
+   e. D11-viewer-proto (branch `viewer-proto`): a file-first School Shake viewer under
+      "In development". D12-phyphox (branch `phyphox`): the phyphox teacher page (D38).
+   f. Testers (Gus, Dale, Cleat): run Phone Bench on your own phones (iPhone and Android)
+      and send Gus the results; this is trial T1 (T1a). Students may use it where a school
+      agrees (D38); Wasatch Academy is the proposed first class trial (T1b).
+   g. When the questions document is revised after Dale and Cleat reply, apply P4's
+      corrections in `planning/review-phone-recorder.md` section 6.3 (rounding and permission
+      facts in Appendices B1 and B6, the P3 ring size, old-phone requirements, the law in
+      Appendix C including 53G-7-228, trials T1a/T1b in Appendix D).
+   h. From P4 (section 6.4): **Gus owns Phone Bench and trial T1 for now** (may change for
+      later tests); T2 and T3 get a DRI lead only if Dale and Cleat want phone activities.
+      The P6 bounce timer (Chromebook microphone) **waits for Dale and Cleat's answer**
+      (Gus, 2026-11-25). Still open: the proposed answer dates and defaults in P4's 5.7.
 2. **Open questions for Gus / DRI:**
    a. Which Raspberry Shake model is at each school (they may differ)? The seismometer figure
       on Reading a seismogram is a generic geophone.

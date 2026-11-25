@@ -117,8 +117,15 @@ motion, audification, amplitude against distance, spectra.
 
 ## Stage 4 — Switch to UHSN data
 
-- [ ] DRI ingest server API (separate repo) and `UHSNSource` implementing `DataSource`.
-- [ ] Live/real-time views inside schools; delayed/aggregated public views (occupancy privacy).
+- [ ] DRI's server and the school bridges, built by DRI IT to the data spec
+      (`planning/spec-uhsn-data.md`; brief for DRI IT: `planning/brief-dri-it.md`; D37).
+      Delayed data (hourly for schools already sharing with Raspberry Shake); DRI computes
+      the summaries in its publish step.
+- [ ] `UHSNSource` implementing `DataSource`, against the spec (a first version comes with
+      the viewer prototype, D11).
+- [ ] School Shake viewer: prototype under "In development" now (file-first: day files, UU
+      stand-in days, spec-layout test files; D11); school data when the server exists.
+- [ ] Live views: optional, later (D37: delayed data serve every planned activity).
 - [ ] Campus apps: School Pulse (real campus), Game Night Quake, Bus Detective, Campus
       Wave Speed, Signal Detective labeling.
 
@@ -158,7 +165,8 @@ From the questions document (`planning/activities.md`, "UHSN classroom activitie
 D28). None is scheduled until Dale and Cleat choose activities.
 
 - Phone track, only if phone activities are chosen and after bench trials T1 to T3: the Phone
-  Recorder page, then a locator for "Find the hit" (P3).
+  Recorder page, then a locator for "Find the hit" (P3). The T1 instrument is built: Phone
+  Bench, under "In development" (D36); Gus, Dale and Cleat test it on their own phones.
 - Felt Map Locator (E13): a small add-on (USGS "Did You Feel It?" squares).
 - Own-Shake file loader: a bridge before Stage 4 (day files from the school Shake's own page).
 - In Stage 4: the viewer's experiment mode (S10–S18, R cards), a source log for experiments at

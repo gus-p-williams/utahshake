@@ -4,6 +4,58 @@ Newest first. Each entry: date, decision, why, consequences.
 
 ## 2026-11-25 (apps and on-plot hints)
 
+**D38. The site is public; phyphox for clubs and research.** Gus, 2026-11-25. Anyone can use
+any page of the site. Using it for instruction is each school's decision under its own rules
+(the phone law, R277-495, and district approval of instructional technology under Utah Code
+53G-7-228, which DRI and the schools handle); "In development" marks how ready a tool is, not
+who may use it, so students may use Phone Bench where a school agrees (for example a trial at
+Wasatch Academy). Classroom activities stay browser-only (constraint 3), but phyphox, the
+free phone app, is the recommended instrument for clubs and the research track, and for
+teachers with a set of old classroom phones: it reads the sensors directly, faster and
+without the browser's rounding. A teacher page explains how to install it, why it is better
+and why our browser pages are the default (no install). A web page can't tell whether an
+app is installed (session D12-phyphox).
+
+**D37. School data: who decides what.** Gus, 2026-11-25, after the feasibility reviews
+(`planning/review-shake-viewer.md`, `planning/review-phone-recorder.md`), two independent
+critiques (`planning/critique-r1-claude.md`, `planning/critique-r2-codex.md`) and the authors'
+refinements.
+- **Privacy:** a school whose installed Shake already shares with Raspberry Shake's network
+  has settled its data being public (its record is already public and live there). Our site
+  adds no new exposure: such a school's data are published hourly, no added delay, under its
+  name. A school that doesn't share publishes nothing until DRI and its district approve what
+  goes public and with what delay; the server enforces any delay (private intake, publish
+  step).
+- **Delayed data are enough;** live is an optional later extra. Recommended feed: a DRI-owned
+  bridge at each school reading the Shake's SeedLink (`slarchive`, no Shake password) and
+  pushing out over HTTPS; rsudp is not used (it fetches metadata from Raspberry Shake's
+  servers and fills gaps with zeros). The contract is `planning/spec-uhsn-data.md`; DRI IT
+  chooses how to build it (brief: `planning/brief-dri-it.md`, for Cleat to take to DRI IT).
+- **DRI decides** the Raspberry Shake license questions (publishing our own sharing Shakes'
+  data; what to do if Raspberry Shake doesn't answer) and computes the summaries in its
+  publish step (our GitHub job only as a fallback).
+- **District approvals** (53G-7-228) are for DRI and the schools; we make Cleat and DRI aware.
+- **Never** pull data from Raspberry Shake's servers, not even one test file (constraint 1);
+  sizes are settled by DRI's first real files.
+- The file-first School Shake viewer is built now as a prototype (session D11), separate from
+  School Pulse but sharing its parts.
+
+**D36. "In development: please test" for prototypes; phone readings are rounded, and we say
+so.** Gus, 2026-11-25 (session D10-phone-bench). Prototypes for adult testers (Gus, Dale and
+Cleat, the site's only users for now) get a guide, a card in an "In development: please test"
+section of All apps, an Apps › In development menu group and a purple "Prototype" badge in
+their top bar, but no activity card until Gus graduates them to the main list (rules in
+`adding-an-app.md#in-development`; enforced by `tests/app-list.test.js` and
+`tests/teacher-cards.test.js`). The site collects nothing; testers send results to Gus. The
+first is Phone Bench (`app/phone-bench/`), the instrument for trial T1: it measures a phone's
+real reading rate, jitter, rounding step, noise and flicker, and the permission prompt, with
+results shown on screen and downloadable, nothing uploaded, and a notice that classroom phone
+use needs the district's policy (SB 69). Because browsers round motion readings (0.1 m/s² in
+Chrome; iPhones not confirmed), the bench guide explains it, Reading a seismogram has "How
+small a shake can it see?" (phone vs Raspberry Shake vs broadband: step size, self-noise,
+frequency range), and every future phone activity card must remind teachers of it
+(`adding-a-card.md`). Sources: `planning/bench-sources.md`.
+
 **D35. Show how to use a plot on the plot itself.** Sessions D5-band-hint and D8-waves-hint,
 from Gus's notes that students missed "drag on the spectrogram" and "click the map": an
 instruction placed under or beside a plot goes unseen. Each interactive plot carries its own
