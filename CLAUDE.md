@@ -167,7 +167,14 @@ sequences the work and integrates it.
   | D9-small-fixes | Quake Waves keyboard control; Quake Explorer B's low-edge label; overview Figure 3 | `-fixes`, branch `small-fixes` | active |
   | P3-viewer-review | Feasibility and effort review: a school-Shake viewer (`planning/review-shake-viewer.md`) | main folder, `planning/` | active |
   | P4-phone-review | Feasibility and effort review: a phone vibration recorder (`planning/review-phone-recorder.md`) | main folder, `planning/` | active |
-  | R1-app-critique | Read-only critique of P3 and P4's reviews; then P3 and P4 refine | read-only | after P3 and P4 |
+  | R1-app-critique | Independent critique of P3 and P4's reviews, in Claude (`planning/critique-r1-claude.md`) | read-only except its file | after P3 and P4 |
+  | R2-app-critique | The same critique, independently, in Codex (`planning/critique-r2-codex.md`) | read-only except its file | after P3 and P4, alongside R1 |
+
+  Review process for planning studies (Gus, 2026-11-25): authors (P) write; two independent
+  critics (R, one in Claude and one in Codex) review without seeing each other's critique;
+  the authors refine and add a "Response to the critiques" table (each point accepted,
+  changed or declined, with the reason); M1 flags any disagreement between the critics for
+  Gus and commits the set.
 
   Retired before IDs: the figures sessions, the Quake Explorer session (merged, D22–D25).
 
