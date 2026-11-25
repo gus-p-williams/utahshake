@@ -115,6 +115,13 @@ motion, audification, amplitude against distance, spectra.
       helicorder, PPSD against the Peterson noise models, seismic carpet (a static preview;
       the app is Stage 2), event stack, H/V ratio, cross-correlation.
 
+## Magnitude (D41; Cleat's request)
+
+- [x] Science page "How big was it? Magnitude" (`theory/magnitude.md`) and the shared
+      Wood-Anderson module (`lib/magnitude.js`), checked against UUSS's stored amplitudes.
+- [ ] Quake Explorer investigation E, "How big was it?", as a prototype tab under
+      "In development"; a trial; then D22, D23 and E11 change when it graduates.
+
 ## Stage 4 — Switch to UHSN data
 
 - [ ] DRI's server and the school bridges, built by DRI IT to the data spec

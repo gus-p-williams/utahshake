@@ -50,6 +50,7 @@ the table; the [standards crosswalk](standards.md) shows where each one comes up
 | [Seismic waves](../theory/waves.md) | Science page | PHYS.4.1 · ESS.2.2 |
 | [Reading a seismogram](../theory/seismograms.md) | Science page | PHYS.4.1 · ESS.2.2 · CS&nbsp;9/10.DA.3 |
 | [Beyond one seismogram](../theory/plots.md) | Science page | PHYS.4.1 · ESS.2.2 · ESS.4.1 · CS&nbsp;9/10.DA.3 · CS&nbsp;11/12.DA.1 |
+| [How big was it?](../theory/magnitude.md) | Science page | PHYS.2.1 · ESS.4.1 · CS&nbsp;9/10.DA.3 · CS&nbsp;11/12.DA.1 |
 | [Distance from S minus P](../theory/s-minus-p.md) | Science page | PHYS.4.1 |
 | [Locating a quake](../theory/locating.md) | Science page | ESS.2.3 · CS&nbsp;11/12.DA.1 |
 | [Quake Explorer](../apps/quake-explorer.md) | App (four investigations, one card each) | PHYS.4.1 · PHYS.2.1 · ESS.2.2 · ESS.4.1 · GEOL.3.x · CS&nbsp;9/10.DA.3 · CS&nbsp;11/12.DA.1 |

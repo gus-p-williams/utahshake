@@ -178,7 +178,7 @@ sequences the work and integrates it.
   | D11-viewer-proto | A file-first School Shake viewer prototype under "In development" (day files, UU stand-in days, spec-layout test files; helicorder, spectrogram, noise, annotations) | `-viewer`, branch `viewer-proto` | merged 2026-11-25 (D39) |
   | D12-phyphox | Teacher page on phyphox for clubs, research and old classroom phones (why it is better, how to install, why not the default; an Open-in-phyphox link if it works) | `-phyphox`, branch `phyphox` | merged 2026-11-25 (D38); page mothballed (D40) |
   | P5-magnitude-review | Feasibility review for magnitude (Cleat's request): what students learn, Utah's magnitude methods, a check on real data, where it belongs (Quake Locator, Quake Explorer, or its own app) (`planning/review-magnitude.md`) | main folder, `planning/` | v2 done, committed; critiques R3 (Claude, `critique-r3-claude.md`) and R4 (Codex, `critique-r4-codex.md`) committed |
-  | D13-magnitude | (The P5 session, new job; D41) Phase 1: Wood-Anderson module and science page "How big was it?"; phase 2: investigation E as a prototype tab in Quake Explorer | `-magpage` on `magnitude-page`, then `-qemag` on `qe-magnitude` | active |
+  | D13-magnitude | (The P5 session, new job; D41) Phase 1: Wood-Anderson module and science page "How big was it?"; phase 2: investigation E as a prototype tab in Quake Explorer | `-magpage` on `magnitude-page`, then `-qemag` on `qe-magnitude` | phase 1 merged 2026-11-25; phase 2 active |
   | D14-spec-sync | Bring the demo-tree generator and comments in line with data spec 1.1; a conformance checker for DRI's server (`tools/uhsn-test/check-tree.mjs`) | `-specsync`, branch `spec-sync` | merged 2026-11-25 |
   | D15-web-design | A little visual interest without losing the minimal design: options first (app-card thumbnails, a home graphic, index icons), then build what Gus picks | `-design`, branch `web-design` | active (Phase 0: options for Gus) |
 
@@ -421,6 +421,15 @@ out of the menus:
   for `?uhsn=` servers). `node tools/uhsn-test/check-tree.mjs <folder or https://host/uhsn/v1/>`
   tests a folder or DRI's server against the spec (FAIL / warn / note, `--json`); the demo
   passes. `tools/serve.mjs` sends `.xml` as application/xml. `npm test` = 377.
+- 2026-11-25: **"How big was it? Magnitude" merged** (D41, session D13-magnitude, phase 1): a
+  science page after Frequencies, fading and sound, with seven real-data figures, a
+  plot-and-fit task from a CSV ("Make it"), accuracy in words; `lib/magnitude.js` (simulated
+  Wood-Anderson, magnification 2,800, damping 0.8, Richter's full 1958 table; a gate keeps
+  stations whose quake swing is at least twice the pre-P noise) reproduces UUSS's stored
+  amplitudes on the offline samples (median ratio 1.00 over 28 channels; UUSS's values saved
+  as `uuss-magnitudes.json` beside each sample); `tools/quake-explorer/magnitude-check.mjs`.
+  Standards PHYS.2.1 · ESS.4.1 · CS 9/10.DA.3 · CS 11/12.DA.1 (crosswalk `#magnitude`).
+  Quake Explorer's SGU note now covers Dec 2023–May 2024. `npm test` = 390; site check 43.
 
 ## Next steps
 
