@@ -14,7 +14,10 @@ free phone app, is the recommended instrument for clubs and the research track, 
 teachers with a set of old classroom phones: it reads the sensors directly, faster and
 without the browser's rounding. A teacher page explains how to install it, why it is better
 and why our browser pages are the default (no install). A web page can't tell whether an
-app is installed (session D12-phyphox).
+app is installed (session D12-phyphox). Built: `docs/teachers/phyphox.md` with a ready-made
+experiment (`docs/teachers/files/uhsn-vibration.phyphox`) opened by a `phyphox://` link beside
+"Get phyphox"; `tests/phyphox.test.js` keeps the link in step with `site_url`. Prototype
+pages now say "not ready for classrooms yet" rather than "for adult testers".
 
 **D37. School data: who decides what.** Gus, 2026-11-25, after the feasibility reviews
 (`planning/review-shake-viewer.md`, `planning/review-phone-recorder.md`), two independent
