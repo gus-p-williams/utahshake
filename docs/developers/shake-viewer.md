@@ -37,7 +37,7 @@ measure), Quake Explorer's `SpectrogramView` and `lib/spectral.js` (`stft`), `ui
 | --- | --- | --- |
 | A day file from the Shake | The teacher's device | `File.arrayBuffer()` → `parseMiniseed`; several files are merged per channel; nothing leaves the browser |
 | A Utah station | EarthScope | `EarthScopeUSGSSource.getWaveforms` for the local day (two UTC days, one request) |
-| School Shakes | The test folder, or `?uhsn=<base>` | `UHSNSource.getWaveforms` ([Data sources](data-sources.md#uhsn)) |
+| School Shakes | The test folder, or `?uhsn=<base>` | `UHSNSource.getWaveforms` ([Data sources](data-sources.md#uhsn)); with `?uhsn=`, the panel adds "Data paused" when the server's `index.json` is more than an hour old (`publishState`, spec 7.5). The bundled folder is a fixed snapshot, so not there |
 
 None reads Raspberry Shake's servers (CLAUDE.md, constraint 1). Quakes come from the USGS
 catalog; travel times from Quake Locator's speeds (within 150 km) or the iasp91 table.
@@ -105,5 +105,7 @@ its `ABOUT.txt`. Without `--demo` it writes any stations and span to
 `npm test` runs `day-view.test.js` (time zones, geometry, levels, notes files including the
 example's labels against their times, arrivals, CSV), `mseed-index.test.js` (against
 seisplotjs on a real sample), `uhsn-source.test.js` (a made-up folder across midnight, with
-and without `Range`) and `uhsn-demo-tree.test.js` (the test folder against the spec). Try the
-page with `node tools/serve.mjs` and open `/app/shake-viewer/`.
+and without `Range`), `uhsn-demo-tree.test.js` (the test folder against the spec) and
+`uhsn-check-tree.test.js` (the checker for DRI's server on the test folder). After
+regenerating the test folder, run `node tools/uhsn-test/check-tree.mjs docs/app/data/uhsn-demo/v1`.
+Try the page with `node tools/serve.mjs` and open `/app/shake-viewer/`.

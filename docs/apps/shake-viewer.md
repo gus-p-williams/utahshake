@@ -144,7 +144,8 @@ been connected at 5 am and the last publish run were at 9 pm. The badge says how
 The page reads only the few kilobytes it needs from each file.
 
 When DRI runs a test server, add `?uhsn=` and its address to this page's address to read it
-instead.
+instead. If that server has not updated its files for more than an hour, the line under the
+station says "Data paused".
 
 ## What to try and send
 
