@@ -73,10 +73,9 @@ about 20,000 times the smallest shake a Raspberry Shake can see. So a phone on t
 your stomp, but a little farther away the shaking falls below one step and the phone loses it,
 while the school's Shake still records it. The [Phone Bench](../apps/phone-bench.md), a test
 page for adults that is still being developed, measures the step and the flicker on a real
-phone. An app such as phyphox skips the browser: it reads the sensor 100 to 500 times a second,
+phone. A phone app can skip the browser: it reads the sensor 100 to 500 times a second,
 without rounding, so the sensor's own noise (about 0.01 to 0.06 m/s² at rest) sets the limit
-instead, still thousands of times above a Shake's. See
-[Phones with an app: phyphox](../teachers/phyphox.md).
+instead, still thousands of times above a Shake's.
 
 <figure markdown="span">
   ![Three panels of made-up shaking over 2 seconds, each with gray lines at the values a phone can report, 0.1 m/s² apart, and dashed lines halfway between them at the edges of the steps. A smooth blue line is the true shaking; orange dots, 60 a second, are the readings, each rounded to the nearest step. Panel 1, a firm tap: the blue wave swings from about 9.6 to 10.1 m/s² and dies away; the orange readings follow it in a staircase of steps. Panel 2, a small shake resting in the middle of the 9.8 step: the blue wave wiggles a little around 9.8 but every orange reading stays at 9.8, so the shake vanishes. Panel 3, the same small shake resting just under the edge between 9.8 and 9.9: the orange readings jump between 9.8 and 9.9, now and then before the shake starts and more often during it.](img/phone-steps.svg){ loading=lazy }

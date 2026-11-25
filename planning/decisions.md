@@ -4,6 +4,16 @@ Newest first. Each entry: date, decision, why, consequences.
 
 ## 2026-11-25 (apps and on-plot hints)
 
+**D40. The phyphox page is mothballed until one of our apps reads phyphox recordings.** Gus,
+2026-11-25. Our site did nothing with phyphox's data (there is no live link between a web
+page and the app; recordings move only as exported files), so the page only told teachers the
+app exists. It is off the site and kept in `planning/mothballed/` (with its experiment file
+and test). It returns with the first app that opens a phyphox recording (its exported CSV),
+for example the table-tap exercise ("Find the hit") or the School Shake Viewer, and then
+without an "Open in phyphox" button: students open phyphox, record, save (export), and open
+the recording in our app. D38's position stands: phyphox is for clubs and research;
+classroom activities stay browser-only.
+
 **D39. The School Shake Viewer prototype, and the first reader for DRI's files.** Gus,
 2026-11-25 (session D11-viewer-proto), following D37. Under "In development":
 `app/shake-viewer/` shows one station's day as a 24-hour helicorder with zoom, a spectrogram

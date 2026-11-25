@@ -124,8 +124,7 @@ identifies them (Utah R277-487).
 
 ## What `tests/teacher-cards.test.js` checks
 
-- Every page in `docs/teachers/` except `index.md`, `standards.md` and `phyphox.md` (guidance
-  for clubs, not a lesson) is a card, with the box above: the seven lines in order, a known
+- Every page in `docs/teachers/` except `index.md` and `standards.md` is a card, with the box above: the seven lines in order, a known
   setup, at least one standard and a link to an existing crosswalk section. A new teacher page
   that is not a card goes in the test's `NOT_CARDS` list.
 - Every app hub (`docs/apps/*.md` except `index.md`) is named by at least one card.

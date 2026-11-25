@@ -27,9 +27,8 @@ const lf = (s) => s.replace(/\r\n/g, '\n');
 const read = (rel) => lf(fs.readFileSync(new URL(rel, DOCS), 'utf8'));
 const mdFiles = (dir) => fs.readdirSync(new URL(dir, DOCS)).filter((f) => f.endsWith('.md')).sort();
 
-// Teachers pages that are not activity cards: the section page, the crosswalk, and the
-// phyphox page (guidance for clubs and research with an installed app, not a lesson).
-const NOT_CARDS = new Set(['index.md', 'standards.md', 'phyphox.md']);
+// Teachers pages that are not activity cards: the section page and the crosswalk.
+const NOT_CARDS = new Set(['index.md', 'standards.md']);
 const BOX_LABELS = ['Driving question', 'Time', 'Setup', 'Apps and tools', 'Before this',
   'Materials', 'Utah standards'];
 const SETUPS = ['Browser only', 'School Shake', 'Roaming Shake', 'Phones'];

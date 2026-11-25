@@ -44,8 +44,7 @@ New here? Watch [Quake Waves](apps/quake-waves.md) first, then try
     [Which way did the ground move?](teachers/which-way-did-it-move.md) ·
     [A message from far away](teachers/far-side-of-the-world.md) ·
     [Utah standards at a glance](teachers/index.md#utah-standards) ·
-    [Standards crosswalk](teachers/standards.md) ·
-    For clubs: [Phones with an app: phyphox](teachers/phyphox.md)
+    [Standards crosswalk](teachers/standards.md)
 
 </div>
 
