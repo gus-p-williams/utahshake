@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "format": "uhsn-notes",
+  "station": "UU.HEB",
+  "title": "Example: school bell times in Heber City on Tuesday, November 17, 2026 (a regular school day in the Wasatch County School District 2026-27 calendar)",
+  "generated": "2026-11-25T00:00:00.000Z",
+  "timeNote": "Times are UTC (ISO 8601). The School Shake Viewer shows them in Mountain time (MST, UTC-7, on this date).",
+  "notes": [
+    { "start": "2026-11-17T14:40:00.000Z", "end": null, "kind": "school",
+      "label": "Rocky Mountain Middle School: warning bell (7:40)",
+      "source": "Rocky Mountain Middle School Bell Schedule 2026-2027, Tuesday-Friday (wasatch.edu/rmms), accessed 2026-11-25" },
+    { "start": "2026-11-17T15:00:00.000Z", "end": null, "kind": "school",
+      "label": "Wasatch High School: 1st period starts (8:00)",
+      "source": "Wasatch High School Bell Schedules, Tuesday-Friday (wasatch.edu/whs/bell-schedule), 2026-27, accessed 2026-11-25" },
+    { "start": "2026-11-17T18:13:00.000Z", "end": "2026-11-17T18:53:00.000Z", "kind": "school",
+      "label": "Wasatch High School: lunch (11:13-11:53)",
+      "source": "Wasatch High School Bell Schedules, Tuesday-Friday (wasatch.edu/whs/bell-schedule), 2026-27, accessed 2026-11-25" },
+    { "start": "2026-11-17T21:24:00.000Z", "end": null, "kind": "school",
+      "label": "Rocky Mountain Middle School: last period ends (2:24)",
+      "source": "Rocky Mountain Middle School Bell Schedule 2026-2027, Tuesday-Friday (wasatch.edu/rmms), accessed 2026-11-25" },
+    { "start": "2026-11-17T21:31:00.000Z", "end": null, "kind": "school",
+      "label": "Wasatch High School: 4th period ends (2:31)",
+      "source": "Wasatch High School Bell Schedules, Tuesday-Friday (wasatch.edu/whs/bell-schedule), 2026-27, accessed 2026-11-25" }
+  ]
+}

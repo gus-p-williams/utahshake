@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <FDSNStationXML xmlns="http://www.fdsn.org/xml/station/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:iris="http://www.fdsn.org/xml/station/1/iris" xsi:schemaLocation="http://www.fdsn.org/xml/station/1 http://www.fdsn.org/xml/station/fdsn-station-1.1.xsd" schemaVersion="1.1">
+  <Source>EarthScope</Source>
+  <Sender>EarthScope</Sender>
+  <Module>EarthScope WEB SERVICE: fdsnws-station | version: 1.1.61</Module>
+  <ModuleURI>https://service.earthscope.org/fdsnws/station/1/query?net=UU&amp;sta=HEB&amp;loc=01&amp;cha=EHZ&amp;startbefore=2026-11-17T12%3A00%3A00.000&amp;endafter=2026-11-17T12%3A00%3A00.000&amp;level=response</ModuleURI>
+  <Created>2026-11-25T18:39:47.0879</Created>
+  <Network code="UU" startDate="1962-01-01T00:00:00.0000">
+   <Description>University of Utah Regional Seismic Network (Utah Network)</Description>
+   <Identifier type="DOI">10.7914/SN/UU</Identifier>
+   <TotalNumberStations>375</TotalNumberStations>
+   <SelectedNumberStations>1</SelectedNumberStations>
+   <Station code="HEB" startDate="2004-06-23T00:00:00.0000" iris:alternateNetworkCodes="_REALTIME,.UNRESTRICTED,_US-REGIONAL">
+    <Latitude>40.5015</Latitude>
+    <Longitude>-111.33583</Longitude>
+    <Elevation>1925.0</Elevation>
+    <Site>
+     <Name>Heber, UT, USA</Name>
+    </Site>
+    <CreationDate>2004-06-23T00:00:00.0000</CreationDate>
+    <TotalNumberChannels>4</TotalNumberChannels>
+    <SelectedNumberChannels>1</SelectedNumberChannels>
+    <Channel code="EHZ" locationCode="01" startDate="2013-04-01T00:00:00.0000">
+     <Latitude>40.5015</Latitude>
+     <Longitude>-111.33583</Longitude>
+     <Elevation>1925</Elevation>
+     <Depth>0</Depth>
+     <Dip>-90</Dip>
+     <Type>CONTINUOUS</Type>
+     <Type>GEOPHYSICAL</Type>
+     <SampleRate>1E02</SampleRate>
+     <ClockDrift>1E-04</ClockDrift>
+     <CalibrationUnits>
+      <Name>COUNTS</Name>
+      <Description>Digital Counts</Description>
+     </CalibrationUnits>
+     <Sensor>
+      <Description>Geotech S-13, 1.0 Hz seismometer</Description>
+     </Sensor>
+     <Response>
+     <InstrumentSensitivity>
+       <Value>6.6306E9</Value>
+       <Frequency>5.0</Frequency>
+       <InputUnits>
+         <Name>m</Name>
+         <Description>Earth Displacement in Meters</Description>
+       </InputUnits>
+       <OutputUnits>
+         <Name>count</Name>
+         <Description>Digital Counts</Description>
+       </OutputUnits>
+     </InstrumentSensitivity>
+      <Stage number="1">
+      <PolesZeros>
+        <InputUnits>
+          <Name>m</Name>
+          <Description>Earth Displacement in Meters</Description>
+        </InputUnits>
+        <OutputUnits>
+          <Name>count</Name>
+          <Description>Digital Counts</Description>
+        </OutputUnits>
+        <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
+        <NormalizationFactor>1.654199943168E15</NormalizationFactor>
+        <NormalizationFrequency>5.0</NormalizationFrequency>
+        <Zero number="0">
+          <Real minusError="0.0" plusError="0.0">0.0</Real>
+          <Imaginary minusError="0.0" plusError="0.0">0.0</Imaginary>
+        </Zero>
+        <Zero number="1">
+          <Real minusError="0.0" plusError="0.0">0.0</Real>
+          <Imaginary minusError="0.0" plusError="0.0">0.0</Imaginary>
+        </Zero>
+        <Zero number="2">
+          <Real minusError="0.0" plusError="0.0">0.0</Real>
+          <Imaginary minusError="0.0" plusError="0.0">0.0</Imaginary>
+        </Zero>
+        <Zero number="3">
+          <Real minusError="0.0" plusError="0.0">0.0</Real>
+          <Imaginary minusError="0.0" plusError="0.0">0.0</Imaginary>
+        </Zero>
+        <Zero number="4">
+          <Real minusError="0.0" plusError="0.0">0.0</Real>
+          <Imaginary minusError="0.0" plusError="0.0">0.0</Imaginary>
+        </Zero>
+        <Pole number="0">
+          <Real minusError="0.0" plusError="0.0">-4.442840099334717</Real>
+          <Imaginary minusError="0.0" plusError="0.0">-4.442840099334717</Imaginary>
+        </Pole>
+        <Pole number="1">
+          <Real minusError="0.0" plusError="0.0">-4.442840099334717</Real>
+          <Imaginary minusError="0.0" plusError="0.0">4.442840099334717</Imaginary>
+        </Pole>
+        <Pole number="2">
+          <Real minusError="0.0" plusError="0.0">-0.6829820275306702</Real>
+          <Imaginary minusError="0.0" plusError="0.0">0.0</Imaginary>
+        </Pole>
+        <Pole number="3">
+          <Real minusError="0.0" plusError="0.0">-44.42839813232422</Real>
+          <Imaginary minusError="0.0" plusError="0.0">-44.42839813232422</Imaginary>
+        </Pole>
+        <Pole number="4">
+          <Real minusError="0.0" plusError="0.0">-44.42839813232422</Real>
+          <Imaginary minusError="0.0" plusError="0.0">44.42839813232422</Imaginary>
+        </Pole>
+        <Pole number="5">
+          <Real minusError="0.0" plusError="0.0">-61.76369857788086</Real>
+          <Imaginary minusError="0.0" plusError="0.0">0.0</Imaginary>
+        </Pole>
+        <Pole number="6">
+          <Real minusError="0.0" plusError="0.0">-72.79010009765625</Real>
+          <Imaginary minusError="0.0" plusError="0.0">-19.78070068359375</Imaginary>
+        </Pole>
+        <Pole number="7">
+          <Real minusError="0.0" plusError="0.0">-72.79010009765625</Real>
+          <Imaginary minusError="0.0" plusError="0.0">19.78070068359375</Imaginary>
+        </Pole>
+        <Pole number="8">
+          <Real minusError="0.0" plusError="0.0">-19.536300659179688</Real>
+          <Imaginary minusError="0.0" plusError="0.0">-72.85600280761719</Imaginary>
+        </Pole>
+        <Pole number="9">
+          <Real minusError="0.0" plusError="0.0">-19.536300659179688</Real>
+          <Imaginary minusError="0.0" plusError="0.0">72.85600280761719</Imaginary>
+        </Pole>
+        <Pole number="10">
+          <Real minusError="0.0" plusError="0.0">-53.329200744628906</Real>
+          <Imaginary minusError="0.0" plusError="0.0">-53.34489822387695</Imaginary>
+        </Pole>
+        <Pole number="11">
+          <Real minusError="0.0" plusError="0.0">-53.329200744628906</Real>
+          <Imaginary minusError="0.0" plusError="0.0">53.34489822387695</Imaginary>
+        </Pole>
+        <Pole number="12">
+          <Real minusError="0.0" plusError="0.0">-0.0392071008682251</Real>
+          <Imaginary minusError="0.0" plusError="0.0">0.0</Imaginary>
+        </Pole>
+      </PolesZeros>
+
+      </Stage>
+     </Response>
+    </Channel>
+   </Station>
+  </Network>
+ </FDSNStationXML>

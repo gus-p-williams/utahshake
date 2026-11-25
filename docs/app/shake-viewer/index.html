@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>School Shake Viewer (prototype)</title>
+  <meta name="description" content="Prototype for adult testers: a day of one seismometer as a 24-hour helicorder, with zoom, spectrogram, hourly noise, the class's own notes and CSV download. Reads a Shake's day file in the browser, a University of Utah station, or files in the UHSN data layout.">
+  <link rel="stylesheet" href="../css/app.css">
+  <style>
+    /* Note colors (kinds in lib/day-view.js NOTE_KINDS); every note is also labeled in the list. */
+    :root {
+      --note-school: #d97706; --note-traffic: #0e7490; --note-event: #db2777; --note-experiment: #16a34a;
+      --note-quake: #dc2626; --note-weather: #2563eb; --note-station: #6b7280; --note-other: #7c3aed;
+      --heli-alt: #1d4ed8; --unpublished: rgba(100, 110, 125, .30); --school-badge: #0e7490;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --note-school: #fbbf24; --note-traffic: #22d3ee; --note-event: #f472b6; --note-experiment: #4ade80;
+        --note-quake: #f87171; --note-weather: #60a5fa; --note-station: #9ca3af; --note-other: #c4b5fd;
+        --heli-alt: #7aa7ff; --unpublished: rgba(160, 170, 185, .22); --school-badge: #22d3ee;
+      }
+    }
+    :root[data-theme="dark"] {
+      --note-school: #fbbf24; --note-traffic: #22d3ee; --note-event: #f472b6; --note-experiment: #4ade80;
+      --note-quake: #f87171; --note-weather: #60a5fa; --note-station: #9ca3af; --note-other: #c4b5fd;
+      --heli-alt: #7aa7ff; --unpublished: rgba(160, 170, 185, .22); --school-badge: #22d3ee;
+    }
+    .badge.school { color: var(--school-badge); border-color: currentColor; }
+    .sv-notice { margin: 0; padding: .5rem .75rem; border: 1px solid var(--border); border-left: 4px solid var(--proto);
+      border-radius: 8px; background: var(--card); font-size: .88rem; }
+
+    /* 1. Data */
+    .src-tabs { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0 0 .6rem; padding: 0; border: 0; }
+    .src-tabs legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .src-tabs label { display: inline-flex; align-items: center; gap: .35rem; padding: .35rem .7rem; border: 1px solid var(--border);
+      border-radius: 999px; background: var(--card); cursor: pointer; font-size: .92rem; }
+    .src-tabs label:has(input:checked) { border-color: var(--accent); background: var(--selected); font-weight: 600; }
+    .src-tabs input { margin: 0; accent-color: var(--accent); }
+    .panel { display: flex; flex-wrap: wrap; gap: .5rem .8rem; align-items: center; }
+    .panel[hidden] { display: none; }
+    .panel label.inline, .toolbar label.inline { max-width: 100%; min-width: 0; }
+    .panel label.inline select, .toolbar label.inline select { min-width: 0; max-width: 100%; flex: 1 1 auto; }
+    .panel .grow { flex: 1 1 100%; margin: 0; }
+    .drop { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .8rem; padding: .6rem .8rem; border: 2px dashed var(--border);
+      border-radius: 10px; flex: 1 1 100%; }
+    .drop.over { border-color: var(--accent); background: var(--selected); }
+    .drop input[type=file] { max-width: 100%; }
+    #uhsn-base { font: .8rem ui-monospace, Consolas, monospace; word-break: break-all; }
+    select { max-width: 100%; }
+
+    /* 2. Helicorder and the hint pills (D35: what to do is shown on the plot itself) */
+    .plot-wrap { position: relative; }
+    .plot-wrap canvas { display: block; width: 100%; border: 1px solid var(--border); border-radius: 8px; background: var(--trace-bg); touch-action: manipulation; }
+    #heli { cursor: zoom-in; }
+    #heli.adding { cursor: crosshair; }
+    #noise { height: 210px; cursor: pointer; }
+    .cue { position: absolute; left: 8px; right: 8px; top: 7px; width: fit-content; width: -webkit-fit-content; margin: 0 auto;
+      font-size: .9rem; font-weight: 600; line-height: 1.35; padding: .15rem .8rem; text-align: center; pointer-events: none;
+      border: 1px solid var(--accent); border-radius: 999px; background: var(--accent); color: var(--accent-text);
+      transition: background-color .4s, color .4s, border-color .4s; }
+    .cue.learned { background: var(--card); color: var(--muted); border-color: var(--border); font-weight: 400; }
+    .cue.adding { background: var(--accent); color: var(--accent-text); }
+    /* the zoom trace's label sits in a strip just above it (its peaks reach the top edge) */
+    .cue-strip { text-align: center; margin: 0 0 4px; }
+    .cue.static { position: static; display: inline-block; }
+    @media (prefers-reduced-motion: reduce) { .cue { transition: none; } }
+    .readout { min-height: 1.3em; margin: .35rem 0 0; font-size: .88rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .legend { display: flex; flex-wrap: wrap; gap: .25rem .9rem; font-size: .82rem; color: var(--muted); margin-top: .3rem; }
+    .legend span { display: inline-flex; align-items: center; gap: .3rem; }
+    .sw { display: inline-block; width: .8rem; height: .8rem; border-radius: 2px; flex: none; }
+    .sw-school { background: var(--note-school); } .sw-traffic { background: var(--note-traffic); }
+    .sw-event { background: var(--note-event); } .sw-experiment { background: var(--note-experiment); }
+    .sw-quake { background: var(--note-quake); } .sw-weather { background: var(--note-weather); }
+    .sw-station { background: var(--note-station); } .sw-other { background: var(--note-other); }
+    .sw-unpublished { background: var(--unpublished); border: 1px solid var(--border); }
+    .toolbar label.inline { white-space: nowrap; }
+
+    /* 3. Zoom and 4. Notes */
+    #zoom-spec { height: 230px; border: 1px solid var(--border); border-radius: 6px; margin-top: 6px; display: block; width: 100%; touch-action: none; }
+    .trace-canvas.big { height: 200px; }
+    #zoom-empty { margin: 1.2rem 0; text-align: center; }
+    #zoom-status { min-height: 1.2em; }
+    .notes-actions { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .5rem; }
+    .notes-actions label.filebtn { display: inline-flex; align-items: center; padding: .3rem .6rem; border: 1px solid var(--border);
+      border-radius: 6px; background: var(--card); cursor: pointer; font-size: .9rem; }
+    .notes-actions label.filebtn:focus-within { outline: 2px solid var(--accent); outline-offset: 1px; }
+    .notes-actions label.filebtn input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+    button[aria-pressed=true] { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+    /* One note = two lines: when, kind and buttons; then what happened (fits a narrow card). */
+    .table-wrap.notes { max-height: 460px; overflow-x: hidden; }
+    table.notes { width: 100%; border-collapse: collapse; font-size: .88rem; }
+    table.notes thead { display: none; }
+    table.notes tr { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: .3rem .45rem; align-items: center;
+      padding: .45rem .5rem; border-bottom: 1px solid var(--border); }
+    table.notes td { padding: 0; min-width: 0; }
+    table.notes td.t { white-space: nowrap; }
+    table.notes td.t .sw { vertical-align: middle; margin-right: .2rem; }
+    table.notes input[type=time] { width: 7.2rem; padding: .15rem .25rem; }
+    table.notes .to { color: var(--muted); font-size: .8rem; }
+    table.notes td.lbl { grid-column: 1 / -1; }
+    table.notes input[type=text] { width: 100%; }
+    table.notes select { width: 100%; max-width: 12rem; }
+    table.notes td.act { white-space: nowrap; }
+    table.notes .pq { display: block; color: var(--muted); margin-top: .15rem; }
+    table.notes button { padding: .1rem .45rem; }
+    .privacy { font-size: .84rem; }
+    @media (max-width: 520px) {
+      table.notes tr { grid-template-columns: minmax(0, 1fr) auto; }
+      table.notes td.t { grid-column: 1 / -1; white-space: normal; }
+    }
+  </style>
+  <script type="module" src="../js/shake-viewer/app.js"></script>
+</head>
+<body>
+  <!-- Standard top bar (docs/developers/adding-an-app.md), with the Prototype badge of an app
+       in "In development: please test" on the All apps page. -->
+  <header class="topbar">
+    <div class="brand">
+      <a href="../../apps/" class="home">UHSN · All apps</a>
+      <h1>School Shake Viewer <span class="badge prototype" title="In development: please test. Not for classrooms yet.">Prototype</span>
+        <span class="sub">a day of one seismometer, with your notes</span></h1>
+    </div>
+    <nav class="topbar-right" aria-label="Guide and data">
+      <span id="source-badge" class="badge" hidden></span>
+      <a href="../../apps/shake-viewer/" target="_blank" rel="noopener">Guide ↗<span class="visually-hidden"> (opens in a new tab)</span></a>
+      <a href="../../theory/stations/" target="_blank" rel="noopener">About the data ↗<span class="visually-hidden"> (opens in a new tab)</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <p class="sv-notice"><b>For adult testers.</b> A prototype for Gus, Dale and Cleat to try and to
+      choose features. It reads a day of one seismometer; nothing you open or write here is uploaded,
+      and notes hold no student names.</p>
+
+    <section class="card" aria-labelledby="h-data">
+      <div class="card-head"><h2 id="h-data"><span class="step">1</span> Where the data come from</h2></div>
+      <fieldset class="src-tabs">
+        <legend>Data source</legend>
+        <label><input type="radio" name="src" id="src-file" value="file"> A day file from the Shake</label>
+        <label><input type="radio" name="src" id="src-uu" value="uu" checked> A Utah station</label>
+        <label><input type="radio" name="src" id="src-uhsn" value="uhsn"> School Shakes (test folder)</label>
+      </fieldset>
+
+      <div class="panel" id="panel-file" hidden>
+        <div class="drop" id="drop">
+          <label class="inline" for="file">Choose miniSEED day files (or drop them here):</label>
+          <input type="file" id="file" multiple>
+        </div>
+        <p class="hint grow">A teacher downloads these from the Shake's own web page (inside the school).
+          The file is read in this browser; nothing is uploaded. Open two days to see an evening across midnight UTC.</p>
+        <label class="inline" id="file-channel-row" hidden>Channel <select id="file-channel"></select></label>
+        <label class="inline" id="file-day-row" hidden>Show <select id="file-day"></select></label>
+      </div>
+
+      <div class="panel" id="panel-uu" hidden>
+        <label class="inline">Station <select id="uu-station"></select></label>
+        <label class="inline">Day <input type="date" id="uu-date"></label>
+        <button type="button" id="uu-load" class="primary">Show the day</button>
+        <p class="hint grow">University of Utah stations near our schools, from EarthScope (until the school Shakes send data).</p>
+      </div>
+
+      <div class="panel" id="panel-uhsn" hidden>
+        <label class="inline">Station <select id="uhsn-station"></select></label>
+        <label class="inline">Day <input type="date" id="uhsn-date"></label>
+        <button type="button" id="uhsn-load" class="primary">Show the day</button>
+        <p class="hint grow"><span id="uhsn-info"></span> Files in the UHSN data layout (DRI's future server), read from
+          <span id="uhsn-base"></span>, a few kilobytes at a time.</p>
+      </div>
+
+      <p class="status" id="load-status" role="status" aria-live="polite"></p>
+    </section>
+
+    <div id="day-cards" hidden>
+      <section class="card" aria-labelledby="h-heli">
+        <div class="card-head">
+          <h2 id="h-heli"><span class="step">2</span> 24 hours on one page</h2>
+          <span class="hint" id="heli-title"></span>
+        </div>
+        <div class="toolbar">
+          <label class="inline">Filter <select id="heli-filter"></select></label>
+          <label class="inline">Each line <select id="heli-rows">
+            <option value="900">15 min</option><option value="1800" selected>30 min</option><option value="3600">1 hour</option>
+          </select></label>
+          <span class="inline">Size <button type="button" id="gain-down" aria-label="Draw the wiggles smaller">−</button>
+            <button type="button" id="gain-up" aria-label="Draw the wiggles bigger">+</button></span>
+        </div>
+        <div class="plot-wrap">
+          <canvas id="heli"></canvas>
+          <div class="cue" id="heli-cue" aria-hidden="true" hidden></div>
+        </div>
+        <p class="readout" id="heli-readout">&nbsp;</p>
+        <div class="legend" id="legend"></div>
+        <span class="visually-hidden" id="heli-live" aria-live="polite"></span>
+      </section>
+
+      <div id="workspace">
+        <section class="card" id="zoom-card" aria-labelledby="h-zoom">
+          <div class="card-head">
+            <h2 id="h-zoom"><span class="step">3</span> Zoom in</h2>
+            <span class="hint" id="zoom-title"></span>
+          </div>
+          <p class="hint" id="zoom-empty">Click a line of the helicorder (or a bar of the hourly noise) to look closer here.</p>
+          <div id="zoom-body" hidden>
+            <div class="toolbar">
+              <label class="inline">Window <select id="zoom-span"></select></label>
+              <label class="inline">Filter <select id="zoom-filter"></select></label>
+              <button type="button" id="zoom-prev">◀ Earlier</button>
+              <button type="button" id="zoom-next">Later ▶</button>
+              <button type="button" id="zoom-in" aria-label="Zoom in">＋</button>
+              <button type="button" id="zoom-out" aria-label="Zoom out">－</button>
+              <span class="spacer"></span>
+              <button type="button" id="note-window">Note this window</button>
+              <button type="button" id="csv">Download CSV</button>
+            </div>
+            <div class="cue-strip"><span class="cue static" id="zoom-cue" aria-hidden="true">↔ Drag to slide · wheel or ＋ − to zoom</span></div>
+            <canvas id="zoom-trace" class="trace-canvas big" aria-label="The zoom window's record. Drag to slide it, the mouse wheel or the plus and minus keys to zoom, double-click to reset."></canvas>
+            <canvas id="zoom-spec" aria-label="Spectrogram of the zoom window"></canvas>
+            <p class="hint" id="zoom-status" aria-live="polite"></p>
+          </div>
+        </section>
+
+        <section class="card" id="notes-card" aria-labelledby="h-notes">
+          <div class="card-head">
+            <h2 id="h-notes"><span class="step">4</span> Notes</h2>
+            <span class="hint" id="notes-count"></span>
+          </div>
+          <div class="notes-actions">
+            <button type="button" id="note-add" aria-pressed="false">Add a note on the helicorder</button>
+            <button type="button" id="note-quakes">Mark quakes (USGS)</button>
+            <label class="filebtn">Open a notes file<input type="file" id="notes-file" accept=".json,application/json"></label>
+            <button type="button" id="notes-download">Download notes</button>
+            <button type="button" id="notes-example" hidden>Load the example notes</button>
+            <button type="button" id="notes-clear">Delete all notes</button>
+          </div>
+          <p class="hint" id="notes-none">No notes on this day yet.</p>
+          <div class="table-wrap notes">
+            <table class="notes" id="notes-table" hidden>
+              <thead><tr><th>When (Mountain time)</th><th>Kind</th><th>What happened</th><th><span class="visually-hidden">Actions</span></th></tr></thead>
+              <tbody id="notes-body"></tbody>
+            </table>
+          </div>
+          <p class="hint" id="notes-info"></p>
+          <p class="hint privacy">Notes stay in this browser and in the file you download; nothing is uploaded.
+            <b>No student names:</b> write what happened, not who did it.</p>
+        </section>
+      </div>
+
+      <section class="card" aria-labelledby="h-noise">
+        <div class="card-head">
+          <h2 id="h-noise"><span class="step">5</span> Noise in each hour</h2>
+          <label class="inline">Band <select id="noise-band"></select></label>
+        </div>
+        <div class="plot-wrap">
+          <canvas id="noise"></canvas>
+          <div class="cue" id="noise-cue" aria-hidden="true" hidden></div>
+        </div>
+        <p class="hint">Each bar: the typical shaking in that hour (the median of its one-minute RMS values, in counts).
+          The seismic carpet on the science page stacks many days of these.</p>
+        <span class="visually-hidden" id="noise-live" aria-live="polite"></span>
+      </section>
+    </div>
+  </main>
+  <footer class="credits" id="credits"></footer>
+</body>
+</html>

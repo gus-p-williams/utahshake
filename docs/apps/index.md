@@ -96,6 +96,26 @@ collects nothing: your results stay on your device until you send them.
 
     [Phone Bench guide](phone-bench.md)
 
+- **School Shake Viewer**
+
+    *Prototype, for adult testers. Real data: University of Utah stations, a Shake's day file,
+    or a test folder in the UHSN data layout.*
+
+    A day of one seismometer on one page: a 24-hour helicorder, a zoom with its spectrogram,
+    the noise in each hour, the class's own notes drawn on the record (bells, buses, quakes),
+    and a CSV of any window. It opens on HEB near Heber City with the bell times of two
+    schools as example notes. For choosing what the school version should do.
+
+    **Test:** on a laptop or Chromebook (and a phone, if you like). Open the example, a day at
+    your school's stand-in, and the test folder; zoom in, drag on the spectrogram, add a note,
+    mark the quakes, download a CSV. If you can, open a day file from a Shake.
+
+    **Send:** an email to Gus: what was useful, what was confusing, what a class would need.
+
+    [Open the School Shake Viewer](../app/shake-viewer/index.html){ .md-button .md-button--primary }
+
+    [School Shake Viewer guide](shake-viewer.md)
+
 </div>
 
 ## Animations

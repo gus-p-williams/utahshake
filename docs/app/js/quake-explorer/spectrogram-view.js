@@ -152,11 +152,13 @@ export class SpectrogramView {
    *   null, null when the band is cleared
    * @param {boolean} [opt.selectBand] students can choose a band (default: when onBand is given);
    *   false = look only (hover readout, no band, no hint)
+   * @param {string} [opt.axisUnit='s after origin'] time-axis unit on wide screens ('s' on narrow)
    */
   constructor(canvas, opt = {}) {
     this.canvas = canvas;
     this.ctx = canvas.getContext('2d');
     this.axis = opt.axis ?? true;
+    this.axisUnit = opt.axisUnit ?? 's after origin';
     this.legend = opt.legend ?? true;
     this.logFreq = !!opt.logFreq;
     this.fMinOpt = opt.fMin;
@@ -459,7 +461,7 @@ export class SpectrogramView {
     const span = this.view.to - this.view.from;
     const step = niceStep(span, Math.max(3, Math.floor(w / 90)));
     ctx.textBaseline = 'top';
-    const unit = w > 480 ? 's after origin' : 's';
+    const unit = w > 480 ? this.axisUnit : 's';
     const unitLeft = w - 4 - ctx.measureText(unit).width;
     ctx.strokeStyle = col.text;
     ctx.lineWidth = 1;

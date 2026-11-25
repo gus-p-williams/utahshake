@@ -9,3 +9,6 @@ Thumbs.db
 
 # Copies the Claude desktop app saves when files are sent in chat
 Claude outputs/
+
+# Test copies of the UHSN public tree (tools/uhsn-test/make-tree.mjs)
+tools/uhsn-test/out/

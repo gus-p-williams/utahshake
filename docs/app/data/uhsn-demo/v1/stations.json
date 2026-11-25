@@ -1,0 +1,37 @@
+{
+ "version": 1,
+ "generated": "2026-11-18T04:10:00.000Z",
+ "stations": [
+  {
+   "net": "UU",
+   "sta": "HEB",
+   "rsSta": "HEB",
+   "school": "test-heb",
+   "schoolName": "Test tree: UU station HEB near Heber City (stand-in for a school Shake)",
+   "primary": true,
+   "sharing": "sharing",
+   "delayHours": 0,
+   "lat": 40.502,
+   "lon": -111.336,
+   "elevM": 1925,
+   "model": "test: UU station",
+   "start": "2013-04-01T00:00:00.000Z",
+   "end": null,
+   "stationXml": "stations/UU.HEB.xml",
+   "clockChecked": null,
+   "channels": [
+    {
+     "loc": "01",
+     "cha": "EHZ",
+     "sampleRate": 100,
+     "azimuth": 0,
+     "dip": -90,
+     "units": "M",
+     "sensitivity": 6630600000,
+     "sensitivityFreq": 5,
+     "sensor": "Geotech S-13, 1.0 Hz seismometer"
+    }
+   ]
+  }
+ ]
+}

@@ -8,6 +8,14 @@
 // (/app/wave-race/, /app/quake-waves/): pages built from Markdown are not here,
 // so /app/ (which forwards to the All apps page, /apps/), the guides and the
 // apps' top-bar links give "not found". For the full site, use `mkdocs serve`.
+//
+// It also behaves the way the UHSN data specification asks DRI's server to (spec 7.2), so
+// the School Shake viewer can read a test tree (data/uhsn-demo/, or tools/uhsn-test/out/
+// served as its own folder) exactly as it will read the real one:
+//   - `Range: bytes=a-b` is answered with 206 and Content-Range (416 if impossible), and
+//     every answer says `Accept-Ranges: bytes`;
+//   - CORS headers on every response, 404 included, and OPTIONS is answered with 204;
+//   - SDS day files (names ending .D.<YYYY>.<DDD>) are application/vnd.fdsn.mseed.
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -25,16 +33,49 @@ const TYPES = {
   '.md': 'text/plain; charset=utf-8',
 };
 
+const CORS = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Expose-Headers': 'ETag, Content-Range, Content-Length, Accept-Ranges',
+  'Access-Control-Allow-Headers': 'Range',
+  'Access-Control-Allow-Methods': 'GET, HEAD, OPTIONS',
+};
+const typeOf = (file) => (/\.D\.\d{4}\.\d{3}$/.test(file) ? 'application/vnd.fdsn.mseed'
+  : TYPES[path.extname(file)] || 'application/octet-stream');
+
+/** "bytes=a-b", "bytes=a-" or "bytes=-n" -> [start, end] inclusive; null if impossible. */
+function parseRange(header, size) {
+  const m = /^bytes=(\d*)-(\d*)$/.exec(header.trim());
+  if (!m || (m[1] === '' && m[2] === '')) return null;
+  const start = m[1] === '' ? Math.max(0, size - Number(m[2])) : Number(m[1]);
+  const end = m[1] === '' || m[2] === '' ? size - 1 : Math.min(Number(m[2]), size - 1);
+  if (m[1] === '' && Number(m[2]) === 0) return null;
+  return start <= end && start < size ? [start, end] : null;
+}
+
 http.createServer((req, res) => {
+  if (req.method === 'OPTIONS') { res.writeHead(204, CORS).end(); return; }
   const url = new URL(req.url, 'http://localhost');
   let file = path.normalize(path.join(root, decodeURIComponent(url.pathname)));
-  if (!file.startsWith(root)) { res.writeHead(403).end(); return; }
+  if (!file.startsWith(root)) { res.writeHead(403, CORS).end(); return; }
   if (fs.existsSync(file) && fs.statSync(file).isDirectory()) file = path.join(file, 'index.html');
   fs.readFile(file, (err, body) => {
-    if (err) { res.writeHead(404, { 'Content-Type': 'text/plain' }).end('not found'); return; }
-    res.writeHead(200, { 'Content-Type': TYPES[path.extname(file)] || 'application/octet-stream',
-      'Cache-Control': 'no-store' });
-    res.end(body);
+    if (err) { res.writeHead(404, { ...CORS, 'Content-Type': 'text/plain' }).end('not found'); return; }
+    const head = { ...CORS, 'Content-Type': typeOf(file), 'Cache-Control': 'no-store',
+      'Accept-Ranges': 'bytes' };
+    let status = 200;
+    if (req.headers.range) {
+      const range = parseRange(req.headers.range, body.length);
+      if (!range) {
+        res.writeHead(416, { ...head, 'Content-Range': `bytes */${body.length}` }).end();
+        return;
+      }
+      head['Content-Range'] = `bytes ${range[0]}-${range[1]}/${body.length}`;
+      body = body.subarray(range[0], range[1] + 1);
+      status = 206;
+    }
+    head['Content-Length'] = body.length;
+    res.writeHead(status, head);
+    res.end(req.method === 'HEAD' ? undefined : body);
   });
 }).listen(port, '127.0.0.1', () => console.log(`Serving docs/ at http://127.0.0.1:${port}/app/wave-race/\n` +
   '(apps only; the All apps page /apps/ and the guides need `mkdocs serve`)'));

@@ -2,6 +2,8 @@
 *.mseed binary
 *.docx binary
 *.png binary
+# SDS day files (no extension) in UHSN test folders
+docs/app/data/uhsn-demo/**/sds/** binary
 
 # Generated third-party bundles (see tools/vendor/)
 docs/app/vendor/** linguist-vendored -diff

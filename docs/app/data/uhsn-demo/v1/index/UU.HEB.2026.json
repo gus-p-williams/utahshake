@@ -1,0 +1,27 @@
+{
+ "version": 1,
+ "net": "UU",
+ "sta": "HEB",
+ "year": 2026,
+ "generated": "2026-11-18T04:10:00.000Z",
+ "channels": {
+  "01.EHZ": {
+   "2026-11-17": {
+    "status": "complete",
+    "coverage": 0.5,
+    "gapCount": 0,
+    "gapSeconds": 0,
+    "bytes": 3095552,
+    "updated": "2026-11-18T04:10:00.000Z"
+   },
+   "2026-11-18": {
+    "status": "partial",
+    "coverage": 0.9997,
+    "gapCount": 0,
+    "gapSeconds": 0,
+    "bytes": 1024000,
+    "updated": "2026-11-18T04:10:00.000Z"
+   }
+  }
+ }
+}

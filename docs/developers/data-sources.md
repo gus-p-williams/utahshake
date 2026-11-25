@@ -85,13 +85,48 @@ with `node tools/quake-explorer/make-sample.mjs`; see
 [Quake Explorer notes](quake-explorer.md#rebuilding-the-samples-and-the-answer-key).
 `tests/explorer-sample.test.js` checks them.
 
-## Adding a data source (e.g. the UHSN server)
+## The school Shakes: UHSNSource (first version) { #uhsn }
 
-Write a class with the methods listed in `js/data/datasource.js`:
+`js/data/uhsn.js` is the first **UHSNSource**: it reads files laid out as the UHSN data
+specification describes (draft 0.2, `planning/spec-uhsn-data.md` on GitHub; the planning files
+are not on this site): `stations.json`, `index.json`, one availability file per station and
+year, and one miniSEED file per channel and UTC day with a JSON "sidecar" beside it. It is the
+reference client for DRI's future server, and the
+[School Shake Viewer](shake-viewer.md) (a prototype) uses it today on a test folder.
+
+- **Routing.** Requests for stations listed in `stations.json` go to the files; everything else
+  (University of Utah stations, USGS quakes and picks) goes to the fallback source, by default
+  `EarthScopeUSGSSource`.
+- **Few bytes.** For a window, it reads the index (what is published, up to `publicUntil`), each
+  day's sidecar, and then only the part of the day file it needs, with an HTTP `Range` request
+  steered by the sidecar's seek table (about 50 KB for a few minutes). A server that ignores
+  `Range` and sends the whole file still works.
+- **Days and midnight.** A record that starts before midnight UTC lives in the earlier day's
+  file, so the reader also checks the previous day. A window across midnight joins two files.
+- **Not yet published.** Nothing after `publicUntil` is returned; each trace carries
+  `publicUntilMs` so a page can say "data up to 9:00 PM" and shade the rest.
+- **No data versus blocked.** A 404 means "not published"; a network error means the server
+  could not be reached (the spec asks for CORS headers on every response so the two differ).
+
+The header-only miniSEED reader behind it (record times, gaps, coverage, seek tables, byte
+ranges) is `js/lib/mseed-index.js`. The test folder in `docs/app/data/uhsn-demo/v1/` is made by
+`node tools/uhsn-test/make-tree.mjs --demo` from University of Utah data (see
+`tools/uhsn-test/README.md`); `tests/uhsn-demo-tree.test.js` checks it against the spec, and
+`tests/uhsn-source.test.js` tests the reader. `node tools/serve.mjs` answers `Range` requests
+and sends CORS headers, like the server the spec describes.
+
+Still to do (spec section 12): mapping the schools in `config.js` to their Shakes, a "School
+Shakes" choice in Quake Locator and Quake Explorer, computer picks for school Shakes, and the
+checker for DRI's server.
+
+## Adding a data source
+
+Write a class with the methods listed in `js/data/datasource.js` (UHSNSource and
+EarthScopeUSGSSource are examples):
 
 ```js
-export class UHSNSource {
-  name = 'Live: UHSN schools';
+export class MySource {
+  name = 'My source';
   live = true;
   async getEvents({ startMs, endMs, minMag, region }) { /* → QuakeEvent[] */ }
   async getEvent(id) { /* → QuakeEvent */ }
@@ -102,12 +137,8 @@ export class UHSNSource {
 ```
 
 The shapes are documented in `js/lib/fdsn.js` (QuakeEvent, Station) and `js/lib/signal.js`
-(Trace). Then:
-
-1. Return it from `sourceFromUrl()` (for example for `?source=uhsn`).
-2. Point `SCHOOLS[].standIn` in `config.js` at the school Shakes (network `AM` codes, or
-   whatever the UHSN server uses).
-3. Add tests for any new parsing in `tests/`.
+(Trace). Return it from `sourceFromUrl()` (for example for `?source=…`) and add tests for any
+new parsing in `tests/`.
 
 Raspberry Shakes record at 100 samples per second on `EHZ` (and `EHN`/`EHE` on an RS3D), which
 `chooseChannels()` already accepts.

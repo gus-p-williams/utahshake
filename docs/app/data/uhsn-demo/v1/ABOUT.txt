@@ -1,0 +1,28 @@
+UHSN public tree, version 1: a TEST tree
+==========================================
+
+This folder is laid out as the UHSN data specification describes (draft 0.2, section 7:
+planning/spec-uhsn-data.md in the repository), but it does not hold school data. It holds
+recordings of a University of Utah station, standing in for a school's Raspberry Shake, so
+the School Shake viewer and its reader (docs/app/js/data/uhsn.js) can be tried and tested.
+
+Data: University of Utah Seismograph Stations, network UU (doi:10.7914/SN/UU), from
+EarthScope's FDSN web services (service.earthscope.org): dataselect for the records,
+station for the metadata. Nothing here comes from Raspberry Shake.
+
+Channels: UU.HEB.01.EHZ
+Span delivered: 2026-11-17T12:00:00.000Z to 2026-11-18T04:00:00.000Z; public until 2026-11-18T04:00:00.000Z
+Made by: node tools/uhsn-test/make-tree.mjs --demo
+Data fetched from EarthScope: 2026-11-25 (or earlier, from the local cache)
+
+The records are the station's own 512-byte miniSEED records, copied byte for byte.
+
+Where this tree differs from the specification's example values:
+- "net" is "UU", not "AM". Record headers are never rewritten, so a tree of UU records keeps
+  UU codes (and UU's location code, e.g. "01", where a Shake has "00").
+- "model" is "test: UU station", not a Raspberry Shake model.
+- "units" are what UU's metadata give. For an old analog station such as HEB that is "M"
+  (the sensitivity is in counts per meter), which is not one of the three the spec lists.
+- The StationXML is UU's own, as EarthScope serves it, not built from a Raspberry Shake
+  template; its schema version is whatever EarthScope writes.
+- "clockChecked" is null: nobody checked a clock.

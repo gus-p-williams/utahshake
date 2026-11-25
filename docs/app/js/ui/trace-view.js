@@ -22,12 +22,14 @@ export class TraceView {
    * @param {boolean} [opt.axis=true]
    * @param {(phase:'P'|'S', ms:number)=>void} [opt.onPick]
    * @param {(armed:'P'|'S'|null)=>void} [opt.onArm]
+   * @param {string} [opt.axisUnit='s after origin'] time-axis unit on wide screens ('s' on narrow)
    */
   constructor(canvas, opt = {}) {
     this.canvas = canvas;
     this.ctx = canvas.getContext('2d');
     this.interactive = !!opt.interactive;
     this.axis = opt.axis ?? true;
+    this.axisUnit = opt.axisUnit ?? 's after origin';
     this.onPick = opt.onPick || (() => {});
     this.onArm = opt.onArm || (() => {});
     this.traces = [];
@@ -139,7 +141,7 @@ export class TraceView {
     const step = niceStep(span, Math.max(3, Math.floor(w / 90)));
     ctx.font = '11px system-ui, sans-serif';
     ctx.textBaseline = 'top';
-    const unit = w > 480 ? 's after origin' : 's';
+    const unit = w > 480 ? this.axisUnit : 's';
     const unitLeft = w - 4 - ctx.measureText(unit).width;
     for (let t = Math.ceil(this.view.from / step) * step; t <= this.view.to; t += step) {
       const x = Math.round(this._xOf(t)) + 0.5;

@@ -13,7 +13,9 @@ rural Utah high schools.
   them are listed on the site's All apps page.
 - **In development** (prototypes for adult testers, under "In development: please test" on
   All apps): the **Phone Bench**, which measures how a phone's browser reads its motion sensor
-  and microphone (trial T1 of the phone activities).
+  and microphone (trial T1 of the phone activities), and the **School Shake Viewer**: a day of one
+  seismometer as a 24-hour helicorder, with zoom, spectrogram, hourly noise, the class's notes and
+  CSV, from a Shake's day file, a University of Utah station or files in the UHSN data layout.
 - **Docs**: student guides, theory written for advanced high-school students, teacher
   activity cards mapped to Utah SEEd standards, and developer notes.
 

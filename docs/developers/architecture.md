@@ -18,6 +18,7 @@ docs/app/
   wave-motion/index.html   How P and S waves move rock (cartoon embedded in Seismic waves)
   build-a-wiggle/index.html  Build a Wiggle (made-up waves; ?embed=1 inside Frequencies, fading and sound)
   phone-bench/index.html   Phone Bench (prototype, In development: this device's motion sensor and microphone)
+  shake-viewer/index.html  School Shake Viewer (prototype, In development: a day of one seismometer, notes)
   css/app.css              shared styles (light and dark, top bar, embed mode)
   css/quake-explorer.css   Quake Explorer's layout, on top of app.css
   js/
@@ -48,12 +49,15 @@ docs/app/
       stack.js             cross-correlation, scaling to the noise, stacking, noise vs N
       hv.js                H/V: Konno-Ohmachi smoothing, window rejection, peak, f0 = Vs/4H
       bench.js             Phone Bench: rate, jitter, rounding step, noise, taps; a made-up phone
+      day-view.js          School Shake Viewer: local days, helicorder geometry, notes files, arrivals, CSV
+      mseed-index.js       miniSEED headers only: record times, gaps, coverage, seek tables, byte ranges
     data/
       datasource.js        the DataSource interface; picks a source from the URL
       earthscope-usgs.js   live source: USGS events + EarthScope stations/waveforms
       sample-source.js     offline source: files in data/samples/
+      uhsn.js              UHSNSource: files in the UHSN data layout (DRI's future server; a test folder now)
       mseed.js             miniSEED -> traces (vendored seisplotjs)
-      filters.js           Butterworth band-pass (vendored seisplotjs)
+      filters.js           Butterworth band-pass (vendored seisplotjs); filteredLong for a whole day
     ui/
       page.js              shared page helpers: credits, source badge, esc, CSV, embed mode, docs theme
       trace-view.js        canvas seismogram with zoom, pan, picks
@@ -66,16 +70,21 @@ docs/app/
     build-a-wiggle/app.js  the Build a Wiggle page controller (canvas)
     phone-bench/           Phone Bench: app.js (controller), sources.js (device or made-up phone),
                            mic-worklet.js (microphone meter; keeps no sound)
+    shake-viewer/          School Shake Viewer: app.js (controller), helicorder-view.js, noise-view.js, config.js
   vendor/                  seisplotjs + Leaflet bundles (generated; see below)
   data/samples/<event>/    offline sample: event, stations, picks, waveforms.mseed
   data/samples/qe-*/       Quake Explorer's offline samples (the "explorer" list in index.json)
   data/traveltimes-iasp91.json  Earth-model travel times for distant quakes
+  data/notes/heb-example.json   the School Shake Viewer's example notes (bell times in Heber City)
+  data/uhsn-demo/v1/       a test folder in the UHSN data layout (tools/uhsn-test/make-tree.mjs --demo)
 tests/                     node --test, including real-data checks on the sample
   doc-links.test.js        links in the app pages and raw HTML reach real pages of the site
   app-list.test.js         every app folder is listed on the All apps page (docs/apps/index.md); prototypes
                            (In development) show the Prototype badge and have their own menu group
   helpers/prototypes.js    reads the In development section of All apps (shared by two tests)
   bench.test.js            Phone Bench arithmetic on made-up takes
+  day-view.test.js         School Shake Viewer logic; the example notes against their times
+  mseed-index.test.js, uhsn-source.test.js, uhsn-demo-tree.test.js   the UHSN data layout and its reader
   teacher-cards.test.js    activity cards and app hubs link both ways (D19); the Teachers catalog
                            and standards tables match each card's "At a glance" box
   clear-s.test.js          the "clear S at N of M stations" notes match the offline samples
@@ -85,7 +94,8 @@ tools/
   samples/fetch-sample.mjs bundles a quake for offline use
   quake-explorer/          Quake Explorer's science checks, answer key, samples, travel-time table
   figures/                 figures for the guides and The Science (see below)
-  serve.mjs                tiny local server for docs/ (apps only, no MkDocs build)
+  uhsn-test/make-tree.mjs  a test folder in the UHSN data layout from University of Utah data
+  serve.mjs                tiny local server for docs/ (apps only, no MkDocs build; Range and CORS)
   site-check.mjs           every page of the built site in headless Chrome at three widths
   phone-bench-check.mjs    Phone Bench in headless Chrome: made-up phone, emulated sensors, fake microphone
 ```
@@ -192,6 +202,7 @@ the same bytes every time it runs.
 | `quake-explorer-screens.mjs` | `apps/img/qe-*.png` (Quake Explorer guide) | as `screenshots.mjs` |
 | `build-a-wiggle-screens.mjs` | `apps/img/bw-*.png` (Build a Wiggle guide) | as `screenshots.mjs` |
 | `phone-bench-screens.mjs` | `apps/img/pb-*.png` (Phone Bench guide; the made-up phone) | as `screenshots.mjs` |
+| `shake-viewer-screens.mjs` | `apps/img/sv-*.png` (School Shake Viewer guide; HEB, Nov 17, 2026) | as `screenshots.mjs` |
 
 `svg-traces.mjs` holds the shared house style and seismogram drawing; `svg-charts.mjs` adds
 charts over time, hour-of-day bars and the spectrogram image; `spectra.mjs` is a small FFT
