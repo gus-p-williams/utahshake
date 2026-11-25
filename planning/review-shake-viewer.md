@@ -389,7 +389,8 @@ The spec is the contract.
   - *Published* means the publish step has copied them to the public tree.
 - **How the publish step works:** it runs every few minutes, works out each station's
   cutoff (now minus its approved delay, which is zero for sharing schools), and copies only
-  whole 512-byte records that end before the cutoff. It does not rewrite headers.
+  whole records (of the file's recordLength) that end at or before the cutoff, as the data
+  spec (version 1.1) defines it. It does not rewrite headers.
 - **What obeys the cutoff:** summaries and indexes are built only from the public tree.
 - **The test:** a checker tries to fetch data newer than the cutoff and must fail.
 - **No conflict with a one-day delay:** day D is delivered by noon on D+1 and published
