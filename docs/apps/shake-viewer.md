@@ -6,9 +6,10 @@ school version should do.
 
 [Open the School Shake Viewer](../app/shake-viewer/index.html){ .md-button .md-button--primary }
 
-!!! warning "For adult testers, not for classrooms yet"
-    This page is for Gus, Dale, Cleat and other adults to try. It has no activity card yet. It
-    reads University of Utah stations until the school Shakes send data.
+!!! warning "A prototype: not ready for classrooms yet"
+    Built for Gus, Dale and Cleat to try and to choose what the school version should do. It
+    has no activity card yet, and it reads University of Utah stations until the school Shakes
+    send data.
 
 !!! abstract "At a glance"
     - **You will:** open a day of a seismometer, read it as a 24-hour helicorder, zoom into
