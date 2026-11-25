@@ -11,6 +11,9 @@ rural Utah high schools.
   stations) and **Build a Wiggle** (add sine waves with sliders and watch their sum and its
   spectrum) are live; the campus-noise app (School Pulse) follows (see the roadmap). All of
   them are listed on the site's All apps page.
+- **In development** (prototypes for adult testers, under "In development: please test" on
+  All apps): the **Phone Bench**, which measures how a phone's browser reads its motion sensor
+  and microphone (trial T1 of the phone activities).
 - **Docs**: student guides, theory written for advanced high-school students, teacher
   activity cards mapped to Utah SEEd standards, and developer notes.
 

@@ -1,8 +1,9 @@
 # All apps
 
-Every app runs in any browser, including Chromebooks. No install, no accounts. Each card says
-whether the app uses real data (records from seismic stations in Utah) or made-up waves that
-show one idea clearly.
+Every classroom app runs in any browser, including Chromebooks. No install, no accounts. Each
+card says whether the app uses real data (records from seismic stations in Utah) or made-up
+waves that show one idea clearly. Apps that are still being tested are further down, under
+[In development](#in-development).
 
 <div class="grid cards" markdown>
 
@@ -62,6 +63,38 @@ show one idea clearly.
     *Real data: noise records from stations near the schools.*
 
     See the daily rhythm of a school in its seismic noise: class changes, weekends, holidays.
+
+</div>
+
+## In development: please test { #in-development }
+
+These apps are prototypes. They are here for Gus, Dale and Cleat to try before they are ready
+for classrooms. Each card says what to test. Send what you find to Gus by email. The site
+collects nothing: your results stay on your device until you send them.
+
+<div class="grid cards" markdown>
+
+- **Phone Bench**
+
+    *Prototype, for adult testers. No station data: it reads this device's own sensors.*
+
+    A one-page test for trial T1 of the phone activities. It measures how a phone's browser
+    reads the motion sensor: readings per second and their timing jitter, the rounding step
+    of the readings, the noise at rest, and taps on the table. It also shows how the
+    permission prompt behaves. An optional part checks the microphone's sample rate, also on
+    a Chromebook or laptop. Not a classroom activity: phones in class need the district's
+    policy (Utah's phone law, SB 69, 2026).
+
+    **Test:** on an iPhone or iPad (Safari) and an Android phone (Chrome). Lay the phone
+    flat on a table and press Start. Hands off for 30 s, then tap the table 5 times. Did the
+    permission prompt appear (iPhones need a tap on Allow)? Do the results look sensible?
+
+    **Send:** press Copy results and paste them into an email to Gus, with the phone's make
+    and model. Download CSV saves every reading, if he asks for it.
+
+    [Open Phone Bench](../app/phone-bench/index.html){ .md-button .md-button--primary }
+
+    [Phone Bench guide](phone-bench.md)
 
 </div>
 

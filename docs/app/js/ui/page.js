@@ -78,12 +78,19 @@ export function csvRow(values) {
   }).join(',');
 }
 
-/** Save lines as a CSV file (downloaded in the browser; nothing is sent anywhere). */
+/**
+ * Save lines as a CSV file (downloaded in the browser; nothing is sent anywhere). The link is
+ * put in the page for the click and its address kept for a minute: Safari on iPhones asks
+ * "Download?" first and needs the file still there when the user answers.
+ */
 export function downloadCsv(filename, lines) {
   const blob = new Blob([lines.join('\n') + '\n'], { type: 'text/csv' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
   a.download = filename;
+  a.hidden = true;
+  document.body.append(a);
   a.click();
-  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 60000);
 }

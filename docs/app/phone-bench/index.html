@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Phone Bench (prototype)</title>
+  <meta name="description" content="Prototype for adult testers: measures how this device's browser reads its motion sensor and microphone (readings per second, jitter, rounding, noise, permissions). Nothing leaves the device.">
+  <link rel="stylesheet" href="../css/app.css">
+  <style>
+    /* The three axes: the same colors as Build a Wiggle's waves; every trace is also labeled. */
+    :root { --ax: #2a78d6; --ay: #eb6834; --az: #1baf7a; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) { --ax: #3987e5; --ay: #d95926; --az: #199e70; }
+    }
+    :root[data-theme="dark"] { --ax: #3987e5; --ay: #d95926; --az: #199e70; }
+
+    main.pb { max-width: 760px; gap: 10px; }
+    .pb-notice { margin: 0; padding: .5rem .75rem; border: 1px solid var(--border); border-left: 4px solid var(--proto);
+      border-radius: 8px; background: var(--card); font-size: .88rem; }
+    .pb .card-head { margin-bottom: .35rem; }
+    .pb .card-head .muted { color: var(--muted); font-size: .9rem; font-variant-numeric: tabular-nums; }
+    /* The live plot and its cue (D35: what to do is shown on the plot itself). */
+    .pb-plot { position: relative; height: 190px; border: 1px solid var(--border); border-radius: 8px;
+      overflow: hidden; background: var(--trace-bg); }
+    .pb-plot canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+    /* Centered by left/right + auto margins (not 50% + translate, which halves its width). */
+    .pb-cue { position: absolute; left: 8px; right: 8px; top: 8px; width: fit-content; width: -webkit-fit-content; margin: 0 auto;
+      font-size: .9rem; font-weight: 600; line-height: 1.35; padding: .2rem .8rem; text-align: center;
+      border: 1px solid var(--accent); border-radius: 999px; background: var(--accent); color: var(--accent-text);
+      transition: background-color .4s, color .4s, border-color .4s; }
+    .pb-cue.big { font-size: 1.05rem; }
+    .pb-cue.learned { background: var(--card); color: var(--muted); border-color: var(--border); font-weight: 400; }
+    .pb-cue.problem { background: var(--card); color: var(--pick-s); border-color: currentColor; }
+    @media (prefers-reduced-motion: reduce) { .pb-cue { transition: none; } }
+    .pb-progress { height: 6px; margin-top: 6px; border-radius: 3px; background: var(--grid); overflow: hidden; }
+    .pb-progress > div { height: 100%; width: 0; background: var(--accent); }
+    .pb .actions { margin-top: .4rem; align-items: center; }
+    .pb button.big { font-size: 1.1rem; padding: .5rem 1.6rem; }
+    /* Results: label, value, note. Long values (the browser string) wrap instead of
+       widening the page. */
+    table.pb-results { width: 100%; border-collapse: collapse; margin-top: .5rem; font-size: .92rem; }
+    table.pb-results th, table.pb-results td { padding: .3rem .4rem; border-top: 1px solid var(--border);
+      text-align: left; vertical-align: top; word-break: break-word; overflow-wrap: anywhere; }
+    table.pb-results th { font-weight: 600; width: 34%; }
+    table.pb-results td .note { display: block; color: var(--muted); font-size: .84rem; }
+    table.pb-results tr.sim th, table.pb-results tr.sim td { color: var(--proto); }
+    .pb-meter { height: 12px; border-radius: 6px; background: var(--grid); overflow: hidden; margin: .4rem 0; }
+    .pb-meter > div { height: 100%; width: 0; background: var(--ok); transition: width .08s linear; }
+    #copy-box { width: 100%; min-height: 8rem; font: .82rem/1.35 ui-monospace, Consolas, monospace; margin-top: .4rem; }
+    #log-card summary { cursor: pointer; font-weight: 600; }
+    #log { margin: .4rem 0 0; padding-left: 1.4rem; font: .8rem/1.4 ui-monospace, Consolas, monospace; color: var(--muted);
+      word-break: break-word; overflow-wrap: anywhere; max-height: 16rem; overflow-y: auto; }
+    @media (max-width: 480px) {
+      .pb-plot { height: 170px; }
+      table.pb-results th { width: 38%; }
+    }
+  </style>
+  <script type="module" src="../js/phone-bench/app.js"></script>
+</head>
+<body>
+  <!-- Standard top bar (docs/developers/adding-an-app.md), with the Prototype badge of an app
+       in "In development: please test" on the All apps page. -->
+  <header class="topbar">
+    <div class="brand">
+      <a href="../../apps/" class="home">UHSN · All apps</a>
+      <h1>Phone Bench <span class="badge prototype" title="In development: please test. Not for classrooms yet.">Prototype</span>
+        <span class="sub">how this device's browser reads motion and sound</span></h1>
+    </div>
+    <nav class="topbar-right" aria-label="Guide and data">
+      <span id="sim-badge" class="badge offline" hidden>Simulated phone</span>
+      <a href="../../apps/phone-bench/" target="_blank" rel="noopener">Guide ↗<span class="visually-hidden"> (opens in a new tab)</span></a>
+      <a href="../../theory/stations/" target="_blank" rel="noopener">About the data ↗<span class="visually-hidden"> (opens in a new tab)</span></a>
+    </nav>
+  </header>
+
+  <main class="pb">
+    <p class="pb-notice"><b>For adult testers.</b> This page checks how a phone's browser reads its
+      motion sensor and microphone (trial T1). It is not a classroom activity: classroom phone use
+      needs the district's policy under Utah's phone law (SB 69, 2026). Nothing you measure
+      leaves this device.</p>
+
+    <section class="card" id="motion-card" aria-labelledby="motion-title">
+      <div class="card-head">
+        <h2 id="motion-title"><span class="step">1</span> Motion sensor</h2>
+        <span id="take-clock" class="muted"></span>
+      </div>
+      <div class="pb-plot">
+        <canvas id="plot" role="img" aria-label="Live readings of the motion sensor's three axes, x, y and z, over the last 5 seconds."></canvas>
+        <div id="cue" class="pb-cue big" aria-hidden="true">Lay this phone flat on a table, screen up. Then press Start.</div>
+      </div>
+      <div class="pb-progress" aria-hidden="true"><div id="progress"></div></div>
+      <p id="motion-status" class="status" role="status">Lay this phone flat on a table, screen up. Then press Start.
+        It takes 43 seconds: hands off for 30 s, then tap the table 5 times.</p>
+      <p id="motion-warning" class="hint warn" hidden></p>
+      <div class="actions">
+        <button id="start" type="button" class="primary big">Start</button>
+        <button id="stop" type="button" hidden>Stop early</button>
+      </div>
+      <table class="pb-results" id="motion-results" hidden></table>
+    </section>
+
+    <section class="card" id="mic-card" aria-labelledby="mic-title">
+      <div class="card-head">
+        <h2 id="mic-title"><span class="step">2</span> Microphone <span class="sub">optional</span></h2>
+      </div>
+      <p class="hint">Listens for 5 seconds: clap once while it listens. The sound is measured as it
+        arrives and thrown away. Nothing is recorded or saved.</p>
+      <div class="pb-meter" aria-hidden="true"><div id="meter"></div></div>
+      <p id="mic-status" class="status" role="status"></p>
+      <div class="actions">
+        <button id="mic-start" type="button">Test the microphone</button>
+      </div>
+      <table class="pb-results" id="mic-results" hidden></table>
+    </section>
+
+    <section class="card" id="send-card" aria-labelledby="send-title">
+      <div class="card-head">
+        <h2 id="send-title"><span class="step">3</span> Send the results to Gus</h2>
+      </div>
+      <p class="hint">Press <b>Copy results</b> and paste them into an email to Gus, with this device's
+        make and model. The CSV file holds every reading, if he asks for it. The site collects
+        nothing: the results go only where you send them.</p>
+      <div class="actions">
+        <button id="copy" type="button" class="primary" disabled>Copy results</button>
+        <button id="share" type="button" disabled hidden>Share…</button>
+        <button id="csv" type="button" disabled>Download CSV</button>
+      </div>
+      <p id="send-status" class="status" role="status"></p>
+      <textarea id="copy-box" readonly hidden aria-label="Results as text, to copy"></textarea>
+    </section>
+
+    <details class="card" id="log-card">
+      <summary>Log (for troubleshooting)</summary>
+      <ol id="log"></ol>
+    </details>
+  </main>
+  <footer class="credits">No data from seismic stations: this page reads only this device's own motion
+    sensor and microphone. Nothing is sent anywhere. A prototype for trial T1 of the UHSN phone
+    activities.</footer>
+</body>
+</html>

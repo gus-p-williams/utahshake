@@ -2,8 +2,10 @@
 
 Teachers work from activities, not apps. An **activity card** is one lesson. Cards and apps
 are many-to-many: a card may use several apps, or none (a campus experiment), and an app may
-appear on several cards. Every app with a hub needs at least one card. Below, `<activity>` is
-the card's file name in lowercase with hyphens (for example `how-fast-is-the-rock`).
+appear on several cards. Every app with a hub needs at least one card, except a prototype
+that adults are still testing ([In development](adding-an-app.md#in-development)). Below,
+`<activity>` is the card's file name in lowercase with hyphens (for example
+`how-fast-is-the-rock`).
 
 Use [How fast is the rock?](../teachers/how-fast-is-the-rock.md) as the model for a card with
 one app, and [One quake, two waves](../teachers/one-quake-two-waves.md) for a short demo.
@@ -128,6 +130,10 @@ identifies them (Utah R277-487).
   each card a hub lists names that hub. A card links an app's hub, not only the app itself.
 - Every app on the [All apps](../apps/index.md) page, animations included, is used by at least
   one card.
+- Prototypes are exempt from needing a card: the apps and hubs linked from the
+  [In development](../apps/index.md#in-development) section of All apps
+  ([Prototypes](adding-an-app.md#in-development)). They get one when they graduate. Their
+  hubs still need the "At a glance" box and a "For teachers" line, which can say "none yet".
 - The Teachers catalog has exactly one row per card, under the card's setup heading, with the
   same apps and standards as the box; "Utah standards at a glance" has the same codes.
 - Every card is in `mkdocs.yml` under **Activity cards**.

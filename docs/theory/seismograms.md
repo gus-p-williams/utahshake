@@ -44,6 +44,56 @@ The University of Utah's best stations use **broadband** seismometers, which use
 hold the mass still and measure the force that takes. They feel much smaller and slower motions
 than a geophone, but the result is the same: counts that follow the ground's speed.
 
+### How small a shake can it see? { #how-small-a-shake }
+
+Three ideas decide how small a shake an instrument records:
+
+- **Step size (resolution):** how finely each reading is written down. A reading can change
+  only by whole steps.
+- **Self-noise (sensitivity):** how much the sensor jiggles on its own while the ground is
+  still. A smaller shake is lost in it.
+- **Frequency range:** which notes it feels, from slow swaying to fast buzzing.
+
+| | A phone, in a browser | A Raspberry Shake | A University of Utah broadband station |
+| --- | --- | --- | --- |
+| Follows the ground's | acceleration | speed | speed |
+| Step size | 0.1 m/s² in Chrome, set by the browser, not the phone's sensor (iPhones: not confirmed) | 24-bit: 16.8 million steps from the biggest negative to the biggest positive reading, each about 2.5 nanometers per second | 24-bit too, each step about 2.1 nanometers per second (station TMU) |
+| Self-noise | smaller than the step, so the step decides | the smallest shake it can see is 0.08 micrometers per second (1 to 20 Hz) | quieter than the quietest ground on Earth over most of its range |
+| Readings per second | up to about 60 | 100 | 100 at TMU |
+| Frequency range | up to 30 Hz | 0.7 to 44 Hz | 120-second waves to 50 Hz (the sensor itself reaches 150 Hz) |
+
+**Phones measure in big steps.** Lying still, a phone's accelerometer reads about 9.8 m/s²:
+that is gravity. A web page can read it up to 60 times a second, but the browser rounds each
+reading first. Chrome rounds to the nearest 0.1 m/s², about 1% of gravity, so that websites
+can't recognize a phone by its sensor's quirks. Whether iPhones round isn't confirmed: Safari's
+developers have filed the change, but it has not shipped. A shake smaller than one step can
+vanish, or make the reading flicker between two steps (Figure 2); at rest, most phones flicker
+by one step in at least one direction. At 10 Hz, one step equals a ground speed of 1.6 mm/s,
+about 20,000 times the smallest shake a Raspberry Shake can see. So a phone on the table feels
+your stomp, but a little farther away the shaking falls below one step and the phone loses it,
+while the school's Shake still records it. The [Phone Bench](../apps/phone-bench.md), a test
+page for adults that is still being developed, measures the step and the flicker on a real
+phone.
+
+<figure markdown="span">
+  ![Three panels of made-up shaking over 2 seconds, each with gray lines at the values a phone can report, 0.1 m/s² apart, and dashed lines halfway between them at the edges of the steps. A smooth blue line is the true shaking; orange dots, 60 a second, are the readings, each rounded to the nearest step. Panel 1, a firm tap: the blue wave swings from about 9.6 to 10.1 m/s² and dies away; the orange readings follow it in a staircase of steps. Panel 2, a small shake resting in the middle of the 9.8 step: the blue wave wiggles a little around 9.8 but every orange reading stays at 9.8, so the shake vanishes. Panel 3, the same small shake resting just under the edge between 9.8 and 9.9: the orange readings jump between 9.8 and 9.9, now and then before the shake starts and more often during it.](img/phone-steps.svg){ loading=lazy }
+  <figcaption>Figure 2. A smooth shake, and the same shake as a phone's browser reports it: 60
+  readings a second, each rounded to the nearest 0.1 m/s², as Chrome does. Made-up waves, not
+  a recording.</figcaption>
+</figure>
+
+**Paying more mostly buys a quieter, broader sensor.** A Shake and a broadband station both
+write 24-bit counts of about 2 nanometers per second each, so the digitizer is not what sets
+them apart. The broadband sensor's far lower self-noise and its reach down to slow motions
+are: it hears the [ocean hum](#ocean-hum-microseism) and the slow surface waves of distant
+quakes, which reach a Shake weakly or not at all, because its response falls off below 0.7 Hz
+and its own noise rises there. Beyond one seismogram compares a geophone with a broadband
+sensor at one station, and both with Peterson's curves for the quietest and noisiest Earth
+([spectra and the PPSD](plots.md#how-quiet-is-a-station-spectra-and-the-ppsd)). The digitizer's
+bits matter most against phones, whose steps are huge, and against old 16-bit recorders, which
+[clip](#instrument-problems) in strong shaking. The Shake's numbers are for the current
+Raspberry Shake 1D; which model each school has isn't confirmed yet.
+
 ## Anatomy of a quake record
 
 A seismogram is a graph of ground motion (up the page) against time (across). On a quiet
@@ -56,7 +106,7 @@ day it shows a wiggly **background noise**: the [ocean](#ocean-hum-microseism),
 
 <figure markdown="span">
   ![Three-component seismogram from station MTPU (traces HHZ, HHN, HHE). The traces are flat until a blue line at 5 seconds marked 1 P arrival, where small sharp waves begin. Much bigger waves start at a red line at 9 seconds marked 2 S arrival; an arrow between the lines reads S minus P = 4.14 s. After about 20 seconds the shaking slowly dies away, marked 3 coda.](img/seismogram-anatomy.svg){ loading=lazy }
-  <figcaption>Figure 2. A real seismogram from station MTPU, 29 km from the magnitude 3.3
+  <figcaption>Figure 3. A real seismogram from station MTPU, 29 km from the magnitude 3.3
   quake near Junction, Utah, with the three parts listed above. Filtered 1–10 Hz (it keeps
   vibrations of 1 to 10 waves per second; see [Filters and spectrograms](#filters-and-spectrograms)); picks by
   University of Utah analysts. Data: University of Utah Seismograph Stations (network UU,
@@ -85,7 +135,7 @@ apart (0.1–0.3 Hz; Hz, or hertz, means waves per second); a weaker part has wa
 
 <figure markdown="span">
   ![Three traces of two minutes each from station TMU, all on the same scale. Top: a winter night, with smooth waves about 5 seconds apart filling most of the track; an arrow over five of them reads 5 waves in 26 seconds. Middle: a summer night, with the same kind of waves but about a third as tall. Bottom: the winter night again, filtered 1 to 10 Hz, which is an almost flat line.](img/ocean-hum.svg){ loading=lazy }
-  <figcaption>Figure 3. Ocean hum at station TMU (the stand-in for Wasatch Academy), 2 am on a
+  <figcaption>Figure 4. Ocean hum at station TMU (the stand-in for Wasatch Academy), 2 am on a
   winter night and 3 am on a summer night, all three on the same scale. The biggest winter
   waves are about 500 counts, about one micrometer per second. Data: University of Utah
   Seismograph Stations (network UU, doi:10.7914/SN/UU) via EarthScope.</figcaption>
@@ -104,12 +154,12 @@ shelter. They rock back and forth and shake the ground around them. Gusts come a
 noise comes and goes too, at many frequencies at once, right where small quakes are.
 Seismologists bury their sensors, in vaults or in holes, to get away from the wind.
 
-Figure 4 comes from the windy desert near Milford, in southwest Utah, because a weather station
+Figure 5 comes from the windy desert near Milford, in southwest Utah, because a weather station
 there measures the wind only 13 km from a seismometer.
 
 <figure markdown="span">
   ![Top: two line graphs over four days, February 16 to 19, 2026, with nights shaded gray. The upper graph is wind speed at Milford airport, mostly 10 to 38 miles per hour for the first two and a half days, then mostly 5 to 15 for the rest. The lower graph is ground noise at station FOR8; it rises and falls with the wind, reaching 40 to 58 counts on the windy days and staying near 3 to 10 counts on the calm last day. A point marked B sits at about 32 counts on the windy night of February 18 and a point marked A at about 3 counts on the calm night of February 19. Bottom: one minute of each of those nights on the same scale, filtered 1 to 10 Hz: A is a thin, nearly flat line; B is a ragged band of wiggles about ten times taller, with bigger bursts.](img/wind-noise.svg){ loading=lazy }
-  <figcaption>Figure 4. Wind and ground noise near Milford, Utah. Noise at station FOR8 is the
+  <figcaption>Figure 5. Wind and ground noise near Milford, Utah. Noise at station FOR8 is the
   typical size of the 1–10 Hz shaking in each 15 minutes. Through the windy nights the ground
   was typically about 4 times noisier than on the calm night, and in the strongest gusts about
   10 times: point B (wind 29 mph) against point A (wind 6 mph). Data:
@@ -130,7 +180,7 @@ routine.
 
 <figure markdown="span">
   ![Line graph of ground noise at station HEB over one week, Monday September 28 to Sunday October 4, 2026, with nights shaded gray and the weekend shaded pale orange. Every night the line sits near 1, the night level. On each weekday it climbs in the morning to about 6 to 12 times the night level and falls in the evening; a label reads weekday afternoons: about 8 times. On Saturday it rises to about 4 to 8 times, and on Sunday only to about 2 times.](img/people-week.svg){ loading=lazy }
-  <figcaption>Figure 5. One week of ground noise at station HEB, about 7 km east of Heber City,
+  <figcaption>Figure 6. One week of ground noise at station HEB, about 7 km east of Heber City,
   filtered 1–10 Hz and compared with the quietest night hours. Weekday afternoons are about
   8 times louder than the night; Sunday only about 2 times. Data: University of Utah
   Seismograph Stations (network UU, doi:10.7914/SN/UU) via EarthScope.</figcaption>
@@ -155,7 +205,7 @@ quakes also make more low notes to begin with, and the far quakes below are big 
 
 <figure markdown="span">
   ![Three panels, each showing station TMU's vertical sensor raw (upper trace) and filtered 1 to 10 Hz (lower trace). First, a small quake 29 km away, magnitude 2.3, over 50 seconds: both traces show the same burst starting at 5 seconds and fading by 30 seconds. Second, a quake in western Nevada 670 km away, magnitude 5.7, over 6 minutes: a blue line marks P at 93 seconds and a red line S at 194 seconds; the raw trace shows large slow surface waves after 215 seconds, while the filtered trace shows bursts at P and S. Third, a quake off Kamchatka, Russia, 6,600 km away, magnitude 8.8, over one hour: P at 10 minutes, S at 18 minutes, and big slow surface waves from 25 minutes to the end in the raw trace; the filtered trace shows only a short burst after P.](img/three-quakes.svg){ loading=lazy }
-  <figcaption>Figure 6. Three quakes at station TMU: near, regional and distant. Each trace is
+  <figcaption>Figure 7. Three quakes at station TMU: near, regional and distant. Each trace is
   stretched to fit. The Nevada P and S lines were picked by eye on this record (the burst
   between them is later P energy traveling through the crust, not S); the Kamchatka ones are
   the times predicted by a standard Earth model (iasp91). Data: University of Utah Seismograph
@@ -165,7 +215,7 @@ quakes also make more low notes to begin with, and the far quakes below are big 
 - **A small quake nearby** (tens of km) is over in less than a minute: sharp P, bigger S a few
   seconds later, then the coda. It is high-pitched; here it is also much bigger than the
   background, so it looks much the same raw or filtered. (A smaller one can hide in the ocean
-  hum: see Figure 11.)
+  hum: see Figure 12.)
 - **A regional quake** (hundreds of km) lasts minutes. P and S are far apart (here about
   100 seconds), and slow **surface waves**, which travel along the surface, come last. At
   these distances the simple S − P rule no longer works well (see
@@ -190,7 +240,7 @@ time of day gives blasts away.
 
 <figure markdown="span">
   ![Two bar charts of the share of events in each hour of the day, Utah time. Top: 301 events marked as blasts or explosions; almost all fall between 10 am and 4 pm, with bars of 12 to 18 percent for each hour from 11 am to 3 pm, and none between 10 pm and 7 am. Bottom: 8,734 earthquakes of magnitude 1.5 and up, spread almost evenly over all 24 hours at 3 to 5 percent each.](img/blast-hours.svg){ loading=lazy }
-  <figcaption>Figure 7. When Utah's blasts and earthquakes happen, 2015 to November 2026, in
+  <figcaption>Figure 8. When Utah's blasts and earthquakes happen, 2015 to November 2026, in
   the University of Utah monitoring region. 97% of the blasts were between 8 am and 6 pm, and
   only 16 of 301 on a weekend. Earthquakes happen at any hour. Data: USGS ComCat.</figcaption>
 </figure>
@@ -199,16 +249,16 @@ From the wiggles alone, a small blast can look a lot like a small quake:
 
 <figure markdown="span">
   ![Two raw records from station FLU, each 27 seconds long. Top: a quarry blast of magnitude 2.1, 19 km away, on Monday October 26, 2026 at 5:33 pm; shaking starts at about 4 seconds, with a few bigger, slower swings near 11 seconds, and fades by 20 seconds. Bottom: an earthquake of magnitude 2.1, 19 km away, on Friday October 24, 2025 at 8:30 pm; shaking starts at about 4 seconds, is dense and fast, and fades by 20 seconds. The two look much alike.](img/blast-vs-quake.svg){ loading=lazy }
-  <figcaption>Figure 8. A quarry blast near Leamington and an earthquake 13 km from it, the same
+  <figcaption>Figure 9. A quarry blast near Leamington and an earthquake 13 km from it, the same
   size and the same distance from station FLU. Data: University of Utah Seismograph Stations
   (network UU, doi:10.7914/SN/UU) via EarthScope; events from USGS ComCat.</figcaption>
 </figure>
 
 So seismologists use more clues than the wiggles:
 
-- **Time:** blasts happen in working hours on weekdays (Figure 7).
+- **Time:** blasts happen in working hours on weekdays (Figure 8).
 - **Place:** at a known mine or quarry.
-- **Depth:** at the surface. Quakes usually start kilometers down (the quake in Figure 8,
+- **Depth:** at the surface. Quakes usually start kilometers down (the quake in Figure 9,
   2.6 km). Catalog depths are measured from sea level, so a blast on a mountain can even be
   listed a little above it.
 - **Shape:** a blast often makes a weaker S and more slow surface waves than a quake of the
@@ -222,7 +272,7 @@ them as a quake:
 
 <figure markdown="span">
   ![Three panels. Clipped: the Magna magnitude 5.7 quake of 2020 recorded 14.5 km away on two recorders at site SAIU over 5 seconds; the 16-bit recorder's trace has flat tops at +32,767 and flat bottoms at −32,768 counts, while the 24-bit recorder's trace has normal rounded waves with a peak of 6.6 million counts. Dead: the same quake at stations NLU and SUU, about 90 km away and 25 km apart, over 90 seconds; NLU shows strong shaking peaking at 1.1 million counts, while SUU is a flat line, minus 3 to plus 1 counts the whole time. Gaps: two minutes from station SGU on November 13, 2026 at 9:26 am, filtered 1 to 10 Hz: steady background shaking on both sides of a 15-second stretch of missing data, shaded in red.](img/instrument-problems.svg){ loading=lazy }
-  <figcaption>Figure 9. Three instrument problems: clipping and a dead channel during the
+  <figcaption>Figure 10. Three instrument problems: clipping and a dead channel during the
   magnitude 5.7 Magna quake (March 18, 2020), and a gap at station SGU (the stand-in for
   Gunnison Valley). Data: University of Utah Seismograph Stations (network UU,
   doi:10.7914/SN/UU) via EarthScope; quake from USGS ComCat.</figcaption>
@@ -259,7 +309,7 @@ Different sources shake the ground at different frequencies, like low and high n
 
 <figure markdown="span">
   ![A frequency ruler from 0.02 to 100 Hz on a log scale, with low notes on the left and high notes on the right. Colored bars show rough ranges: ocean hum 0.05 to 0.3 Hz; distant big quakes 0.02 to 2 Hz; nearby small quakes 1 to 20 Hz; wind 0.5 to 50 Hz; people and machines 1 to 50 Hz. A dashed blue box from 1 to 10 Hz is labeled kept by a 1 to 10 Hz filter. A thick line at 50 Hz is labeled the limit for 100 samples per second, with the area beyond it hatched. Under the axis, two more rows give the time for one wave (20 s at 0.05 Hz to 0.02 s at 50 Hz) and the length of one P wave at 6 km/s (120 km at 0.05 Hz to 120 m at 50 Hz).](img/frequency-ruler.svg){ loading=lazy }
-  <figcaption>Figure 10. What shakes the ground at which frequency. The ranges are rough: each
+  <figcaption>Figure 11. What shakes the ground at which frequency. The ranges are rough: each
   source is strongest in part of its range. The ocean hum range was checked on station TMU's
   records (University of Utah Seismograph Stations, network UU, doi:10.7914/SN/UU).</figcaption>
 </figure>
@@ -277,7 +327,7 @@ horizontal strip of the spectrogram.
 
 <figure markdown="span">
   ![Top: three minutes of station TMU's vertical sensor around a magnitude 2.1 quake 36 km away, on February 22, 2026 at 9:41 pm. The raw trace shows smooth ocean-hum waves all the way through, with small fast wiggles riding on them from the P line at 7 seconds to about 40 seconds. The trace filtered 1 to 10 Hz is flat before P, then shows a clear burst that fades by 50 seconds. Bottom: the same three minutes as a spectrogram, with frequency from 0.1 to 50 Hz going up on a log scale and color from dark purple (weak) to yellow (strong). A bright yellow band near 0.2 Hz, labeled ocean hum: always there, runs the whole way across. A dashed white box marks the band from 1 to 10 Hz that the filter keeps. At the P line, 7 seconds, green colors start suddenly, reaching from about 1 Hz up to 20 Hz, above the box, and fade by about 50 seconds; inside the box, an arrow labeled the quake points to them.](img/hidden-quake.svg){ loading=lazy }
-  <figcaption>Figure 11. A small quake on a winter night at station TMU. In the raw record it
+  <figcaption>Figure 12. A small quake on a winter night at station TMU. In the raw record it
   rides on the ocean hum; the 1–10 Hz filter removes the hum and the quake stands out. The
   spectrogram shows why: the hum and the quake are at different frequencies. P pick by
   University of Utah analysts. Data: University of Utah Seismograph Stations (network UU,
@@ -292,7 +342,7 @@ and the time of day.
 
 <figure markdown="span">
   ![Four unlabeled records. Record A, raw, 40 minutes long: small fast wiggles at first, a slower wave near 8 minutes, then from 14 minutes big slow waves that last to the end. Record B, raw, at 2 am, 90 seconds long: smooth waves about 5 seconds apart, with no start or end. Record C, raw, 45 seconds long: a quiet line, then at 7 seconds the trace suddenly jumps between flat tops and flat bottoms at the same two levels until the end. Record D, filtered 1 to 10 Hz, at 1:20 am, 90 seconds long: a ragged band of wiggles that grows and shrinks, with a few bigger bursts, but no clear start.](img/mystery-records.svg){ loading=lazy }
-  <figcaption>Figure 12. Four mystery records. Data: University of Utah Seismograph Stations
+  <figcaption>Figure 13. Four mystery records. Data: University of Utah Seismograph Stations
   (network UU, doi:10.7914/SN/UU) via EarthScope; quakes from USGS ComCat.</figcaption>
 </figure>
 
@@ -305,7 +355,7 @@ and the time of day.
     - **C: a big nearby quake, clipped.** The magnitude 5.7 Magna quake of 2020 at station WTU,
       35 km away, on a 16-bit recorder. A sudden start, then flat tops and bottoms at the same
       two levels.
-    - **D: wind.** Station FOR8 near Milford at 1:20 am on the windy night in Figure 4.
+    - **D: wind.** Station FOR8 near Milford at 1:20 am on the windy night in Figure 5.
       Ragged shaking that grows and shrinks with the gusts, with no P or S. At 1:20 am it is
       not likely to be people.
 

@@ -17,6 +17,7 @@ docs/app/
   wave-animation/index.html  redirect stub: Quake Waves' old address, forwards to ../quake-waves/
   wave-motion/index.html   How P and S waves move rock (cartoon embedded in Seismic waves)
   build-a-wiggle/index.html  Build a Wiggle (made-up waves; ?embed=1 inside Frequencies, fading and sound)
+  phone-bench/index.html   Phone Bench (prototype, In development: this device's motion sensor and microphone)
   css/app.css              shared styles (light and dark, top bar, embed mode)
   css/quake-explorer.css   Quake Explorer's layout, on top of app.css
   js/
@@ -46,6 +47,7 @@ docs/app/
       carpet.js            noise level per step, the day-by-time grid, morning-rise time
       stack.js             cross-correlation, scaling to the noise, stacking, noise vs N
       hv.js                H/V: Konno-Ohmachi smoothing, window rejection, peak, f0 = Vs/4H
+      bench.js             Phone Bench: rate, jitter, rounding step, noise, taps; a made-up phone
     data/
       datasource.js        the DataSource interface; picks a source from the URL
       earthscope-usgs.js   live source: USGS events + EarthScope stations/waveforms
@@ -62,13 +64,18 @@ docs/app/
                            map-keys.js (moving the quake with the arrow keys)
     wave-motion/app.js     the P/S rock-motion animation (canvas)
     build-a-wiggle/app.js  the Build a Wiggle page controller (canvas)
+    phone-bench/           Phone Bench: app.js (controller), sources.js (device or made-up phone),
+                           mic-worklet.js (microphone meter; keeps no sound)
   vendor/                  seisplotjs + Leaflet bundles (generated; see below)
   data/samples/<event>/    offline sample: event, stations, picks, waveforms.mseed
   data/samples/qe-*/       Quake Explorer's offline samples (the "explorer" list in index.json)
   data/traveltimes-iasp91.json  Earth-model travel times for distant quakes
 tests/                     node --test, including real-data checks on the sample
   doc-links.test.js        links in the app pages and raw HTML reach real pages of the site
-  app-list.test.js         every app folder is listed on the All apps page (docs/apps/index.md)
+  app-list.test.js         every app folder is listed on the All apps page (docs/apps/index.md); prototypes
+                           (In development) show the Prototype badge and have their own menu group
+  helpers/prototypes.js    reads the In development section of All apps (shared by two tests)
+  bench.test.js            Phone Bench arithmetic on made-up takes
   teacher-cards.test.js    activity cards and app hubs link both ways (D19); the Teachers catalog
                            and standards tables match each card's "At a glance" box
   clear-s.test.js          the "clear S at N of M stations" notes match the offline samples
@@ -79,6 +86,8 @@ tools/
   quake-explorer/          Quake Explorer's science checks, answer key, samples, travel-time table
   figures/                 figures for the guides and The Science (see below)
   serve.mjs                tiny local server for docs/ (apps only, no MkDocs build)
+  site-check.mjs           every page of the built site in headless Chrome at three widths
+  phone-bench-check.mjs    Phone Bench in headless Chrome: made-up phone, emulated sensors, fake microphone
 ```
 
 The list of apps students see is the **All apps** page, `docs/apps/index.md`, built by MkDocs
@@ -171,6 +180,7 @@ the same bytes every time it runs.
 | `science-maps.mjs` | `theory/img/schools-map.svg` | Node only |
 | `seismogram-figures.mjs` | the real-data figures on Reading a seismogram (`theory/img/ocean-hum.svg`, `wind-noise.svg`, `people-week.svg`, `three-quakes.svg`, `blast-*.svg`, `instrument-problems.svg`, `hidden-quake.svg`, `mystery-records.svg`) | Node only; downloads data the first time (see below) |
 | `seismogram-diagrams.mjs` | `theory/img/frequency-ruler.svg`, `seismometer-inside.svg` | Node only |
+| `phone-steps-figure.mjs` | `theory/img/phone-steps.svg` (How small a shake can it see?: made-up waves rounded as Chrome does) | Node only |
 | `science-travel-times.mjs` | `theory/img/tt-*.svg` (Travel times and Earth's layers) | Node only |
 | `science-frequencies.mjs` | `theory/img/freq-*.svg` (Frequencies, fading and sound) | Node only |
 | `science-ground-motion.mjs` | `theory/img/gm-*.svg` (Which way the ground moves) | Node only |
@@ -181,6 +191,7 @@ the same bytes every time it runs.
 | `screenshots.mjs` | `apps/img/wave-race-*.png` | `npm install` in `tools/figures`, Chrome, `node tools/serve.mjs` running |
 | `quake-explorer-screens.mjs` | `apps/img/qe-*.png` (Quake Explorer guide) | as `screenshots.mjs` |
 | `build-a-wiggle-screens.mjs` | `apps/img/bw-*.png` (Build a Wiggle guide) | as `screenshots.mjs` |
+| `phone-bench-screens.mjs` | `apps/img/pb-*.png` (Phone Bench guide; the made-up phone) | as `screenshots.mjs` |
 
 `svg-traces.mjs` holds the shared house style and seismogram drawing; `svg-charts.mjs` adds
 charts over time, hour-of-day bars and the spectrogram image; `spectra.mjs` is a small FFT

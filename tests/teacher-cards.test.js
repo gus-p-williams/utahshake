@@ -10,9 +10,16 @@
 // and app folders without a hub (../app/<slug>/). "Before this" names an earlier lesson, not
 // an app the card uses (D25). An app hub is a page in docs/apps/ other than index.md; its
 // "At a glance" box has a "For teachers" line listing the cards.
+//
+// Prototypes, the apps in "In development: please test" on the All apps page
+// (docs/developers/adding-an-app.md#in-development; parser in tests/helpers/prototypes.js),
+// need no card yet: they get one when they move into the main list. The other checks still
+// apply: a prototype hub has the box, its "For teachers" line says "none yet: …", and any
+// card it lists must name it.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import { sitePrototypes } from './helpers/prototypes.js';
 
 const DOCS = new URL('../docs/', import.meta.url);
 // Files may have Windows line endings (CRLF) on checkout; the parsers expect \n.
@@ -87,6 +94,7 @@ const hubs = mdFiles('apps/').filter((f) => f !== 'index.md').map((file) => {
   return { slug: file.replace(/\.md$/, ''), box, teachers, cards: cardLinks(teachers, '\\.\\./teachers/') };
 });
 const setupOf = (c) => SETUPS.find((s) => c.setup.startsWith(s));
+const proto = sitePrototypes(); // { apps, hubs } exempt from needing a card
 
 test('there are cards and hubs to check', () => {
   assert.ok(cards.length >= 6, `${cards.length} cards`);
@@ -109,8 +117,9 @@ test('every card opens with the same "At a glance" box', () => {
   }
 });
 
-test('every app with a hub has at least one card', () => {
+test('every app with a hub has at least one card (prototypes excepted)', () => {
   for (const h of hubs) {
+    if (proto.hubs.includes(h.slug)) continue; // In development: a card comes when it graduates
     const users = cards.filter((c) => c.hubs.includes(h.slug)).map((c) => c.file);
     assert.ok(users.length > 0, `apps/${h.slug}.md: no card names it under "Apps and tools"`);
   }
@@ -144,10 +153,11 @@ test('each hub\'s "For teachers" line lists only cards that name the app', () =>
   }
 });
 
-test('every app on the All apps page is used by at least one card', () => {
+test('every app on the All apps page is used by at least one card (prototypes excepted)', () => {
   const listed = appLinks(read('apps/index.md'));
   assert.ok(listed.length >= 3);
   for (const slug of listed) {
+    if (proto.apps.includes(slug)) continue; // In development: a card comes when it graduates
     const used = cards.some((c) => c.hubs.includes(slug) || c.folders.includes(slug));
     assert.ok(used, `app/${slug}/: no card names it under "Apps and tools"`);
   }

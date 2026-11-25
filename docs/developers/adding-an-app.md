@@ -37,15 +37,18 @@ app has no notes page.
 
 ## 3. Navigation and the All apps page { #app-list }
 
-- Add the hub to `nav:` under **Apps** in `mkdocs.yml`.
+- Add the hub to `nav:` under **Apps** in `mkdocs.yml` (a prototype: under
+  **Apps › In development**).
 - Add a card for it on [apps/index.md](../apps/index.md), the All apps page and the one list
   of apps, with a link to the app itself (`../app/<slug>/index.html`).
-- One rule sorts that page: **every app with a hub goes in the top grid**, in the same order
-  as the Apps menu, even if it uses no real data. The card opens with a line in italics that
-  says whether it does (*Real data: seismograms from Utah stations.* or *No real data: a
-  cartoon.*), then a short description, the **Open** button, and the guide link on its own
-  line under the button. Only an animation with no hub (the P/S motion cartoon) goes under
-  **Animations**.
+- One rule sorts that page: **every app with a hub goes in the top grid, except
+  prototypes**, in the same order as the Apps menu, even if it uses no real data. The card
+  opens with a line in italics that says whether it does (*Real data: seismograms from Utah
+  stations.* or *No real data: a cartoon.*), then a short description, the **Open** button,
+  and the guide link on its own line under the button. Only an animation with no hub (the
+  P/S motion cartoon) goes under **Animations**.
+- An app that is still being tested by adults goes under **In development: please test**
+  instead. See [Prototypes](#in-development) for what it needs and how it moves up.
 - **Every app folder must be on that page.** Each folder in `docs/app/` that holds an
   `index.html` needs a Markdown link containing `../app/<slug>/` on `apps/index.md`. That
   includes animations embedded in a science page, which have no hub of their own (the P/S
@@ -65,7 +68,8 @@ page goes under **The Science** in `nav:`.
   may appear in several cards (Quake Waves also has a demo card of its own). The card
   template and its checklist (menu, Teachers catalog, standards, the hub's "For teachers"
   line) are on [Adding an activity card](adding-a-card.md); `tests/teacher-cards.test.js`
-  fails if the app's hub has no card.
+  fails if the app's hub has no card. A [prototype](#in-development) needs no card until it
+  graduates.
 - Add a `## <App> { #<slug> }` heading to [standards.md](../teachers/standards.md), with one
   line linking the hub and a table of the standards the app covers.
 - Add rows for the app and its new science pages to
@@ -165,6 +169,68 @@ mkdocs build --strict         # the site, including links and #anchors between p
 
 `mkdocs build --strict` does not check links inside the app pages or raw HTML; `npm test`
 does.
+
+## Prototypes: "In development" { #in-development }
+
+Some apps need testing by adults before they are ready for classrooms. They are listed under
+[In development: please test](../apps/index.md#in-development) on the All apps page, for Gus,
+Dale and Cleat to try. The first is the Phone Bench (trial T1 of the phone activities). Gus
+decides when an app enters, graduates or is dropped.
+
+### Entering "In development"
+
+An app enters when it runs end to end on the deployed site and Gus wants it tried. It needs:
+
+- **The app page** with the standard [top bar](#top-bar), plus the Prototype badge inside
+  the `h1`, after the app's name:
+  `<span class="badge prototype" title="In development: please test.">Prototype</span>`.
+  The style is `.badge.prototype` in `docs/app/css/app.css`. See
+  `docs/app/phone-bench/index.html`.
+- **A hub page** (the guide, as in step 2) with the "At a glance" box. Its "For teachers"
+  line says there is no card yet, for example "none yet: a prototype for adult testers".
+- **A card** in the In development section of All apps. The name in bold, then a line in
+  italics that marks it a prototype and says what data it uses (*Prototype, for adult
+  testers. No station data: it reads this device's own sensors.*). Then a short description,
+  a **Test:** line (what to try, on which devices) and a **Send:** line (how to send results
+  to Gus; the site collects nothing). Then the **Open** button, and the guide link on its own
+  line under it. Link only this app and its own guide in that section: the tests read every
+  `<slug>.md` link there as a prototype's hub.
+- **A menu entry** under **Apps › In development** in `mkdocs.yml`.
+
+It does not need yet: an activity card, a section in the standards crosswalk, rows on the
+Teachers page, or "Used in" lines on science pages (steps 4 and 5).
+
+### Graduating
+
+Gus decides, after the testers' feedback and the trials the app serves. Then:
+
+1. Move its card from In development into the top grid, in Apps-menu order. Replace the
+   prototype line with the real data or no real data line, and drop the **Test:** and
+   **Send:** lines.
+2. Remove the Prototype badge from its top bar.
+3. Move its `nav:` entry out of **Apps › In development**, up into **Apps**.
+4. Do steps 4 to 6: at least one activity card (and the hub's "For teachers" line), its
+   standards, its Teachers rows, and "Used in" lines on science pages.
+
+The tests then hold it to the full rules.
+
+### Dropping
+
+Delete the app folder, its code, its hub, its `nav:` entry and its card. Add a redirect stub
+([Renaming an app](#renaming-an-app)) only if its address was shared widely.
+
+### What the tests check
+
+The tests read the prototypes from the In development section of All apps (from its heading to
+the next `## ` heading; the parser is `tests/helpers/prototypes.js`).
+
+- `tests/app-list.test.js`: every prototype app shows the Prototype badge in its top bar, and
+  no other app shows it; every prototype hub is in `mkdocs.yml` under **Apps › In
+  development**, and no other hub is there. Like every app, a prototype must be on the All
+  apps page.
+- `tests/teacher-cards.test.js`: prototypes need no activity card. Their hubs still need the
+  "At a glance" box with a "For teachers" line, and any card that line lists must name the
+  app.
 
 ## Renaming an app
 
