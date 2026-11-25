@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  UHSN vibration recorder: a phyphox experiment (https://phyphox.org/) for clubs and research.
+  Utah High School Seismic Network (UHSN), Desert Research Institute. Guide for teachers:
+  https://gus-p-williams.github.io/utahshake/teachers/phyphox/
+
+  Reads the accelerometer, gravity included, as fast as the phone allows (rate="0"), plots
+  x, y and z against time, shows the phone's readings per second, and exports time, x, y, z.
+  File format 1.14 (phyphox 1.1.10, December 2021, and later); inputs that read the recording
+  carry clear="false" so the analysis never empties it. Checked against phyphox's published
+  RELAX NG grammar and Schematron rules (planning/phyphox-sources.md).
+  Opened by phyphox://gus-p-williams.github.io/utahshake/teachers/files/uhsn-vibration.phyphox
+  (the link and QR code on teachers/phyphox.md; tests/phyphox.test.js keeps them in step).
+-->
+<phyphox version="1.14" locale="en">
+  <title>UHSN vibration recorder</title>
+  <category>UHSN</category>
+  <icon>VIB</icon>
+  <description>Records this phone's motion sensor (gravity included) as fast as the phone allows, for the Utah High School Seismic Network (UHSN).
+
+Lay the phone flat and still on a solid surface, press play, make the vibration (a stomp, a dropped book), then press pause. "Readings per second" shows this phone's rate.
+
+To save the data: open the menu, choose Export Data, then CSV (Comma, decimal point). You get a ZIP file holding "Acceleration.csv" with time in seconds and x, y, z in m/s^2. Open it in a spreadsheet. Label files with a group or phone number, never a name.</description>
+  <link label="Guide for teachers (UHSN)">https://gus-p-williams.github.io/utahshake/teachers/phyphox/</link>
+
+  <data-containers>
+    <!-- size 0: no limit, so the whole take is kept for the export -->
+    <container size="0">t</container>
+    <container size="0">ax</container>
+    <container size="0">ay</container>
+    <container size="0">az</container>
+    <container size="1">count</container>
+    <container size="1">gaps</container>
+    <container size="1">tFirst</container>
+    <container size="1">tLast</container>
+    <container size="1">span</container>
+    <container size="1">rate</container>
+  </data-containers>
+
+  <input>
+    <!-- rate 0: as fast as possible; the phone's sensor sets the real rate -->
+    <sensor type="accelerometer" rate="0">
+      <output component="t">t</output>
+      <output component="x">ax</output>
+      <output component="y">ay</output>
+      <output component="z">az</output>
+    </sensor>
+  </input>
+
+  <analysis sleep="0.5">
+    <!-- Readings per second over the whole take: (number of readings - 1) / (last time - first time) -->
+    <count>
+      <input clear="false">t</input>
+      <output>count</output>
+    </count>
+    <first>
+      <input clear="false">t</input>
+      <output>tFirst</output>
+    </first>
+    <max>
+      <input as="y" clear="false">t</input>
+      <output as="max">tLast</output>
+    </max>
+    <subtract>
+      <input>tLast</input>
+      <input>tFirst</input>
+      <output>span</output>
+    </subtract>
+    <subtract>
+      <input>count</input>
+      <input type="value">1</input>
+      <output>gaps</output>
+    </subtract>
+    <divide>
+      <input>gaps</input>
+      <input>span</input>
+      <output>rate</output>
+    </divide>
+  </analysis>
+
+  <views>
+    <view label="Record">
+      <graph label="x (across the screen)" timeOnX="true" labelX="t" unitX="s" labelY="a" unitY="m/s²" partialUpdate="true" color="green">
+        <input axis="x">t</input>
+        <input axis="y">ax</input>
+      </graph>
+      <graph label="y (along the screen)" timeOnX="true" labelX="t" unitX="s" labelY="a" unitY="m/s²" partialUpdate="true" color="blue">
+        <input axis="x">t</input>
+        <input axis="y">ay</input>
+      </graph>
+      <graph label="z (out of the screen)" timeOnX="true" labelX="t" unitX="s" labelY="a" unitY="m/s²" partialUpdate="true" color="yellow">
+        <input axis="x">t</input>
+        <input axis="y">az</input>
+      </graph>
+      <value label="Readings per second" size="1" precision="0" unit="Hz">
+        <input>rate</input>
+      </value>
+    </view>
+  </views>
+
+  <export>
+    <set name="Acceleration">
+      <data name="Time (s)">t</data>
+      <data name="x (m/s^2)">ax</data>
+      <data name="y (m/s^2)">ay</data>
+      <data name="z (m/s^2)">az</data>
+    </set>
+  </export>
+</phyphox>
