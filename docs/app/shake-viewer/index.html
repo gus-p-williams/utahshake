@@ -31,6 +31,8 @@
       border-radius: 8px; background: var(--card); font-size: .88rem; }
 
     /* 1. Data */
+    .example-row { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .8rem; margin: 0 0 .7rem; }
+    .example-row .hint { margin: 0; flex: 1 1 18rem; }
     .src-tabs { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0 0 .6rem; padding: 0; border: 0; }
     .src-tabs legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
     .src-tabs label { display: inline-flex; align-items: center; gap: .35rem; padding: .35rem .7rem; border: 1px solid var(--border);
@@ -135,6 +137,9 @@
 
     <section class="card" aria-labelledby="h-data">
       <div class="card-head"><h2 id="h-data"><span class="step">1</span> Where the data come from</h2></div>
+      <p class="example-row"><button type="button" id="example" class="primary">Try the example</button>
+        <span class="hint">HEB near Heber City on Tuesday, November 17, 2026, with two schools' bell times as notes.
+          Its data come with this site: nothing is downloaded from anywhere else.</span></p>
       <fieldset class="src-tabs">
         <legend>Data source</legend>
         <label><input type="radio" name="src" id="src-file" value="file"> A day file from the Shake</label>

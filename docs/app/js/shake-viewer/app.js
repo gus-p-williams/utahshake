@@ -9,9 +9,11 @@
 // spectrogram (drag on it to choose a band), hourly noise levels, notes (drawn on the
 // helicorder, edited here, downloaded as a file) and a CSV of the zoom window.
 //
-// Address options: ?source=file|uu|uhsn  &station=UU.HEB  &date=YYYY-MM-DD  &uhsn=<base URL>
-// &noload (open without loading the example day). Notes stay in this browser (localStorage,
-// per station) and in the file the teacher downloads. Logic: lib/day-view.js; plots:
+// Nothing loads until the user presses a button (Gus, 2026-11-25). "Try the example" opens HEB
+// on Nov 17, 2026 from the test folder that comes with the site, so it downloads nothing from
+// EarthScope. Address options fill in the choices and wait for a click: ?source=file|uu|uhsn
+// &station=UU.HEB &date=YYYY-MM-DD; &uhsn=<base URL> reads another server in the UHSN layout.
+// Notes stay in this browser (localStorage, per station) and in the file the teacher downloads. Logic: lib/day-view.js; plots:
 // helicorder-view.js, noise-view.js, ui/trace-view.js, quake-explorer/spectrogram-view.js.
 import { EarthScopeUSGSSource } from '../data/datasource.js';
 import { UHSNSource } from '../data/uhsn.js';
@@ -329,7 +331,7 @@ async function loadUhsn() {
 
 function setAddress(p) {
   const q = new URLSearchParams(location.search);
-  for (const k of ['source', 'station', 'date', 'noload']) q.delete(k);
+  for (const k of ['source', 'station', 'date']) q.delete(k);
   for (const [k, v] of Object.entries(p)) q.set(k, v);
   history.replaceState(null, '', `?${q}`);
 }
@@ -720,6 +722,7 @@ function clearNotes() {
 
 function wire() {
   for (const m of ['file', 'uu', 'uhsn']) $(`src-${m}`).addEventListener('change', () => setMode(m));
+  $('example').addEventListener('click', showExample);
   $('uu-load').addEventListener('click', loadUU);
   $('uu-station').addEventListener('change', () => {
     if ($('uu-station').value === EXAMPLE.station && !params.get('date')) $('uu-date').value = EXAMPLE.date;
@@ -804,9 +807,28 @@ async function init() {
   noise.clear();
   const src = params.get('source');
   setMode(['file', 'uu', 'uhsn'].includes(src) ? src : 'uu');
-  if (params.has('noload')) return;
-  if (state.mode === 'uu') loadUU();
-  else if (state.mode === 'uhsn') loadUhsn();
+  // nothing loads until a button is pressed
+}
+
+/**
+ * The example: HEB on Nov 17, 2026 from the test folder that comes with the site (no download
+ * from EarthScope). If ?uhsn= points at another server without HEB, it comes from EarthScope.
+ */
+async function showExample() {
+  setMode('uhsn');
+  const ok = await initUhsn();
+  const sel = $('uhsn-station');
+  if (ok && [...sel.options].some((o) => o.value === EXAMPLE.station)) {
+    sel.value = EXAMPLE.station;
+    await uhsnStationChanged();
+    $('uhsn-date').value = EXAMPLE.date;
+    await loadUhsn();
+    return;
+  }
+  setMode('uu');
+  $('uu-station').value = EXAMPLE.station;
+  $('uu-date').value = EXAMPLE.date;
+  await loadUU();
 }
 
 init();

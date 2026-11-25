@@ -17,7 +17,7 @@ school version should do.
       notes on the record and download a window as a spreadsheet file (CSV).
     - **Time:** about 10 minutes to try everything.
     - **Works on:** any browser, including Chromebooks and phones. No install, no accounts.
-      A full day is a 6–10 MB download.
+      The example comes with the site; another day of a Utah station is a 6–10 MB download.
     - **The science:** [Beyond one seismogram](../theory/plots.md) (the helicorder and the
       seismic carpet) · [Reading a seismogram](../theory/seismograms.md) ·
       [Frequencies, fading and sound](../theory/frequencies.md) (the spectrogram)
@@ -41,7 +41,12 @@ of Utah stations, or files laid out the way UHSN's own server will publish them.
 
 ## 1. Choose where the data come from
 
-Three choices at the top:
+Nothing loads until you ask. The quickest start is **Try the example**: station HEB near Heber
+City on Tuesday, November 17, 2026 (a regular school day in Wasatch County), from 5 am to 9 pm,
+with two schools' bell times as notes. Its data come with this site, so it works even where the
+school network blocks other data services.
+
+Or choose one of three sources:
 
 - **A day file from the Shake.** A Shake keeps one file per channel per day (UTC), named like
   `AM.R1234.00.EHZ.D.2026.329`. A teacher downloads it from the Shake's own web page, on a
@@ -50,8 +55,8 @@ Three choices at the top:
   and nothing is uploaded. Open two days to follow an evening across midnight UTC (a 7 pm game
   is 02:00 UTC the next day).
 - **A Utah station.** A University of Utah station near each school (the stand-ins), or HEB near
-  Heber City, where a town's daily rhythm shows clearly. Pick a day and press **Show the day**.
-  The page opens on HEB, November 17, 2026, a regular school day in Wasatch County.
+  Heber City, where a town's daily rhythm shows clearly. Pick a day and press **Show the day**
+  (a 6–10 MB download from EarthScope, the University of Utah's data service).
 - **School Shakes (test folder).** The files UHSN's server will publish, read the way the
   apps will read them ([below](#the-test-folder)).
 
@@ -98,9 +103,9 @@ catalog: something near the station. Its spectrogram shows mostly low notes, 2�
 
 ## 4. Notes
 
-The notes are the class's own record of what happened. The page opens HEB with example notes:
-the published bell times of Wasatch High School and Rocky Mountain Middle School in Heber City
-for that Tuesday. Does the town get busier when school starts?
+The notes are the class's own record of what happened. HEB comes with example notes: the
+published bell times of Wasatch High School and Rocky Mountain Middle School in Heber City for
+that Tuesday. Does the town get busier when school starts?
 
 - **Add a note on the helicorder,** then click the time it happened. Change its time (Mountain
   time), kind and words in the list. A note can have an end time (a span).
@@ -132,10 +137,10 @@ at the top right.
 the rest of the day is shaded "not published yet".*
 
 UHSN plans to collect each school Shake's data at DRI and publish it as files on the web, laid
-out in a fixed way so that every app can read them. **School Shakes (test folder)** reads a small
-folder laid out exactly that way, made from University of Utah data: part of HEB's
-November 17, as if a school's Shake had been connected at 5 am and the last publish run were at
-9 pm. The badge says how recent the data are ("data up to 9:00 PM"), and later times are shaded.
+out in a fixed way so that every app can read them. **School Shakes (test folder)**, and
+**Try the example**, read a small folder that comes with this site, laid out exactly that way
+and made from University of Utah data: part of HEB's November 17, as if a school's Shake had
+been connected at 5 am and the last publish run were at 9 pm. The badge says how recent the data are ("data up to 9:00 PM"), and later times are shaded.
 The page reads only the few kilobytes it needs from each file.
 
 When DRI runs a test server, add `?uhsn=` and its address to this page's address to read it
@@ -143,8 +148,8 @@ instead.
 
 ## What to try and send
 
-**Try:** a day at your own school's stand-in, the example at HEB, the test folder, and (if you
-can) a day file downloaded from a Shake. Zoom into something, choose a band on the spectrogram,
+**Try:** the example, a day at your own school's stand-in, and (if you can) a day file downloaded
+from a Shake. Zoom into something, choose a band on the spectrogram,
 add a note, mark the quakes, download a CSV and the notes.
 
 **Send to Gus:** what was useful, what was confusing, and what a class would need. The site

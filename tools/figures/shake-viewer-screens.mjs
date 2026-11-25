@@ -11,8 +11,8 @@
 //   zoom    sv-zoom.png    the zoom panel: 12:15-12:17 pm, a burst at 12:16:27 that is not in
 //                          the USGS catalog (something near the station), trace and spectrogram
 //   noise   sv-noise.png   the hourly noise levels of the same day, 5-20 Hz
-//   school  sv-school.png  the same day from the test folder in the UHSN data layout: data from
-//                          5 am, "not published yet" after 9 pm
+//   school  sv-school.png  the same day from the test folder in the UHSN data layout ("Try the
+//                          example"): data from 5 am, "not published yet" after 9 pm
 // "day", "zoom" and "noise" read HEB from EarthScope (needs the network); "school" reads the
 // bundled test folder. Chrome runs headless with its own temporary profile.
 import puppeteer from 'puppeteer-core';
@@ -44,7 +44,9 @@ try {
   };
 
   if (wanted.some((w) => ['day', 'zoom', 'noise'].includes(w))) {
+    // the address fills in the choices; nothing loads until "Show the day" is pressed
     await page.goto(`${BASE}/app/shake-viewer/?source=uu&station=UU.HEB&date=2026-11-17`, { waitUntil: 'networkidle0', timeout: 120000 });
+    await page.click('#uu-load');
     await page.waitForFunction(dayShown, { timeout: 120000 });
     if (wanted.includes('day')) await shot('#day-cards > section', 'sv-day.png');
     if (wanted.includes('zoom')) {
@@ -63,7 +65,8 @@ try {
   }
 
   if (wanted.includes('school')) {
-    await page.goto(`${BASE}/app/shake-viewer/?source=uhsn`, { waitUntil: 'networkidle0', timeout: 60000 });
+    await page.goto(`${BASE}/app/shake-viewer/`, { waitUntil: 'networkidle0', timeout: 60000 });
+    await page.click('#example'); // the example opens from the test folder
     await page.waitForFunction(dayShown, { timeout: 60000 });
     await shot('#day-cards > section', 'sv-school.png');
   }

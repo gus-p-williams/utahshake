@@ -47,9 +47,14 @@ catalog; travel times from Quake Locator's speeds (within 150 km) or the iasp91 
 Shake keeps it, and offers the local days its data touch. The record is cut to the window, so
 sample 0 is the window's start, which is always on the hour (the hourly levels line up).
 
-**Address options.** `?source=file|uu|uhsn`, `&station=UU.HEB`, `&date=2026-11-17`, `&uhsn=`
-a base address ending in `/`, `&noload` (open without loading a day). The page rewrites the
-address after each load, so a tester can send a link to what they see.
+**Nothing loads until a button is pressed** (Gus, 2026-11-25). **Try the example** opens HEB on
+November 17, 2026 from the test folder that comes with the site, so it downloads nothing from
+EarthScope (if `?uhsn=` points at a server without HEB, it falls back to EarthScope).
+
+**Address options.** `?source=file|uu|uhsn`, `&station=UU.HEB`, `&date=2026-11-17` fill in the
+choices and wait for a click; `&uhsn=` a base address ending in `/` reads another server in the
+UHSN layout. The page rewrites the address after each load, so a tester can send a link to what
+they see.
 
 ## The helicorder
 

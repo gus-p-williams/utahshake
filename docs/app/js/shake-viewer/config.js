@@ -23,8 +23,8 @@ export const STAND_INS = Object.freeze([
 
 /**
  * The example: HEB on Tuesday, November 17, 2026 (a regular school day in Wasatch County),
- * with notes of the bell times at two Heber City schools. The test folder (UHSN layout) holds
- * part of the same day.
+ * with notes of the bell times at two Heber City schools. "Try the example" opens it from the
+ * test folder that comes with the site (UHSN layout, 5 am to 9 pm Mountain time that day).
  */
 export const EXAMPLE = Object.freeze({
   station: 'UU.HEB',
