@@ -165,7 +165,7 @@ sequences the work and integrates it.
   | D7-wiggle-app | Build a Wiggle becomes a full app (guide, Apps menu); All apps lists every app with a guide | `-wiggle`, branch `wiggle-app` | merged 2026-11-25 (D34) |
   | D8-waves-hint | Quake Waves: an on-map hint that clicking moves the quake (standalone and embedded) | `-band`, branch `waves-hint` | merged 2026-11-25 (D35) |
   | D9-small-fixes | Quake Waves keyboard control; Quake Explorer B's low-edge label; overview Figure 3 | `-fixes`, branch `small-fixes` | merged 2026-11-25 |
-  | P3-viewer-review | Feasibility and effort review: a school-Shake viewer (`planning/review-shake-viewer.md`) | main folder, `planning/` | active |
+  | P3-viewer-review | Feasibility and effort review: a school-Shake viewer (`planning/review-shake-viewer.md`); delayed data and automated school-to-DRI upload; a brief for Cleat to take to DRI IT (`planning/brief-dri-it.md`); the data spec for DRI's server (`planning/spec-uhsn-data.md`) | main folder, `planning/` | active |
   | P4-phone-review | Feasibility and effort review: a phone vibration recorder (`planning/review-phone-recorder.md`) | main folder, `planning/` | active |
   | R1-app-critique | Independent critique of P3 and P4's reviews, in Claude (`planning/critique-r1-claude.md`) | read-only except its file | after P3 and P4 |
   | R2-app-critique | The same critique, independently, in Codex (`planning/critique-r2-codex.md`) | read-only except its file | after P3 and P4, alongside R1 |
