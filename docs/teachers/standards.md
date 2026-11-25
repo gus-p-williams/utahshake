@@ -41,7 +41,7 @@ App: [Quake Explorer guide](../apps/quake-explorer.md) · Lessons, one per inves
 | [CS 9/10.DA.3](https://Schools.Utah.gov/cte/_cte/computer/612ComputerScienceStandards.pdf) | Computer Science | Create data visualizations that help others understand real phenomena | Record section, spectrogram, particle-motion paths and the travel-time chart are all visualizations of the same data; the CSV for students' own charts (D: a class travel-time chart) |
 | [CS 11/12.DA.1](https://Schools.Utah.gov/cte/_cte/computer/612ComputerScienceStandards.pdf) | Computer Science | Refine or create computational models from data | A: a straight line (and two lines) fitted to arrivals is a model of wave travel; students compare their ruler with the fit |
 
-## Quake Waves (animation) { #quake-waves }
+## Quake Waves (app) { #quake-waves }
 
 App: [Quake Waves guide](../apps/quake-waves.md) · Lessons:
 [One quake, two waves](one-quake-two-waves.md) (a 10-minute demo, with the
@@ -53,6 +53,17 @@ App: [Quake Waves guide](../apps/quake-waves.md) · Lessons:
 | --- | --- |
 | [PHYS.4.1](https://www.uen.org/core/core.do?courseNum=3642) | Two waves with different speeds in the same rock; the gap between them grows with distance. In the demo card, P moves rock along its path and S across it |
 | [ESS.2.2](https://www.uen.org/core/core.do?courseNum=3601) | Seismic waves as the evidence used to locate quakes (and, by the same reasoning, to model Earth's interior). In the demo card, S cannot cross a liquid, which is how we know the outer core is liquid |
+
+## Build a Wiggle (app) { #build-a-wiggle }
+
+App: [Build a Wiggle guide](../apps/build-a-wiggle.md) · Lesson: the warm-up in
+[What notes is the ground playing?](notes-of-a-quake.md). Made-up waves, also shown on
+[Frequencies, fading and sound](../theory/frequencies.md).
+
+| Standard | Where it shows up |
+| --- | --- |
+| [PHYS.4.1](https://www.uen.org/core/core.do?courseNum=3642) | A wave described by its frequency and size; any wiggle is a sum of waves, and the spectrum finds them again; a filter keeps a band of frequencies |
+| [PHYS.2.1](https://www.uen.org/core/core.do?courseNum=3642) | The far quake: after 60 s of travel every note has lost energy to heat, and the high note has lost the most |
 
 ## Beyond one seismogram (science page) { #beyond-one-seismogram }
 

@@ -376,7 +376,7 @@ Quake Locator first.
 
 ![Figure 2. Quake Explorer A, the 2020 Magna earthquake after "Reveal": 30 stations from 12 to 397 km. Past about 143 km the first arrivals follow a faster line (7.67 km/s): waves that traveled along the top of the mantle.](img/overview-quake-explorer.png)
 
-### Quake Waves and two other animations (E2; Build a Wiggle is the warm-up in E7)
+### Quake Waves, Build a Wiggle and an animation (E2; Build a Wiggle is the warm-up in E7)
 
 [Quake Waves](https://gus-p-williams.github.io/utahshake/app/quake-waves/) ·
 [Guide](https://gus-p-williams.github.io/utahshake/apps/quake-waves/)
@@ -388,8 +388,10 @@ Quake Locator first.
   [One quake, two waves](https://gus-p-williams.github.io/utahshake/teachers/one-quake-two-waves/).
 - **[How P and S waves move rock](https://gus-p-williams.github.io/utahshake/app/wave-motion/)**:
   P squeezes and stretches a block of rock; S shakes it.
-- **[Build a Wiggle](https://gus-p-williams.github.io/utahshake/app/build-a-wiggle/)**: add up
-  to three sine waves and watch their sum and its spectrum.
+- **[Build a Wiggle](https://gus-p-williams.github.io/utahshake/app/build-a-wiggle/)**
+  ([guide](https://gus-p-williams.github.io/utahshake/apps/build-a-wiggle/)): a small app with
+  made-up waves. Students add up to three sine waves and watch their sum and its spectrum,
+  add noise, filter out notes, and see why a far quake sounds lower than a near one.
 
 ![Figure 3. Quake Waves, 30 seconds after the quake: each station's S − P time becomes a distance circle, and all four circles cross at the quake (star).](img/overview-quake-waves.png)
 

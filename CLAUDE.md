@@ -162,8 +162,8 @@ sequences the work and integrates it.
   | D4-spelling | US spelling across the site | `-spelling`, branch `us-spelling` | merged 2026-11-24 (D32) |
   | D5-band-hint | Quake Explorer B: show on the spectrogram that dragging chooses a band | `-band`, branch `band-hint` | merged 2026-11-24 |
   | D6-clear-s | Point students to quakes with a clear S − P (Quake Explorer and Quake Locator) | `-band`, branch `clear-s` | merged 2026-11-24 (D33) |
-  | D7-wiggle-app | Build a Wiggle becomes a full app (guide, Apps menu); All apps lists every app with a guide | `-wiggle`, branch `wiggle-app` | active |
-  | D8-waves-hint | Quake Waves: an on-map hint that clicking moves the quake (standalone and embedded) | `-band`, branch `waves-hint` | active |
+  | D7-wiggle-app | Build a Wiggle becomes a full app (guide, Apps menu); All apps lists every app with a guide | `-wiggle`, branch `wiggle-app` | merged 2026-11-25 (D34) |
+  | D8-waves-hint | Quake Waves: an on-map hint that clicking moves the quake (standalone and embedded) | `-band`, branch `waves-hint` | merged 2026-11-25 (D35) |
 
   Retired before IDs: the figures sessions, the Quake Explorer session (merged, D22–D25).
 
@@ -337,6 +337,15 @@ out of the menus:
   (M1 retook the A and C screenshots from the merged code). `npm test` = 230.
 - 2026-11-24: **The two documents went to Dale and Cleat** (Gus), with the cover note: the
   overview and the questions document (D28), after the rename; every site link checked live.
+- 2026-11-25: **Build a Wiggle is a full app** (D34, session D7-wiggle-app): guide
+  `apps/build-a-wiggle.md` with two screenshots (`tools/figures/build-a-wiggle-screens.mjs`),
+  Apps-menu entry, top bar Guide link; All apps lists every app with a guide, each card
+  saying real data or made-up waves; only the P/S motion cartoon stays under Animations;
+  standards PHYS.4.1 · PHYS.2.1 (crosswalk section `#build-a-wiggle`); a label-overlap fix
+  in the app. **Quake Waves shows how to use it on the map** (D35, session D8-waves-hint):
+  "Click the map to move the quake" and "↔ Drag to step through time" labels, bold until
+  first use; logic in `js/quake-waves/map-hint.js`, tests in `tests/quake-waves-hint.test.js`;
+  scale bar moved. `npm test` = 238; site check 36 pages at 3 widths.
 
 ## Next steps
 
@@ -345,12 +354,16 @@ out of the menus:
    a–b. *P1-activities and P2-overview* (D28): **sent to Dale and Cleat on 2026-11-24.**
       Their answers drive the roadmap's "Proposed, pending Dale and Cleat" list and the next
       activity cards; fixes to either document go back to `planning/` and its Word copy.
-   c. Merged: D1-cards (D29), D3-rename (D30), D5-band-hint, D2-plots (D31), D4-spelling
-      (D32), D6-clear-s (D33). Remove their worktrees (`-cards`, `-rename`, `-plots`,
-      `-spelling`, `-band`, and the old `-qexp`) when nothing more is needed from them; the
-      `-plots` and `-spelling` ones hold large figure caches (3.4 GB, 0.7 GB).
-   d. *D7-wiggle-app* (branch `wiggle-app`): Build a Wiggle as a full app; All apps lists
-      every app with a guide. M1 reviews and merges when it reports.
+   c. Merged, no sessions at work: D1-cards (D29), D3-rename (D30), D5-band-hint, D2-plots
+      (D31), D4-spelling (D32), D6-clear-s (D33), D7-wiggle-app (D34), D8-waves-hint (D35).
+      Remove their worktrees (`-cards`, `-rename`, `-plots`, `-spelling`, `-band`, `-wiggle`,
+      and the old `-qexp`) when nothing more is needed from them; the `-plots` and
+      `-spelling` ones hold large figure caches (3.4 GB, 0.7 GB).
+   d. Small follow-ups from the sessions: Quake Waves can't move the quake by keyboard (D35);
+      the overview's Figure 3 (`planning/img/overview-quake-waves.png`) predates the map
+      labels, so rerun `tools/planning-docx/overview-images.mjs qw` if the overview is
+      re-sent; Quake Explorer B's distant-quake bottom edge reads 0.039 Hz while the panel
+      says 0.020 Hz.
 2. **Open questions for Gus / DRI:**
    a. Which Raspberry Shake model is at each school (they may differ)? The seismometer figure
       on Reading a seismogram is a generic geophone.

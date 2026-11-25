@@ -44,7 +44,8 @@ the table; the [standards crosswalk](standards.md) shows where each one comes up
 | Activity or topic | What it is | Utah standards |
 | --- | --- | --- |
 | [Quake Locator](wave-race-card.md) | App and activity card | PHYS.4.1 · ESS.2.2 · ESS.2.3 · ESS.4.1 · GEOL.3.x · CS&nbsp;9/10.DA.3 · CS&nbsp;11/12.DA.1 |
-| [Quake Waves](../apps/quake-waves.md) | Animation | PHYS.4.1 · ESS.2.2 |
+| [Quake Waves](../apps/quake-waves.md) | App (made-up waves) | PHYS.4.1 · ESS.2.2 |
+| [Build a Wiggle](../apps/build-a-wiggle.md) | App (made-up waves) | PHYS.4.1 · PHYS.2.1 |
 | [One quake, two waves](one-quake-two-waves.md) | Activity card (Quake Waves and How P and S waves move rock) | PHYS.4.1 · ESS.2.2 |
 | [Seismic waves](../theory/waves.md) | Science page | PHYS.4.1 · ESS.2.2 |
 | [Reading a seismogram](../theory/seismograms.md) | Science page | PHYS.4.1 · ESS.2.2 · CS&nbsp;9/10.DA.3 |

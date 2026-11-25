@@ -12,7 +12,7 @@ Below it, the spectrum finds every wave again.
     - **Time:** 5 minutes as a warm-up; 15–20 minutes with all the examples below.
     - **Works on:** any browser, including Chromebooks. No install, no accounts.
     - **The science:** [Frequencies, fading and sound](../theory/frequencies.md) · [Filters and spectrograms](../theory/seismograms.md#filters-and-spectrograms)
-    - **For teachers:** [What notes is the ground playing?](../teachers/notes-of-a-quake.md) (as the warm-up)
+    - **For teachers:** [What notes is the ground playing?](../teachers/notes-of-a-quake.md) (as the warm-up) · [Standards](../teachers/standards.md#build-a-wiggle)
     - **Data:** none. You make the waves. The spectrum is worked out with the same code (an
       FFT) that Quake Explorer uses on real seismograms.
 

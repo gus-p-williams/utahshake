@@ -2,6 +2,28 @@
 
 Newest first. Each entry: date, decision, why, consequences.
 
+## 2026-11-25 (apps and on-plot hints)
+
+**D35. Show how to use a plot on the plot itself.** Sessions D5-band-hint and D8-waves-hint,
+from Gus's notes that students missed "drag on the spectrogram" and "click the map": an
+instruction placed under or beside a plot goes unseen. Each interactive plot carries its own
+short label in a blue pill ("↕ Drag up or down to choose a band of notes", "Click the map to
+move the quake", "↔ Drag to step through time"; "Tap" on touch screens), bold until the
+student first uses it, then faint, never covering data or labels; the same text goes to
+screen readers. Draggable edges get visible grips and a matching cursor. New apps follow
+this pattern. Open gap: moving Quake Waves' quake by keyboard.
+
+**D34. Build a Wiggle is a full app; All apps lists every app with a guide.** Gus,
+2026-11-24 (session D7-wiggle-app). Build a Wiggle is interactive, so it has a guide
+(`apps/build-a-wiggle.md`), an Apps-menu entry after Quake Waves, and a top bar whose Guide
+link opens that guide; it stays embedded on Frequencies, fading and sound. The All apps page
+lists every app with a guide in one grid, each card saying whether it uses real data or
+made-up waves (Quake Locator, Quake Explorer, Quake Waves, Build a Wiggle, then School Pulse);
+only cartoons without a guide (the P/S motion animation) stay under "Animations". Rule
+written into `adding-an-app.md` step 3. Standards for Build a Wiggle: PHYS.4.1 · PHYS.2.1
+(not CS 9/10.DA.3: students read the plots but don't make one). Supersedes the "no hub,
+listed under Animations" notes in D21 and D22.
+
 ## 2026-11-24 (Quake Explorer; planning documents; teacher cards)
 
 **D33. Point students to quakes with a clear S.** Gus, 2026-11-24 (session D6-clear-s). Each

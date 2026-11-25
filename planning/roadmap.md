@@ -96,8 +96,9 @@ Built and merged 2026-11-24 (decisions D22–D25; plan and Phase 0 results:
 - [x] D. Distant quakes: P/S picks, S − P → distance from an iasp91 table, travel-time chart.
 - [x] Offline samples for all four (2.4 MB, `explorer` list).
 - [x] Docs: hub/guide, three science pages, four activity cards, standards, developer notes.
-- [x] Build a Wiggle: cartoon of sine waves adding up and the spectrum finding each one,
-      embedded on Frequencies, fading and sound (no hub; listed under Animations).
+- [x] Build a Wiggle: sine waves adding up and the spectrum finding each one; a full app
+      with its own guide since 2026-11-24 (D34), also embedded on Frequencies, fading and
+      sound.
 - [ ] A person listens to B's sound on a school device (checked only in code so far).
 - [ ] A classroom trial with a teacher (each investigation's 15-minute version).
 

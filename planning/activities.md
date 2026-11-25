@@ -791,9 +791,10 @@ personal phone (Appendix C).
 
 - **Apps:** All apps; [Quake Locator](https://gus-p-williams.github.io/utahshake/apps/wave-race/);
   [Quake Explorer](https://gus-p-williams.github.io/utahshake/apps/quake-explorer/) (four
-  investigations); [Quake Waves](https://gus-p-williams.github.io/utahshake/apps/quake-waves/),
-  each with its guide. All apps also has two animations, How P and S waves move rock and
-  Build a Wiggle, and lists School Pulse as coming soon.
+  investigations); [Quake Waves](https://gus-p-williams.github.io/utahshake/apps/quake-waves/);
+  [Build a Wiggle](https://gus-p-williams.github.io/utahshake/apps/build-a-wiggle/), each with
+  its guide. All apps also has one animation, How P and S waves move rock, and lists School
+  Pulse as coming soon.
 - **The Science:** eight pages: Seismic waves; Reading a seismogram; Distance from S minus P;
   Locating a quake; Travel times and Earth's layers; Frequencies, fading and sound; Which way
   the ground moves; Our stations and data.
