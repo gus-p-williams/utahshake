@@ -4,6 +4,19 @@ Newest first. Each entry: date, decision, why, consequences.
 
 ## 2026-11-25 (apps and on-plot hints)
 
+**D42. A little visual interest, drawn from the apps.** Gus, 2026-11-25 (session
+D15-web-design; he chose from four options shown as local builds). Every card on All apps
+gets a small picture of what the app shows; the four main apps also get a small square one
+on the home page; the home page gets one banner under its intro (Utah, the five schools, the
+Junction M3.3's P and S fronts and its real seismogram at WCU, captioned with the UU and USGS
+credit). No icons on The Science or Teachers pages; layout and wording unchanged. The pictures
+are made by `tools/figures/site-graphics.mjs` with the apps' own code and records stored with
+the site (D16), live in `docs/img/graphics/`, and are included inline with
+`pymdownx.snippets` so they follow light and dark mode; they are aria-hidden and one line with
+no trailing newline. `tests/site-graphics.test.js` enforces this, including that every All apps
+card has a picture (rule in `adding-an-app.md` step 3); sources in
+`planning/site-graphics-sources.md`.
+
 **D41. Magnitude: a science page now, and investigation E as a prototype tab in Quake
 Explorer.** Gus, 2026-11-25, after the review `planning/review-magnitude.md` (v2) and two
 independent critiques (`critique-r3-claude.md`, `critique-r4-codex.md`), at Cleat's request.

@@ -87,7 +87,9 @@ mkdocs.yml
 requirements-docs.txt
 .github/workflows/      pages.yml (build docs + app, deploy)
 docs/
-  index.md              landing page = site map (cards per section)
+  index.md              landing page = site map (cards per section), banner (D42)
+  img/graphics/         site pictures (All apps thumbnails, home banner), from
+                        tools/figures/site-graphics.mjs, included with snippets (D42)
   app/                  the static apps (index.html, js/, css/, vendor/, data/samples/)
   apps/                 index.md (the one app list) + one hub page per app (D17)
   theory/               "The Science": index.md, primer pages, stations.md (data/credits)
@@ -100,7 +102,7 @@ planning/               overview (evaluation.md), activities (questions doc), Wo
                         reviews (not on site)
 package.json            npm test (node --test), npm run serve
 tests/                  node --test for js logic + real-data sample checks
-tools/                  vendor/ (esbuild bundles), samples/, figures/ (guide images),
+tools/                  vendor/ (esbuild bundles), samples/, figures/ (guide images, site graphics),
                         quake-explorer/ (science checks, answer key, samples),
                         planning-docx/ (Word copies), serve.mjs
 ```
@@ -180,7 +182,7 @@ sequences the work and integrates it.
   | P5-magnitude-review | Feasibility review for magnitude (Cleat's request): what students learn, Utah's magnitude methods, a check on real data, where it belongs (Quake Locator, Quake Explorer, or its own app) (`planning/review-magnitude.md`) | main folder, `planning/` | v2 done, committed; critiques R3 (Claude, `critique-r3-claude.md`) and R4 (Codex, `critique-r4-codex.md`) committed |
   | D13-magnitude | (The P5 session, new job; D41) Phase 1: Wood-Anderson module and science page "How big was it?"; phase 2: investigation E as a prototype tab in Quake Explorer | `-magpage` on `magnitude-page`, then `-qemag` on `qe-magnitude` | phase 1 merged 2026-11-25; phase 2 active |
   | D14-spec-sync | Bring the demo-tree generator and comments in line with data spec 1.1; a conformance checker for DRI's server (`tools/uhsn-test/check-tree.mjs`) | `-specsync`, branch `spec-sync` | merged 2026-11-25 |
-  | D15-web-design | A little visual interest without losing the minimal design: options first (app-card thumbnails, a home graphic, index icons), then build what Gus picks | `-design`, branch `web-design` | active (Phase 0: options for Gus) |
+  | D15-web-design | A little visual interest without losing the minimal design: options first (app-card thumbnails, a home graphic, index icons), then build what Gus picks | `-design`, branch `web-design` | merged 2026-11-25 (D42) |
 
   Review process for planning studies (Gus, 2026-11-25): authors (P) write; two independent
   critics (R, one in Claude and one in Codex) review without seeing each other's critique;
@@ -430,6 +432,15 @@ out of the menus:
   as `uuss-magnitudes.json` beside each sample); `tools/quake-explorer/magnitude-check.mjs`.
   Standards PHYS.2.1 · ESS.4.1 · CS 9/10.DA.3 · CS 11/12.DA.1 (crosswalk `#magnitude`).
   Quake Explorer's SGU note now covers Dec 2023–May 2024. `npm test` = 390; site check 43.
+- 2026-11-25: **Site graphics merged** (D42, session D15-web-design; Gus chose from four
+  local builds): a small picture on every All apps card and on the home page's four main
+  apps, and one banner under the home intro (Utah, the five schools, the Junction M3.3's P and
+  S fronts and its seismogram at WCU, with the UU/USGS credit). Drawn by
+  `tools/figures/site-graphics.mjs` from the apps' own code (D16) into `docs/img/graphics/`,
+  inlined with `pymdownx.snippets` (new in mkdocs.yml) so they follow light and dark;
+  `tests/site-graphics.test.js` requires a picture for every All apps card (adding-an-app.md
+  step 3); sources in `planning/site-graphics-sources.md`. At the merge M1 changed the School
+  Shake Viewer's "for adult testers" to "being tested" (D38). `npm test` = 395; site check 43.
 
 ## Next steps
 

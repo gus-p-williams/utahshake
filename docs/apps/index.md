@@ -112,7 +112,7 @@ collects nothing: your results stay on your device until you send them.
 
     --8<-- "img/graphics/thumb-shake-viewer.svg"
 
-    *Prototype, for adult testers. Real data: University of Utah stations, a Shake's day file,
+    *Prototype, being tested. Real data: University of Utah stations, a Shake's day file,
     or a test folder in the UHSN data layout.*
 
     A day of one seismometer on one page: a 24-hour helicorder, a zoom with its spectrogram,

@@ -1,7 +1,7 @@
 # School Shake Viewer
 
 A day of one seismometer on one page, with your own notes on it: bells, buses, a game, a drop
-experiment, a quake. It is a prototype for adult testers, to try now and to choose what the
+experiment, a quake. It is a prototype being tested, to try now and to choose what the
 school version should do.
 
 [Open the School Shake Viewer](../app/shake-viewer/index.html){ .md-button .md-button--primary }
@@ -21,7 +21,7 @@ school version should do.
     - **The science:** [Beyond one seismogram](../theory/plots.md) (the helicorder and the
       seismic carpet) · [Reading a seismogram](../theory/seismograms.md) ·
       [Frequencies, fading and sound](../theory/frequencies.md) (the spectrogram)
-    - **For teachers:** none yet: a prototype for adult testers. Activity cards come once Dale
+    - **For teachers:** none yet: a prototype being tested. Activity cards come once Dale
       and Cleat choose the school Shake activities.
     - **Data:** [Our stations and data](../theory/stations.md). A file you open stays on your
       device.
