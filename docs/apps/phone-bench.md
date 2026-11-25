@@ -1,14 +1,15 @@
 # Phone Bench
 
 A one-page test of how a phone's browser reads its motion sensor and microphone. It is a
-prototype for adult testers: trial T1 of the phone activities.
+prototype being tested: trial T1 of the phone activities.
 
 [Open Phone Bench](../app/phone-bench/index.html){ .md-button .md-button--primary }
 
-!!! warning "For adult testers, not for classrooms"
-    This page is for Gus, Dale, Cleat and other adults testing their own phones. It is not a
-    classroom activity: classroom phone use needs the district's policy under Utah's phone law
-    (SB 69, 2026), and no student should be asked to use a personal phone.
+!!! warning "A prototype, not ready for classrooms yet"
+    Built for Gus, Dale, Cleat and other adults testing their own phones. Using it with
+    students is each school's decision under its own rules: classroom phone use needs the
+    district's policy under Utah's phone law (SB 69, 2026), and no student should be asked to
+    use a personal phone.
 
 !!! abstract "At a glance"
     - **You will:** lay a phone flat on a table, press Start, wait 30 seconds, tap the table 5
@@ -20,7 +21,7 @@ prototype for adult testers: trial T1 of the phone activities.
     - **The science:** none yet. The questions it answers are trial T1 in the
       [classroom activities document](https://github.com/gus-p-williams/utahshake/blob/main/planning/activities.md#appendix-d-trials-before-committing)
       (a planning file on GitHub).
-    - **For teachers:** none yet: a prototype for adult testers. Activity cards come if the
+    - **For teachers:** none yet: a prototype being tested. Activity cards come if the
       phone activities go ahead.
     - **Data:** only this device's own sensors. Nothing leaves the device unless you send it.
     - **For developers:** [Phone Bench notes](../developers/phone-bench.md)

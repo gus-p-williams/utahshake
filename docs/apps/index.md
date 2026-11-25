@@ -76,13 +76,13 @@ collects nothing: your results stay on your device until you send them.
 
 - **Phone Bench**
 
-    *Prototype, for adult testers. No station data: it reads this device's own sensors.*
+    *Prototype, being tested. No station data: it reads this device's own sensors.*
 
     A one-page test for trial T1 of the phone activities. It measures how a phone's browser
     reads the motion sensor: readings per second and their timing jitter, the rounding step
     of the readings, the noise at rest, and taps on the table. It also shows how the
     permission prompt behaves. An optional part checks the microphone's sample rate, also on
-    a Chromebook or laptop. Not a classroom activity: phones in class need the district's
+    a Chromebook or laptop. Not ready for classrooms yet; phones in class need the district's
     policy (Utah's phone law, SB 69, 2026).
 
     **Test:** on an iPhone or iPad (Safari) and an Android phone (Chrome). Lay the phone

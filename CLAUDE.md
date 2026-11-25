@@ -176,7 +176,7 @@ sequences the work and integrates it.
   | R2-app-critique | The same critique, independently, in Codex (`planning/critique-r2-codex.md`) | read-only except its file | done, committed |
   | D10-phone-bench | An "In development: please test" category (All apps, Apps menu, Prototype badge, tests); the phone bench recorder for trial T1; rounding explained in its guide; a "How small a shake can it see?" section on Reading a seismogram (phone vs Shake vs broadband: step size, self-noise, frequency range) | `-bench`, branch `phone-bench` | merged 2026-11-25 (D36) |
   | D11-viewer-proto | A file-first School Shake viewer prototype under "In development" (day files, UU stand-in days, spec-layout test files; helicorder, spectrogram, noise, annotations) | `-viewer`, branch `viewer-proto` | active |
-  | D12-phyphox | Teacher page on phyphox for clubs, research and old classroom phones (why it is better, how to install, why not the default; an Open-in-phyphox link if it works) | `-phyphox`, branch `phyphox` | active |
+  | D12-phyphox | Teacher page on phyphox for clubs, research and old classroom phones (why it is better, how to install, why not the default; an Open-in-phyphox link if it works) | `-phyphox`, branch `phyphox` | merged 2026-11-25 (D38) |
   | P5-magnitude-review | Feasibility review for magnitude (Cleat's request): what students learn, Utah's magnitude methods, a check on real data, where it belongs (Quake Locator, Quake Explorer, or its own app) (`planning/review-magnitude.md`) | main folder, `planning/` | active; then critics R3 (Claude) and R4 (Codex) |
 
   Review process for planning studies (Gus, 2026-11-25): authors (P) write; two independent
@@ -392,6 +392,13 @@ out of the menus:
   DRI and the schools handle district approvals (53G-7-228); the site is public and schools
   decide instructional use; phyphox for clubs and research. Overview fixed (R277-487 not
   being amended; rsudp not a forwarder) and its Word copy rebuilt.
+- 2026-11-25: **phyphox teacher page merged** (session D12-phyphox; D38): "Phones with an
+  app: phyphox" (`teachers/phyphox.md`): why it is the better instrument, why our browser
+  pages are the default, old classroom phones, installing, CSV export, the rules; an "Open
+  in phyphox" button (`phyphox://` link) with a ready-made experiment file, beside "Get
+  phyphox". Linked from the Teachers page, the Phone Bench guide and "How small a shake can
+  it see?". Prototype pages reworded to "not ready for classrooms yet" (D38). `npm test` =
+  284; site check 40 pages. Not yet tried on a phone.
 
 ## Next steps
 
@@ -411,7 +418,11 @@ out of the menus:
       DRI IT.** After DRI picks the data path, a later session writes the polished "connect
       your school's Shake" guide (P3's draft steps are in the review, section 6).
    e. D11-viewer-proto (branch `viewer-proto`): a file-first School Shake viewer under
-      "In development". D12-phyphox (branch `phyphox`): the phyphox teacher page (D38).
+      "In development"; finishing the change to load nothing on open ("Try the example" opens
+      the bundled HEB day). Then M1 merges. P3: data spec version 1.1 (nine gaps D11 found).
+      Gus: try the phyphox page's "Open in phyphox" on an iPhone and an Android phone,
+      through to the CSV export. Open: a QR code for the experiment (needs the qrcode package
+      as a dev dependency in tools/figures; Gus to allow).
    f. Testers (Gus, Dale, Cleat): run Phone Bench on your own phones (iPhone and Android)
       and send Gus the results; this is trial T1 (T1a). Students may use it where a school
       agrees (D38); Wasatch Academy is the proposed first class trial (T1b).
