@@ -142,8 +142,8 @@ official value is 3.3: the average of 30 stations, each with its own correction.
   <figcaption>Figure 3. The Junction quake at every station the University of Utah measured
   10–300 km away. Top: the swings fade with distance, and Richter's table follows them. Bottom:
   after the table, distance no longer matters; the middle value, 3.29, matches the official
-  3.30. These numbers are in [junction-swings.csv](data/junction-swings.csv) for the
-  [Make it](#make-it-fit-your-own-fading-curve) task. Swings: the University of Utah's
+  3.30. These numbers are in <a href="../data/junction-swings.csv">junction-swings.csv</a> for
+  the <a href="#make-it-fit-your-own-fading-curve">Make it</a> task. Swings: the University of Utah's
   published amplitudes via USGS ComCat; stations: network UU (doi:10.7914/SN/UU).</figcaption>
 </figure>
 
