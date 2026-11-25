@@ -176,7 +176,7 @@ sequences the work and integrates it.
   | R2-app-critique | The same critique, independently, in Codex (`planning/critique-r2-codex.md`) | read-only except its file | done, committed |
   | D10-phone-bench | An "In development: please test" category (All apps, Apps menu, Prototype badge, tests); the phone bench recorder for trial T1; rounding explained in its guide; a "How small a shake can it see?" section on Reading a seismogram (phone vs Shake vs broadband: step size, self-noise, frequency range) | `-bench`, branch `phone-bench` | merged 2026-11-25 (D36) |
   | D11-viewer-proto | A file-first School Shake viewer prototype under "In development" (day files, UU stand-in days, spec-layout test files; helicorder, spectrogram, noise, annotations) | `-viewer`, branch `viewer-proto` | active |
-  | D12-phyphox | Teacher page on phyphox for clubs, research and old classroom phones (why it is better, how to install, why not the default; an Open-in-phyphox link if it works) | `-phyphox`, branch `phyphox` | prompt given |
+  | D12-phyphox | Teacher page on phyphox for clubs, research and old classroom phones (why it is better, how to install, why not the default; an Open-in-phyphox link if it works) | `-phyphox`, branch `phyphox` | active |
 
   Review process for planning studies (Gus, 2026-11-25): authors (P) write; two independent
   critics (R, one in Claude and one in Codex) review without seeing each other's critique;
@@ -418,9 +418,10 @@ out of the menus:
       corrections in `planning/review-phone-recorder.md` section 6.3 (rounding and permission
       facts in Appendices B1 and B6, the P3 ring size, old-phone requirements, the law in
       Appendix C including 53G-7-228, trials T1a/T1b in Appendix D).
-   h. Open from P4 (section 6.4), for Gus, Dale and Cleat: who owns Phone Bench after T1 and
-      who at DRI leads the trials; whether to build the P6 bounce timer for Chromebooks; the
-      proposed answer dates and defaults in its section 5.7.
+   h. From P4 (section 6.4): **Gus owns Phone Bench and trial T1 for now** (may change for
+      later tests); T2 and T3 get a DRI lead only if Dale and Cleat want phone activities.
+      The P6 bounce timer (Chromebook microphone) **waits for Dale and Cleat's answer**
+      (Gus, 2026-11-25). Still open: the proposed answer dates and defaults in P4's 5.7.
 2. **Open questions for Gus / DRI:**
    a. Which Raspberry Shake model is at each school (they may differ)? The seismometer figure
       on Reading a seismogram is a generic geophone.
