@@ -113,7 +113,7 @@ identifies them (Utah R277-487).
 6. **Science pages.** If the card is the main lesson for a science page, the page can link to it.
    **Phone cards:** any card that uses phones reminds teachers that a browser rounds each
    motion reading (0.1 m/s² in Chrome), so small shakes vanish or flicker, and links to
-   [How small a shake can it see?](../theory/seismograms.md#how-small-a-shake-can-it-see) (D36).
+   [How small a shake can it see?](../theory/seismograms.md#how-small-a-shake) (D36).
 7. **Checks.** From the repository root:
 
     ```bash
