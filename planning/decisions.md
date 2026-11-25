@@ -4,6 +4,22 @@ Newest first. Each entry: date, decision, why, consequences.
 
 ## 2026-11-25 (apps and on-plot hints)
 
+**D41. Magnitude: a science page now, and investigation E as a prototype tab in Quake
+Explorer.** Gus, 2026-11-25, after the review `planning/review-magnitude.md` (v2) and two
+independent critiques (`critique-r3-claude.md`, `critique-r4-codex.md`), at Cleat's request.
+Students estimate a local magnitude with UUSS's own recipe: a simulated Wood-Anderson record
+(magnification 2,800, damping 0.8), the biggest swing on the horizontal components, Richter's
+1958 distance table, the middle value of the stations. Out of sample they land "usually
+within about 0.3" of UUSS's ML, the wording the student page uses (numbers in the teacher
+notes). ML, duration and moment magnitude are different estimates, never averaged; the Check
+compares with ML, falling back to the event magnitude when ComCat has no station data. Built
+in two phases by session D13-magnitude: (1) the shared Wood-Anderson module and a science page
+"How big was it?" after Frequencies, fading and sound; (2) "E. How big was it?" as a
+prototype tab in Quake Explorer, listed under In development, with no activity card until it
+graduates after a trial. D22, D23 (which left magnitude to a possible future app) and E11
+change when E graduates. UUSS is not asked to confirm the constants. School-Shake magnitudes
+stay an open research question (calibration over 2–4 years, quakes from several areas).
+
 **D40. The phyphox page is mothballed until one of our apps reads phyphox recordings.** Gus,
 2026-11-25. Our site did nothing with phyphox's data (there is no live link between a web
 page and the app; recordings move only as exported files), so the page only told teachers the
