@@ -94,7 +94,10 @@ function logText(t) {
       last = { at: r.s, text: `The S wave reached station ${r.name} after ${r.s.toFixed(1)} s: S − P = ${(r.s - r.p).toFixed(1)} s, so the quake is ${r.dist.toFixed(0)} km away.` };
     }
   }
-  if (!last) return t > 0 ? 'The quake starts: P and S waves leave it at the same moment.' : 'Press Play to start the quake.';
+  if (!last) {
+    if (t > 0 || sim.playing) return 'The quake starts: P and S waves leave it at the same moment.';
+    return keyPlayTimer ? 'The quake starts when you stop pressing the arrow keys.' : 'Press Play to start the quake.';
+  }
   const allCircles = sim.circles && sim.rows.every((r) => t >= r.s + 2.5);
   return allCircles ? 'All four circles cross at one point: the quake. That is how Quake Locator locates quakes.' : last.text;
 }
@@ -483,6 +486,7 @@ function frame(now) {
 function setPlaying(on) {
   sim.playing = on;
   clearTimeout(keyPlayTimer);
+  keyPlayTimer = 0;
   cancelAnimationFrame(frameId); // one animation loop at a time
   $('play').textContent = on ? '❚❚ Pause' : sim.t >= sim.duration ? '▶ Play again' : '▶ Play';
   if (on) {
@@ -493,18 +497,33 @@ function setPlaying(on) {
 }
 
 /**
- * Move the quake to `quake` (km) and go back to the start, paused; the caller starts it.
- * Screen readers hear the new place (the map's hidden status line).
+ * Move the quake to `quake` (km) and go back to the start. A click plays at once; the arrow
+ * keys play once they stop for a moment (the next key drops the waiting play).
+ * @param {{x:number, y:number}} quake
+ * @param {{byKey?: boolean, atEdge?: boolean, announce?: boolean}} [o]
+ *   announce: screen readers hear the new place (the map's hidden status line)
  */
-function placeQuake(quake, atEdge = false) {
+function placeQuake(quake, { byKey = false, atEdge = false, announce = true } = {}) {
   sim.quake = quake;
   sim.moved = true;
   setup();
   sim.t = 0;
-  setPlaying(false);
+  if (byKey) {
+    setPlaying(false);
+    keyPlayTimer = setTimeout(() => setPlaying(true), KEY_PLAY_DELAY_MS);
+  } else {
+    setPlaying(true);
+  }
   draw();
-  $('map-pos').textContent = describeQuake(quake, STATIONS, atEdge);
+  if (announce) announcePlace(atEdge);
 }
+
+/** Tell screen readers where the quake is (the map's hidden status line). */
+function announcePlace(atEdge = false) {
+  $('map-pos').textContent = describeQuake(sim.quake, STATIONS, atEdge);
+  unannounced = false;
+}
+let unannounced = false; // a held arrow key moved the quake without saying where (see keyup)
 
 function init() {
   setupEmbed();
@@ -527,21 +546,30 @@ function init() {
     const ky = T.kmY(e.clientY - rect.top);
     if (kx < 0 || kx > WORLD.w || ky < 0 || ky > WORLD.h) return;
     placeQuake({ x: kx, y: ky });
-    setPlaying(true);
+  });
+  // A click moves the quake but doesn't hand the map the keys: as before, the arrow keys go
+  // on scrolling the page (the Locating page too). Tab gives the map the keys.
+  mapCanvas.addEventListener('mousedown', (e) => {
+    if (document.activeElement === mapCanvas) return;
+    e.preventDefault();
+    document.activeElement?.blur?.();
   });
 
   // Keyboard: each arrow key moves the quake and says where it is; the quake plays from
-  // its new place once the keys stop for a moment (holding a key slides it along).
+  // its new place once the keys stop for a moment. Holding a key slides the quake along
+  // quietly, and screen readers hear where it stopped when the key comes up.
   mapCanvas.addEventListener('keydown', (e) => {
     if (e.altKey || e.ctrlKey || e.metaKey) return;
     const m = moveQuake(sim.quake, e.key, e.shiftKey, WORLD);
     if (!m) return;
     e.preventDefault(); // no page scrolling
     sim.keyMoved = true;
-    placeQuake(m.quake, m.atEdge); // pauses, which also drops the play from the last key
-    keyPlayTimer = setTimeout(() => setPlaying(true), KEY_PLAY_DELAY_MS);
+    sim.keyFocus = true; // the keys are in use: the label names them
+    placeQuake(m.quake, { byKey: true, atEdge: m.atEdge, announce: !e.repeat });
+    if (e.repeat) unannounced = true;
   });
-  // The label names the keys only when the map was reached by keyboard (a click doesn't count).
+  mapCanvas.addEventListener('keyup', () => { if (unannounced) announcePlace(); });
+  // The label names the keys only when the map was reached by keyboard (Tab).
   mapCanvas.addEventListener('focus', () => {
     sim.keyFocus = mapCanvas.matches(':focus-visible');
     if (sim.keyFocus) draw();
@@ -551,7 +579,6 @@ function init() {
     sim.keyFocus = false;
     draw();
   });
-  $('map-pos').textContent = describeQuake(sim.quake, STATIONS);
   new ResizeObserver(() => draw()).observe(mapCanvas);
   new ResizeObserver(() => draw()).observe(traceCanvas);
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => draw());

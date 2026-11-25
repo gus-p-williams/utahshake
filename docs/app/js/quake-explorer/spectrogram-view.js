@@ -72,6 +72,38 @@ export function firstThatFits(choices, maxW, measure) {
   return choices.find((t) => measure(t) <= maxW) ?? choices[choices.length - 1];
 }
 
+/** 3 significant figures: 0.0512, 1.25, 12.5, 125. */
+const round3 = (f) => +f.toPrecision(3);
+
+/**
+ * A band (Hz) kept on a plot that shows range.lo to range.hi Hz in steps of df: each edge
+ * moved onto the plot (and above 0 Hz, since a band-pass needs lo > 0), to 3 figures.
+ * @param {number} lo
+ * @param {number} hi
+ * @param {{lo:number, hi:number}} range frequencies on the plot's axis, Hz
+ * @param {number} [df] the spectrogram's frequency step, Hz
+ */
+export function clampBandTo(lo, hi, range, df = 0) {
+  const floor = Math.max(range.lo, df);
+  return { lo: round3(Math.max(floor, Math.min(lo, range.hi))), hi: round3(Math.max(floor, Math.min(hi, range.hi))) };
+}
+
+/**
+ * The band a page should use with a plot: the one drawn on it, so the plot's edges, the
+ * readouts and the filter all say the same. If the plot squashes the band to nothing (a band
+ * above the top of a plot from a slower station), the page's starting band instead.
+ * "All notes" (no lo or hi) stays as it is.
+ * @param {{lo:number|null, hi:number|null}} band
+ * @param {{lo:number, hi:number}} range frequencies on the plot's axis, Hz
+ * @param {number} df the spectrogram's frequency step, Hz
+ * @param {{lo:number, hi:number}} start the page's starting band
+ */
+export function bandOnPlot(band, range, df, start) {
+  if (!band?.lo || !band?.hi) return band;
+  const b = clampBandTo(band.lo, band.hi, range, df);
+  return b.hi > b.lo ? b : clampBandTo(start.lo, start.hi, range, df);
+}
+
 /**
  * Viridis (matplotlib's default colour map), 12 colours from quiet to loud.
  * It gets steadily lighter, so it still reads correctly for colour-blind
@@ -99,9 +131,6 @@ export function buildColourLut(anchors = VIRIDIS, n = 256) {
 }
 
 const LUT = buildColourLut();
-
-/** 3 significant figures: 0.0512, 1.25, 12.5, 125. */
-const round3 = (f) => +f.toPrecision(3);
 
 /** Frequency label: 0.05, 2.5, 19.5, 120. */
 function fmtHz(f) {
@@ -298,10 +327,11 @@ export class SpectrogramView {
   _fOfY(y) { return this._fOfFrac(1 - y / this._plotH); }
 
   _clampBand(lo, hi) {
-    const r = this._fRange();
-    const floor = Math.max(r.lo, this.spec?.df ?? 0); // a band-pass needs lo > 0
-    return { lo: round3(Math.max(floor, Math.min(lo, r.hi))), hi: round3(Math.max(floor, Math.min(hi, r.hi))) };
+    return clampBandTo(lo, hi, this._fRange(), this.spec?.df ?? 0);
   }
+
+  /** Frequencies on the axis, bottom to top (Hz), for bandOnPlot. */
+  freqRange() { return this._fRange(); }
 
   // --- the picture -------------------------------------------------------
   /**

@@ -6,7 +6,7 @@
 // so its notes become audible. The check compares a near and a far station (high notes fade
 // first) and, for the Leamington pair, a quarry blast with an earthquake of the same size.
 import { TraceView } from '../ui/trace-view.js';
-import { SpectrogramView, followTraceView, fmtBandHz as fHz } from './spectrogram-view.js';
+import { SpectrogramView, followTraceView, bandOnPlot, fmtBandHz as fHz } from './spectrogram-view.js';
 import { QuakeAudio } from './audio.js';
 import { loadStation, trimToData } from './data.js';
 import { fillStationSelect } from './station-select.js';
@@ -157,10 +157,10 @@ export function createB(ctx) {
     if (isDistant() && band.hi > 2) band = { ...DISTANT_BAND };
     sv.setLogFreq(isDistant());
     sv.setData(spec, { startMs: st.startMs, refMs: st.refMs, fromSec: start, toSec: start + dur });
+    // The band is the one drawn on the plot: the readouts, the record's label, the sound and
+    // the CSV use the same numbers as its edges.
+    band = bandOnPlot(band, sv.freqRange(), spec.df, isDistant() ? DISTANT_BAND : Q.frequencies.filter);
     sv.setBand(band.lo, band.hi);
-    // The band is what the plot shows (it keeps the edges on the plot): the readouts, the
-    // record's label, the sound and the CSV use the same numbers as the edges drawn on it.
-    if (sv.band) band = { ...sv.band };
     redraw(false);
     const school = ctx.isSchool(key.split('.')[1]) ? ' A school stand-in.' : '';
     $('b-note').textContent = `${Math.round(st.distKm).toLocaleString('en-US')} km from the quake.${school}` +

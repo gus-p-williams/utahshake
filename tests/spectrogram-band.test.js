@@ -3,8 +3,21 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  edgeGrabPx, bandEdgeAt, fmtBandHz, bandLabel, firstThatFits,
+  edgeGrabPx, bandEdgeAt, fmtBandHz, bandLabel, firstThatFits, clampBandTo, bandOnPlot,
 } from '../docs/app/js/quake-explorer/spectrogram-view.js';
+import { stft, suggestStft, fMinReaching } from '../docs/app/js/lib/spectral.js';
+
+// B's distant-quake spectrogram: an hour at 20 samples/s, as inv-b.js computes it.
+function distantSpec(reachLow) {
+  const sr = 20;
+  const dur = 1860;
+  const opt = suggestStft(sr, dur);
+  if (reachLow) opt.fMin = fMinReaching(0.02, sr, opt);
+  const s = stft(new Float64Array(sr * dur).map((_, i) => Math.sin(i / 7)), sr, opt);
+  return { range: { lo: s.freqs[0], hi: s.freqs[s.nF - 1] }, df: s.df }; // the log axis's range
+}
+const DISTANT = { lo: 0.02, hi: 1 };
+const LOCAL = { lo: 1, hi: 10 };
 
 test('a finger gets a wider grab zone than a mouse; unknown pointers count as a mouse', () => {
   assert.ok(edgeGrabPx('touch') > edgeGrabPx('pen'));
@@ -84,4 +97,35 @@ test('firstThatFits: the longest text that fits, or the shortest when none does'
   assert.equal(firstThatFits(choices, 70, measure), 'shorter one');
   assert.equal(firstThatFits(choices, 30, measure), 'tiny');
   assert.equal(firstThatFits(choices, 5, measure), 'tiny');
+});
+
+test('B, distant quake: the band\'s bottom edge on the plot reads 0.020 Hz, as in the panel', () => {
+  const { range, df } = distantSpec(true);
+  const b = bandOnPlot({ ...DISTANT }, range, df, DISTANT);
+  assert.deepEqual(b, DISTANT, 'the filter keeps 0.02-1 Hz');
+  assert.equal(`${fmtBandHz(b.lo)}–${fmtBandHz(b.hi)} Hz`, '0.020–1.0 Hz');
+  // The old plot started at its first step at or above 0.02 Hz, so the edge read 0.039 Hz.
+  const old = distantSpec(false);
+  assert.equal(fmtBandHz(clampBandTo(0.02, 1, old.range, old.df).lo), '0.039');
+});
+
+test('B: the band is kept on the plot, edges rounded to 3 figures', () => {
+  const range = { lo: 0, hi: 25 };
+  const df = 100 / 256;
+  assert.deepEqual(bandOnPlot({ ...LOCAL }, range, df, LOCAL), LOCAL, 'a local quake keeps 1-10 Hz');
+  assert.deepEqual(bandOnPlot({ lo: 0.1, hi: 30 }, range, df, LOCAL), { lo: 0.391, hi: 25 }, 'above 0 Hz, under the top');
+  assert.deepEqual(clampBandTo(2.34567, 8.7654, range, df), { lo: 2.35, hi: 8.77 });
+});
+
+test('B: a band the plot squashes to nothing goes back to the starting band', () => {
+  // 21-25 Hz chosen at a 100 samples/s station, then a 40 samples/s one (plot to 20 Hz).
+  const b = bandOnPlot({ lo: 21, hi: 25 }, { lo: 0, hi: 20 }, 40 / 128, LOCAL);
+  assert.deepEqual(b, LOCAL);
+  assert.ok(b.hi > b.lo);
+});
+
+test('B: "all notes" (no band) stays as it is', () => {
+  const none = { lo: null, hi: null };
+  assert.equal(bandOnPlot(none, { lo: 0, hi: 25 }, 0.39, LOCAL), none);
+  assert.equal(bandOnPlot(null, { lo: 0, hi: 25 }, 0.39, LOCAL), null);
 });
