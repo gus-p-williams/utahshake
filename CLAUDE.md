@@ -177,7 +177,7 @@ sequences the work and integrates it.
   | D10-phone-bench | An "In development: please test" category (All apps, Apps menu, Prototype badge, tests); the phone bench recorder for trial T1; rounding explained in its guide; a "How small a shake can it see?" section on Reading a seismogram (phone vs Shake vs broadband: step size, self-noise, frequency range) | `-bench`, branch `phone-bench` | merged 2026-11-25 (D36) |
   | D11-viewer-proto | A file-first School Shake viewer prototype under "In development" (day files, UU stand-in days, spec-layout test files; helicorder, spectrogram, noise, annotations) | `-viewer`, branch `viewer-proto` | merged 2026-11-25 (D39) |
   | D12-phyphox | Teacher page on phyphox for clubs, research and old classroom phones (why it is better, how to install, why not the default; an Open-in-phyphox link if it works) | `-phyphox`, branch `phyphox` | merged 2026-11-25 (D38); page mothballed (D40) |
-  | P5-magnitude-review | Feasibility review for magnitude (Cleat's request): what students learn, Utah's magnitude methods, a check on real data, where it belongs (Quake Locator, Quake Explorer, or its own app) (`planning/review-magnitude.md`) | main folder, `planning/` | active; then critics R3 (Claude) and R4 (Codex) |
+  | P5-magnitude-review | Feasibility review for magnitude (Cleat's request): what students learn, Utah's magnitude methods, a check on real data, where it belongs (Quake Locator, Quake Explorer, or its own app) (`planning/review-magnitude.md`) | main folder, `planning/` | v2 done, committed; critiques R3 (Claude, `critique-r3-claude.md`) and R4 (Codex, `critique-r4-codex.md`) committed |
 
   Review process for planning studies (Gus, 2026-11-25): authors (P) write; two independent
   critics (R, one in Claude and one in Codex) review without seeing each other's critique;
@@ -439,7 +439,14 @@ out of the menus:
    g. When the questions document is revised after Dale and Cleat reply, apply P4's
       corrections in `planning/review-phone-recorder.md` section 6.3 (rounding and permission
       facts in Appendices B1 and B6, the P3 ring size, old-phone requirements, the law in
-      Appendix C including 53G-7-228, trials T1a/T1b in Appendix D).
+      Appendix C including 53G-7-228, trials T1a/T1b in Appendix D), and add to question 9
+      that SGU's vertical channel also read 2–3 units low from December 2023 to May 2024
+      (P5); Quake Explorer's SGU note mentions only 2020.
+   i. Magnitude (P5 v2, critiques R3 and R4, all committed): recommended as a fifth Quake
+      Explorer investigation, "E. How big was it?", plus a science page "How big was it?"
+      after Frequencies. Students using UUSS's own recipe land within about 0.3 of the
+      official ML (out-of-sample, 5 stations: about 88%). Gus decides on E (it changes D23)
+      and on the page's open choices; the page can be built either way.
    h. From P4 (section 6.4): **Gus owns Phone Bench and trial T1 for now** (may change for
       later tests); T2 and T3 get a DRI lead only if Dale and Cleat want phone activities.
       The P6 bounce timer (Chromebook microphone) **waits for Dale and Cleat's answer**
