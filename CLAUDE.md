@@ -164,6 +164,7 @@ sequences the work and integrates it.
   | D6-clear-s | Point students to quakes with a clear S − P (Quake Explorer and Quake Locator) | `-band`, branch `clear-s` | merged 2026-11-24 (D33) |
   | D7-wiggle-app | Build a Wiggle becomes a full app (guide, Apps menu); All apps lists every app with a guide | `-wiggle`, branch `wiggle-app` | merged 2026-11-25 (D34) |
   | D8-waves-hint | Quake Waves: an on-map hint that clicking moves the quake (standalone and embedded) | `-band`, branch `waves-hint` | merged 2026-11-25 (D35) |
+  | D9-small-fixes | Quake Waves keyboard control; Quake Explorer B's low-edge label; overview Figure 3 | `-fixes`, branch `small-fixes` | to start |
 
   Retired before IDs: the figures sessions, the Quake Explorer session (merged, D22–D25).
 
@@ -356,9 +357,10 @@ out of the menus:
       activity cards; fixes to either document go back to `planning/` and its Word copy.
    c. Merged, no sessions at work: D1-cards (D29), D3-rename (D30), D5-band-hint, D2-plots
       (D31), D4-spelling (D32), D6-clear-s (D33), D7-wiggle-app (D34), D8-waves-hint (D35).
-      Remove their worktrees (`-cards`, `-rename`, `-plots`, `-spelling`, `-band`, `-wiggle`,
-      and the old `-qexp`) when nothing more is needed from them; the `-plots` and
-      `-spelling` ones hold large figure caches (3.4 GB, 0.7 GB).
+      Their worktrees and local branches were removed on 2026-11-25 (Gus), figure caches
+      included; only `main` is left. The empty folder `G:\GIT_Repo\2026_11_Shake-qexp`
+      stays until the process holding it closes. The branch `quake-explorer` is still on
+      GitHub (fully merged; delete it only with Gus's OK).
    d. Small follow-ups from the sessions: Quake Waves can't move the quake by keyboard (D35);
       the overview's Figure 3 (`planning/img/overview-quake-waves.png`) predates the map
       labels, so rerun `tools/planning-docx/overview-images.mjs qw` if the overview is
@@ -387,5 +389,4 @@ out of the menus:
    (update site_url/repo_url; the site is static, so any web server works). Optional: confirm
    SEEd wording against the current USBE PDF; ask UUSS about the S − P page's "beyond about 120 km" (the sample's
    far P picks suggest a crossover near 140–160 km; blocks plan figure S5).
-9. Clean up the old Quake Explorer worktree (`G:\GIT_Repo\2026_11_Shake-qexp`) once nothing
-   more is needed from it (`git worktree remove`).
+9. Delete the empty folder `G:\GIT_Repo\2026_11_Shake-qexp` once nothing holds it open.
