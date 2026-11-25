@@ -1,0 +1,1230 @@
+{
+ "event": "uu80162166",
+ "source": "USGS ComCat, UUSS phase-data QuakeML (University of Utah Seismograph Stations)",
+ "url": "https://earthquake.usgs.gov/product/phase-data/uu80162166/uu/1793632942930/quakeml.xml",
+ "productUpdated": "2026-11-02T15:22:22.930Z",
+ "made": "2026-11-25",
+ "command": "node tools/quake-explorer/sample-amplitudes.mjs qe-junction",
+ "notes": "amlMeters: UUSS stores the FULL peak-to-peak swing on its simulated Wood-Anderson (magnification 2,800, damping 0.8), in meters; swingMm is half of it, in millimeters, the number in the magnitude formula. weight 0: no station correction, not averaged.",
+ "network": [
+  {
+   "type": "Ml",
+   "value": 3.3,
+   "method": "RichterMl2",
+   "stationCount": 30,
+   "preferred": true
+  },
+  {
+   "type": "Md",
+   "value": 3.28,
+   "method": "HypoinvMd",
+   "stationCount": 29,
+   "preferred": false
+  }
+ ],
+ "amplitudes": [
+  {
+   "net": "C0",
+   "sta": "MOFF",
+   "loc": "00",
+   "cha": "HHE",
+   "amlMeters": 0.0013815,
+   "swingMm": 0.69075,
+   "stationML": 4.44,
+   "weight": 0
+  },
+  {
+   "net": "C0",
+   "sta": "MOFF",
+   "loc": "00",
+   "cha": "HHN",
+   "amlMeters": 0.002059,
+   "swingMm": 1.0295,
+   "stationML": 4.61,
+   "weight": 0
+  },
+  {
+   "net": "US",
+   "sta": "AHID",
+   "loc": "00",
+   "cha": "HH1",
+   "amlMeters": 0.00014631,
+   "swingMm": 0.073155,
+   "stationML": 3.19,
+   "weight": 1
+  },
+  {
+   "net": "US",
+   "sta": "AHID",
+   "loc": "00",
+   "cha": "HH2",
+   "amlMeters": 0.00011673,
+   "swingMm": 0.058365,
+   "stationML": 3.19,
+   "weight": 1
+  },
+  {
+   "net": "US",
+   "sta": "BW06",
+   "loc": "00",
+   "cha": "BH1",
+   "amlMeters": 0.000065443,
+   "swingMm": 0.032722,
+   "stationML": 3.23,
+   "weight": 1
+  },
+  {
+   "net": "US",
+   "sta": "BW06",
+   "loc": "00",
+   "cha": "BH2",
+   "amlMeters": 0.000085292,
+   "swingMm": 0.042646,
+   "stationML": 3.23,
+   "weight": 1
+  },
+  {
+   "net": "US",
+   "sta": "ELK",
+   "loc": "00",
+   "cha": "HH1",
+   "amlMeters": 0.000088808,
+   "swingMm": 0.044404,
+   "stationML": 2.9,
+   "weight": 1
+  },
+  {
+   "net": "US",
+   "sta": "ELK",
+   "loc": "00",
+   "cha": "HH2",
+   "amlMeters": 0.000064523,
+   "swingMm": 0.032262,
+   "stationML": 2.9,
+   "weight": 1
+  },
+  {
+   "net": "US",
+   "sta": "MVCO",
+   "loc": "00",
+   "cha": "HH1",
+   "amlMeters": 0.0013709,
+   "swingMm": 0.68545,
+   "stationML": 4.14,
+   "weight": 0
+  },
+  {
+   "net": "US",
+   "sta": "MVCO",
+   "loc": "00",
+   "cha": "HH2",
+   "amlMeters": 0.00093771,
+   "swingMm": 0.46886,
+   "stationML": 3.97,
+   "weight": 0
+  },
+  {
+   "net": "US",
+   "sta": "TPNV",
+   "loc": "00",
+   "cha": "BH1",
+   "amlMeters": 0.00015919,
+   "swingMm": 0.079595,
+   "stationML": 3.21,
+   "weight": 1
+  },
+  {
+   "net": "US",
+   "sta": "TPNV",
+   "loc": "00",
+   "cha": "BH2",
+   "amlMeters": 0.00027037,
+   "swingMm": 0.13518,
+   "stationML": 3.21,
+   "weight": 1
+  },
+  {
+   "net": "US",
+   "sta": "WUAZ",
+   "loc": "00",
+   "cha": "BH1",
+   "amlMeters": 0.0021748,
+   "swingMm": 1.0874,
+   "stationML": 4.14,
+   "weight": 0
+  },
+  {
+   "net": "US",
+   "sta": "WUAZ",
+   "loc": "00",
+   "cha": "BH2",
+   "amlMeters": 0.0025132,
+   "swingMm": 1.2566,
+   "stationML": 4.2,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "BEID",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.00021487,
+   "swingMm": 0.10744,
+   "stationML": 3.63,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "BEID",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.00026783,
+   "swingMm": 0.13392,
+   "stationML": 3.73,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "BGU",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.00026142,
+   "swingMm": 0.13071,
+   "stationML": 3.07,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "BGU",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.00017778,
+   "swingMm": 0.08889,
+   "stationML": 3.07,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "BMUT",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.00019415,
+   "swingMm": 0.097075,
+   "stationML": 3.49,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "BMUT",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.00020411,
+   "swingMm": 0.10205,
+   "stationML": 3.51,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "BSUT",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.0005479,
+   "swingMm": 0.27395,
+   "stationML": 3.34,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "BSUT",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.00041668,
+   "swingMm": 0.20834,
+   "stationML": 3.22,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "CCUT",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.0018244,
+   "swingMm": 0.9122,
+   "stationML": 3.4,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "CCUT",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.0020727,
+   "swingMm": 1.0363,
+   "stationML": 3.4,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "CTU",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.0003045,
+   "swingMm": 0.15225,
+   "stationML": 3.17,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "CTU",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.00029103,
+   "swingMm": 0.14552,
+   "stationML": 3.17,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "CVRU",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.004565,
+   "swingMm": 2.2825,
+   "stationML": 3.24,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "CVRU",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.0034698,
+   "swingMm": 1.7349,
+   "stationML": 3.24,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "ECUT",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.0021897,
+   "swingMm": 1.0949,
+   "stationML": 3.3,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "ECUT",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.0031027,
+   "swingMm": 1.5514,
+   "stationML": 3.3,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "FOR1",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.0047805,
+   "swingMm": 2.3902,
+   "stationML": 3.25,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "FOR1",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.0024566,
+   "swingMm": 1.2283,
+   "stationML": 3.25,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "FOR6",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.0097169,
+   "swingMm": 4.8585,
+   "stationML": 3.29,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "FOR6",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.010517,
+   "swingMm": 5.2585,
+   "stationML": 3.32,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "FPU",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.00029524,
+   "swingMm": 0.14762,
+   "stationML": 3.27,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "FPU",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.00029059,
+   "swingMm": 0.1453,
+   "stationML": 3.26,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "FSU",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.00055704,
+   "swingMm": 0.27852,
+   "stationML": 2.94,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "FSU",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.00057396,
+   "swingMm": 0.28698,
+   "stationML": 2.96,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "GAWY",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.00061938,
+   "swingMm": 0.30969,
+   "stationML": 4.09,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "GAWY",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.00040696,
+   "swingMm": 0.20348,
+   "stationML": 3.91,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "HLJ",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.00057168,
+   "swingMm": 0.28584,
+   "stationML": 3.36,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "HLJ",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.00047065,
+   "swingMm": 0.23532,
+   "stationML": 3.27,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "HVU",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.00030443,
+   "swingMm": 0.15222,
+   "stationML": 3.32,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "HVU",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.0002387,
+   "swingMm": 0.11935,
+   "stationML": 3.32,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "KNB",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.00105,
+   "swingMm": 0.525,
+   "stationML": 3.26,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "KNB",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.0012204,
+   "swingMm": 0.6102,
+   "stationML": 3.26,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "LCMT",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.0024322,
+   "swingMm": 1.2161,
+   "stationML": 3.34,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "LCMT",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.0021168,
+   "swingMm": 1.0584,
+   "stationML": 3.34,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "LIUT",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.010248,
+   "swingMm": 5.124,
+   "stationML": 4.31,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "LIUT",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.0073914,
+   "swingMm": 3.6957,
+   "stationML": 4.17,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "MCU",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.00011797,
+   "swingMm": 0.058985,
+   "stationML": 3.07,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "MCU",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.000086776,
+   "swingMm": 0.043388,
+   "stationML": 2.94,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "MMU",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.0039342,
+   "swingMm": 1.9671,
+   "stationML": 3.29,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "MMU",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.002757,
+   "swingMm": 1.3785,
+   "stationML": 3.14,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "MOUT",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.00018424,
+   "swingMm": 0.09212,
+   "stationML": 3.16,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "MOUT",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.00013311,
+   "swingMm": 0.066555,
+   "stationML": 3.02,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "MPU",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.00068442,
+   "swingMm": 0.34221,
+   "stationML": 3.2,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "MPU",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.00058132,
+   "swingMm": 0.29066,
+   "stationML": 3.2,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "MTPU",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.024183,
+   "swingMm": 12.091,
+   "stationML": 3.14,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "MTPU",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.01603,
+   "swingMm": 8.015,
+   "stationML": 3.14,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "NLU",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.0014784,
+   "swingMm": 0.7392,
+   "stationML": 3.52,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "NLU",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.001531,
+   "swingMm": 0.7655,
+   "stationML": 3.52,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "NOQ",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.00029687,
+   "swingMm": 0.14844,
+   "stationML": 2.88,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "NOQ",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.0002875,
+   "swingMm": 0.14375,
+   "stationML": 2.88,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "PKCU",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.012379,
+   "swingMm": 6.1895,
+   "stationML": 3.36,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "PKCU",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.0067831,
+   "swingMm": 3.3916,
+   "stationML": 3.36,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "PNSU",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.0039618,
+   "swingMm": 1.9809,
+   "stationML": 4,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "PNSU",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.0018785,
+   "swingMm": 0.93925,
+   "stationML": 3.67,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "PSUT",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.0016679,
+   "swingMm": 0.83395,
+   "stationML": 3.11,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "PSUT",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.0011723,
+   "swingMm": 0.58615,
+   "stationML": 3.11,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "RDMU",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.001172,
+   "swingMm": 0.586,
+   "stationML": 3.79,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "RDMU",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.001004,
+   "swingMm": 0.502,
+   "stationML": 3.79,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "SGU",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.023305,
+   "swingMm": 11.652,
+   "stationML": 4.17,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "SGU",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.010564,
+   "swingMm": 5.282,
+   "stationML": 3.82,
+   "weight": 0
+  },
+  {
+   "net": "UU",
+   "sta": "SPU",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.00018671,
+   "swingMm": 0.093355,
+   "stationML": 3.08,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "SPU",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.00019797,
+   "swingMm": 0.098985,
+   "stationML": 3.08,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "SRU",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.0041648,
+   "swingMm": 2.0824,
+   "stationML": 3.4,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "SRU",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.0048497,
+   "swingMm": 2.4249,
+   "stationML": 3.4,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "SWUT",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.0011528,
+   "swingMm": 0.5764,
+   "stationML": 3.17,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "SWUT",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.00074061,
+   "swingMm": 0.37031,
+   "stationML": 3.17,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "SZCU",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.017086,
+   "swingMm": 8.543,
+   "stationML": 3.78,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "SZCU",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.013206,
+   "swingMm": 6.603,
+   "stationML": 3.78,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "TCRU",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.03278,
+   "swingMm": 16.39,
+   "stationML": 3.5,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "TCRU",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.030357,
+   "swingMm": 15.178,
+   "stationML": 3.5,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "TCU",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.00067073,
+   "swingMm": 0.33537,
+   "stationML": 3.07,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "TCU",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.00064986,
+   "swingMm": 0.32493,
+   "stationML": 3.07,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "TMU",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.0067367,
+   "swingMm": 3.3683,
+   "stationML": 3.57,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "TMU",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.0074017,
+   "swingMm": 3.7008,
+   "stationML": 3.57,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "VRUT",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.0016884,
+   "swingMm": 0.8442,
+   "stationML": 3.33,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "VRUT",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.00098908,
+   "swingMm": 0.49454,
+   "stationML": 3.33,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "WPUT",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.043523,
+   "swingMm": 21.761,
+   "stationML": 3.91,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "WPUT",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.046029,
+   "swingMm": 23.015,
+   "stationML": 3.91,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "ZNPU",
+   "loc": "01",
+   "cha": "HHE",
+   "amlMeters": 0.0051998,
+   "swingMm": 2.5999,
+   "stationML": 3.41,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "ZNPU",
+   "loc": "01",
+   "cha": "HHN",
+   "amlMeters": 0.0050905,
+   "swingMm": 2.5453,
+   "stationML": 3.41,
+   "weight": 1
+  }
+ ],
+ "durations": [
+  {
+   "net": "UU",
+   "sta": "ARUT",
+   "loc": "01",
+   "cha": "EHZ",
+   "endSec": 212.4,
+   "stationMd": 3.41,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "CCUT",
+   "loc": "01",
+   "cha": "HHZ",
+   "endSec": 139.05,
+   "stationMd": 3.01,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "CVRU",
+   "loc": "01",
+   "cha": "HHZ",
+   "endSec": 230.91,
+   "stationMd": 3.51,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "DBD",
+   "loc": "01",
+   "cha": "EHZ",
+   "endSec": 208.61,
+   "stationMd": 3.49,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "DWU",
+   "loc": "01",
+   "cha": "EHZ",
+   "endSec": 196.93,
+   "stationMd": 3.22,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "EKU",
+   "loc": "01",
+   "cha": "HHZ",
+   "endSec": 325.91,
+   "stationMd": 3.89,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "ELU",
+   "loc": "01",
+   "cha": "EHZ",
+   "endSec": 159.34,
+   "stationMd": 3.27,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "FLU",
+   "loc": "02",
+   "cha": "EHZ",
+   "endSec": 106.96,
+   "stationMd": 2.74,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "FOR6",
+   "loc": "01",
+   "cha": "HHZ",
+   "endSec": 183.6,
+   "stationMd": 3.11,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "IMU",
+   "loc": "01",
+   "cha": "EHZ",
+   "endSec": 202.99,
+   "stationMd": 3.3,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "KNB",
+   "loc": "01",
+   "cha": "HHZ",
+   "endSec": 239.43,
+   "stationMd": 3.61,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "LCMT",
+   "loc": "01",
+   "cha": "HHZ",
+   "endSec": 154.07,
+   "stationMd": 3.21,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "MMU",
+   "loc": "01",
+   "cha": "HHZ",
+   "endSec": 214.63,
+   "stationMd": 3.36,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "MSU",
+   "loc": "01",
+   "cha": "EHZ",
+   "endSec": 179.7,
+   "stationMd": 3.04,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "MTPU",
+   "loc": "01",
+   "cha": "HHZ",
+   "endSec": 196.17,
+   "stationMd": 3.14,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "NMU",
+   "loc": "01",
+   "cha": "EHZ",
+   "endSec": 127.61,
+   "stationMd": 2.76,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "OWUT",
+   "loc": "01",
+   "cha": "EHZ",
+   "endSec": 182.83,
+   "stationMd": 3.21,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "PKCU",
+   "loc": "01",
+   "cha": "HHZ",
+   "endSec": 347.18,
+   "stationMd": 3.86,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "PSUT",
+   "loc": "01",
+   "cha": "HHZ",
+   "endSec": 163.15,
+   "stationMd": 3.2,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "SGU",
+   "loc": "01",
+   "cha": "HHZ",
+   "endSec": 189.03,
+   "stationMd": 3.29,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "SRU",
+   "loc": "01",
+   "cha": "HHZ",
+   "endSec": 225.78,
+   "stationMd": 3.62,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "SWUT",
+   "loc": "01",
+   "cha": "HHZ",
+   "endSec": 111.15,
+   "stationMd": 2.82,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "SZCU",
+   "loc": "01",
+   "cha": "HHZ",
+   "endSec": 189.73,
+   "stationMd": 3.27,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "TCRU",
+   "loc": "01",
+   "cha": "HHZ",
+   "endSec": 204.19,
+   "stationMd": 3.2,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "TMU",
+   "loc": "01",
+   "cha": "HHZ",
+   "endSec": 184.47,
+   "stationMd": 3.34,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "VRUT",
+   "loc": "01",
+   "cha": "HHZ",
+   "endSec": 140.02,
+   "stationMd": 3.11,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "WCU",
+   "loc": "02",
+   "cha": "EHZ",
+   "endSec": 159.66,
+   "stationMd": 3.04,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "WPUT",
+   "loc": "01",
+   "cha": "HHZ",
+   "endSec": 197.86,
+   "stationMd": 3.34,
+   "weight": 1
+  },
+  {
+   "net": "UU",
+   "sta": "ZNPU",
+   "loc": "01",
+   "cha": "HHZ",
+   "endSec": 248.64,
+   "stationMd": 3.6,
+   "weight": 1
+  }
+ ]
+}

@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 810" width="760" height="810" role="img" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<rect x="0.5" y="0.5" width="759" height="809" rx="8" fill="#ffffff" stroke="#d9dde3"/>
+<text x="12" y="22" font-size="15" font-weight="600" fill="#111827">One quake, 30 stations: the Junction quake (magnitude 3.3)</text>
+<text x="64" y="58" font-size="13.5" font-weight="700" fill="#111827">The biggest swing at each station</text>
+<circle cx="70" cy="76" r="5" fill="#1f2937"/>
+<text x="80" y="80" font-size="12" fill="#5b6472">a station (mean of its two horizontal sensors)</text>
+<line x1="364" y1="76" x2="388" y2="76" stroke="#c0262d" stroke-width="2.4"/>
+<text x="394" y="80" font-size="12" fill="#5b6472">Richter's table for magnitude 3.3</text>
+<line x1="64" y1="92" x2="64" y2="382" stroke="#e8ebef" stroke-width="1"/>
+<text x="64" y="399" font-size="12" text-anchor="middle" fill="#5b6472">20</text>
+<line x1="155" y1="92" x2="155" y2="382" stroke="#e8ebef" stroke-width="1"/>
+<text x="155" y="399" font-size="12" text-anchor="middle" fill="#5b6472">30</text>
+<line x1="269.5" y1="92" x2="269.5" y2="382" stroke="#e8ebef" stroke-width="1"/>
+<text x="269.5" y="399" font-size="12" text-anchor="middle" fill="#5b6472">50</text>
+<line x1="425" y1="92" x2="425" y2="382" stroke="#e8ebef" stroke-width="1"/>
+<text x="425" y="399" font-size="12" text-anchor="middle" fill="#5b6472">100</text>
+<line x1="580.5" y1="92" x2="580.5" y2="382" stroke="#e8ebef" stroke-width="1"/>
+<text x="580.5" y="399" font-size="12" text-anchor="middle" fill="#5b6472">200</text>
+<line x1="671.5" y1="92" x2="671.5" y2="382" stroke="#e8ebef" stroke-width="1"/>
+<text x="671.5" y="399" font-size="12" text-anchor="middle" fill="#5b6472">300</text>
+<line x1="736" y1="92" x2="736" y2="382" stroke="#e8ebef" stroke-width="1"/>
+<text x="736" y="399" font-size="12" text-anchor="middle" fill="#5b6472">400</text>
+<text x="736" y="417" font-size="12" text-anchor="end" fill="#5b6472">distance from the quake (km, log scale)</text>
+<line x1="64" y1="352.9" x2="736" y2="352.9" stroke="#e8ebef" stroke-width="1"/>
+<text x="58" y="356.9" font-size="12" text-anchor="end" fill="#5b6472">0.1</text>
+<line x1="64" y1="306.8" x2="736" y2="306.8" stroke="#e8ebef" stroke-width="1"/>
+<text x="58" y="310.8" font-size="12" text-anchor="end" fill="#5b6472">0.3</text>
+<line x1="64" y1="256.2" x2="736" y2="256.2" stroke="#e8ebef" stroke-width="1"/>
+<text x="58" y="260.2" font-size="12" text-anchor="end" fill="#5b6472">1</text>
+<line x1="64" y1="210.1" x2="736" y2="210.1" stroke="#e8ebef" stroke-width="1"/>
+<text x="58" y="214.1" font-size="12" text-anchor="end" fill="#5b6472">3</text>
+<line x1="64" y1="159.6" x2="736" y2="159.6" stroke="#e8ebef" stroke-width="1"/>
+<text x="58" y="163.6" font-size="12" text-anchor="end" fill="#5b6472">10</text>
+<line x1="64" y1="113.4" x2="736" y2="113.4" stroke="#e8ebef" stroke-width="1"/>
+<text x="58" y="117.4" font-size="12" text-anchor="end" fill="#5b6472">30</text>
+<rect x="64" y="92" width="672" height="290" fill="none" stroke="#d9dde3"/>
+<text transform="translate(18 237) rotate(-90)" font-size="12" text-anchor="middle" fill="#5b6472">biggest swing (mm, log scale)</text>
+<path d="M64 101.6L114.1 120.9L155 140.2L189.5 159.6L219.5 169.2L245.9 178.9L269.5 188.6L290.9 198.2L310.4 207.9L328.4 207.9L345 207.9L375 217.6L388.6 217.6L401.4 227.2L413.5 227.2L425 227.2L446.4 236.9L465.9 236.9L483.9 246.6L500.5 246.6L516 256.2L530.5 256.2L544.1 265.9L556.9 265.9L569 275.6L580.5 275.6L591.5 285.2L601.9 290.1L611.9 294.9L621.4 294.9L630.6 304.6L639.4 304.6L647.8 314.2L656 314.2L663.9 323.9L671.5 323.9" fill="none" stroke="#c0262d" stroke-width="2.4" stroke-linejoin="round"/>
+<circle cx="148.1" cy="159.3" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="208.7" cy="140.4" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="263.9" cy="188.2" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="347.2" cy="231.3" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="395.1" cy="234.6" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="411.3" cy="190.5" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="422.8" cy="244.5" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="434.2" cy="171.2" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="452.1" cy="125.7" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="454.3" cy="166.6" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="465.3" cy="227" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="475" cy="257.3" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="478.9" cy="216.6" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="498.9" cy="270.6" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="500" cy="287.6" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="509.9" cy="203.2" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="514.7" cy="280" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="537.5" cy="250.8" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="538.1" cy="273.1" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="554.8" cy="222.1" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="563.7" cy="309.3" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="564.3" cy="268.2" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="580.6" cy="304.5" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="593.3" cy="193.9" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="612.9" cy="240.3" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="642.1" cy="337" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="647.1" cy="312.7" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="648.8" cy="336.2" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="657.8" cy="315.9" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="671" cy="349" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<text x="139.1" y="163.3" font-size="12.5" font-weight="700" text-anchor="end" fill="#111827" stroke="#ffffff" stroke-width="4" paint-order="stroke">MTPU</text>
+<text x="339.2" y="245.3" font-size="12.5" font-weight="700" text-anchor="end" fill="#111827" stroke="#ffffff" stroke-width="4" paint-order="stroke">FOR1</text>
+<text x="462.1" y="129.7" font-size="12.5" font-weight="700" fill="#111827" stroke="#ffffff" stroke-width="4" paint-order="stroke">WPUT</text>
+<text x="464.3" y="171.6" font-size="12.5" font-weight="700" fill="#111827" stroke="#ffffff" stroke-width="4" paint-order="stroke">SGU</text>
+<text x="518.9" y="196.2" font-size="12.5" font-weight="700" fill="#111827" stroke="#ffffff" stroke-width="4" paint-order="stroke">TMU</text>
+<text x="643.1" y="301.7" font-size="12.5" font-weight="700" text-anchor="middle" fill="#111827" stroke="#ffffff" stroke-width="4" paint-order="stroke">HLJ</text>
+<text x="64" y="440" font-size="13.5" font-weight="700" fill="#111827">The magnitude each station gives (swing + distance, from the table)</text>
+<line x1="64" y1="458" x2="88" y2="458" stroke="#c0262d" stroke-width="2.4"/>
+<text x="94" y="462" font-size="12" fill="#5b6472">University of Utah: 3.30</text>
+<rect x="264" y="451" width="24" height="14" fill="rgba(192,38,45,0.12)"/>
+<text x="294" y="462" font-size="12" fill="#5b6472">within 0.3 of it</text>
+<path d="M421 458L433 451L433 465Z" fill="#2a78d6" stroke="#ffffff" stroke-width="1"/>
+<text x="440" y="462" font-size="12" fill="#5b6472">middle value of the 30 stations: 3.29</text>
+<rect x="64" y="594" width="672" height="72" fill="rgba(192,38,45,0.10)"/>
+<line x1="64" y1="474" x2="64" y2="714" stroke="#e8ebef" stroke-width="1"/>
+<text x="64" y="731" font-size="12" text-anchor="middle" fill="#5b6472">20</text>
+<line x1="155" y1="474" x2="155" y2="714" stroke="#e8ebef" stroke-width="1"/>
+<text x="155" y="731" font-size="12" text-anchor="middle" fill="#5b6472">30</text>
+<line x1="269.5" y1="474" x2="269.5" y2="714" stroke="#e8ebef" stroke-width="1"/>
+<text x="269.5" y="731" font-size="12" text-anchor="middle" fill="#5b6472">50</text>
+<line x1="425" y1="474" x2="425" y2="714" stroke="#e8ebef" stroke-width="1"/>
+<text x="425" y="731" font-size="12" text-anchor="middle" fill="#5b6472">100</text>
+<line x1="580.5" y1="474" x2="580.5" y2="714" stroke="#e8ebef" stroke-width="1"/>
+<text x="580.5" y="731" font-size="12" text-anchor="middle" fill="#5b6472">200</text>
+<line x1="671.5" y1="474" x2="671.5" y2="714" stroke="#e8ebef" stroke-width="1"/>
+<text x="671.5" y="731" font-size="12" text-anchor="middle" fill="#5b6472">300</text>
+<line x1="736" y1="474" x2="736" y2="714" stroke="#e8ebef" stroke-width="1"/>
+<text x="736" y="731" font-size="12" text-anchor="middle" fill="#5b6472">400</text>
+<text x="736" y="749" font-size="12" text-anchor="end" fill="#5b6472">distance from the quake (km, log scale)</text>
+<line x1="64" y1="714" x2="736" y2="714" stroke="#e8ebef" stroke-width="1"/>
+<text x="58" y="718" font-size="12" text-anchor="end" fill="#5b6472">2.6</text>
+<line x1="64" y1="666" x2="736" y2="666" stroke="#e8ebef" stroke-width="1"/>
+<text x="58" y="670" font-size="12" text-anchor="end" fill="#5b6472">3.0</text>
+<line x1="64" y1="618" x2="736" y2="618" stroke="#e8ebef" stroke-width="1"/>
+<text x="58" y="622" font-size="12" text-anchor="end" fill="#5b6472">3.4</text>
+<line x1="64" y1="570" x2="736" y2="570" stroke="#e8ebef" stroke-width="1"/>
+<text x="58" y="574" font-size="12" text-anchor="end" fill="#5b6472">3.8</text>
+<line x1="64" y1="522" x2="736" y2="522" stroke="#e8ebef" stroke-width="1"/>
+<text x="58" y="526" font-size="12" text-anchor="end" fill="#5b6472">4.2</text>
+<line x1="64" y1="474" x2="736" y2="474" stroke="#e8ebef" stroke-width="1"/>
+<text x="58" y="478" font-size="12" text-anchor="end" fill="#5b6472">4.6</text>
+<rect x="64" y="474" width="672" height="240" fill="none" stroke="#d9dde3"/>
+<text transform="translate(18 594) rotate(-90)" font-size="12" text-anchor="middle" fill="#5b6472">station magnitude</text>
+<line x1="64" y1="630" x2="736" y2="630" stroke="#c0262d" stroke-width="2.4"/>
+<circle cx="148.1" cy="658.1" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="208.7" cy="598.7" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="263.9" cy="632.5" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="347.2" cy="658.3" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="395.1" cy="645.2" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="411.3" cy="584.4" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="422.8" cy="651.4" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="434.2" cy="555.5" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="452.1" cy="492" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="454.3" cy="542.7" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="465.3" cy="617.7" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="475" cy="649.4" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="478.9" cy="596.2" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="498.9" cy="659.8" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="500" cy="681" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="509.9" cy="569" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="514.7" cy="660.6" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="537.5" cy="617.2" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="538.1" cy="644.3" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="554.8" cy="575.7" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="563.7" cy="677.1" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="564.3" cy="625.5" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="580.6" cy="665.9" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="593.3" cy="515.6" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="612.9" cy="562.3" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="642.1" cy="666.5" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="647.1" cy="629.1" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="648.8" cy="657.3" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="657.8" cy="629.5" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<circle cx="671" cy="661.1" r="5" fill="#1f2937" stroke="#ffffff" stroke-width="1.5"/>
+<path d="M723 631L735 624L735 638Z" fill="#2a78d6" stroke="#ffffff" stroke-width="1"/>
+<text x="139.1" y="662.1" font-size="12.5" font-weight="700" text-anchor="end" fill="#111827" stroke="#ffffff" stroke-width="4" paint-order="stroke">MTPU</text>
+<text x="347.2" y="677.3" font-size="12.5" font-weight="700" text-anchor="middle" fill="#111827" stroke="#ffffff" stroke-width="4" paint-order="stroke">FOR1</text>
+<text x="462.1" y="496" font-size="12.5" font-weight="700" fill="#111827" stroke="#ffffff" stroke-width="4" paint-order="stroke">WPUT</text>
+<text x="464.3" y="546.7" font-size="12.5" font-weight="700" fill="#111827" stroke="#ffffff" stroke-width="4" paint-order="stroke">SGU</text>
+<text x="509.9" y="559" font-size="12.5" font-weight="700" text-anchor="middle" fill="#111827" stroke="#ffffff" stroke-width="4" paint-order="stroke">TMU</text>
+<text x="647.1" y="619.1" font-size="12.5" font-weight="700" text-anchor="middle" fill="#111827" stroke="#ffffff" stroke-width="4" paint-order="stroke">HLJ</text>
+<text x="64" y="774" font-size="12.5" fill="#111827">Swings: the University of Utah's published values ÷ 2, for every station it measured 10–300 km away.</text>
+<text x="64" y="794" font-size="12.5" fill="#111827">No station corrections here: 19 of the 30 stations land within 0.3 of 3.30.</text>
+</svg>

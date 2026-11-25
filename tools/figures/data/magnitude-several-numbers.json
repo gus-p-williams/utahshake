@@ -1,0 +1,150 @@
+{
+ "what": "UUSS's network magnitudes for five Utah quakes (figure mag-several-numbers.svg on the page How big was it?)",
+ "source": "USGS ComCat, UUSS phase-data QuakeML (University of Utah Seismograph Stations), one product per event (quakeml)",
+ "accessed": "2026-11-25",
+ "command": "node tools/figures/magnitude-figures.mjs G6",
+ "notes": "type: ml local magnitude (method RichterMl2), md duration (coda) magnitude (HypoinvMd), mw moment magnitude (HAND: entered by hand, for Magna 5.7, the same as the USGS W-phase moment magnitude; LLNLCCT: from coda waves). preferred: the magnitude the catalog reports.",
+ "events": [
+  {
+   "id": "uu60363602",
+   "name": "Magna",
+   "place": "5 km NNE of Magna, Utah",
+   "timeUtc": "2020-03-18T13:09:31.530Z",
+   "quakeml": "https://earthquake.usgs.gov/product/phase-data/uu60363602/uu/1620248818370/quakeml.xml",
+   "productUpdated": "2021-05-05T21:06:58.370Z",
+   "magnitudes": [
+    {
+     "type": "ml",
+     "value": 5.61,
+     "method": "RichterMl2",
+     "stationCount": 17,
+     "preferred": false
+    },
+    {
+     "type": "md",
+     "value": 5.67,
+     "method": "HypoinvMd",
+     "stationCount": 12,
+     "preferred": false
+    },
+    {
+     "type": "mw",
+     "value": 5.7,
+     "method": "HAND",
+     "stationCount": null,
+     "preferred": true
+    }
+   ]
+  },
+  {
+   "id": "uu80129556",
+   "name": "West Valley City",
+   "place": "4 km NNW of West Valley City, Utah",
+   "timeUtc": "2026-02-14T01:32:48.660Z",
+   "quakeml": "https://earthquake.usgs.gov/product/phase-data/uu80129556/uu/1773242548130/quakeml.xml",
+   "productUpdated": "2026-03-11T15:22:28.130Z",
+   "magnitudes": [
+    {
+     "type": "ml",
+     "value": 3.52,
+     "method": "RichterMl2",
+     "stationCount": 35,
+     "preferred": true
+    },
+    {
+     "type": "md",
+     "value": 3.45,
+     "method": "HypoinvMd",
+     "stationCount": 45,
+     "preferred": false
+    },
+    {
+     "type": "mw",
+     "value": 3.56,
+     "method": "LLNLCCT",
+     "stationCount": 13,
+     "preferred": false
+    }
+   ]
+  },
+  {
+   "id": "uu80131546",
+   "name": "Torrey",
+   "place": "29 km ENE of Torrey, Utah",
+   "timeUtc": "2026-03-10T04:32:27.300Z",
+   "quakeml": "https://earthquake.usgs.gov/product/phase-data/uu80131546/uu/1773149168370/quakeml.xml",
+   "productUpdated": "2026-03-10T13:26:08.370Z",
+   "magnitudes": [
+    {
+     "type": "ml",
+     "value": 3.96,
+     "method": "RichterMl2",
+     "stationCount": 35,
+     "preferred": true
+    },
+    {
+     "type": "md",
+     "value": 4.2,
+     "method": "HypoinvMd",
+     "stationCount": 35,
+     "preferred": false
+    }
+   ]
+  },
+  {
+   "id": "uu80137106",
+   "name": "Kanosh",
+   "place": "8 km SSW of Kanosh, Utah",
+   "timeUtc": "2026-04-19T14:43:47.970Z",
+   "quakeml": "https://earthquake.usgs.gov/product/phase-data/uu80137106/uu/1776894363480/quakeml.xml",
+   "productUpdated": "2026-04-22T21:46:03.480Z",
+   "magnitudes": [
+    {
+     "type": "ml",
+     "value": 3.63,
+     "method": "RichterMl2",
+     "stationCount": 24,
+     "preferred": true
+    },
+    {
+     "type": "md",
+     "value": 3.89,
+     "method": "HypoinvMd",
+     "stationCount": 24,
+     "preferred": false
+    },
+    {
+     "type": "mw",
+     "value": 3.84,
+     "method": "LLNLCCT",
+     "stationCount": 16,
+     "preferred": false
+    }
+   ]
+  },
+  {
+   "id": "uu80162166",
+   "name": "Junction",
+   "place": "8 km NW of Junction, Utah",
+   "timeUtc": "2026-10-31T04:44:15.580Z",
+   "quakeml": "https://earthquake.usgs.gov/product/phase-data/uu80162166/uu/1793632942930/quakeml.xml",
+   "productUpdated": "2026-11-02T15:22:22.930Z",
+   "magnitudes": [
+    {
+     "type": "ml",
+     "value": 3.3,
+     "method": "RichterMl2",
+     "stationCount": 30,
+     "preferred": true
+    },
+    {
+     "type": "md",
+     "value": 3.28,
+     "method": "HypoinvMd",
+     "stationCount": 29,
+     "preferred": false
+    }
+   ]
+  }
+ ]
+}

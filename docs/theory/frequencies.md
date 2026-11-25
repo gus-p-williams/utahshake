@@ -226,7 +226,8 @@ the Junction quake for true ground speed.
 !!! note "Going further: how big was it?"
     If you know how fast shaking fades with distance, you can correct each station's peak for
     its distance and compare one quake with another. That is the idea behind **magnitude**.
-    Seismologists do exactly this to work out a quake's magnitude.
+    Seismologists do exactly this to work out a quake's magnitude: see
+    [How big was it?](magnitude.md).
 
 ## Listening to a quake
 

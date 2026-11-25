@@ -760,7 +760,7 @@ measured minus ComCat (R3 C5). Damping 0.8, channels at stations UUSS measured:
 
 - Single channels spread 0.1–0.3.
 - **The Kanosh opener pair** (uu80137106, ML 3.63, and uu80137126, ML 2.52; 10.0 minutes and
-  1.9 km apart, depths 8.1 and 4.1 km): the magnitudes predict a swing ratio of
+  1.9 km apart, depths 4.1 and 8.1 km): the magnitudes predict a swing ratio of
   10^1.11 ≈ 13. Over 50 channels at 25 stations the middle ratio is 10^1.16 ≈ 14.5 (R3:
   14.7). It is 10^1.06 under 100 km and 10^1.20 beyond, so the station choice matters.
   Vertical peak ground speed differs only about 10.5 times (R3 S7).
