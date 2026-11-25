@@ -117,8 +117,15 @@ motion, audification, amplitude against distance, spectra.
 
 ## Stage 4 — Switch to UHSN data
 
-- [ ] DRI ingest server API (separate repo) and `UHSNSource` implementing `DataSource`.
-- [ ] Live/real-time views inside schools; delayed/aggregated public views (occupancy privacy).
+- [ ] DRI's server and the school bridges, built by DRI IT to the data spec
+      (`planning/spec-uhsn-data.md`; brief for DRI IT: `planning/brief-dri-it.md`; D37).
+      Delayed data (hourly for schools already sharing with Raspberry Shake); DRI computes
+      the summaries in its publish step.
+- [ ] `UHSNSource` implementing `DataSource`, against the spec (a first version comes with
+      the viewer prototype, D11).
+- [ ] School Shake viewer: prototype under "In development" now (file-first: day files, UU
+      stand-in days, spec-layout test files; D11); school data when the server exists.
+- [ ] Live views: optional, later (D37: delayed data serve every planned activity).
 - [ ] Campus apps: School Pulse (real campus), Game Night Quake, Bus Detective, Campus
       Wave Speed, Signal Detective labeling.
 

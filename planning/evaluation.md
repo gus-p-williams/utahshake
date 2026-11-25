@@ -185,10 +185,13 @@ own context, and teacher cards. Appendix A lists their other software.
   [R277-487](https://www.law.cornell.edu/regulations/utah/Utah-Admin-Code-R277-487-7). A Utah
   Student Data Privacy Agreement with each district would then be needed first. North Sanpete
   already uses one ([example](https://sdpc.a4l.org/agreements/UT_DPA_V2%20no%20Exhibit%20E_Naviance.pdf)).
-  R277-487 was being amended in fall 2026, so check the current text.
+  The current text of R277-487 has been in force since July 8, 2025; no amendment was in
+  process as of November 25, 2026.
 - **Occupancy privacy.** A live record from a hallway sensor shows when a building is busy or
-  empty. Our plan: show campus data live only inside the school, and publicly only delayed or
-  averaged. Earthquake records can be public in real time.
+  empty. A school whose Shake already shares with Raspberry Shake's network has already made
+  its record public and live there, so our site adds no new exposure. A school that doesn't
+  share publishes nothing until DRI and its district approve what goes public and with what
+  delay (see the brief for DRI IT, `planning/brief-dri-it.md`).
 - **Phones.** Utah's 2026 rules on phones in school apply to the phone activities. The
   companion document covers them.
 
@@ -199,11 +202,15 @@ information from the US Geological Survey (USGS). They do this through one "data
 so the apps will not need rewriting when school data arrives. **But school data is real work,
 not a configuration switch.** It needs:
 
-1. **A way out of each school.** A small "forwarder" on the school network (Raspberry Shake's
-   rsudp software, or a second small computer) sends the Shake's data out over ordinary web
-   traffic (HTTPS), so no port has to be opened into the school. School IT must agree.
+1. **A way out of each school.** A small DRI-owned computer on the school network (a
+   "bridge") reads the Shake's own data stream (SeedLink, for example with `slarchive`, which
+   needs no Shake password) and sends it out over ordinary web traffic (HTTPS), so no port
+   has to be opened into the school. School IT must agree. (Raspberry Shake's rsudp is not
+   suitable: it fetches station details from Raspberry Shake's servers and fills gaps with
+   zeros.)
 2. **A UHSN server run by DRI.** It takes in and archives the data, computes products (noise
-   levels, event triggers, picks) and offers them to the apps.
+   levels, event triggers, picks) in its publish step and offers them to the apps, as the
+   data spec describes (`planning/spec-uhsn-data.md`).
 3. **A UHSN data source in the apps** that reads that server, with each Shake's location and
    instrument details.
 4. **Decisions** on who runs and pays for the server, and who may see live campus data
@@ -505,7 +512,7 @@ small distant ones.
 | [StationView](https://raspberryshake.org/the-new-stationview/) | World map of stations and recent quakes; live records with spectrogram | Web app |
 | [DataView](https://raspberryshake.org/dataview-official-release/) | 24-hour record, zoom, spectrogram, filters, image export | Web app |
 | ShakeNet ([iOS](https://apps.apple.com/us/app/shakenet/id1517784831), [Android](https://play.google.com/store/apps/details?id=org.raspberryshake.app)) | Phone version of both | Phone app |
-| [rsudp](https://github.com/raspishake/rsudp) | Live plot, quake alarm, data forwarding, own code on alarm (own Shake) | Open-source software |
+| [rsudp](https://github.com/raspishake/rsudp) | Live plot, quake alarm, data forwarding, own code on alarm (own Shake); not for our data path (it fetches station details from Raspberry Shake's servers) | Open-source software |
 | [Swarm](https://manual.raspberryshake.org/traces.html) (USGS) | Desktop records, spectra and spectrograms (own Shake) | Desktop app |
 | [jAmaSeis, seisgram2k](https://manual.raspberryshake.org/traces.html) | Pick arrivals, simple location and magnitude | Older desktop software |
 
@@ -527,7 +534,7 @@ Shakes, a monthly online club for students, and student-built hallway displays.
 | Path | What you get | Delay | Rules |
 | -------------------- | ---------------------------------------- | ------------ | ---------------------- |
 | The Shake's own web page | Settings, a 12-hour record, file downloads; 7 days kept by default; the card can hold months | 2 minutes | Ours |
-| [UDP "datacast"](https://manual.raspberryshake.org/udp.html) from the Shake | Raw data streamed to any address we choose | Under 1 s | Ours; rsudp reads this |
+| [UDP "datacast"](https://manual.raspberryshake.org/udp.html) from the Shake | Raw data streamed to any address we choose | Under 1 s | Ours; the receiver must not be rsudp (see above) |
 | [SeedLink](https://manual.raspberryshake.org/traces.html) on the Shake | The standard real-time protocol | Real time | Ours; needs a route into the school network |
 | [FDSN web services](https://manual.raspberryshake.org/fdsn.html) at Raspberry Shake | Any shared station, back to 2016 | 30 minutes and older | Free for small, occasional requests, with credit; not in our apps |
 | Real-time streams from Raspberry Shake's servers | Other stations, live | Real time | Paid |
